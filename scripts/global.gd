@@ -9,7 +9,7 @@ var unit_count = 0
 var wave_count = 0
 
 var ITEM_OFFSET = 1000
-enum RESOURCE {WOOD, ROCK, IRON, GOLD, GEM, HELLIUM, OBSIDIANUM , COPIUM, AMONGIUM,FOOD}
+
 var resources = {
 	RESOURCE.WOOD: {
 		"name": "Wood", "sprite": preload("res://sprites/Resources/wood.png"), "type" : Priorities.ACTIONTYPES.GATHER
