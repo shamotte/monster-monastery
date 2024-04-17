@@ -28,7 +28,7 @@ Button/styles/normal = SubResource("StyleBoxFlat_p86y3")
 Button/styles/pressed = SubResource("StyleBoxFlat_p86y3")
 
 [node name="UnitSlot" type="Control"]
-custom_minimum_size = Vector2(96, 40)
+custom_minimum_size = Vector2(140, 40)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,25 +39,18 @@ script = ExtResource("1_g7eqg")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 96.0
+offset_right = 132.0
 offset_bottom = 40.0
 theme = SubResource("Theme_o0ggn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 96.0
-offset_bottom = 72.0
-color = Color(0.152941, 0.152941, 0.152941, 1)
-
 [node name="UnitIcon" type="Sprite2D" parent="."]
-position = Vector2(12, 20)
+position = Vector2(20, 20)
 texture = ExtResource("2_d6xo4")
 
 [node name="Cost" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 24.0
-offset_right = 88.0
+offset_left = 36.0
+offset_right = 124.0
 offset_bottom = 40.0
 mouse_filter = 2
 theme_override_constants/separation = 2

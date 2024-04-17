@@ -28,7 +28,7 @@ Button/styles/normal = SubResource("StyleBoxFlat_p86y3")
 Button/styles/pressed = SubResource("StyleBoxFlat_p86y3")
 
 [node name="BuildingSlot" type="Control"]
-custom_minimum_size = Vector2(96, 72)
+custom_minimum_size = Vector2(140, 72)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +39,7 @@ script = ExtResource("1_ug1ph")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 96.0
+offset_right = 132.0
 offset_bottom = 72.0
 theme = SubResource("Theme_o0ggn")
 
@@ -54,11 +54,13 @@ color = Color(0.152941, 0.152941, 0.152941, 1)
 position = Vector2(32, 35)
 texture = ExtResource("2_a4xef")
 
-[node name="Cost" type="VBoxContainer" parent="."]
+[node name="Cost" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 56.0
-offset_right = 152.0
-offset_bottom = 68.0
+offset_left = 60.0
+offset_top = 2.0
+offset_right = 124.0
+offset_bottom = 70.0
 mouse_filter = 2
+columns = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
