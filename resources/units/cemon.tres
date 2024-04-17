@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=5 format=3 uid="uid://cy5aua45b2h17"]
+
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="1_deutm"]
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_mr1rg"]
+
+[sub_resource type="Resource" id="Resource_xuc28"]
+script = ExtResource("1_mr1rg")
+type = 9
+count = 10
+
+[sub_resource type="Resource" id="Resource_xllqu"]
+script = ExtResource("1_mr1rg")
+type = 7
+count = 1
+
+[resource]
+script = ExtResource("1_deutm")
+name = "cemon"
+resource_cost = Array[Resource]([SubResource("Resource_xuc28"), SubResource("Resource_xllqu")])
+speed = 0.0
+work_range = 0.0
+work_speed = 0.0
+cooldown = 0.0
+hp = 0.0
+damage = 0.0
+fight_range = 0.0
