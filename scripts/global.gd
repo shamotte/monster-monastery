@@ -161,7 +161,7 @@ var units = {
 	UNIT.SLIME: {
 		"name" : "Purple Slime", "sprite": preload("res://sprites/Units/slimebehindtheslaughter.png"),
 		"toolSprite" : null,
-		"resource_type": [RESOURCE.WOOD], "resource_cost": [4],
+		"resource_type": [RESOURCE.WOOD], "resource_cost": [2],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 10, "work_speed" : 0.2,
 		"speed" : 30, "HP" : 25, "damage" : 3,
@@ -170,7 +170,7 @@ var units = {
 	UNIT.SHROOM: {
 		"name" : "Shroom", "sprite": preload("res://sprites/Units/shroom.png"),
 		"toolSprite" : null,
-		"resource_type": [RESOURCE.FOOD], "resource_cost": [4],
+		"resource_type": [RESOURCE.FOOD], "resource_cost": [3],
 		"object": preload("res://object/unit.tscn"),
 		"work_range" : 10, "work_speed" : 0.3,
 		"speed" : 40, "HP" : 25, "damage" : 1,
