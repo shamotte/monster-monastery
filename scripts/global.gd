@@ -126,13 +126,13 @@ var buildings = {
 		"recipe" : RECIPES.FOOD1
 	},
 	BUILDINGS.TENTACLESFIELD: {
-		"name": "Tentacles","sprite": preload("res://sprites/Buildings/Tentacles.png"),
+		"name": "Tentacle Field","sprite": preload("res://sprites/Buildings/Tentacles.png"),
 		"resource_type": [RESOURCE.FOOD,RESOURCE.GOLD], "resource_cost": [30,3],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : RECIPES.FOOD2
 	},
 	BUILDINGS.MONASTERY: {
-		"name": "Tentacles","sprite": preload("res://sprites/Buildings/Monastery.png"),
+		"name": "Monastery","sprite": preload("res://sprites/Buildings/Monastery.png"),
 		"resource_type": [RESOURCE.AMONGIUM,RESOURCE.OBSIDIANUM], "resource_cost": [1,20],
 		"object": preload("res://object/tower.tscn"),
 		"recipe" : RECIPES.AMONGIUM2
@@ -150,7 +150,7 @@ var buildings = {
 enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,PYTHONUS,LORD}
 var units = {
 	UNIT.REDSLIMES: {
-		"name" : "Slime", "sprite": preload("res://sprites/Units/slime_red.png"),
+		"name" : "Red Slime", "sprite": preload("res://sprites/Units/slime_red.png"),
 		"toolSprite" : null,
 		"resource_type": [RESOURCE.HELLIUM], "resource_cost": [4],
 		"object": preload("res://object/unit.tscn"),
@@ -159,7 +159,7 @@ var units = {
 		"cooldown" : 0.1, "fight_range" : 30
 	},
 	UNIT.SLIME: {
-		"name" : "Slime", "sprite": preload("res://sprites/Units/slimebehindtheslaughter.png"),
+		"name" : "Purple Slime", "sprite": preload("res://sprites/Units/slimebehindtheslaughter.png"),
 		"toolSprite" : null,
 		"resource_type": [RESOURCE.WOOD], "resource_cost": [4],
 		"object": preload("res://object/unit.tscn"),

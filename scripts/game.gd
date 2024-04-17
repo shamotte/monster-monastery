@@ -23,17 +23,20 @@ func _ready():
 	for i in Global.buildings:
 		var s = building_slot.instantiate()
 		s.get_node("Building").texture = Global.buildings[i]["sprite"]
+		s.get_node("Name").text = str(Global.buildings[i]["name"])
 		s.building = i
 		for j in range(Global.buildings[i]["resource_type"].size()):
 			var c = building_cost.instantiate()
 			c.get_node("Sprite").texture = Global.resources[Global.buildings[i]["resource_type"][j]]["sprite"]
 			c.get_node("Count").text = str(Global.buildings[i]["resource_cost"][j])
 			s.get_node("Cost").add_child(c)
+			
 		$UI/UI/Building/Panel/BuildingsList/GridContainer.add_child(s)
 		
 	for i in Global.units:
 		var s = unit_slot.instantiate()
 		s.get_node("UnitIcon").texture = Global.units[i]["sprite"]
+		s.get_node("Name").text = Global.units[i]["name"]
 		s.units = i
 		for j in range(Global.units[i]["resource_type"].size()):
 			var c = building_cost.instantiate()
