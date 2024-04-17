@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=10 format=3 uid="uid://dhtx02hvk5h6r"]
+
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_ydptk"]
+[ext_resource type="Script" path="res://resources/recipe_resource.gd" id="2_sk3b0"]
+[ext_resource type="Script" path="res://resources/building_resource.gd" id="3_0rpa6"]
+[ext_resource type="Texture2D" uid="uid://btl34e4syhs4c" path="res://sprites/Buildings/tentacles.png" id="4_tgwh3"]
+
+[sub_resource type="Resource" id="Resource_rwg1d"]
+script = ExtResource("1_ydptk")
+type = 0
+count = 2
+
+[sub_resource type="Resource" id="Resource_kn7nv"]
+script = ExtResource("1_ydptk")
+type = 9
+count = 3
+
+[sub_resource type="Resource" id="Resource_i1ulp"]
+script = ExtResource("2_sk3b0")
+input = Array[ExtResource("1_ydptk")]([SubResource("Resource_rwg1d")])
+output = Array[ExtResource("1_ydptk")]([SubResource("Resource_kn7nv")])
+craft_time = 5.0
+
+[sub_resource type="Resource" id="Resource_3rl78"]
+script = ExtResource("1_ydptk")
+type = 9
+count = 4
+
+[sub_resource type="Resource" id="Resource_yliao"]
+script = ExtResource("1_ydptk")
+type = 3
+count = 1
+
+[resource]
+script = ExtResource("3_0rpa6")
+name = "Tentacle Field"
+sprite = ExtResource("4_tgwh3")
+resource_cost = Array[ExtResource("1_ydptk")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
+recipes = Array[ExtResource("2_sk3b0")]([SubResource("Resource_i1ulp")])

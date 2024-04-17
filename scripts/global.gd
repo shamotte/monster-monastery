@@ -60,83 +60,9 @@ var current_resources = {}
 
 
 
-enum RECIPES {COPIUM,AMONGIUM1,OBSIDIANUM,HELLIUM, FOOD1, FOOD2,AMONGIUM2}
-var recipes = {
-	RECIPES.COPIUM : {
-		"work" : 10.0, "ingredients" : [[RESOURCE.GEM,10], [RESOURCE.ROCK,10]],
-		"results": [[RESOURCE.COPIUM,1]]
-	},
-	
-	RECIPES.AMONGIUM1 : {
-		"work" : 10.0, "ingredients" : [[RESOURCE.COPIUM,5], [RESOURCE.GEM,5]],
-		"results": [[RESOURCE.AMONGIUM, 1]]
-	},
-	RECIPES.OBSIDIANUM : {
-		"work" : 5.0, "ingredients" : [[RESOURCE.ROCK,3], [RESOURCE.GOLD, 3]],
-		"results": [[RESOURCE.OBSIDIANUM,3]]
-	},
-	RECIPES.HELLIUM : {
-		"work" : 5.0, "ingredients" : [[RESOURCE.OBSIDIANUM, 2], [RESOURCE.AMONGIUM, 2]],
-		"results": [[RESOURCE.HELLIUM,1]]
-	},
-	RECIPES.FOOD1 : {
-		"work" : 15.0, "ingredients" : [[RESOURCE.WOOD,3]],
-		"results": [[RESOURCE.FOOD,1]]
-	},
-	RECIPES.FOOD2 : {
-		"work" : 5.0, "ingredients" : [[RESOURCE.WOOD,2]],
-		"results": [[RESOURCE.FOOD,3]]
-	},
-	RECIPES.AMONGIUM2 : {
-		"work" : 5.0, "ingredients" : [[RESOURCE.COPIUM,1],[RESOURCE.GEM,1]],
-		"results": [[RESOURCE.AMONGIUM,2]]
-	}
-}
 
-enum BUILDINGS { PORTAL,TOWER,LAVALAKE,FORGE,TENTACLE,TENTACLESFIELD,MONASTERY}
+
 var buildings = {
-	BUILDINGS.PORTAL: {
-		"name": "Portal","sprite": preload("res://sprites/Buildings/DonutPortal.png"),
-		"resource_type": [RESOURCE.GEM,RESOURCE.OBSIDIANUM], "resource_cost": [1,3],
-		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.COPIUM
-	},
-	BUILDINGS.TOWER: {
-		"name": "Tower","sprite": preload("res://sprites/Buildings/tower.png"),
-		"resource_type": [RESOURCE.HELLIUM,RESOURCE.OBSIDIANUM], "resource_cost": [2,5],
-		"object": preload("res://object/tower.tscn"),
-		"recipe" :RECIPES.AMONGIUM1
-	},
-	BUILDINGS.LAVALAKE: {
-		"name": "Lava Lake","sprite": preload("res://sprites/Buildings/LavaLake.png"),
-		"resource_type": [RESOURCE.OBSIDIANUM,RESOURCE.ROCK], "resource_cost": [3,10],
-		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.OBSIDIANUM
-	},
-	BUILDINGS.FORGE: {
-		"name": "Forge","sprite": preload("res://sprites/Buildings/Forge.png"),
-		"resource_type": [RESOURCE.IRON,RESOURCE.GOLD], "resource_cost": [15,15],
-		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.HELLIUM
-	},
-	BUILDINGS.TENTACLE: {
-		"name": "Tentacle","sprite": preload("res://sprites/Buildings/Tentacle.png"),
-		"resource_type": [RESOURCE.WOOD,RESOURCE.ROCK], "resource_cost": [5,5],
-		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.FOOD1
-	},
-	BUILDINGS.TENTACLESFIELD: {
-		"name": "Tentacle Field","sprite": preload("res://sprites/Buildings/Tentacles.png"),
-		"resource_type": [RESOURCE.FOOD,RESOURCE.GOLD], "resource_cost": [30,3],
-		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.FOOD2
-	},
-	BUILDINGS.MONASTERY: {
-		"name": "Monastery","sprite": preload("res://sprites/Buildings/Monastery.png"),
-		"resource_type": [RESOURCE.AMONGIUM,RESOURCE.OBSIDIANUM], "resource_cost": [1,20],
-		"object": preload("res://object/tower.tscn"),
-		"recipe" : RECIPES.AMONGIUM2
-	},
 }
 
 @export var work_range = 10

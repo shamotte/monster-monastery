@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=11 format=3 uid="uid://b6w53lrh7ylaj"]
+
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_28mkb"]
+[ext_resource type="Script" path="res://resources/building_resource.gd" id="1_kp3jv"]
+[ext_resource type="Texture2D" uid="uid://dn4u3e5f6gk80" path="res://sprites/Buildings/DonutPortal.png" id="2_lq83t"]
+[ext_resource type="Script" path="res://resources/recipe_resource.gd" id="2_m00tv"]
+
+[sub_resource type="Resource" id="Resource_rwg1d"]
+script = ExtResource("1_28mkb")
+type = 4
+count = 10
+
+[sub_resource type="Resource" id="Resource_gudkl"]
+script = ExtResource("1_28mkb")
+type = 1
+count = 10
+
+[sub_resource type="Resource" id="Resource_kn7nv"]
+script = ExtResource("1_28mkb")
+type = 7
+count = 1
+
+[sub_resource type="Resource" id="Resource_i1ulp"]
+script = ExtResource("2_m00tv")
+input = Array[ExtResource("1_28mkb")]([SubResource("Resource_rwg1d"), SubResource("Resource_gudkl")])
+output = Array[ExtResource("1_28mkb")]([SubResource("Resource_kn7nv")])
+craft_time = 10.0
+
+[sub_resource type="Resource" id="Resource_3rl78"]
+script = ExtResource("1_28mkb")
+type = 4
+count = 1
+
+[sub_resource type="Resource" id="Resource_yliao"]
+script = ExtResource("1_28mkb")
+type = 6
+count = 3
+
+[resource]
+script = ExtResource("1_kp3jv")
+name = "Portal"
+sprite = ExtResource("2_lq83t")
+resource_cost = Array[ExtResource("1_28mkb")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
+recipes = Array[ExtResource("2_m00tv")]([SubResource("Resource_i1ulp")])

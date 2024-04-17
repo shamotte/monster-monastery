@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=11 format=3 uid="uid://cbf6c0xk81uvy"]
+
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_2oppd"]
+[ext_resource type="Script" path="res://resources/recipe_resource.gd" id="2_gu2om"]
+[ext_resource type="Script" path="res://resources/building_resource.gd" id="3_pmk42"]
+[ext_resource type="Texture2D" uid="uid://bcd1mc6c6h2eg" path="res://sprites/Buildings/tower.png" id="4_solmu"]
+
+[sub_resource type="Resource" id="Resource_rwg1d"]
+script = ExtResource("1_2oppd")
+type = 7
+count = 5
+
+[sub_resource type="Resource" id="Resource_gudkl"]
+script = ExtResource("1_2oppd")
+type = 4
+count = 5
+
+[sub_resource type="Resource" id="Resource_kn7nv"]
+script = ExtResource("1_2oppd")
+type = 8
+count = 1
+
+[sub_resource type="Resource" id="Resource_i1ulp"]
+script = ExtResource("2_gu2om")
+input = Array[ExtResource("1_2oppd")]([SubResource("Resource_rwg1d"), SubResource("Resource_gudkl")])
+output = Array[ExtResource("1_2oppd")]([SubResource("Resource_kn7nv")])
+craft_time = 10.0
+
+[sub_resource type="Resource" id="Resource_3rl78"]
+script = ExtResource("1_2oppd")
+type = 5
+count = 2
+
+[sub_resource type="Resource" id="Resource_yliao"]
+script = ExtResource("1_2oppd")
+type = 6
+count = 5
+
+[resource]
+script = ExtResource("3_pmk42")
+name = "Tower"
+sprite = ExtResource("4_solmu")
+resource_cost = Array[ExtResource("1_2oppd")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
+recipes = Array[ExtResource("2_gu2om")]([SubResource("Resource_i1ulp")])
