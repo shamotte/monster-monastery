@@ -11,7 +11,6 @@ var enemy = preload("res://object/enemy.tscn")
 var resource_info
 #Buildings Objects
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for r in Global.current_resources:
@@ -62,6 +61,8 @@ func _process(delta):
 	#	s.get_node("Name").text = Global.resources[r]["name"]
 	#	$UI/UI/Resources.add_child(s)
 	#set_building_id(0)
+	
+	%UnitCount/Count.text = str(Global.unit_count)
 
 
 var resource_point = preload("res://object/resource_point.tscn")
@@ -71,28 +72,27 @@ func mousePos():
 
 
 var enemy_scene = preload("res://object/enemy.tscn")
-var timer_timeouts = 0
 
 func _on_enemy_spawn_timer_timeout():
-	for i in range(randi_range(0, 1 + timer_timeouts * 2)):
+	for i in range(randi_range(0, 1 + Global.wave_count * 2)):
 		var spawn = get_tree().get_nodes_in_group("enemy_spawner").pick_random()
 		var type = Global.enemies.keys().pick_random()
 		#Selecting enemy waves
 		#print(type)
-		if timer_timeouts <= 5:
+		if Global.wave_count <= 5:
 			type = Global.ENEMY.PEASANT
-		elif timer_timeouts <= 10:
+		elif Global.wave_count <= 10:
 			if type == Global.ENEMY.KNIGHT || type == Global.ENEMY.HORSEMAN:
 				type = Global.ENEMY.PEASANT
-		elif timer_timeouts <= 15:
+		elif Global.wave_count <= 15:
 			if type == Global.ENEMY.KNIGHT:
 				type = Global.ENEMY.PEASANT
 			if type == Global.ENEMY.HORSEMAN:
 				type = Global.ENEMY.PRIEST
-		elif timer_timeouts <= 20:
+		elif Global.wave_count <= 20:
 			if type == Global.ENEMY.HORSEMAN:
 				type = Global.ENEMY.PRIEST
-		elif timer_timeouts <= 25:
+		elif Global.wave_count <= 25:
 			if type == Global.ENEMY.HORSEMAN:
 				type = Global.ENEMY.KNIGHT
 		
@@ -102,4 +102,6 @@ func _on_enemy_spawn_timer_timeout():
 		e.set_stats(type)
 		$GameSpace/Enemies.add_child(e)
 		
-	timer_timeouts += 1
+	Global.wave_count += 1
+	%WaveCount.visible = true
+	%WaveCount/Count.text = "Wave " + str(Global.wave_count)

@@ -187,3 +187,11 @@ func take_damage(damage:float):
 
 func _on_cooldown_timer_timeout():
 	cool = true # Replace with function body.
+
+
+func _on_tree_entered():
+	Global.unit_count += 1
+
+
+func _on_tree_exiting():
+	Global.unit_count -= 1

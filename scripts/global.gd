@@ -5,6 +5,8 @@ const map_height = 1080
 
 var volume: float = 1.0
 
+var unit_count = 0
+var wave_count = 0
 
 var ITEM_OFFSET = 1000
 enum RESOURCE {WOOD, ROCK, IRON, GOLD, GEM, HELLIUM, OBSIDIANUM , COPIUM, AMONGIUM,FOOD}
