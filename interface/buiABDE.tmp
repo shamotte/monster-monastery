@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmmf2ipwd7n5h"]
+
+[ext_resource type="Texture2D" uid="uid://bcd1mc6c6h2eg" path="res://sprites/tower.png" id="1_7clpq"]
+[ext_resource type="Script" path="res://scripts/building_slot.gd" id="1_ug1ph"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jfnj5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p86y3"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[sub_resource type="Theme" id="Theme_o0ggn"]
+Button/styles/focus = SubResource("StyleBoxEmpty_jfnj5")
+Button/styles/normal = SubResource("StyleBoxFlat_p86y3")
+
+[node name="BuildingSlot" type="Control"]
+custom_minimum_size = Vector2(96, 72)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ug1ph")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 72.0
+theme = SubResource("Theme_o0ggn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 72.0
+color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[node name="Building" type="Sprite2D" parent="."]
+position = Vector2(32, 35)
+texture = ExtResource("1_7clpq")
+
+[node name="Cost" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_right = 152.0
+offset_bottom = 68.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

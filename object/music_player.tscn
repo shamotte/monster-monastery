@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ruq6h70ro32a"]
+
+[ext_resource type="Script" path="res://scripts/MusicPlayer.gd" id="1_c3kcc"]
+[ext_resource type="AudioStream" uid="uid://84sorqv3tav3" path="res://sounds/music_normal.mp3" id="2_56o76"]
+[ext_resource type="AudioStream" uid="uid://q5tvfmhhxqib" path="res://sounds/music_battle.mp3" id="3_4p8tw"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_c3kcc")
+
+[node name="Normal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_56o76")
+
+[node name="Battle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_4p8tw")
+
+[connection signal="finished" from="Normal" to="." method="_on_audio_stream_player_finished"]
+[connection signal="finished" from="Battle" to="." method="_on_battle_finished"]

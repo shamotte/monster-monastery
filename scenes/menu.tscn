@@ -1,0 +1,166 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqjhs3pdso4s5"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_1yi2o"]
+[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="1_iokib"]
+[ext_resource type="Texture2D" uid="uid://bc78bf3duuitw" path="res://sprites/map_blur.png" id="2_wjnex"]
+[ext_resource type="Script" path="res://scripts/VolumeSlider.gd" id="4_b7tuh"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iokib")
+script = ExtResource("1_1yi2o")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("2_wjnex")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.286275, 0.0666667, 0.0470588, 0.780392)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.0
+offset_top = -160.0
+offset_right = 277.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.623529, 0.0862745, 0.0313726, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+text = "MONSTER MONASTERY"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.0
+offset_top = -105.0
+offset_right = 277.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.670588, 0.231373, 0.12549, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+text = "LUDUM DARE 55 SUBMISSION"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_top = -56.0
+offset_right = 240.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -44.0
+offset_right = 84.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "START GAME"
+
+[node name="VolumeSlider" type="HSlider" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 4.0
+offset_right = 81.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+step = 0.05
+value = 0.25
+script = ExtResource("4_b7tuh")
+
+[node name="VolumeLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -4.0
+offset_right = -56.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Volume:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Lore" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 112.0
+offset_right = 624.0
+offset_bottom = 272.0
+text = "Let the monsters take the world!
+Summon and lead a horde of diverse creatures!
+Gather resources, build establishments and fend off Earth's defenders!
+Your army is an unpredictable bunch - each one has a mind of his own!
+Assign priorities to their actions in hopes of achieving global domination!
+Good luck and thanks for playing!"
+
+[node name="Authors" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 288.0
+offset_right = 216.0
+offset_bottom = 354.0
+theme_override_font_sizes/font_size = 14
+text = "(2024) Made by:
+@igorekkedziorek, @liniux,
+@shamotte, @zedgame"
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="drag_ended" from="Control/VolumeSlider" to="Control/VolumeSlider" method="_on_drag_ended"]

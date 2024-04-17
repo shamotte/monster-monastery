@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpd1mbtqfo2yi"]
+
+[ext_resource type="Script" path="res://object/enemy.gd" id="1_4wtti"]
+[ext_resource type="Texture2D" uid="uid://clsk64o35xsu8" path="res://sprites/Units/knight.png" id="2_pvoxd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6kv6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iecv8"]
+
+[node name="enemy" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 65
+script = ExtResource("1_4wtti")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pvoxd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s6kv6")
+
+[node name="agent" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
+[node name="attac_area" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attac_area"]
+shape = SubResource("CircleShape2D_iecv8")
+debug_color = Color(0.65098, 0.517647, 0.0745098, 0.419608)
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

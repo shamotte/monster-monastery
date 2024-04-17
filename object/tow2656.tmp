@@ -1,0 +1,102 @@
+[gd_scene load_steps=10 format=3 uid="uid://rynd5iuo55pm"]
+
+[ext_resource type="Script" path="res://scripts/BuildingObject.gd" id="1_fsosm"]
+[ext_resource type="Texture2D" uid="uid://bcd1mc6c6h2eg" path="res://sprites/Buildings/tower.png" id="1_qf5ig"]
+[ext_resource type="Texture2D" uid="uid://cdvowh1o7tq3" path="res://sprites/summon_portal.png" id="2_ma4qt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2eke"]
+atlas = ExtResource("2_ma4qt")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3q6n"]
+atlas = ExtResource("2_ma4qt")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8f0jq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2eke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3q6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f83t4"]
+size = Vector2(48, 48)
+
+[sub_resource type="Animation" id="Animation_okvbb"]
+resource_name = "spawn"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(7.72, 1, 7.2, 1),
+"update": 0,
+"values": [Vector2(2, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(7.72, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(7.72, 1),
+"update": 0,
+"values": [Vector2(0, 24), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0a3g"]
+_data = {
+"spawn": SubResource("Animation_okvbb")
+}
+
+[node name="Building" type="Node2D"]
+script = ExtResource("1_fsosm")
+building_type = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 25)
+scale = Vector2(1e-05, 1e-05)
+sprite_frames = SubResource("SpriteFrames_8f0jq")
+autoplay = "default"
+frame_progress = 0.684656
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qf5ig")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_f83t4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_s0a3g")
+}

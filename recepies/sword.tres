@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Recepie" load_steps=2 format=3 uid="uid://mxx76g50q0hg"]
+
+[ext_resource type="Script" path="res://scripts/Recepie.gd" id="1_kpms3"]
+
+[resource]
+script = ExtResource("1_kpms3")
+ingreedients = [null, null, null]
+Results = null
+work_time = null

@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0wfno7gg24h7"]
+
+[ext_resource type="Script" path="res://scripts/unit_slot.gd" id="1_g7eqg"]
+[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="2_lc5tl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jfnj5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xg254"]
+bg_color = Color(0.215686, 0.215686, 0.215686, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p86y3"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_o0ggn"]
+Button/styles/focus = SubResource("StyleBoxEmpty_jfnj5")
+Button/styles/hover = SubResource("StyleBoxFlat_xg254")
+Button/styles/normal = SubResource("StyleBoxFlat_p86y3")
+Button/styles/pressed = SubResource("StyleBoxFlat_p86y3")
+
+[node name="UnitSlot" type="Control"]
+custom_minimum_size = Vector2(96, 72)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g7eqg")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 40.0
+theme = SubResource("Theme_o0ggn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 72.0
+color = Color(0.152941, 0.152941, 0.152941, 1)
+
+[node name="UnitIcon" type="Sprite2D" parent="."]
+position = Vector2(16, 20)
+texture = ExtResource("2_lc5tl")
+
+[node name="Cost" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 88.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

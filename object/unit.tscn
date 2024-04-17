@@ -1,0 +1,180 @@
+[gd_scene load_steps=17 format=3 uid="uid://6o0ppecfcqvo"]
+
+[ext_resource type="Script" path="res://scripts/unit.gd" id="1_g8wtp"]
+[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="2_ey7t7"]
+[ext_resource type="Texture2D" uid="uid://cc3bd3vpufmr1" path="res://sprites/Items/axe.png" id="3_xcimi"]
+[ext_resource type="Texture2D" uid="uid://cdvowh1o7tq3" path="res://sprites/summon_portal.png" id="4_134da"]
+[ext_resource type="AudioStream" uid="uid://bdhx5imabp37l" path="res://sounds/gather.wav" id="4_oaxnj"]
+[ext_resource type="AudioStream" uid="uid://bqbsi8axo42ns" path="res://sounds/summon2.wav" id="6_y570h"]
+[ext_resource type="AudioStream" uid="uid://dvjldnr6m8v88" path="res://sounds/fight1.wav" id="7_1e24m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6nlr"]
+atlas = ExtResource("4_134da")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihga4"]
+atlas = ExtResource("4_134da")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pox06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6nlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihga4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c0mvu"]
+
+[sub_resource type="Animation" id="Animation_kchxp"]
+resource_name = "spawn"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(7.72749, 1),
+"update": 0,
+"values": [Vector2(2, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(7.72749, 1),
+"update": 0,
+"values": [Vector2(0, 4), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SummonAnimation:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 4, 5),
+"transitions": PackedFloat32Array(7.46425, 1, 7.72, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(7.46426, 1),
+"update": 0,
+"values": [Vector2(2, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3naxv"]
+resource_name = "walk"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 0.75), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yred"]
+_data = {
+"spawn": SubResource("Animation_kchxp"),
+"walk": SubResource("Animation_3naxv")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_exkfb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltbtx"]
+
+[node name="Unit" type="CharacterBody2D"]
+position = Vector2(0, 4)
+collision_layer = 129
+collision_mask = 0
+script = ExtResource("1_g8wtp")
+
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
+[node name="SummonAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(1e-05, 1e-05)
+sprite_frames = SubResource("SpriteFrames_pox06")
+autoplay = "default"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 1e-05)
+texture = ExtResource("2_ey7t7")
+
+[node name="ItemParent" type="Node2D" parent="Sprite"]
+
+[node name="Item" type="Sprite2D" parent="Sprite/ItemParent"]
+position = Vector2(5, 0)
+texture = ExtResource("3_xcimi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_c0mvu")
+
+[node name="gather" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_oaxnj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1yred")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_exkfb")
+
+[node name="attac_area" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attac_area"]
+shape = SubResource("CapsuleShape2D_ltbtx")
+debug_color = Color(0.952941, 0, 0.552941, 0.419608)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_y570h")
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_1e24m")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

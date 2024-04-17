@@ -1,0 +1,668 @@
+[gd_scene load_steps=23 format=3 uid="uid://p14t15cl0ifi"]
+
+[ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
+[ext_resource type="Texture2D" uid="uid://3fts5stbfhkp" path="res://sprites/map.png" id="2_qj8nh"]
+[ext_resource type="Script" path="res://scripts/camera_motor.gd" id="2_xykrx"]
+[ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
+[ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
+[ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
+[ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
+[ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="7_f0igd"]
+[ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
+[ext_resource type="PackedScene" uid="uid://b22fxtq6dhenw" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
+[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
+[ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
+[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
+[ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
+[ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="15_pktq6"]
+[ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://object/priority_elem.tscn" id="15_x630r"]
+[ext_resource type="Texture2D" uid="uid://c2u432pxwkprq" path="res://sprites/UI/arrow.png" id="16_4w1iu"]
+[ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
+vertices = PackedVector2Array(392, 383, 225, 321, 226, 321, -610, -232, -559, -284, -556, -116, -605, -107, -105, 387, -142, 376, -37, 270, 127, 267, 35, 163, 249, -72, 338, 1, 428, 110, 368, -276, 501, -285, 482, -211, 409, -204, 559, -150, 686, -140, 800, 7, 646, 72, 537, -48, 522, -114, 152, -296, 266, -157, -29, -262, 385, 277, 429, 370, 520, 151, 502, 199, 1, 81, -172, 131, -374, -181, -362, -278, -265, -364, -65, -345, -417, 191, -484, 311, -540, 321, -614, 231, -656, 2, -459, -89, -262, 175)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(10, 9, 11, 12, 13, 14), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(19, 20, 21, 22, 23, 24), PackedInt32Array(17, 19, 24, 18), PackedInt32Array(25, 15, 18, 26, 27), PackedInt32Array(28, 29, 0, 2, 10), PackedInt32Array(14, 30, 31, 28, 10), PackedInt32Array(32, 27, 26, 12, 11), PackedInt32Array(33, 34, 35, 36, 37, 27, 32), PackedInt32Array(38, 39, 40, 41, 42, 6, 5, 43), PackedInt32Array(44, 38, 43, 34, 33)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-59, -355, -23, -273, 152, -307, 368, -286, 515, -297, 493, -215, 563, -160, 692, -150, 816, 12, 644, 84, 528, -44, 513, -108, 407, -193, 275, -149, 260, -76, 344, -7, 434, 102, 533, 146, 510, 206, 398, 281, 443, 376, 392, 394, 221, 330, 127, 278, -105, 399, -162, 382, -45, 264, 24, 162, -5, 93, -168, 140, -260, 185, -411, 200, -478, 321, -544, 333, -624, 236, -667, 2, -615, -109, -621, -236, -550, -308, -546, -124, -462, -100, -384, -185, -372, -283, -269, -375)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqn1q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jq1be"]
+radius = 3.0
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_x25h7")
+
+[node name="Map" type="Sprite2D" parent="."]
+texture = ExtResource("2_qj8nh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_xykrx")
+
+[node name="Building Area" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 14
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building Area"]
+polygon = PackedVector2Array(-296, 176, -80, 32, 40, 32, 112, 112, 136, 192, 320, 288, 360, 224, 328, 136, 216, 32, 184, -104, 320, -232, 240, -248, 144, -208, -344, -176, -480, -56, -480, -56, -568, -96, -624, 72, -568, 168)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Building Area"]
+polygon = PackedVector2Array(568, -112, 592, -16, 680, 40, 736, 8, 728, -56, 640, -104)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Building Area"]
+polygon = PackedVector2Array(16, 320, 104, 264, 64, 208, -16, 288)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+position = Vector2(2, 4)
+navigation_polygon = SubResource("NavigationPolygon_y668m")
+
+[node name="GameSpace" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Buildings" type="Node2D" parent="GameSpace" groups=["BuildingManager"]]
+y_sort_enabled = true
+script = ExtResource("3_y6sc7")
+
+[node name="Units" type="Node2D" parent="GameSpace" groups=["Units"]]
+unique_name_in_owner = true
+y_sort_enabled = true
+script = ExtResource("5_smeyy")
+
+[node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+position = Vector2(-103, -85)
+work_range = 15
+
+[node name="Resources" type="Node2D" parent="GameSpace"]
+y_sort_enabled = true
+
+[node name="ResourcePoint" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-517, 248)
+resource_type = 1
+
+[node name="ResourcePoint2" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-546, 194)
+resource_type = 2
+
+[node name="ResourcePoint3" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-482, 166)
+resource_type = 1
+
+[node name="ResourcePoint18" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-539, -33)
+
+[node name="ResourcePoint19" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-582, 39)
+
+[node name="ResourcePoint20" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-515, 93)
+
+[node name="ResourcePoint21" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-454, 20)
+
+[node name="ResourcePoint22" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-421, -55)
+
+[node name="ResourcePoint23" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-432, 87)
+
+[node name="ResourcePoint24" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-513, 26)
+
+[node name="ResourcePoint25" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-473, -19)
+
+[node name="ResourcePoint26" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(241, -212)
+
+[node name="ResourcePoint27" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(184, -160)
+
+[node name="ResourcePoint28" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(57, -144)
+
+[node name="ResourcePoint29" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(0, -160)
+
+[node name="ResourcePoint30" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-74, -154)
+
+[node name="ResourcePoint31" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-148, -167)
+
+[node name="ResourcePoint32" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-246, -178)
+
+[node name="ResourcePoint33" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-306, -139)
+
+[node name="ResourcePoint34" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-237, -126)
+
+[node name="ResourcePoint35" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-270, 113)
+
+[node name="ResourcePoint36" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-252, 61)
+
+[node name="ResourcePoint37" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-187, 65)
+
+[node name="ResourcePoint38" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-219, 19)
+
+[node name="ResourcePoint39" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-215, 94)
+
+[node name="ResourcePoint40" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(145, 119)
+
+[node name="ResourcePoint41" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(207, 140)
+
+[node name="ResourcePoint42" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(153, 162)
+
+[node name="ResourcePoint43" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(213, 190)
+
+[node name="ResourcePoint44" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(50, 262)
+
+[node name="ResourcePoint45" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(264, 222)
+
+[node name="ResourcePoint46" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(253, 171)
+
+[node name="ResourcePoint47" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(310, 198)
+
+[node name="ResourcePoint48" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(318, 235)
+
+[node name="ResourcePoint49" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(279, 122)
+
+[node name="ResourcePoint50" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(220, 69)
+
+[node name="ResourcePoint51" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(623, -82)
+
+[node name="ResourcePoint53" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(649, -25)
+
+[node name="ResourcePoint52" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(695, -38)
+
+[node name="ResourcePoint4" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-126, 376)
+resource_type = 1
+
+[node name="ResourcePoint5" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-52, 358)
+resource_type = 6
+
+[node name="ResourcePoint6" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(427, 135)
+resource_type = 1
+
+[node name="ResourcePoint7" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(480, 161)
+resource_type = 4
+
+[node name="ResourcePoint8" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(431, 199)
+resource_type = 3
+
+[node name="ResourcePoint9" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(116, -217)
+resource_type = 1
+
+[node name="ResourcePoint10" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(66, -240)
+resource_type = 1
+
+[node name="ResourcePoint11" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-10, -224)
+resource_type = 3
+
+[node name="ResourcePoint12" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-81, -266)
+resource_type = 1
+
+[node name="ResourcePoint13" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-170, -316)
+resource_type = 2
+
+[node name="ResourcePoint14" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-259, -323)
+resource_type = 1
+
+[node name="ResourcePoint15" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-322, -256)
+resource_type = 4
+
+[node name="ResourcePoint16" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-241, -240)
+resource_type = 2
+
+[node name="ResourcePoint17" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
+position = Vector2(-150, -242)
+resource_type = 1
+
+[node name="Enemies" type="Node2D" parent="GameSpace"]
+y_sort_enabled = true
+
+[node name="EnemySpawner" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-378, 122)
+
+[node name="EnemySpawner2" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-385, 37)
+
+[node name="EnemySpawner3" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-296, 30)
+
+[node name="EnemySpawner4" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-337, -52)
+
+[node name="EnemySpawner5" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-337, -52)
+
+[node name="EnemySpawner6" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-219, -71)
+
+[node name="EnemySpawner7" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-101, -4)
+
+[node name="EnemySpawner8" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-32, -86)
+
+[node name="EnemySpawner9" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(121, -123)
+
+[node name="EnemySpawner10" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(196, -4)
+
+[node name="EnemySpawner11" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(78, 83)
+
+[node name="EnemySpawner12" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-111, 82)
+
+[node name="EnemySpawner13" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(102, 225)
+
+[node name="EnemySpawner14" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(282, 301)
+
+[node name="EnemySpawner15" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(388, 225)
+
+[node name="EnemySpawner16" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(287, 163)
+
+[node name="EnemySpawner17" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(290, 12)
+
+[node name="EnemySpawner18" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-88, -215)
+
+[node name="EnemySpawner19" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-219, -286)
+
+[node name="EnemySpawner20" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(114, -248)
+
+[node name="EnemySpawner21" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-583, -156)
+
+[node name="EnemySpawner22" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-596, 8)
+
+[node name="EnemySpawner23" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-505, 198)
+
+[node name="EnemySpawner24" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-33, 319)
+
+[node name="EnemySpawner25" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-489, 216)
+
+[node name="EnemySpawner26" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(672, 22)
+
+[node name="EnemySpawner27" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(664, -102)
+
+[node name="EnemySpawner28" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(489, -161)
+
+[node name="EnemySpawner29" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(278, -241)
+
+[node name="EnemySpawner30" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-269, -288)
+
+[node name="EnemySpawner31" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-95, -219)
+
+[node name="EnemySpawner32" parent="GameSpace/Enemies" instance=ExtResource("8_4bd8d")]
+position = Vector2(-323, -204)
+
+[node name="CursorSprite" type="Sprite2D" parent="." groups=["CursorOverlaping"]]
+modulate = Color(1, 1, 1, 0.501961)
+self_modulate = Color(1, 1, 1, 0.752941)
+z_index = 1
+script = ExtResource("7_40o6t")
+
+[node name="CheckPointer" type="Area2D" parent="CursorSprite"]
+position = Vector2(0, 4)
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CursorSprite/CheckPointer"]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_jqn1q")
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("8_1k3t5")
+
+[node name="UI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_cjmjg")
+
+[node name="Label" type="Label" parent="UI/UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 296.0
+offset_right = 632.0
+offset_bottom = 319.0
+
+[node name="Resources" type="HBoxContainer" parent="UI/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_top = 4.0
+offset_right = -42.0
+offset_bottom = 20.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="Building" type="Control" parent="UI/UI" groups=["BuildingUI"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("5_ysb7k")
+
+[node name="CheckButton" type="CheckButton" parent="UI/UI/Building"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 36.0
+grow_horizontal = 0
+
+[node name="Panel" type="TabContainer" parent="UI/UI/Building"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_top = 40.0
+offset_right = -6.0
+offset_bottom = 352.0
+grow_horizontal = 0
+
+[node name="BuildingsList" type="ScrollContainer" parent="UI/UI/Building/Panel"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/BuildingsList"]
+layout_mode = 2
+
+[node name="SpawnList" type="ScrollContainer" parent="UI/UI/Building/Panel"]
+visible = false
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/SpawnList"]
+layout_mode = 2
+
+[node name="Help" type="ScrollContainer" parent="UI/UI/Building/Panel"]
+visible = false
+layout_mode = 2
+
+[node name="HelpText" type="Label" parent="UI/UI/Building/Panel/Help"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "ACTION PRIORITY:
+Click on units to manage
+their priorities.
+High number - important.
+Priority 0 - forbidden.
+
+RESOURCES:
+Gather natural resources
+and use buildings to craft
+more of them.
+
+CRAFTING:
+Place buildings and wait
+for units to craft items for
+you. Select a building to
+use up your resources
+and queue a unit to pick
+the result up.
+
+DEFENSE:
+You will occasionally
+be attacked by humans.
+Defend against them 
+and prepare for the next
+attack!"
+
+[node name="PreviewManager" type="Control" parent="UI/UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -84.0
+offset_right = 240.0
+grow_vertical = 0
+script = ExtResource("10_d5ti3")
+
+[node name="PreviewPanel" type="Panel" parent="UI/UI/PreviewManager"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HPTexture" type="TextureRect" parent="UI/UI/PreviewManager/PreviewPanel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 52.0
+offset_right = 40.0
+offset_bottom = 84.0
+texture = ExtResource("14_hf8ep")
+
+[node name="HP" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 60.0
+offset_right = 56.0
+offset_bottom = 83.0
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 84.0
+offset_bottom = 29.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -77.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="RecepiePanel" type="Panel" parent="UI/UI/PreviewManager/PreviewPanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_right = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Cou" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel" instance=ExtResource("15_x630r")]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 56.0
+offset_bottom = 71.0
+max_number = 99
+label = "count"
+texture = ExtResource("15_pktq6")
+
+[node name="ing" type="Panel" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -104.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing"]
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 84.0
+
+[node name="ingred" type="HBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="benefit" type="HBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
+position = Vector2(15, 39)
+texture = ExtResource("16_4w1iu")
+
+[node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel"]
+unique_name_in_owner = true
+position = Vector2(40, 44)
+texture = ExtResource("11_tqatv")
+
+[node name="Endgame" type="Control" parent="UI"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 0.0666667, 0.286275, 1)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="UI/Endgame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.596078, 0, 0.105882, 0.764706)
+
+[node name="Label" type="Label" parent="UI/Endgame"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -24.5
+offset_right = 141.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "GAME OVER
+All your minions were defeated!
+
+(Due to time constraints, we can't properly reset the game.
+Please start the game again if you wish to restart.)
+
+Thank you for playing!"
+horizontal_alignment = 1
+
+[node name="MousePointer" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MousePointer"]
+shape = SubResource("CircleShape2D_jq1be")
+
+[node name="SelectedIndicator" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="SelectedIndicator"]
+position = Vector2(0, -8)
+texture = ExtResource("16_c4l1p")
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]
+[connection signal="area_exited" from="Building Area" to="CursorSprite" method="_on_building_area_area_exited"]
+[connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
+[connection signal="mouse_entered" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_entered"]
+[connection signal="mouse_exited" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_exited"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

@@ -1,0 +1,268 @@
+[gd_scene load_steps=22 format=3 uid="uid://p14t15cl0ifi"]
+
+[ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
+[ext_resource type="Texture2D" uid="uid://gxj6gtkdb4s3" path="res://sprites/grass.png" id="2_mb5b4"]
+[ext_resource type="Script" path="res://scripts/camera_motor.gd" id="2_xykrx"]
+[ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
+[ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
+[ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
+[ext_resource type="Texture2D" uid="uid://b68vottib3284" path="res://sprites/Build_Menu_Selected.png" id="8_t8nvj"]
+[ext_resource type="Texture2D" uid="uid://fp71qwttyi3j" path="res://sprites/Build_Menu.png" id="9_hqmam"]
+[ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
+[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/imp.png" id="11_tqatv"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
+vertices = PackedVector2Array(630, 9, 630, 350, 2, 357, 2, 2)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(640, 0, 640, 360, -8, 368, -8, -8)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eev7q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wh76"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8celt"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqxit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2ng8"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_width_top = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjns5"]
+bg_color = Color(0.152941, 0.152941, 0.152941, 1)
+border_width_top = 2
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_unl3m"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+border_width_top = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+anti_aliasing = false
+
+[sub_resource type="Theme" id="Theme_70afd"]
+CheckButton/icons/checked = ExtResource("8_t8nvj")
+CheckButton/icons/checked_disabled = ExtResource("9_hqmam")
+CheckButton/icons/checked_disabled_mirrored = ExtResource("9_hqmam")
+CheckButton/icons/checked_mirrored = ExtResource("9_hqmam")
+CheckButton/icons/unchecked = ExtResource("9_hqmam")
+CheckButton/icons/unchecked_disabled = ExtResource("9_hqmam")
+CheckButton/icons/unchecked_disabled_mirrored = ExtResource("9_hqmam")
+CheckButton/icons/unchecked_mirrored = ExtResource("9_hqmam")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_eev7q")
+Panel/styles/panel = SubResource("StyleBoxFlat_2wh76")
+TabContainer/constants/side_margin = 0
+TabContainer/styles/panel = SubResource("StyleBoxFlat_8celt")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_qqxit")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_t2ng8")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_rjns5")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_unl3m")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jq1be"]
+radius = 3.0
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_x25h7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_xykrx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -488.0
+offset_top = -288.0
+offset_right = 1176.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mb5b4")
+stretch_mode = 1
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_y668m")
+
+[node name="GameSpace" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Buildings" type="Node" parent="GameSpace" groups=["BuildingManager"]]
+script = ExtResource("3_y6sc7")
+
+[node name="Units" type="Node" parent="GameSpace" groups=["Units"]]
+script = ExtResource("5_smeyy")
+
+[node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+position = Vector2(53, 147)
+
+[node name="Unit2" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+position = Vector2(181, 226)
+
+[node name="Unit3" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+position = Vector2(93, 77)
+
+[node name="Unit4" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
+position = Vector2(243, 77)
+
+[node name="CursorSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+self_modulate = Color(1, 1, 1, 0.752941)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_70afd")
+
+[node name="Label" type="Label" parent="UI/UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 296.0
+offset_right = 632.0
+offset_bottom = 319.0
+
+[node name="Resources" type="HBoxContainer" parent="UI/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -82.0
+offset_top = 4.0
+offset_right = -42.0
+offset_bottom = 20.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="Items" type="HBoxContainer" parent="UI/UI"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 320.0
+offset_right = 48.0
+offset_bottom = 336.0
+
+[node name="Building" type="Control" parent="UI/UI" groups=["BuildingUI"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("5_ysb7k")
+
+[node name="CheckButton" type="CheckButton" parent="UI/UI/Building"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Panel" type="TabContainer" parent="UI/UI/Building"]
+custom_minimum_size = Vector2(108, 0)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_top = 40.0
+offset_right = -6.0
+offset_bottom = 352.0
+grow_horizontal = 0
+
+[node name="BuildingsList" type="ScrollContainer" parent="UI/UI/Building/Panel"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/BuildingsList"]
+layout_mode = 2
+
+[node name="SpawnList" type="ScrollContainer" parent="UI/UI/Building/Panel"]
+visible = false
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/SpawnList"]
+layout_mode = 2
+
+[node name="PreviewManager" type="Control" parent="UI/UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -193.0
+offset_top = -84.0
+offset_right = 193.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("10_d5ti3")
+
+[node name="Panel" type="Panel" parent="UI/UI/PreviewManager"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/Panel"]
+unique_name_in_owner = true
+position = Vector2(33, 52)
+texture = ExtResource("11_tqatv")
+
+[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 65.0
+offset_bottom = 23.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/UI/PreviewManager/Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -305.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ResourceSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="MousePointer" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MousePointer"]
+shape = SubResource("CircleShape2D_jq1be")
+
+[connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
+[connection signal="timeout" from="ResourceSpawnTimer" to="." method="_on_resource_spawn_timer_timeout"]
