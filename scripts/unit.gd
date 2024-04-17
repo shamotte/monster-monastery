@@ -9,7 +9,7 @@ class_name unit
 @export var fight_range = 30
 
 
-@export var type:	Global.UNIT = Global.UNIT.IMP
+@export var unit: UnitResource
 var target: Vector2 = Vector2(100, 100)
 
 
@@ -159,7 +159,7 @@ func setStats(unitId):
 	fight_range = Global.units[unitId]["fight_range"]
 	$Sprite.texture = Global.units[unitId]["sprite"]
 	$Sprite/ItemParent/Item.texture = Global.units[unitId]["toolSprite"]
-	type = unitId
+
 
 func _physics_process(delta):
 	#Is animation end

@@ -1,12 +1,12 @@
 extends Resource
 class_name UnitResource
 
-enum UNIT {CEMON}
+enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,PYTHONUS,LORD}
 
 @export_group("Basic")
 @export var name:String
 @export var sprite: CompressedTexture2D
-@export var object: PackedScene
+@export var extra: Script
 @export var resource_cost: Array[ResourceStack]
 @export var speed: float
 

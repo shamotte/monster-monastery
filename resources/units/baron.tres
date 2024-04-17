@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=6 format=3 uid="uid://c1mxyf14gsi3p"]
+
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4jpce"]
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_psqdg"]
+[ext_resource type="Texture2D" uid="uid://1odn6cyqh80r" path="res://sprites/Units/DemonLord.png" id="3_2dobk"]
+
+[sub_resource type="Resource" id="Resource_xuc28"]
+script = ExtResource("1_4jpce")
+type = 8
+count = 1
+
+[sub_resource type="Resource" id="Resource_efghm"]
+script = ExtResource("1_4jpce")
+type = 6
+count = 5
+
+[resource]
+script = ExtResource("2_psqdg")
+name = "Baron"
+sprite = ExtResource("3_2dobk")
+resource_cost = Array[ExtResource("1_4jpce")]([SubResource("Resource_xuc28"), SubResource("Resource_efghm")])
+speed = 66.0
+work_range = 30.0
+work_speed = 0.2
+cooldown = 2.5
+hp = 66.0
+damage = 16.0
+fight_range = 40.0

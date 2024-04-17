@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=5 format=3 uid="uid://be1olh4ko6wbr"]
+
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_qxi0g"]
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_08lm1"]
+[ext_resource type="Texture2D" uid="uid://fxk887u7caxf" path="res://sprites/Units/slimebehindtheslaughter.png" id="3_0ysi1"]
+
+[sub_resource type="Resource" id="Resource_xuc28"]
+script = ExtResource("1_qxi0g")
+type = 0
+count = 2
+
+[resource]
+script = ExtResource("2_08lm1")
+name = "Purple Slime"
+sprite = ExtResource("3_0ysi1")
+resource_cost = Array[ExtResource("1_qxi0g")]([SubResource("Resource_xuc28")])
+speed = 30.0
+work_range = 10.0
+work_speed = 0.2
+cooldown = 1.0
+hp = 25.0
+damage = 3.0
+fight_range = 30.0

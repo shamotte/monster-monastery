@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=6 format=3 uid="uid://ioyh15pfb11k"]
+
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_uc236"]
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_3v6qa"]
+[ext_resource type="Texture2D" uid="uid://c8thpte15i8yq" path="res://sprites/Units/Cultist.png" id="3_el42l"]
+
+[sub_resource type="Resource" id="Resource_xuc28"]
+script = ExtResource("1_uc236")
+type = 9
+count = 4
+
+[sub_resource type="Resource" id="Resource_xllqu"]
+script = ExtResource("1_uc236")
+type = 4
+count = 1
+
+[resource]
+script = ExtResource("2_3v6qa")
+name = "Cultist"
+sprite = ExtResource("3_el42l")
+resource_cost = Array[ExtResource("1_uc236")]([SubResource("Resource_xuc28"), SubResource("Resource_xllqu")])
+speed = 80.0
+work_range = 50.0
+work_speed = 0.5
+cooldown = 2.0
+hp = 25.0
+damage = 10.0
+fight_range = 90.0

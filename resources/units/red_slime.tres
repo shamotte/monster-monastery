@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=5 format=3 uid="uid://cf1rpt1qjnrlp"]
+
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_whue1"]
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_i8hmj"]
+[ext_resource type="Texture2D" uid="uid://qrt6yrmdkkjt" path="res://sprites/Units/slime_red.png" id="3_nl6uf"]
+
+[sub_resource type="Resource" id="Resource_xuc28"]
+script = ExtResource("1_whue1")
+type = 5
+count = 4
+
+[resource]
+script = ExtResource("2_i8hmj")
+name = "Red Slime"
+sprite = ExtResource("3_nl6uf")
+resource_cost = Array[ExtResource("1_whue1")]([SubResource("Resource_xuc28")])
+speed = 300.0
+work_range = 10.0
+work_speed = 0.4
+cooldown = 0.1
+hp = 25.0
+damage = 1.0
+fight_range = 30.0
