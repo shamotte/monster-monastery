@@ -25,7 +25,7 @@ var end_summoning = false
 var spawn_anim_end = false
 
 var hp = max_hp
-var test :UnitResource.UNIT
+
 func _ready():
 	
 	$SpawnSound.play()

@@ -73,6 +73,12 @@ script = ExtResource("5_smeyy")
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
 position = Vector2(-103, -85)
 work_range = 15
+work_speed = null
+speed = null
+damage = null
+max_hp = null
+cooldown = null
+fight_range = null
 
 [node name="Resources" type="Node2D" parent="GameSpace"]
 y_sort_enabled = true

@@ -126,32 +126,6 @@ var enemies = {
 	
 }
 
-enum PRIORIRITY {WOOD,ROCK,IRON,FOOD,GOLD,CRAFT,FIGHT}
-var priorieties = {
-	PRIORIRITY.WOOD: {
-		"name" : "Wood", "sprite": preload("res://sprites/Resources/wood.png")
-		},
-	PRIORIRITY.ROCK: {
-		"name" : "Rock", "sprite": preload("res://sprites/Resources/green_gem.png")
-		},
-	PRIORIRITY.IRON: {
-		"name" : "Iron", "sprite": preload("res://sprites/Resources/Copium1.png")
-		},
-	PRIORIRITY.FOOD: {
-		"name" : "Food", "sprite": preload("res://sprites/Resources/Amongium.png")
-		},
-	PRIORIRITY.GOLD: {
-		"name" : "Gold", "sprite": preload("res://sprites/Resources/obsidianium.png")
-		},
-	PRIORIRITY.CRAFT: {
-		"name" : "Craft", "sprite": preload("res://sprites/UI/axe32.png")
-		},
-	PRIORIRITY.FIGHT: {
-		"name" : "Fight", "sprite": preload("res://sprites/UI/axe32.png")
-		},
-	}
-
-
 func _ready():
 	for r in resources:
 		current_resources[r] = 0

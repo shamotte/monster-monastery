@@ -2,7 +2,9 @@ extends Node2D
 class_name buildingObject
 var texture = null
 @onready var id = Priorities.get_id()
-@export var building_type : Global.BUILDINGS
+
+@export var building : BuildingResource
+
 var recipe 
 var to_craft = 0
 var busy = false
@@ -18,7 +20,7 @@ func action_finished():
 func _ready():
 	$AnimationPlayer.play("spawn")
 	$SpawnSound.play()
-	recipe =  Global.buildings[building_type].recipe
+	recipe =  building.recipes[0]
 	#Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,get_node("."),Global.recipes[recipe].work)# Replace with function body.
 
 
@@ -53,8 +55,8 @@ func set_texture(newTexture):
 	$Sprite2D.texture = newTexture
 	$AnimatedSprite2D.animation = "default"
 	
-func set_stats(id):
-	building_type = id 
-	recipe =  Global.buildings[building_type]["recipe"]
-	$Sprite2D.texture = Global.buildings[building_type]["sprite"]
+func set_stats(id: BuildingResource):
+	building = id 
+	recipe = building.recipes[0]
+	$Sprite2D.texture = building.sprite
 	$AnimatedSprite2D.animation = "default"

@@ -80,7 +80,7 @@ func building_selection(object : buildingObject):
 	%HP.visible = false
 	$PreviewPanel/HPTexture.visible = false
 	%preview_icon.texture = object.get_node("Sprite2D").texture
-	%UnitName.text = Global.buildings[object.building_type].name
+	%UnitName.text = object.building.name
 	%Cou.change_priority(object.to_craft)
 	var recipe = object.recipe
 	for chil in %ingred.get_children():

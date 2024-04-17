@@ -34,7 +34,7 @@ func _ready():
 		
 	for i in Global.units:
 		var s = unit_slot.instantiate()
-		s.unit = UnitResource.UNIT.CEMON
+		s.unit = load("res://resources/units/baron.tres")
 		$UI/UI/Building/Panel/SpawnList/GridContainer.add_child(s)
 		
 		

@@ -21,7 +21,3 @@ enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,PYTHONUS,LORD}
 @export var hp:float
 @export var damage:float
 @export var fight_range:float
-
-
-func test():
-	return 5
