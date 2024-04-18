@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ResourceResource" load_steps=3 format=3 uid="uid://cmpm4gs0wsn2l"]
+
+[ext_resource type="Script" path="res://resources/resource_resource.gd" id="2_hk5jq"]
+[ext_resource type="Texture2D" uid="uid://cftjxmkc36163" path="res://sprites/Resources/Copium1.png" id="2_hmnt7"]
+
+[resource]
+script = ExtResource("2_hk5jq")
+name = "copium"
+sprite = ExtResource("2_hmnt7")
+type = 7
+action_type = 0
+time = 10.0

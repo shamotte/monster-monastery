@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ResourceResource" load_steps=3 format=3 uid="uid://b6mtc4mrc5qac"]
+
+[ext_resource type="Script" path="res://resources/resource_resource.gd" id="2_rn8cd"]
+[ext_resource type="Texture2D" uid="uid://6jv1sfnxnkmw" path="res://sprites/Resources/hellium.png" id="2_tggi3"]
+
+[resource]
+script = ExtResource("2_rn8cd")
+name = "hellium"
+sprite = ExtResource("2_tggi3")
+type = 5
+action_type = 0
+time = 10.0

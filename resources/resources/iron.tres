@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ResourceResource" load_steps=4 format=3 uid="uid://bca56ylchrvb8"]
+
+[ext_resource type="Script" path="res://resources/resource_resource.gd" id="1_cefrg"]
+[ext_resource type="Texture2D" uid="uid://bmv7gcgrqo43e" path="res://sprites/Resources/Iron.png" id="1_ogigg"]
+[ext_resource type="Texture2D" uid="uid://dvi540areu8k7" path="res://sprites/Resources/crafted_iron.png" id="3_so06f"]
+
+[resource]
+script = ExtResource("1_cefrg")
+name = "iron"
+sprite = ExtResource("3_so06f")
+type = 2
+action_type = 0
+time = 7.0
+resource_point_txture = ExtResource("1_ogigg")

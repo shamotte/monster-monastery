@@ -20,6 +20,7 @@ name = "Imp"
 sprite = ExtResource("3_ncg6l")
 resource_cost = Array[ExtResource("1_njmyt")]([SubResource("Resource_xuc28"), SubResource("Resource_f7ppk")])
 speed = 120.0
+type = 4
 work_range = 10.0
 work_speed = 1.0
 cooldown = 0.5

@@ -1,7 +1,7 @@
 extends Node2D
 class_name Res
 
-@export var resource_type: Global.RESOURCE
+@export var resource_type: ResourceResource.RESOURCE
 @export var resource_count_initial: int = 3
 var resource_count = resource_count_initial
 

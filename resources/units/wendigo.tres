@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=5 format=3 uid="uid://clgaoeh44guir"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=5 format=3 uid="uid://csmp48cci520m"]
 
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4j8p6"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_741ak"]
@@ -15,6 +15,7 @@ name = "Wendigo"
 sprite = ExtResource("3_7qlnt")
 resource_cost = Array[ExtResource("1_4j8p6")]([SubResource("Resource_xuc28")])
 speed = 70.0
+type = 5
 work_range = 20.0
 work_speed = 1.5
 cooldown = 2.0

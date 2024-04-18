@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ResourceResource" load_steps=4 format=3 uid="uid://b48lqdtxrtqvc"]
+
+[ext_resource type="Texture2D" uid="uid://bfnoljyq85d56" path="res://sprites/Resources/gold.png" id="1_5dfqk"]
+[ext_resource type="Script" path="res://resources/resource_resource.gd" id="1_411km"]
+[ext_resource type="Texture2D" uid="uid://c7bjgg1ko3kc4" path="res://sprites/Resources/crafted_gold.png" id="3_j5w4n"]
+
+[resource]
+script = ExtResource("1_411km")
+name = "gold"
+sprite = ExtResource("3_j5w4n")
+type = 3
+action_type = 0
+time = 7.0
+resource_point_txture = ExtResource("1_5dfqk")

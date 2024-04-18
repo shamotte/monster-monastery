@@ -15,6 +15,7 @@ name = "Red Slime"
 sprite = ExtResource("3_nl6uf")
 resource_cost = Array[ExtResource("1_whue1")]([SubResource("Resource_xuc28")])
 speed = 300.0
+type = 1
 work_range = 10.0
 work_speed = 0.4
 cooldown = 0.1

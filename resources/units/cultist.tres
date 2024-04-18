@@ -20,6 +20,7 @@ name = "Cultist"
 sprite = ExtResource("3_el42l")
 resource_cost = Array[ExtResource("1_uc236")]([SubResource("Resource_xuc28"), SubResource("Resource_xllqu")])
 speed = 80.0
+type = 3
 work_range = 50.0
 work_speed = 0.5
 cooldown = 2.0

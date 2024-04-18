@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_ydptk"]
 [ext_resource type="Script" path="res://resources/recipe_resource.gd" id="2_sk3b0"]
 [ext_resource type="Script" path="res://resources/building_resource.gd" id="3_0rpa6"]
-[ext_resource type="Texture2D" uid="uid://btl34e4syhs4c" path="res://sprites/Buildings/tentacles.png" id="4_tgwh3"]
+[ext_resource type="Texture2D" uid="uid://btl34e4syhs4c" path="res://sprites/Buildings/Tentacles.png" id="4_tgwh3"]
 
 [sub_resource type="Resource" id="Resource_rwg1d"]
 script = ExtResource("1_ydptk")
@@ -34,6 +34,7 @@ count = 1
 [resource]
 script = ExtResource("3_0rpa6")
 name = "Tentacle Field"
+type = 5
 sprite = ExtResource("4_tgwh3")
 resource_cost = Array[ExtResource("1_ydptk")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
 recipes = Array[ExtResource("2_sk3b0")]([SubResource("Resource_i1ulp")])

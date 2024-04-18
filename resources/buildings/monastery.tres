@@ -39,6 +39,7 @@ count = 6
 [resource]
 script = ExtResource("3_k78fp")
 name = "Monastery"
+type = 6
 sprite = ExtResource("4_x5336")
 resource_cost = Array[ExtResource("1_7it2u")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
 recipes = Array[ExtResource("2_u413d")]([SubResource("Resource_i1ulp")])

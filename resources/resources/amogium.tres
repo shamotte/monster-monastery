@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ResourceResource" load_steps=3 format=3 uid="uid://wnuogwntl5py"]
+
+[ext_resource type="Script" path="res://resources/resource_resource.gd" id="1_ksnxm"]
+[ext_resource type="Texture2D" uid="uid://tt6cc4pm7if6" path="res://sprites/Resources/Amongium.png" id="2_deiuc"]
+
+[resource]
+script = ExtResource("1_ksnxm")
+name = "amogium"
+sprite = ExtResource("2_deiuc")
+type = 8
+action_type = 0
+time = 10.0

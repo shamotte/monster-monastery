@@ -20,6 +20,7 @@ name = "Cemon"
 sprite = ExtResource("3_tjvec")
 resource_cost = Array[ExtResource("1_mr1rg")]([SubResource("Resource_xuc28"), SubResource("Resource_xllqu")])
 speed = 50.0
+type = 6
 work_range = 10.0
 work_speed = 0.8
 cooldown = 1.0

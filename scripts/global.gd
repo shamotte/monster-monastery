@@ -8,50 +8,14 @@ var volume: float = 1.0
 var unit_count = 0
 var wave_count = 0
 
-var ITEM_OFFSET = 1000
 
-var resources = {
-	RESOURCE.WOOD: {
-		"name": "Wood", "sprite": preload("res://sprites/Resources/wood.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 2.0, "resource_point_texture": preload("res://sprites/Resources/tree.png")
-	},
-	RESOURCE.ROCK: {
-		"name": "Rock", "sprite": preload("res://sprites/Resources/rockium.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 3.0, "resource_point_texture": preload("res://sprites/Resources/rock.png")	
-	},
-	RESOURCE.IRON: {
-		"name": "Iron", "sprite": preload("res://sprites/Resources/crafted_iron.png"), "type" : Priorities.ACTIONTYPES.GATHER,
-		"time" : 7.0, "resource_point_texture": preload("res://sprites/Resources/Iron.png")
-	},
-	RESOURCE.GOLD: {
-		"name": "Gold", "sprite": preload("res://sprites/Resources/crafted_gold.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gold.png")
-	},
-	RESOURCE.GEM: {
-		"name": "Gem", "sprite": preload("res://sprites/Resources/green_gem.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/gem_stone.png")
-	},
-	RESOURCE.HELLIUM: {
-		"name": "Helium", "sprite": preload("res://sprites/Resources/hellium.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 10.0, "resource_point_texture": null
-	},
-	RESOURCE.OBSIDIANUM: {
-		"name": "Obsidianium", "sprite": preload("res://sprites/Resources/obsidianium.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 10.0, "resource_point_texture": preload("res://sprites/Resources/Obsidianium_rock.png")
-	},
-	RESOURCE.COPIUM: {
-		"name": "Copium", "sprite": preload("res://sprites/Resources/Copium1.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 10.0, "resource_point_texture": null
-	},
-	RESOURCE.AMONGIUM: {
-		"name": "Amongium", "sprite": preload("res://sprites/Resources/Amongium.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 10.0, "resource_point_texture": null
-	},
-	RESOURCE.FOOD: {
-		"name": "Food", "sprite": preload("res://sprites/Resources/yummy.png"), "type" : Priorities.ACTIONTYPES.GATHER
-		,"time" : 2.0, "resource_point_texture": null
-	}
-}
+
+var resources:Array[ResourceResource] = []
+var units:Array[UnitResource]= []
+var buildings: Array[BuildingResource]= []
+
+
+
 
 
 
@@ -62,8 +26,7 @@ var current_resources = {}
 
 
 
-var buildings = {
-}
+
 
 @export var work_range = 10
 @export var work_speed = 1
@@ -126,47 +89,84 @@ var enemies = {
 	
 }
 
+func dir_contents(directory :String, extension:String) -> Array[String]:
+	var dir = DirAccess.open(directory)
+	if !dir:
+		print("cannot open directory:", directory, " to load files")
+		return []
+	
+	var files : Array[String] = []
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		if file_name.ends_with(extension):
+			#if file_name.ends_with(".remap"):
+			#	file_name = file_name.replace(".remap","")
+			#print(file_name)
+			files.push_back(file_name)
+			
+		file_name = dir.get_next()
+	return files
+	
+func load_resources_to_array(array : Array,directory,extension):
+	var files :Array[String] = dir_contents(directory,extension)
+	array.resize(len(files))
+	var x = 0
+	for i in range(len(files) ):
+		var file = ResourceLoader.load(directory + files[i])
+		if file!= null:
+			array[file.type] = file
+			x+=1
+	print("LOADED ",x, " resources from directory :",directory)
+		
+
+
 func _ready():
-	for r in resources:
-		current_resources[r] = 0
+	load_resources_to_array(resources,"res://resources/resources/","tres")
+	load_resources_to_array(buildings,"res://resources/buildings/","tres")
+	load_resources_to_array(units,"res://resources/units/","tres")
+
+	
+	#for r in resources:
+		#current_resources[r] = 0
 	#Startign Resources
-	current_resources[RESOURCE.WOOD] = 10
-	current_resources[RESOURCE.ROCK] = 10
-	current_resources[RESOURCE.IRON] = 4
-	current_resources[RESOURCE.GOLD] = 4
-	current_resources[RESOURCE.GEM] = 2
-	current_resources[RESOURCE.HELLIUM] = 1
-	current_resources[RESOURCE.OBSIDIANUM] = 5
-	current_resources[RESOURCE.COPIUM] = 1
-	current_resources[RESOURCE.AMONGIUM] = 1
-	current_resources[RESOURCE.FOOD] = 10
+	#current_resources[RESOURCE.WOOD] = 10
+	#current_resources[RESOURCE.ROCK] = 10
+	#current_resources[RESOURCE.IRON] = 4
+	#current_resources[RESOURCE.GOLD] = 4
+	#current_resources[RESOURCE.GEM] = 2
+	#current_resources[RESOURCE.HELLIUM] = 1
+	#current_resources[RESOURCE.OBSIDIANUM] = 5
+	#current_resources[RESOURCE.COPIUM] = 1
+	#current_resources[RESOURCE.AMONGIUM] = 1
+	#current_resources[RESOURCE.FOOD] = 10
 
-func _process(delta):
-	if Input.is_action_just_pressed("fullscreen"):
-		var get_mode = DisplayServer.window_get_mode()
-		if get_mode != DisplayServer.WINDOW_MODE_FULLSCREEN and get_mode != DisplayServer.WINDOW_MODE_MAXIMIZED:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	
-func add_resources(resource : RESOURCE, count : int):
-	if current_resources.has(resource):
-		current_resources[resource] += count
-	else:
-		current_resources[resource] = count
-	
-func subtract_resources(resource : RESOURCE, count : int) -> bool:
-	if current_resources.has(resource):
-		if current_resources[resource] >=count:
-			current_resources[resource] -= count
-			return true
-		else:
-			return false
-	else:
-		return false
-
-func get_resource_count(resource : RESOURCE) -> int:
-	if current_resources.has(resource):
-		return current_resources[resource]
-	else:
-		return 0
+#func _process(delta):
+	#if Input.is_action_just_pressed("fullscreen"):
+		#var get_mode = DisplayServer.window_get_mode()
+		#if get_mode != DisplayServer.WINDOW_MODE_FULLSCREEN and get_mode != DisplayServer.WINDOW_MODE_MAXIMIZED:
+			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		#else:
+			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	#
+#func add_resources(resource : RESOURCE, count : int):
+	#if current_resources.has(resource):
+		#current_resources[resource] += count
+	#else:
+		#current_resources[resource] = count
+	#
+#func subtract_resources(resource : RESOURCE, count : int) -> bool:
+	#if current_resources.has(resource):
+		#if current_resources[resource] >=count:
+			#current_resources[resource] -= count
+			#return true
+		#else:
+			#return false
+	#else:
+		#return false
+#
+#func get_resource_count(resource : RESOURCE) -> int:
+	#if current_resources.has(resource):
+		#return current_resources[resource]
+	#else:
+		#return 0
