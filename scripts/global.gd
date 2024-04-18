@@ -157,5 +157,5 @@ func subtract_resources(resources: Array[ResourceStack]):
 		current_resources[resource.type] -= resource.count
 	return true	
 #
-func get_resource_count(resource_type : ResourceResource.RESOURCE) -> int:
-	return current_resources[resource_type]
+func get_resource_count(resource_type : ResourceResource) -> int:
+	return current_resources[resource_type.type]
