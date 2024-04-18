@@ -1,6 +1,7 @@
 extends Node
 
 var selected_building = -1
+@export var building:BuildingResource
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -10,7 +11,7 @@ func _process(delta):
 		UnselectObject()
 	if selected_building != -1:
 		$"../../CursorSprite".position = mousePosition()
-		$"../../CursorSprite".texture = Global.buildings[selected_building]["sprite"]
+		$"../../CursorSprite".texture = building.sprite
 	else:
 		$"../../CursorSprite".global_position = mousePosition()
 
@@ -21,8 +22,12 @@ func build_building(position):
 		if Cursor.is_overalaping():
 			return
 		#paying for building
+		#stare
 		for i in range(Global.buildings[selected_building]["resource_type"].size()):
 			Global.current_resources[Global.buildings[selected_building]["resource_type"][i]] -= Global.buildings[selected_building]["resource_cost"][i]
+		# nowe
+		Global.subtract_resources(building.resource_cost)
+		
 		#Summoning Object
 		var newBuilding = Global.buildings[selected_building]["object"].instantiate()
 		#newBuilding.set_texture(Global.buildings[selected_building]["sprite"])

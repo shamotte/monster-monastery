@@ -132,6 +132,8 @@ func _ready():
 	current_resources[ResourceResource.RESOURCE.COPIUM] = 1
 	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 1
 	current_resources[ResourceResource.RESOURCE.FOOD] = 10
+	
+	print(subtract_resources([ResourceStack.new(ResourceResource.RESOURCE.FOOD,10),ResourceStack.new(ResourceResource.RESOURCE.OBSIDIANUM,3)]))
 
 #func _process(delta):
 	#if Input.is_action_just_pressed("fullscreen"):
@@ -156,5 +158,5 @@ func subtract_resources(resources: Array[ResourceStack]):
 		current_resources[resource.type] -= resource.count
 	return true	
 #
-func get_resource_count(resource_type : ResourceResource.RESOURCE) -> int:
-	return current_resources[resource_type]
+func get_resource_count(resource_type : ResourceResource) -> int:
+	return current_resources[resource_type.type]
