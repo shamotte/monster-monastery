@@ -11,12 +11,12 @@ var wave_count = 0
 
 
 
-var resources:Array[ResourceResource] = []
-var units:Array[UnitResource]= []
-var buildings: Array[BuildingResource]= []
+var resources: Array[ResourceResource] = []
+var units: Array[UnitResource] = []
+var buildings: Array[BuildingResource] = []
 
 
-var current_resources:Array[int] = []
+var current_resources: Array[int] = []
 
 
 @export var work_range = 10
@@ -119,6 +119,8 @@ func _ready():
 	load_resources_to_array(resources,"res://resources/resources/","tres")
 	load_resources_to_array(buildings,"res://resources/buildings/","tres")
 	load_resources_to_array(units,"res://resources/units/","tres")
+
+	current_resources.resize(ResourceResource.RESOURCE.NORESOURCE)
 
 	current_resources[ResourceResource.RESOURCE.WOOD] = 10
 	current_resources[ResourceResource.RESOURCE.ROCK] = 10

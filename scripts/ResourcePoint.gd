@@ -3,15 +3,15 @@ class_name Res
 
 @export var resource_count_initial: int = 3
 var resource_count = resource_count_initial
-@export var type:ResourceResource
-@onready var id =  Priorities.get_id()
+@export var type: ResourceResource = preload("res://resources/resources/wood.tres")
+@onready var id = Priorities.get_id()
 
 func action_finished():
 	if resource_count <= 0:
 		return
 		
 	resource_count-=1;
-	Global.add_resources(resource_type, 1)
+	Global.add_resources([ResourceStack.new(type,1)])
 	
 	if resource_count < resource_count_initial:
 		$Health.visible = true
@@ -33,7 +33,7 @@ func add_self_to_available_actions():
 	#Priorities.add_action(Global.resources[resource_type].type,id,get_node("."),Global.resources[resource_type].time)
 	
 func _ready():
-	$Sprite2D.texture = type.sprite
+	$Sprite2D.texture = type.resource_point_txture
 	add_self_to_available_actions()
 	
 	$AnimationPlayer.play("spawn")

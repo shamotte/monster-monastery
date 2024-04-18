@@ -9,11 +9,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var slotnum = 0
 	for i in building.resource_cost:
 		if Global.current_resources[i.type] < i.count:
-			c[i].get_node("Count").modulate = "#cc425e"
+			c[slotnum].get_node("Count").modulate = "#cc425e"
 		else:
-			c[i].get_node("Count").modulate = "#ffffff"
+			c[slotnum].get_node("Count").modulate = "#ffffff"
+		slotnum += 1
 	
 	#for i in range(Global.buildings[building]["resource_type"].size()):
 	#	if Global.current_resources[ Global.buildings[building]["resource_type"][i] ] < Global.buildings[building]["resource_cost"][i]:

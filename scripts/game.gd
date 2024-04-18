@@ -12,22 +12,21 @@ var resource_info
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for r in Global.current_resources:
+	for r in Global.resources:
 		var s = resource_slot.instantiate()
-		s.get_node("Sprite").texture = Global.resources[r]["sprite"]
-		s.get_node("Count").text = str(Global.current_resources[r])
+		s.get_node("Sprite").texture = r.sprite
+		s.get_node("Count").text = str(Global.get_resource_count(r.type))
 		$UI/UI/Resources.add_child(s)
 	resource_info = $UI/UI/Resources.get_children() 
 		
 	for i in Global.buildings:
 		var s = building_slot.instantiate()
-		s.get_node("Building").texture = Global.buildings[i]["sprite"]
-		s.get_node("Name").text = str(Global.buildings[i]["name"])
+		s.get_node("Building").texture = i.sprite
+		s.get_node("Name").text = i.name
 		s.building = i
-		for j in range(Global.buildings[i]["resource_type"].size()):
+		for j in i.resource_cost:
 			var c = building_cost.instantiate()
-			c.get_node("Sprite").texture = Global.resources[Global.buildings[i]["resource_type"][j]]["sprite"]
-			c.get_node("Count").text = str(Global.buildings[i]["resource_cost"][j])
+			c.stack = j
 			s.get_node("Cost").add_child(c)
 			
 		$UI/UI/Building/Panel/BuildingsList/GridContainer.add_child(s)
