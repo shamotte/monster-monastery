@@ -119,7 +119,8 @@ func _ready():
 	load_resources_to_array(resources,"res://resources/resources/","tres")
 	load_resources_to_array(buildings,"res://resources/buildings/","tres")
 	load_resources_to_array(units,"res://resources/units/","tres")
-
+	current_resources.resize(ResourceResource.RESOURCE.NORESOURCE)
+	print(len(current_resources))
 	current_resources[ResourceResource.RESOURCE.WOOD] = 10
 	current_resources[ResourceResource.RESOURCE.ROCK] = 10
 	current_resources[ResourceResource.RESOURCE.IRON] = 4
@@ -130,6 +131,8 @@ func _ready():
 	current_resources[ResourceResource.RESOURCE.COPIUM] = 1
 	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 1
 	current_resources[ResourceResource.RESOURCE.FOOD] = 10
+	
+	print(subtract_resources([ResourceStack.new(ResourceResource.RESOURCE.FOOD,10),ResourceStack.new(ResourceResource.RESOURCE.OBSIDIANUM,3)]))
 
 #func _process(delta):
 	#if Input.is_action_just_pressed("fullscreen"):
