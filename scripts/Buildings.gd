@@ -22,10 +22,6 @@ func build_building(position):
 		if Cursor.is_overalaping():
 			return
 		#paying for building
-		#stare
-		for i in range(Global.buildings[selected_building]["resource_type"].size()):
-			Global.current_resources[Global.buildings[selected_building]["resource_type"][i]] -= Global.buildings[selected_building]["resource_cost"][i]
-		# nowe
 		Global.subtract_resources(building.resource_cost)
 		
 		#Summoning Object

@@ -7,7 +7,7 @@ var camera :Camera2D
 func update_priority(index:int,new_value : int):
 	if active_selection != null:
 		#print("ad")
-		if active_selection is unit:
+		if active_selection is Unit:
 			active_selection.priorities[index] = new_value
 			#print("writing new priority")
 		if active_selection is buildingObject:
@@ -49,7 +49,7 @@ func _input(event):
 
 
 
-func unit_selection(object : unit):
+func unit_selection(object : Unit):
 	$PreviewPanel/HPTexture.visible = true
 	%UnitName.text = Global.units[object.type].name
 	%HP.visible = true

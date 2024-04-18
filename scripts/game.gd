@@ -15,7 +15,7 @@ func _ready():
 	for r in Global.resources:
 		var s = resource_slot.instantiate()
 		s.get_node("Sprite").texture = r.sprite
-		s.get_node("Count").text = str(Global.get_resource_count(r.type))
+		s.get_node("Count").text = str(Global.get_resource_count(r))
 		$UI/UI/Resources.add_child(s)
 	resource_info = $UI/UI/Resources.get_children() 
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=25 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
+[ext_resource type="Resource" uid="uid://c4f7ps81w2mm8" path="res://resources/units/imp.tres" id="7_4mpls"]
 [ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
 [ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="7_f0igd"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
@@ -73,7 +74,7 @@ script = ExtResource("5_smeyy")
 
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
 position = Vector2(-103, -85)
-work_range = 15
+unit = ExtResource("7_4mpls")
 
 [node name="Resources" type="Node2D" parent="GameSpace"]
 y_sort_enabled = true
