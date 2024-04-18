@@ -10,22 +10,13 @@ var wave_count = 0
 
 
 
+
 var resources:Array[ResourceResource] = []
 var units:Array[UnitResource]= []
 var buildings: Array[BuildingResource]= []
 
 
-
-
-
-
-var current_resources = {}
-
-
-
-
-
-
+var current_resources:Array[int] = []
 
 
 @export var work_range = 10
@@ -35,6 +26,9 @@ var current_resources = {}
 @export var max_hp = 100
 @export var cooldown = 2.0
 @export var fight_range = 30
+
+
+
 
 enum ENEMY {SLIME,WENDIGO,PEASANT,PRIEST,KNIGHT,HORSEMAN}
 var enemies = {
@@ -100,9 +94,9 @@ func dir_contents(directory :String, extension:String) -> Array[String]:
 	var file_name = dir.get_next()
 	while file_name != "":
 		if file_name.ends_with(extension):
-			#if file_name.ends_with(".remap"):
-			#	file_name = file_name.replace(".remap","")
-			#print(file_name)
+			if file_name.ends_with(".remap"):
+				file_name = file_name.replace(".remap","")
+				print(file_name)
 			files.push_back(file_name)
 			
 		file_name = dir.get_next()
@@ -126,20 +120,16 @@ func _ready():
 	load_resources_to_array(buildings,"res://resources/buildings/","tres")
 	load_resources_to_array(units,"res://resources/units/","tres")
 
-	
-	#for r in resources:
-		#current_resources[r] = 0
-	#Startign Resources
-	#current_resources[RESOURCE.WOOD] = 10
-	#current_resources[RESOURCE.ROCK] = 10
-	#current_resources[RESOURCE.IRON] = 4
-	#current_resources[RESOURCE.GOLD] = 4
-	#current_resources[RESOURCE.GEM] = 2
-	#current_resources[RESOURCE.HELLIUM] = 1
-	#current_resources[RESOURCE.OBSIDIANUM] = 5
-	#current_resources[RESOURCE.COPIUM] = 1
-	#current_resources[RESOURCE.AMONGIUM] = 1
-	#current_resources[RESOURCE.FOOD] = 10
+	current_resources[ResourceResource.RESOURCE.WOOD] = 10
+	current_resources[ResourceResource.RESOURCE.ROCK] = 10
+	current_resources[ResourceResource.RESOURCE.IRON] = 4
+	current_resources[ResourceResource.RESOURCE.GOLD] = 4
+	current_resources[ResourceResource.RESOURCE.GEM] = 2
+	current_resources[ResourceResource.RESOURCE.HELLIUM] = 1
+	current_resources[ResourceResource.RESOURCE.OBSIDIANUM] = 5
+	current_resources[ResourceResource.RESOURCE.COPIUM] = 1
+	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 1
+	current_resources[ResourceResource.RESOURCE.FOOD] = 10
 
 #func _process(delta):
 	#if Input.is_action_just_pressed("fullscreen"):
@@ -148,25 +138,21 @@ func _ready():
 			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		#else:
 			#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	#
-#func add_resources(resource : RESOURCE, count : int):
-	#if current_resources.has(resource):
-		#current_resources[resource] += count
-	#else:
-		#current_resources[resource] = count
-	#
-#func subtract_resources(resource : RESOURCE, count : int) -> bool:
-	#if current_resources.has(resource):
-		#if current_resources[resource] >=count:
-			#current_resources[resource] -= count
-			#return true
-		#else:
-			#return false
-	#else:
-		#return false
+	
+func add_resources(resources: Array[ResourceStack]) -> void:
+	for resource in resources:
+		current_resources[resource.type] += resource.count
+	
+		
+	
+	
+func subtract_resources(resources: Array[ResourceStack]):
+	for resource in resources:
+		if current_resources[resource.type] < resource.count:
+			return false
+	for resource in resources:
+		current_resources[resource.type] -= resource.count
+	return true	
 #
-#func get_resource_count(resource : RESOURCE) -> int:
-	#if current_resources.has(resource):
-		#return current_resources[resource]
-	#else:
-		#return 0
+func get_resource_count(resource_type : ResourceResource.RESOURCE) -> int:
+	return current_resources[resource_type]

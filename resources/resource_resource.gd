@@ -1,7 +1,8 @@
 extends Resource
 class_name ResourceResource
 
-enum RESOURCE {WOOD, ROCK, IRON, GOLD, GEM, HELLIUM, OBSIDIANUM , COPIUM, AMONGIUM,FOOD}
+enum RESOURCE {WOOD, ROCK, IRON, GOLD, GEM, HELLIUM, OBSIDIANUM , COPIUM, AMONGIUM,FOOD,NORESOURCE}
+#noresource must by the last element in enum to ensure correct loading
 @export_group("Resource")
 @export var name:String
 @export var sprite:CompressedTexture2D

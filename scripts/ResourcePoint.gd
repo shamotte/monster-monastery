@@ -1,10 +1,9 @@
 extends Node2D
 class_name Res
 
-@export var resource_type: ResourceResource.RESOURCE
 @export var resource_count_initial: int = 3
 var resource_count = resource_count_initial
-
+@export var type:ResourceResource
 @onready var id =  Priorities.get_id()
 
 func action_finished():
@@ -30,11 +29,11 @@ func action_finished():
 	
 
 func add_self_to_available_actions():
-	
-	Priorities.add_action(Global.resources[resource_type].type,id,get_node("."),Global.resources[resource_type].time)
+	pass
+	#Priorities.add_action(Global.resources[resource_type].type,id,get_node("."),Global.resources[resource_type].time)
 	
 func _ready():
-	$Sprite2D.texture = Global.resources[resource_type]["resource_point_texture"]
+	$Sprite2D.texture = type.sprite
 	add_self_to_available_actions()
 	
 	$AnimationPlayer.play("spawn")
