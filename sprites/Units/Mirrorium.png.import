@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgrp51r2jbsyb"
-path="res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"
+uid="uid://b1my6j3bvh0k2"
+path="res://.godot/imported/Mirrorium.png-a59995baff7287eba3892542a02b8fde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/axe32.png"
-dest_files=["res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"]
+source_file="res://sprites/Units/Mirrorium.png"
+dest_files=["res://.godot/imported/Mirrorium.png-a59995baff7287eba3892542a02b8fde.ctex"]
 
 [params]
 
