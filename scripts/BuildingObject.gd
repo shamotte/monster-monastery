@@ -26,12 +26,14 @@ func _process(delta):
 		if to_craft>0:
 			#for i in range(Global.buildings[building]["resource_type"].size()):
 			#	if Global.current_resources[ Global.buildings[building]["resource_type"][i] ] < Global.buildings[building]["resource_cost"][i]:
-			for i in recipe.input:	
-				if i.count > Global.get_resource_count(i.type):
-					return
+			#for i in building.recipes[0].input:	
+			#	print(i)
+				#if i.count > Global.get_resource_count(i.type):
+				#	return
 			
-			Global.check_and_subtract_resources(recipe.input)
-			
+			if !Global.check_and_subtract_resources(recipe.input):
+				return
+			#TODO trochę nie jestem pewny czy tak to powyżej powinno być
 			Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
 			to_craft-=1
 			busy = true

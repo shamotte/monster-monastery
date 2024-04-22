@@ -34,8 +34,8 @@ func _ready():
 		
 	for i in Global.units:
 		var s = unit_slot.instantiate()
+		s.set_parameters(i)
 		#s.get_node("UnitIcon").texture = i.sprite
-		s.unit = i
 		$UI/UI/Building/Panel/SpawnList/GridContainer.add_child(s)
 		
 		

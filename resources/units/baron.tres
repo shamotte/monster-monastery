@@ -16,7 +16,7 @@ count = 5
 
 [resource]
 script = ExtResource("2_psqdg")
-unit_name = "Baron"
+name = "Baron"
 sprite = ExtResource("3_2dobk")
 resource_cost = Array[ExtResource("1_4jpce")]([SubResource("Resource_xuc28"), SubResource("Resource_efghm")])
 speed = 66.0

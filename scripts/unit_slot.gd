@@ -6,8 +6,8 @@ var c
 var cost_slot = preload("res://interface/item_slot.tscn")
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	
+func set_parameters(newUnit: UnitResource):
+	unit = newUnit
 	$UnitIcon.texture = unit.sprite
 	$Name.text = unit.name
 
@@ -18,7 +18,6 @@ func _ready():
 	
 	c = $Cost.get_children()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var slotnum = 0
 	for i in unit.resource_cost:
