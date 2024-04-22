@@ -30,7 +30,7 @@ func _process(delta):
 				if i.count > Global.get_resource_count(i.type):
 					return
 			
-			Global.subtract_resources(recipe.input)
+			Global.check_and_subtract_resources(recipe.input)
 			
 			Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
 			to_craft-=1

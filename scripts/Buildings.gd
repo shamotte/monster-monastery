@@ -23,7 +23,7 @@ func build_building(position):
 		if Cursor.is_overalaping():
 			return
 		#paying for building 
-		if !Global.subtract_resources(building.resource_cost):
+		if !Global.check_and_subtract_resources(building.resource_cost):
 			return
 		#Summoning Object
 		var newBuilding = buildingObject.instantiate()

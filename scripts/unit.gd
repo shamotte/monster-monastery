@@ -141,8 +141,10 @@ func target_dead():
 			
 			
 			
-func setStats(unitId):
+func setStats(unit_info : UnitResource):
+	unit = unit_info
 	$Sprite.texture = unit.sprite
+	$Sprite/ItemParent/Item.texture = unit.item
 	#$Sprite/ItemParent/Item.texture = Global.units[unitId]["toolSprite"]
 
 

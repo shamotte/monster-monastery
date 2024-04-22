@@ -16,11 +16,11 @@ count = 5
 
 [resource]
 script = ExtResource("2_psqdg")
-name = "Baron"
+unit_name = "Baron"
 sprite = ExtResource("3_2dobk")
 resource_cost = Array[ExtResource("1_4jpce")]([SubResource("Resource_xuc28"), SubResource("Resource_efghm")])
 speed = 66.0
-type = 9
+type = 10
 work_range = 30.0
 work_speed = 0.2
 cooldown = 2.5

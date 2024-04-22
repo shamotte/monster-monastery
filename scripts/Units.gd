@@ -1,6 +1,8 @@
 extends Node
 
 var selected_unit = -1
+var unit_info : UnitResource
+var unit_object = preload("res://object/unit.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,11 +29,13 @@ func build_unit(position):
 		if Cursor.is_overalaping():
 			return
 		#paying for building
-		for i in range(Global.units[selected_unit]["resource_type"].size()):
-			Global.current_resources[Global.units[selected_unit]["resource_type"][i]] -= Global.units[selected_unit]["resource_cost"][i]
+		Global.subtract_resources(unit_info.resource_cost)
+		#for i in range(Global.units[selected_unit]["resource_type"].size()):
+		#	Global.current_resources[Global.units[selected_unit]["resource_type"][i]] -= Global.units[selected_unit]["resource_cost"][i]
 		#Summoning Object
-		var newUnit = Global.units[selected_unit]["object"].instantiate()
-		newUnit.setStats(selected_unit) 
+		
+		var newUnit = unit_object.instantiate()
+		newUnit.setStats(unit_info) 
 		newUnit.position = position
 		add_child(newUnit)
 		UnselectObject()
@@ -39,10 +43,12 @@ func build_unit(position):
 #set id for unit
 func set_unit_id(id):
 	selected_unit = id
+	unit_info = Global.units[selected_unit]
 	
 func mousePosition():
 	return $"../..".mousePos()
 	
 func UnselectObject():
 	selected_unit = -1
+	unit_info = null
 	$"../../CursorSprite".texture = null

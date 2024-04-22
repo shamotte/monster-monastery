@@ -16,7 +16,7 @@ count = 1
 
 [resource]
 script = ExtResource("1_deutm")
-name = "Cemon"
+unit_name = "Cemon"
 sprite = ExtResource("3_tjvec")
 resource_cost = Array[ExtResource("1_mr1rg")]([SubResource("Resource_xuc28"), SubResource("Resource_xllqu")])
 speed = 50.0

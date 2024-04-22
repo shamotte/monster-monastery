@@ -51,7 +51,7 @@ func _input(event):
 
 func unit_selection(object : Unit):
 	$PreviewPanel/HPTexture.visible = true
-	%UnitName.text = Global.units[object.type].name
+	%UnitName.text = object.name
 	%HP.visible = true
 	%HP.text = str(object.hp)
 	

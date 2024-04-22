@@ -31,11 +31,10 @@ func _process(delta):
 func _on_button_pressed():
 	
 	#checking if player can buy unit
-	for i in unit.resource_cost:
-		if Global.current_resources[i.type] < i.count:
-			return
+	if !Global.check_resources(unit.resource_cost):
+		return
 
 	var manager = get_tree().get_first_node_in_group("Units")
-	manager.set_unit_id(0)
+	manager.set_unit_id(unit.type)
 	var managerUI = get_tree().get_first_node_in_group("BuildingUI")
 	managerUI.hide_panel(true)
