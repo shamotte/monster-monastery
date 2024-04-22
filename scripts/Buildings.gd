@@ -2,7 +2,7 @@ extends Node
 
 var selected_building = -1
 @export var building:BuildingResource
-@export var buildingObject = preload("res://object/building.tscn")
+@export var buildingObject = preload("res://object/tower.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

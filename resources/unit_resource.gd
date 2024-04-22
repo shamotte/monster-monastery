@@ -1,7 +1,7 @@
 extends Resource
 class_name UnitResource
 
-enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,PYTHONUS,LORD,DEMON}
+enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,PYTHONUS,LORD}
 
 @export_group("Basic")
 @export var name:String

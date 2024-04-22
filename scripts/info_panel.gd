@@ -12,7 +12,7 @@ func update_priority(index:int,new_value : int):
 			#print("writing new priority")
 		if active_selection is buildingObject:
 			#print("clock")
-			active_selection.new_walue(new_value)
+			active_selection.new_value(new_value)
 			
 			
 func _ready():
