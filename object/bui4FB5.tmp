@@ -5,9 +5,12 @@
 [sub_resource type="GDScript" id="GDScript_7oqf7"]
 script/source = "extends Node2D
 
+
+# Called when the node enters the scene tree for the first time.
 @onready var id = Priorities.get_id()
 #@export var building_type : Global.BUILDINGS
-var building_parameters : BuildingResource
+#var recipe : Global.RECIPES
+
 
 func _ready():
 	pass
@@ -16,9 +19,6 @@ func _ready():
 func _process(delta):
 	pass
 
-func set_stats(building:BuildingResource):
-	building_parameters = building
-	get_node(\"Sprite2D\").texture = building_parameters.sprite
 	
 "
 

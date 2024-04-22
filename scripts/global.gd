@@ -112,8 +112,6 @@ func load_resources_to_array(array : Array,directory,extension):
 			array[file.type] = file
 			x+=1
 	print("LOADED ",x, " resources from directory :",directory)
-		
-
 
 func _ready():
 	load_resources_to_array(resources,"res://resources/resources/","tres")
