@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgrp51r2jbsyb"
-path="res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"
+uid="uid://cjulwpdema5q"
+path="res://.godot/imported/Archer.png-7d3e6c2e062f0e68def537dedb7ac263.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/axe32.png"
-dest_files=["res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"]
+source_file="res://sprites/Units/Archer.png"
+dest_files=["res://.godot/imported/Archer.png-7d3e6c2e062f0e68def537dedb7ac263.ctex"]
 
 [params]
 

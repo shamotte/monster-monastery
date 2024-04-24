@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgrp51r2jbsyb"
-path="res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"
+uid="uid://f2oaud76xey6"
+path="res://.godot/imported/hut.png-d09d607b32167d5fd3321669420d55be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/axe32.png"
-dest_files=["res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"]
+source_file="res://sprites/Buildings/hut.png"
+dest_files=["res://.godot/imported/hut.png-d09d607b32167d5fd3321669420d55be.ctex"]
 
 [params]
 

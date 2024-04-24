@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgrp51r2jbsyb"
-path="res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"
+uid="uid://dy71ogoujcp71"
+path="res://.godot/imported/WallOfEyes.png-6f926d30d4a4fc4014787e0f59c52efd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/axe32.png"
-dest_files=["res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"]
+source_file="res://sprites/Units/WallOfEyes.png"
+dest_files=["res://.godot/imported/WallOfEyes.png-6f926d30d4a4fc4014787e0f59c52efd.ctex"]
 
 [params]
 

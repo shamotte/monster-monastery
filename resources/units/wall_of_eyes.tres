@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=6 format=3 uid="uid://ccj4vke4uchnq"]
+
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_d7efq"]
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="1_xc45k"]
+[ext_resource type="Texture2D" uid="uid://dy71ogoujcp71" path="res://sprites/Units/WallOfEyes.png" id="3_y1e5a"]
+
+[sub_resource type="Resource" id="Resource_lvk6d"]
+script = ExtResource("1_d7efq")
+type = 5
+count = 1
+
+[sub_resource type="Resource" id="Resource_iliqo"]
+script = ExtResource("1_d7efq")
+type = 4
+count = 3
+
+[resource]
+script = ExtResource("1_xc45k")
+name = "Wall of eyes"
+sprite = ExtResource("3_y1e5a")
+resource_cost = Array[ExtResource("1_d7efq")]([SubResource("Resource_lvk6d"), SubResource("Resource_iliqo")])
+speed = 40.0
+type = 9
+work_range = 30.0
+work_speed = 0.8
+cooldown = 0.1
+hp = 30.0
+damage = 1.0
+fight_range = 70.0

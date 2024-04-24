@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2yffou2huuq3"
-path="res://.godot/imported/Monastery.png-cbf11c2289cbc2f78139a7de0dfa8efc.ctex"
+uid="uid://dp654hilxmg75"
+path="res://.godot/imported/CraftJob.png-66d51fca157180e31d5b1cb0b5a4fae8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Units/Monastery.png"
-dest_files=["res://.godot/imported/Monastery.png-cbf11c2289cbc2f78139a7de0dfa8efc.ctex"]
+source_file="res://sprites/UI/CraftJob.png"
+dest_files=["res://.godot/imported/CraftJob.png-66d51fca157180e31d5b1cb0b5a4fae8.ctex"]
 
 [params]
 

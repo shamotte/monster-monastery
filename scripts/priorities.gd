@@ -37,6 +37,7 @@ class action:
 		id = i
 		node = n
 		time = ti
+	
 
 var aveilable = [] 
 
@@ -77,6 +78,9 @@ func get_action(a)->action:
 	mutex.unlock()
 	return null
 	
+
+func get_best_action(unit : Unit):
+	return aveilable.pop_front()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

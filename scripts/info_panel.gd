@@ -12,7 +12,7 @@ func update_priority(index:int,new_value : int):
 			#print("writing new priority")
 		if active_selection is buildingObject:
 			#print("clock")
-			active_selection.new_walue(new_value)
+			active_selection.new_value(new_value)
 			
 			
 func _ready():
@@ -51,11 +51,11 @@ func _input(event):
 
 func unit_selection(object : Unit):
 	$PreviewPanel/HPTexture.visible = true
-	%UnitName.text = Global.units[object.type].name
+	%UnitName.text = object.unit.name
 	%HP.visible = true
-	%HP.text = str(object.hp)
+	%HP.text = str(object.unit.hp)
 	
-	%preview_icon.texture = object.get_node("Sprite").texture
+	%preview_icon.texture = object.unit.sprite
 	%PriorityBoxes.visible = true
 	%RecepiePanel.visible = false
 	active_selection = object
@@ -79,7 +79,7 @@ func building_selection(object : buildingObject):
 	%RecepiePanel.visible = true
 	%HP.visible = false
 	$PreviewPanel/HPTexture.visible = false
-	%preview_icon.texture = object.get_node("Sprite2D").texture
+	%preview_icon.texture = object.building.sprite
 	%UnitName.text = object.building.name
 	%Cou.change_priority(object.to_craft)
 	var recipe = object.recipe
@@ -87,19 +87,20 @@ func building_selection(object : buildingObject):
 		chil.queue_free()
 	for chil in %benefit.get_children():
 		chil.queue_free()
-	for igr in Global.recipes[recipe].ingredients:
+	#TODO żeby dało się więcej craftingów
+	#Required ingriedients
+	for igr in object.building.recipes[0].input: 
 		var x = resource_icon.instantiate()
-		x.get_node("Sprite").texture= Global.resources[igr[0]].sprite
-		x.get_node("Count").text = str(igr[1])
+		x.get_node("Sprite").texture = Global.resources[igr.type].sprite
+		x.get_node("Count").text = str(igr.count)
 		%ingred.add_child(x)
-	for res in Global.recipes[recipe].results:
+	#result 
+	for res in object.building.recipes[0].output: 
 		var x = resource_icon.instantiate()
-		x.get_node("Sprite").texture= Global.resources[res[0]].sprite
-		x.get_node("Count").text = str(res[1])
+		x.get_node("Sprite").texture= Global.resources[res.type].sprite
+		x.get_node("Count").text = str(res.count)
 		%benefit.add_child(x)
-	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pointer.global_position = $"../../..".mousePos()
 	

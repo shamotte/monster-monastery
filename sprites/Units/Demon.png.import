@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgrp51r2jbsyb"
-path="res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"
+uid="uid://ceyduwfxso18j"
+path="res://.godot/imported/Demon.png-cfd250574629551f66e4bc39cb1c936c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/axe32.png"
-dest_files=["res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"]
+source_file="res://sprites/Units/Demon.png"
+dest_files=["res://.godot/imported/Demon.png-cfd250574629551f66e4bc39cb1c936c.ctex"]
 
 [params]
 

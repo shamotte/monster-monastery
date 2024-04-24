@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgrp51r2jbsyb"
-path="res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"
+uid="uid://cf3i45qsyjdsn"
+path="res://.godot/imported/RestJob.png-98d3631d53160c5706d23448f4a6b3a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/axe32.png"
-dest_files=["res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"]
+source_file="res://sprites/UI/RestJob.png"
+dest_files=["res://.godot/imported/RestJob.png-98d3631d53160c5706d23448f4a6b3a3.ctex"]
 
 [params]
 

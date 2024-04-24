@@ -112,12 +112,10 @@ func load_resources_to_array(array : Array,directory,extension):
 			array[file.type] = file
 			x+=1
 	print("LOADED ",x, " resources from directory :",directory)
-		
-
 
 func _ready():
 	load_resources_to_array(resources,"res://resources/resources/","tres")
-	load_resources_to_array(buildings,"res://resources/buildings/","tres")
+	#load_resources_to_array(buildings,"res://resources/buildings/","tres")
 	load_resources_to_array(units,"res://resources/units/","tres")
 
 	current_resources.resize(ResourceResource.RESOURCE.NORESOURCE)
@@ -133,7 +131,6 @@ func _ready():
 	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 1
 	current_resources[ResourceResource.RESOURCE.FOOD] = 10
 	
-	print(subtract_resources([ResourceStack.new(ResourceResource.RESOURCE.FOOD,10),ResourceStack.new(ResourceResource.RESOURCE.OBSIDIANUM,3)]))
 
 #func _process(delta):
 	#if Input.is_action_just_pressed("fullscreen"):
@@ -145,12 +142,20 @@ func _ready():
 	
 func add_resources(resources: Array[ResourceStack]) -> void:
 	for resource in resources:
-		current_resources[resource.type] += resource.count
+		current_resources[resource.en] += resource.count
 	
-		
-	
-	
+#check is player can buy something
+func check_resources(resources: Array[ResourceStack]) -> bool:
+	for resource in resources:
+		if current_resources[resource.type] < resource.count:
+			return false
+	return true
+#subtract resources
 func subtract_resources(resources: Array[ResourceStack]):
+	for resource in resources:
+			current_resources[resource.type] -= resource.count
+#check and subtract if can pay 
+func check_and_subtract_resources(resources: Array[ResourceStack]) -> bool:
 	for resource in resources:
 		if current_resources[resource.type] < resource.count:
 			return false

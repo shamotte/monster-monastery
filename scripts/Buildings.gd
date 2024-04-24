@@ -2,6 +2,7 @@ extends Node
 
 var selected_building = -1
 @export var building:BuildingResource
+@export var buildingObject = preload("res://object/tower.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,27 +22,26 @@ func build_building(position):
 		var Cursor = get_tree().get_first_node_in_group("CursorOverlaping")
 		if Cursor.is_overalaping():
 			return
-		#paying for building
-		Global.subtract_resources(building.resource_cost)
-		
+		#paying for building 
+		if !Global.check_and_subtract_resources(building.resource_cost):
+			return
 		#Summoning Object
-		var newBuilding = Global.buildings[selected_building]["object"].instantiate()
-		#newBuilding.set_texture(Global.buildings[selected_building]["sprite"])
-		newBuilding.set_stats(selected_building)
-		#newBuilding.set_id(Global.buildings[selected_building]["sprite"])
-		newBuilding.building_type = selected_building
+		var newBuilding = buildingObject.instantiate()
 		newBuilding.position = position
+		newBuilding.set_stats(building)
 		add_child(newBuilding)
 		UnselectObject()
 	
 #set id for building
 func set_building_id(id):
 	selected_building = id
+	building = Global.buildings[selected_building]
 	
 func mousePosition():
 	return $"../..".mousePos()
 	
 func UnselectObject():
 	selected_building = -1
+	building = null
 	$"../../CursorSprite".texture = null
 	 

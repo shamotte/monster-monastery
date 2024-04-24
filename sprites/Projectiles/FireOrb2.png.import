@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgrp51r2jbsyb"
-path="res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"
+uid="uid://p3rpwj04a7sx"
+path="res://.godot/imported/FireOrb2.png-4c5b7316df576f3e3cdb631a8662c3c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/UI/axe32.png"
-dest_files=["res://.godot/imported/axe32.png-893ca973bd2250b8e076fe16c3ed39b0.ctex"]
+source_file="res://sprites/Projectiles/FireOrb2.png"
+dest_files=["res://.godot/imported/FireOrb2.png-4c5b7316df576f3e3cdb631a8662c3c3.ctex"]
 
 [params]
 

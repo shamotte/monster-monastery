@@ -29,8 +29,7 @@ func action_finished():
 	
 
 func add_self_to_available_actions():
-	pass
-	#Priorities.add_action(Global.resources[resource_type].type,id,get_node("."),Global.resources[resource_type].time)
+	Priorities.add_action(type.action_type,id,get_node("."),type.time)
 	
 func _ready():
 	$Sprite2D.texture = type.resource_point_txture

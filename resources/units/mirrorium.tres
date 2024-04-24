@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=7 format=3 uid="uid://dbv064gb2usup"]
+
+[ext_resource type="Texture2D" uid="uid://c2um8m3sjqikh" path="res://sprites/Items/Eye_Staff.png" id="1_swtl3"]
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="2_p5so5"]
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="3_g7cxl"]
+[ext_resource type="Texture2D" uid="uid://b1my6j3bvh0k2" path="res://sprites/Units/Mirrorium.png" id="4_hnefi"]
+
+[sub_resource type="Resource" id="Resource_od5fv"]
+script = ExtResource("2_p5so5")
+type = 8
+count = 1
+
+[sub_resource type="Resource" id="Resource_kemha"]
+script = ExtResource("2_p5so5")
+type = 4
+count = 3
+
+[resource]
+script = ExtResource("3_g7cxl")
+name = "Mirrorium"
+sprite = ExtResource("4_hnefi")
+item = ExtResource("1_swtl3")
+resource_cost = Array[ExtResource("2_p5so5")]([SubResource("Resource_od5fv"), SubResource("Resource_kemha")])
+speed = 80.0
+type = 11
+work_range = 100.0
+work_speed = 0.2
+cooldown = 0.2
+hp = 40.0
+damage = 2.0
+fight_range = 120.0

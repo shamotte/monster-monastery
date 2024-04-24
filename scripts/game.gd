@@ -23,6 +23,7 @@ func _ready():
 		var s = building_slot.instantiate()
 		s.get_node("Building").texture = i.sprite
 		s.get_node("Name").text = i.name
+		s.set_building_id(i.type)
 		s.building = i
 		for j in i.resource_cost:
 			var c = building_cost.instantiate()
@@ -33,7 +34,8 @@ func _ready():
 		
 	for i in Global.units:
 		var s = unit_slot.instantiate()
-		s.unit = load("res://resources/units/baron.tres")
+		s.set_parameters(i)
+		#s.get_node("UnitIcon").texture = i.sprite
 		$UI/UI/Building/Panel/SpawnList/GridContainer.add_child(s)
 		
 		

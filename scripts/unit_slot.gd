@@ -6,8 +6,8 @@ var c
 var cost_slot = preload("res://interface/item_slot.tscn")
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	
+func set_parameters(newUnit: UnitResource):
+	unit = newUnit
 	$UnitIcon.texture = unit.sprite
 	$Name.text = unit.name
 
@@ -18,7 +18,6 @@ func _ready():
 	
 	c = $Cost.get_children()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var slotnum = 0
 	for i in unit.resource_cost:
@@ -31,11 +30,10 @@ func _process(delta):
 func _on_button_pressed():
 	
 	#checking if player can buy unit
-	for i in unit.resource_cost:
-		if Global.current_resources[i.type] < i.count:
-			return
+	if !Global.check_resources(unit.resource_cost):
+		return
 
 	var manager = get_tree().get_first_node_in_group("Units")
-	manager.set_unit_id(0)
+	manager.set_unit_id(unit.type)
 	var managerUI = get_tree().get_first_node_in_group("BuildingUI")
 	managerUI.hide_panel(true)
