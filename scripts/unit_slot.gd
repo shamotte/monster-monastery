@@ -3,7 +3,16 @@ extends Control
 var unit: UnitResource
 var c
 
+var unit_info
+
 var cost_slot = preload("res://interface/item_slot.tscn")
+var stat_slot = preload("res://interface/stat_slot.tscn")
+
+enum statistics {HP,ATTACK,SPEED,ATTACKRANGE,COOLDOWN,WORKTIME,WORKRANGE}
+
+func _ready():
+	unit_info = get_tree().get_first_node_in_group("UnitSpawnInfo")
+	set_info_panel()
 
 # Called when the node enters the scene tree for the first time.
 func set_parameters(newUnit: UnitResource):
@@ -37,3 +46,54 @@ func _on_button_pressed():
 	manager.set_unit_id(unit.type)
 	var managerUI = get_tree().get_first_node_in_group("BuildingUI")
 	managerUI.hide_panel(true)
+	
+func _on_button_mouse_entered():
+	set_info_panel()
+	
+#Set values for info panel
+func set_info_panel():
+	#setting data
+	unit_info.get_node("Name").text = unit.name
+	unit_info.get_node("Image").texture = unit.sprite
+	#remove older cost
+	for i in unit_info.get_node("Cost").get_children():
+		i.queue_free()
+	#adding new cost
+	for i in unit.resource_cost:
+		var c = cost_slot.instantiate()
+		c.stack = i
+		unit_info.get_node("Cost").add_child(c)
+	#Units Stats
+	#remove older stats
+	for i in unit_info.get_node("Statistics").get_children():
+		i.queue_free()
+	#adding new cost
+	for i in statistics:
+		var s = stat_slot.instantiate()
+		match i:
+			statistics.HP:
+				s.set_hp(unit.hp)
+			statistics.ATTACK:
+				s.set_attack(unit.attack)
+			statistics.SPEED:
+				s.set_speed(unit.speed)
+			statistics.ATTACKRANGE:
+				s.set_attackRange(unit.fight_range)
+			statistics.COOLDOWN:
+				s.set_attackCooldown(unit.cooldown)
+			statistics.WORKRANGE:
+				s.set_workRange(unit.work_range)
+			statistics.WORKTIME:
+				s.set_workTime(unit.work_speed)
+		
+		unit_info.get_node("Statistics").add_child(s)
+	
+	
+	#TODO special abilities info 
+	
+	
+	
+	
+	
+	
+	
