@@ -8,7 +8,7 @@ var unit_info
 var cost_slot = preload("res://interface/item_slot.tscn")
 var stat_slot = preload("res://interface/stat_slot.tscn")
 
-enum statistics {HP,ATTACK,SPEED,ATTACKRANGE,COOLDOWN,WORKTIME,WORKRANGE}
+enum statistics {HP,ATTACK,WORKTIME,ATTACKRANGE,COOLDOWN,WORKRANGE,SPEED}
 
 func _ready():
 	unit_info = get_tree().get_first_node_in_group("UnitSpawnInfo")
@@ -70,11 +70,14 @@ func set_info_panel():
 	#adding new cost
 	for i in statistics:
 		var s = stat_slot.instantiate()
-		match i:
+		s.set_HP(unit.hp)
+		#s.set_hp(unit.hp)
+		
+		match statistics[i]:
 			statistics.HP:
-				s.set_hp(unit.hp)
+				s.set_HP(unit.hp)
 			statistics.ATTACK:
-				s.set_attack(unit.attack)
+				s.set_attack(unit.damage)
 			statistics.SPEED:
 				s.set_speed(unit.speed)
 			statistics.ATTACKRANGE:
@@ -85,7 +88,6 @@ func set_info_panel():
 				s.set_workRange(unit.work_range)
 			statistics.WORKTIME:
 				s.set_workTime(unit.work_speed)
-		
 		unit_info.get_node("Statistics").add_child(s)
 	
 	

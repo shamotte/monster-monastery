@@ -21,7 +21,7 @@ offset_right = 128.0
 offset_bottom = 280.0
 
 [node name="Image" type="Sprite2D" parent="."]
-position = Vector2(30, 40)
+position = Vector2(30, 72)
 texture = ExtResource("1_fit7h")
 
 [node name="Statistics" type="GridContainer" parent="."]
