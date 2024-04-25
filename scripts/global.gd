@@ -115,7 +115,7 @@ func load_resources_to_array(array : Array,directory,extension):
 
 func _ready():
 	load_resources_to_array(resources,"res://resources/resources/","tres")
-	#load_resources_to_array(buildings,"res://resources/buildings/","tres")
+	load_resources_to_array(buildings,"res://resources/buildings/","tres")
 	load_resources_to_array(units,"res://resources/units/","tres")
 
 	current_resources.resize(ResourceResource.RESOURCE.NORESOURCE)
@@ -142,7 +142,7 @@ func _ready():
 	
 func add_resources(resources: Array[ResourceStack]) -> void:
 	for resource in resources:
-		current_resources[resource.en] += resource.count
+		current_resources[resource.type] += resource.count
 	
 #check is player can buy something
 func check_resources(resources: Array[ResourceStack]) -> bool:
@@ -165,3 +165,8 @@ func check_and_subtract_resources(resources: Array[ResourceStack]) -> bool:
 #
 func get_resource_count(resource_type : ResourceResource) -> int:
 	return current_resources[resource_type.type]
+#wiem, że dogadaliśmy się że dla konswkwencji funkcja get_resource_count powinna przyjmowac jako argument resourceresource
+#ale jest to nie wygodne w użyciu, dlatego pozostawiam tutaj także wariant wcześniejszy pzyjmujący enuma z jakże pięknym dużym E na końcu
+#konwencje można zmienić oczywiście
+func get_resource_countE(resource_type : ResourceResource.RESOURCE) -> int:
+	return current_resources[resource_type]

@@ -9,7 +9,7 @@ var priorities = [1,1,1]#tablica wskazująca priorytety danych akcji w takiej sa
 
 var work_time: float
 
-
+var abilities:Array[Ability]
 var summoning_time :float = 3.0
 var current_action:Priorities.action
 		
@@ -17,10 +17,15 @@ var current_action:Priorities.action
 
 var hp
 func _ready():
-	state_machine.set_up(self)
 	$SpawnSound.play()
 	$AnimationPlayer.play("spawn")
 	hp = type.hp
+	for ab :Ability in type.abilities:
+		var temp = ab.duplicate()
+		temp.ovner = self
+		abilities.push_back(temp)
+		
+	state_machine.set_up(self)
 	#state_machine.states[StateMachine.STATES.FIGHT].connect("fight_process",debug_test);
 
 

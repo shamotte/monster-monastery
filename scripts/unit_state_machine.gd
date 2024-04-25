@@ -8,6 +8,10 @@ class UnitStateMachine:
 	var states:Array[UnitState]
 	var cse:STATES
 	func set_up(unit:Unit):
+		
+		
+		
+		
 		states.resize(STATES.size())
 		states[STATES.SUMMONING] = SummonigState.new()
 		states[STATES.IDLE] = IdleState.new()
@@ -15,12 +19,15 @@ class UnitStateMachine:
 		states[STATES.WORK] = WorkState.new()
 		states[STATES.FIGHT] = FightState.new()
 		
+		for ab:Ability in unit.abilities:
+			if ab.has_method("fight_process"):
+				states[STATES.FIGHT].connect("fight_process",ab.fight_process)
 		
 		for UnitState in states:
 			UnitState.set_up(unit)
-		current_state = states[STATES.SUMMONING]
+		current_state = states[STATES.FIGHT]
 		current_state.enter_state()
-		cse = STATES.SUMMONING
+		cse = STATES.FIGHT
 		
 		
 	func physics_process(delta):
@@ -162,12 +169,12 @@ class FightState:
 	func enter_state():
 		print("entered fight")
 		
-		agent = unit.agent
-		stopping_distance = unit.type.fight_range
-		unit.agent.target_position = unit.current_action.node.position
+		#agent = unit.agent
+		#stopping_distance = unit.type.fight_range
+		#unit.agent.target_position = unit.current_action.node.position
 		
 	func process(delta) ->STATES:
-		fight_process.emit();
+		fight_process.emit(delta);
 		return STATES.FIGHT
 	func end_state():
 		print("ended fight")
