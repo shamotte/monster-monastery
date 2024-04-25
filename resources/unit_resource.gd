@@ -23,3 +23,4 @@ enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,PYTHONUS,WALLO
 @export var hp:float
 @export var damage:float
 @export var fight_range:float
+@export var abilities: Array[Ability]

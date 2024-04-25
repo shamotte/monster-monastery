@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=6 format=3 uid="uid://dc5tswpy4ok1m"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://dc5tswpy4ok1m"]
 
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4jpce"]
+[ext_resource type="Script" path="res://scripts/abilities/debug_attack.gd" id="1_qylwv"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_psqdg"]
 [ext_resource type="Texture2D" uid="uid://1odn6cyqh80r" path="res://sprites/Units/DemonLord.png" id="3_2dobk"]
+
+[sub_resource type="Resource" id="Resource_xjfv3"]
+script = ExtResource("1_qylwv")
+interval = 5.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_4jpce")
@@ -27,3 +32,4 @@ cooldown = 2.5
 hp = 66.0
 damage = 16.0
 fight_range = 40.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_xjfv3")])

@@ -131,7 +131,6 @@ func _ready():
 	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 1
 	current_resources[ResourceResource.RESOURCE.FOOD] = 10
 	
-	print(check_and_subtract_resources([ResourceStack.new(ResourceResource.RESOURCE.FOOD,10),ResourceStack.new(ResourceResource.RESOURCE.OBSIDIANUM,3)]))
 
 #func _process(delta):
 	#if Input.is_action_just_pressed("fullscreen"):
@@ -166,3 +165,8 @@ func check_and_subtract_resources(resources: Array[ResourceStack]) -> bool:
 #
 func get_resource_count(resource_type : ResourceResource) -> int:
 	return current_resources[resource_type.type]
+#wiem, że dogadaliśmy się że dla konswkwencji funkcja get_resource_count powinna przyjmowac jako argument resourceresource
+#ale jest to nie wygodne w użyciu, dlatego pozostawiam tutaj także wariant wcześniejszy pzyjmujący enuma z jakże pięknym dużym E na końcu
+#konwencje można zmienić oczywiście
+func get_resource_countE(resource_type : ResourceResource.RESOURCE) -> int:
+	return current_resources[resource_type]

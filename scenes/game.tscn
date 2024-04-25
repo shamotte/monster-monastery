@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
-[ext_resource type="Resource" uid="uid://c4f7ps81w2mm8" path="res://resources/units/imp.tres" id="7_4mpls"]
 [ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
 [ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="7_f0igd"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
@@ -76,7 +75,6 @@ script = ExtResource("5_smeyy")
 
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
 position = Vector2(-103, -85)
-unit = ExtResource("7_4mpls")
 
 [node name="Resources" type="Node2D" parent="GameSpace"]
 y_sort_enabled = true
@@ -215,39 +213,30 @@ position = Vector2(431, 199)
 
 [node name="ResourcePoint9" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(116, -217)
-type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint10" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(66, -240)
-type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint11" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-10, -224)
-type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint12" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-81, -266)
-type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint13" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-170, -316)
-type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint14" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-259, -323)
-type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint15" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-322, -256)
-type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint16" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-241, -240)
-type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint17" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-150, -242)
-type = ExtResource("8_u1vgr")
 
 [node name="Enemies" type="Node2D" parent="GameSpace"]
 y_sort_enabled = true
