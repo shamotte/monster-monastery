@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=26 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -7,11 +7,13 @@
 [ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
+[ext_resource type="Resource" uid="uid://c4f7ps81w2mm8" path="res://resources/units/imp.tres" id="7_4mpls"]
 [ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
 [ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="7_f0igd"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
 [ext_resource type="PackedScene" uid="uid://b22fxtq6dhenw" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
+[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/Resources/rock.tres" id="8_u1vgr"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
@@ -20,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://object/priority_elem.tscn" id="15_x630r"]
 [ext_resource type="Texture2D" uid="uid://c2u432pxwkprq" path="res://sprites/UI/arrow.png" id="16_4w1iu"]
 [ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
-[ext_resource type="PackedScene" uid="uid://vxlb82htiwur" path="res://interface/UnitSpawnInfo.tscn" id="16_epxwy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
 vertices = PackedVector2Array(392, 383, 225, 321, 226, 321, -610, -232, -559, -284, -556, -116, -605, -107, -105, 387, -142, 376, -37, 270, 127, 267, 35, 163, 249, -72, 338, 1, 428, 110, 368, -276, 501, -285, 482, -211, 409, -204, 559, -150, 686, -140, 800, 7, 646, 72, 537, -48, 522, -114, 152, -296, 266, -157, -29, -262, 385, 277, 429, 370, 520, 151, 502, 199, 1, 81, -172, 131, -374, -181, -362, -278, -265, -364, -65, -345, -417, 191, -484, 311, -540, 321, -614, 231, -656, 2, -459, -89, -262, 175)
@@ -74,6 +75,7 @@ script = ExtResource("5_smeyy")
 
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
 position = Vector2(-103, -85)
+unit = ExtResource("7_4mpls")
 
 [node name="Resources" type="Node2D" parent="GameSpace"]
 y_sort_enabled = true
@@ -212,30 +214,39 @@ position = Vector2(431, 199)
 
 [node name="ResourcePoint9" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(116, -217)
+type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint10" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(66, -240)
+type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint11" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-10, -224)
+type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint12" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-81, -266)
+type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint13" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-170, -316)
+type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint14" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-259, -323)
+type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint15" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-322, -256)
+type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint16" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-241, -240)
+type = ExtResource("8_u1vgr")
 
 [node name="ResourcePoint17" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-150, -242)
+type = ExtResource("8_u1vgr")
 
 [node name="Enemies" type="Node2D" parent="GameSpace"]
 y_sort_enabled = true
@@ -418,37 +429,27 @@ grow_horizontal = 2
 grow_vertical = 2
 current_tab = 1
 
-[node name="BuildingColumns" type="HBoxContainer" parent="UI/UI/Building/Panel"]
-visible = false
+[node name="Columns" type="HBoxContainer" parent="UI/UI/Building/Panel"]
 custom_minimum_size = Vector2(408, 280)
 layout_mode = 2
 
-[node name="BuildingInfo" parent="UI/UI/Building/Panel/BuildingColumns" groups=["BuildingSpawnInfo"] instance=ExtResource("15_csqud")]
+[node name="BuildingInfo" parent="UI/UI/Building/Panel/Columns" groups=["BuildingSpawnInfo"] instance=ExtResource("15_csqud")]
 layout_mode = 2
 
-[node name="BuildingsList" type="ScrollContainer" parent="UI/UI/Building/Panel/BuildingColumns"]
-custom_minimum_size = Vector2(288, 280)
+[node name="BuildingsList" type="ScrollContainer" parent="UI/UI/Building/Panel/Columns"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="BuildingGrid" type="GridContainer" parent="UI/UI/Building/Panel/BuildingColumns/BuildingsList"]
+[node name="BuildingGrid" type="GridContainer" parent="UI/UI/Building/Panel/Columns/BuildingsList"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="UnitColumns" type="HBoxContainer" parent="UI/UI/Building/Panel"]
-custom_minimum_size = Vector2(408, 208)
+[node name="SpawnList" type="ScrollContainer" parent="UI/UI/Building/Panel"]
 layout_mode = 2
 
-[node name="UnitsInfo" parent="UI/UI/Building/Panel/UnitColumns" groups=["UnitSpawnInfo"] instance=ExtResource("16_epxwy")]
-layout_mode = 2
-
-[node name="SpawnList" type="ScrollContainer" parent="UI/UI/Building/Panel/UnitColumns"]
-custom_minimum_size = Vector2(288, 280)
-layout_mode = 2
-
-[node name="UnitGrid" type="GridContainer" parent="UI/UI/Building/Panel/UnitColumns/SpawnList"]
-unique_name_in_owner = true
+[node name="GridContainer" type="GridContainer" parent="UI/UI/Building/Panel/SpawnList"]
 layout_mode = 2
 columns = 2
 
@@ -486,7 +487,6 @@ and prepare for the next
 attack!"
 
 [node name="PreviewManager" type="Control" parent="UI/UI"]
-unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0

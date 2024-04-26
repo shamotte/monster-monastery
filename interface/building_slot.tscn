@@ -28,11 +28,13 @@ Button/styles/normal = SubResource("StyleBoxFlat_p86y3")
 Button/styles/pressed = SubResource("StyleBoxFlat_p86y3")
 
 [node name="BuildingSlot" type="Control"]
-custom_minimum_size = Vector2(140, 88)
+custom_minimum_size = Vector2(132, 88)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -508.0
+offset_bottom = -272.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ug1ph")
@@ -63,4 +65,5 @@ offset_right = 81.0
 offset_bottom = 23.0
 text = "Lava Lake"
 
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

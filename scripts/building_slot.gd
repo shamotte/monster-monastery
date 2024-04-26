@@ -1,12 +1,18 @@
 extends Control
 
+var building_cost = preload("res://interface/item_slot.tscn")
+var recipes = preload("res://interface/RecipeInfo.tscn")
+
 var building_id
 var building: BuildingResource
 var c
+var building_info
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	c = $Cost.get_children()
+	building_info = get_tree().get_first_node_in_group("BuildingSpawnInfo")
+	set_info_panel()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,6 +42,44 @@ func _on_button_pressed():
 	var managerUI = get_tree().get_first_node_in_group("BuildingUI")
 	managerUI.hide_panel(true)
 	
+func _on_button_mouse_entered():
+	set_info_panel()
+	#%BuildingInfo/Name.text = str(building.name)
+	
 func set_building_id(id: int):
 	building_id = id
 	
+#Set values for info panel
+func set_info_panel():
+	#setting data
+	building_info.get_node("Name").text = building.name
+	building_info.get_node("Image").texture = building.sprite
+	#remove older cost
+	for i in building_info.get_node("Cost").get_children():
+		i.queue_free()
+	#adding new cost
+	for i in building.resource_cost:
+		var c = building_cost.instantiate()
+		c.stack = i
+		building_info.get_node("Cost").add_child(c)
+	#remove older craftings	
+	for i in building_info.get_node("Crafting").get_children():
+		i.queue_free()
+	#add current building crafting recipes
+	for i in building.recipes:
+		var r = recipes.instantiate()
+		for j in i.input:
+			var s = building_cost.instantiate()
+			s.stack = j
+			r.get_node("Igredients").add_child(s)
+		for j in i.output:
+			var s = building_cost.instantiate()
+			s.stack = j
+			r.get_node("Result").add_child(s)
+		building_info.get_node("Crafting").add_child(r)
+	
+
+	
+	
+
+

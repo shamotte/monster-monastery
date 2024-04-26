@@ -47,15 +47,21 @@ func _input(event):
 				active_selection.display_previev($".")
 				%PreviewPanel.visible = true
 
-
+#deselect unit
+func deselect():
+	active_selection = null
+	%PriorityBoxes.visible= false 
+	%PreviewPanel.visible = false
+	%SelectedIndicator.visible = false
+	
 
 func unit_selection(object : Unit):
 	$PreviewPanel/HPTexture.visible = true
-	%UnitName.text = object.unit.name
+	%UnitName.text = object.type.name
 	%HP.visible = true
-	%HP.text = str(object.unit.hp)
+	%HP.text = str(object.type.hp)
 	
-	%preview_icon.texture = object.unit.sprite
+	%preview_icon.texture = object.type.sprite
 	%PriorityBoxes.visible = true
 	%RecepiePanel.visible = false
 	active_selection = object

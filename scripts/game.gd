@@ -29,14 +29,14 @@ func _ready():
 			var c = building_cost.instantiate()
 			c.stack = j
 			s.get_node("Cost").add_child(c)
-			
-		$UI/UI/Building/Panel/BuildingsList/GridContainer.add_child(s)
+
+		%BuildingGrid.add_child(s)
 		
 	for i in Global.units:
 		var s = unit_slot.instantiate()
 		s.set_parameters(i)
 		#s.get_node("UnitIcon").texture = i.sprite
-		$UI/UI/Building/Panel/SpawnList/GridContainer.add_child(s)
+		%UnitGrid.add_child(s)
 		
 		
 var active_selection
