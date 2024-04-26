@@ -35,6 +35,7 @@ func build_unit(position):
 		#Summoning Object
 		
 		var newUnit = unit_object.instantiate()
+		newUnit.type = unit_info
 		newUnit.setStats(unit_info) 
 		newUnit.position = position
 		add_child(newUnit)

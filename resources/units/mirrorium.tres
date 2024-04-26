@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=7 format=3 uid="uid://dbv064gb2usup"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=7 format=3 uid="uid://d1krq2vxjajy0"]
 
 [ext_resource type="Texture2D" uid="uid://c2um8m3sjqikh" path="res://sprites/Items/Eye_Staff.png" id="1_swtl3"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="2_p5so5"]
@@ -29,3 +29,4 @@ cooldown = 0.2
 hp = 40.0
 damage = 2.0
 fight_range = 120.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([])

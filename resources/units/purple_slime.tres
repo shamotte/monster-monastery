@@ -22,3 +22,4 @@ cooldown = 1.0
 hp = 25.0
 damage = 3.0
 fight_range = 30.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([])

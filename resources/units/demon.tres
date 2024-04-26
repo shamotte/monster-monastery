@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=6 format=3 uid="uid://ch0153ac6v55d"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=6 format=3 uid="uid://dsd8s4kqutlwk"]
 
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="1_c4tss"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_vouc5"]
@@ -27,3 +27,4 @@ cooldown = 0.9
 hp = 50.0
 damage = 5.0
 fight_range = 30.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([])

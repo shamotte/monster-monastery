@@ -20,6 +20,7 @@ func _ready():
 	$SpawnSound.play()
 	$AnimationPlayer.play("spawn")
 	hp = type.hp
+	$Sprite.texture = type.sprite
 	for ab :Ability in type.abilities:
 		var temp = ab.duplicate()
 		temp.ovner = self
@@ -43,7 +44,7 @@ func _process(delta):
 	
 
 func setStats(unitId):
-	$Sprite.texture = type.sprite
+	pass
 	#$Sprite/ItemParent/Item.texture = Global.units[unitId]["toolSprite"]
 
 

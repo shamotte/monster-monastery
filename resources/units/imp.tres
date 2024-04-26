@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_bgfsv"]
 script = ExtResource("1_wbrfh")
-interval = 20.0
+interval = 3.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_njmyt")
