@@ -5,7 +5,7 @@ var texture = null
 
 @export var building : BuildingResource
 
-var recipe 
+var recipe :RecipeResource
 var to_craft = 0
 var busy = false
 
@@ -34,7 +34,7 @@ func _process(delta):
 			if !Global.check_and_subtract_resources(recipe.input):
 				return
 			#TODO trochę nie jestem pewny czy tak to powyżej powinno być
-			Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",Global.recipes[recipe].work)
+			Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",recipe.craft_time)
 			to_craft-=1
 			busy = true
 		
@@ -48,6 +48,6 @@ func new_value(value):
 #Set data of building
 func set_stats(newBuilding: BuildingResource):
 	building = newBuilding
-	recipe = building.recipes
+	recipe = building.recipes[0]
 	$Sprite2D.texture = building.sprite
 	$AnimatedSprite2D.animation = "default"

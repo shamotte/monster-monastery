@@ -19,6 +19,7 @@ var hp
 func _ready():
 	$SpawnSound.play()
 	$AnimationPlayer.play("spawn")
+	
 	hp = type.hp
 	$Sprite.texture = type.sprite
 	for ab :Ability in type.abilities:

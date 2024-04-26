@@ -25,9 +25,9 @@ class UnitStateMachine:
 		
 		for UnitState in states:
 			UnitState.set_up(unit)
-		current_state = states[STATES.FIGHT]
+		current_state = states[STATES.SUMMONING]
 		current_state.enter_state()
-		cse = STATES.FIGHT
+		cse = STATES.SUMMONING
 		
 		
 	func physics_process(delta):
