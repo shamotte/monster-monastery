@@ -131,6 +131,8 @@ func _ready():
 	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 1
 	current_resources[ResourceResource.RESOURCE.FOOD] = 10
 	
+	#set_all_resources(100) #TODO funkcja tylko do testów później usunąć
+	
 
 #func _process(delta):
 	#if Input.is_action_just_pressed("fullscreen"):
@@ -170,3 +172,8 @@ func get_resource_count(resource_type : ResourceResource) -> int:
 #konwencje można zmienić oczywiście
 func get_resource_countE(resource_type : ResourceResource.RESOURCE) -> int:
 	return current_resources[resource_type]
+	
+#Only for testing
+func set_all_resources(amount: int):
+	for i in range(current_resources.size()):
+		current_resources[i] = amount

@@ -21,6 +21,7 @@ func _ready():
 	$AnimationPlayer.play("spawn")
 	hp = type.hp
 	$Sprite.texture = type.sprite
+	$Sprite/ItemParent/Item.texture = type.item
 	for ab :Ability in type.abilities:
 		var temp = ab.duplicate()
 		temp.ovner = self
@@ -41,12 +42,6 @@ func _process(delta):
 	elif velocity.x < 0:
 		$Sprite.flip_h = true
 		$Sprite/ItemParent.scale.x = -1.0
-	
-
-func setStats(unitId):
-	pass
-	#$Sprite/ItemParent/Item.texture = Global.units[unitId]["toolSprite"]
-
 
 func _physics_process(delta):
 	state_machine.physics_process(delta)

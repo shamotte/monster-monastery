@@ -36,7 +36,6 @@ func build_unit(position):
 		
 		var newUnit = unit_object.instantiate()
 		newUnit.type = unit_info
-		newUnit.setStats(unit_info) 
 		newUnit.position = position
 		add_child(newUnit)
 		UnselectObject()
