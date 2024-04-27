@@ -5,10 +5,6 @@
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_anfki"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="3_ncg6l"]
 
-[sub_resource type="Resource" id="Resource_bgfsv"]
-script = ExtResource("1_wbrfh")
-interval = 3.0
-
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_njmyt")
 type = 0
