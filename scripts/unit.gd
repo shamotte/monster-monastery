@@ -3,7 +3,6 @@ class_name Unit
 
 @export var type: UnitResource
 
-
 @onready var agent : NavigationAgent2D = %NavAgent
 var priorities = [1,1,1]#tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
 
@@ -28,6 +27,9 @@ func _ready():
 		abilities.push_back(temp)
 		
 	state_machine.set_up(self)
+	#HP Bar
+	%HPBar.max_value = type.hp
+	%HPBar.visible = false
 	#state_machine.states[StateMachine.STATES.FIGHT].connect("fight_process",debug_test);
 
 
@@ -55,6 +57,8 @@ func display_previev(node : Control):
 	
 func take_damage(damage:float):
 	hp -= damage
+	%HPBar.visible = true
+	%HPBar.value = hp
 	if hp<=0:
 		queue_free()
 	

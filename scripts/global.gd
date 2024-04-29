@@ -27,7 +27,7 @@ var current_resources: Array[int] = []
 @export var cooldown = 2.0
 @export var fight_range = 30
 
-
+enum statistics {HP,ATTACK,WORKTIME,ATTACKRANGE,COOLDOWN,WORKRANGE,SPEED}
 
 
 enum ENEMY {SLIME,WENDIGO,PEASANT,PRIEST,KNIGHT,HORSEMAN}

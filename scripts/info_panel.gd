@@ -1,7 +1,14 @@
 extends Control
 
 var PRIORITIESLENGTH = 3
+
+var stat_slot = preload("res://interface/stat_slot.tscn") 
+var statistics = Global.statistics
+var selected_unit : Unit
+
 @onready var priority_box= preload("res://object/priority_elem.tscn")
+
+
 # Called when the node enters the scene tree for the first time.
 var camera :Camera2D
 func update_priority(index:int,new_value : int):
@@ -19,6 +26,7 @@ func _ready():
 	camera = get_viewport().get_camera_2d()
 	%PriorityBoxes.visible= false
 	%PreviewPanel.visible = false
+	%PreviewUnitStats.visible = false
 	%Cou.value_changed.connect(update_priority)
 	for p in range(PRIORITIESLENGTH):
 		var child = priority_box.instantiate() 
@@ -50,27 +58,55 @@ func _input(event):
 #deselect unit
 func deselect():
 	active_selection = null
+	selected_unit = null
 	%PriorityBoxes.visible= false 
 	%PreviewPanel.visible = false
 	%SelectedIndicator.visible = false
+	%PreviewUnitStats.visible = false
 	
 
 func unit_selection(object : Unit):
+	selected_unit = object
 	$PreviewPanel/HPTexture.visible = true
 	%UnitName.text = object.type.name
 	%HP.visible = true
-	%HP.text = str(object.type.hp)
+	%HP.text = str(object.hp) + "/" + str(object.type.hp)
 	
 	%preview_icon.texture = object.type.sprite
 	%PriorityBoxes.visible = true
 	%RecepiePanel.visible = false
 	active_selection = object
-	
 	for p in range(len(object.priorities)):
 		%PriorityBoxes.get_child(p).change_priority(object.priorities[p])
+	#remove older stats
+	for i in %InfoPanelStats.get_children():
+		i.queue_free()
+	#Display unit statistics
+	%PreviewUnitStats.visible = true
+	for i in statistics:
+		if statistics[i] == statistics.HP:
+			continue
+		var s = stat_slot.instantiate()
+		match statistics[i]:
+			statistics.ATTACK:
+				s.set_attack(object.type.damage)
+			statistics.SPEED:
+				s.set_speed(object.type.speed)
+			statistics.ATTACKRANGE:
+				s.set_attackRange(object.type.fight_range)
+			statistics.COOLDOWN:
+				s.set_attackCooldown(object.type.cooldown)
+			statistics.WORKRANGE:
+				s.set_workRange(object.type.work_range)
+			statistics.WORKTIME:
+				s.set_workTime(object.type.work_speed)
+		%InfoPanelStats.add_child(s)
+		
 		
 	
 func resource_selection(object : Res):
+	selected_unit = null
+	%PreviewUnitStats.visible = false
 	%PriorityBoxes.visible = false
 	%RecepiePanel.visible = false
 	%HP.visible = false
@@ -81,6 +117,8 @@ func resource_selection(object : Res):
 	
 @onready var resource_icon = preload("res://interface/resource_slot.tscn")
 func building_selection(object : buildingObject):
+	selected_unit = null
+	%PreviewUnitStats.visible = false
 	%PriorityBoxes.visible = false
 	%RecepiePanel.visible = true
 	%HP.visible = false
@@ -113,6 +151,8 @@ func _process(delta):
 	if active_selection != null:
 		%SelectedIndicator.global_position = active_selection.global_position
 		%SelectedIndicator.visible = true
+		if selected_unit != null:
+			%HP.text = str(selected_unit.hp) + "/" + str(selected_unit.type.hp)
 	else:
 		%SelectedIndicator.visible = false
 

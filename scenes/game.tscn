@@ -403,6 +403,7 @@ offset_bottom = 36.0
 grow_horizontal = 0
 
 [node name="Panel" type="TabContainer" parent="UI/UI/Building"]
+visible = false
 custom_minimum_size = Vector2(408, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -509,21 +510,21 @@ grow_vertical = 2
 
 [node name="HPTexture" type="TextureRect" parent="UI/UI/PreviewManager/PreviewPanel"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 52.0
-offset_right = 40.0
-offset_bottom = 84.0
+offset_left = 4.0
+offset_top = 56.0
+offset_right = 36.0
+offset_bottom = 88.0
 texture = ExtResource("14_hf8ep")
 
 [node name="HP" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 16.0
+offset_left = 20.0
 offset_top = 60.0
-offset_right = 56.0
+offset_right = 82.0
 offset_bottom = 83.0
-text = "100"
-horizontal_alignment = 1
+text = "100/100
+"
 vertical_alignment = 1
 
 [node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
@@ -607,6 +608,23 @@ texture = ExtResource("16_4w1iu")
 unique_name_in_owner = true
 position = Vector2(40, 44)
 texture = ExtResource("11_tqatv")
+
+[node name="PreviewUnitStats" type="Panel" parent="UI/UI/PreviewManager"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 0
+offset_top = -65.0
+offset_right = 112.0
+offset_bottom = -1.0
+
+[node name="InfoPanelStats" type="GridContainer" parent="UI/UI/PreviewManager/PreviewUnitStats"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 0
+offset_top = -3.0
+offset_right = 112.0
+offset_bottom = 61.0
+columns = 3
 
 [node name="UnitCount" type="Panel" parent="UI/UI"]
 unique_name_in_owner = true
