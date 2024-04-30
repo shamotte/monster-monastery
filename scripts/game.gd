@@ -48,6 +48,9 @@ func _process(delta):
 	if %Units.get_child_count()<1:
 		Engine.time_scale = 0
 		%Endgame.visible = true
+	else:
+		Engine.time_scale = 1
+		%Endgame.visible = false
 	
 	for i in range(Global.current_resources.size()):
 		resource_info[i].get_node("Count").text = str(Global.current_resources[i])

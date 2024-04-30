@@ -114,24 +114,8 @@ func load_resources_to_array(array : Array,directory,extension):
 	print("LOADED ",x, " resources from directory :",directory)
 
 func _ready():
-	load_resources_to_array(resources,"res://resources/resources/","tres")
-	load_resources_to_array(buildings,"res://resources/buildings/","tres")
-	load_resources_to_array(units,"res://resources/units/","tres")
-
-	current_resources.resize(ResourceResource.RESOURCE.NORESOURCE)
-
-	current_resources[ResourceResource.RESOURCE.WOOD] = 10
-	current_resources[ResourceResource.RESOURCE.ROCK] = 10
-	current_resources[ResourceResource.RESOURCE.IRON] = 4
-	current_resources[ResourceResource.RESOURCE.GOLD] = 4
-	current_resources[ResourceResource.RESOURCE.GEM] = 2
-	current_resources[ResourceResource.RESOURCE.HELLIUM] = 1
-	current_resources[ResourceResource.RESOURCE.OBSIDIANUM] = 5
-	current_resources[ResourceResource.RESOURCE.COPIUM] = 1
-	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 1
-	current_resources[ResourceResource.RESOURCE.FOOD] = 10
-	
-	#set_all_resources(100) #TODO funkcja tylko do testów później usunąć
+	pass
+	#game_begin()
 	
 
 #func _process(delta):
@@ -177,3 +161,28 @@ func get_resource_countE(resource_type : ResourceResource.RESOURCE) -> int:
 func set_all_resources(amount: int):
 	for i in range(current_resources.size()):
 		current_resources[i] = amount
+		
+func restart_game():
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	
+func game_begin():
+	wave_count = 0
+	
+	load_resources_to_array(resources,"res://resources/resources/","tres")
+	load_resources_to_array(buildings,"res://resources/buildings/","tres")
+	load_resources_to_array(units,"res://resources/units/","tres")
+
+	current_resources.resize(ResourceResource.RESOURCE.NORESOURCE)
+
+	current_resources[ResourceResource.RESOURCE.WOOD] = 10
+	current_resources[ResourceResource.RESOURCE.ROCK] = 10
+	current_resources[ResourceResource.RESOURCE.IRON] = 4
+	current_resources[ResourceResource.RESOURCE.GOLD] = 4
+	current_resources[ResourceResource.RESOURCE.GEM] = 2
+	current_resources[ResourceResource.RESOURCE.HELLIUM] = 1
+	current_resources[ResourceResource.RESOURCE.OBSIDIANUM] = 5
+	current_resources[ResourceResource.RESOURCE.COPIUM] = 1
+	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 1
+	current_resources[ResourceResource.RESOURCE.FOOD] = 10
+	
+	#set_all_resources(100) #TODO funkcja tylko do testów później usunąć

@@ -391,50 +391,6 @@ offset_bottom = 20.0
 grow_horizontal = 0
 alignment = 2
 
-[node name="UnitCount" type="Panel" parent="UI/UI"]
-unique_name_in_owner = true
-layout_mode = 1
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 64.0
-offset_bottom = 36.0
-
-[node name="Sprite2D" type="Sprite2D" parent="UI/UI/UnitCount"]
-position = Vector2(16, 16)
-texture = ExtResource("11_tqatv")
-
-[node name="Count" type="Label" parent="UI/UI/UnitCount"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 32.0
-offset_top = -11.0
-offset_right = 52.0
-offset_bottom = 12.0
-grow_vertical = 2
-text = "99"
-
-[node name="WaveCount" type="Panel" parent="UI/UI"]
-unique_name_in_owner = true
-layout_mode = 1
-offset_left = 68.0
-offset_top = 4.0
-offset_right = 144.0
-offset_bottom = 36.0
-
-[node name="Count" type="Label" parent="UI/UI/WaveCount"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 6.0
-offset_top = -11.5
-offset_right = 71.0
-offset_bottom = 11.5
-grow_vertical = 2
-text = "Wave 99"
-
 [node name="Building" type="Control" parent="UI/UI" groups=["BuildingUI"]]
 layout_mode = 1
 anchors_preset = 15
@@ -720,6 +676,50 @@ offset_right = 112.0
 offset_bottom = 61.0
 columns = 3
 
+[node name="UnitCount" type="Panel" parent="UI/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 36.0
+
+[node name="Sprite2D" type="Sprite2D" parent="UI/UI/UnitCount"]
+position = Vector2(16, 16)
+texture = ExtResource("11_tqatv")
+
+[node name="Count" type="Label" parent="UI/UI/UnitCount"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -11.0
+offset_right = 52.0
+offset_bottom = 12.0
+grow_vertical = 2
+text = "99"
+
+[node name="WaveCount" type="Panel" parent="UI/UI"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 68.0
+offset_top = 4.0
+offset_right = 144.0
+offset_bottom = 36.0
+
+[node name="Count" type="Label" parent="UI/UI/WaveCount"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 6.0
+offset_top = -11.5
+offset_right = 71.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Wave 99"
+
 [node name="Endgame" type="Control" parent="UI"]
 unique_name_in_owner = true
 modulate = Color(1, 0.0666667, 0.286275, 1)
@@ -757,22 +757,18 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "GAME OVER
 All your minions were defeated!
 
+(Due to time constraints, we can't properly reset the game.
+Please start the game again if you wish to restart.)
+
 Thank you for playing!"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="UI/Endgame"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -32.5
-offset_top = -71.0
-offset_right = 32.5
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 0
+offset_left = 288.0
+offset_top = 288.0
+offset_right = 353.0
+offset_bottom = 319.0
 text = "Restart"
 
 [node name="MousePointer" type="Area2D" parent="."]
@@ -792,6 +788,7 @@ position = Vector2(0, -8)
 texture = ExtResource("16_c4l1p")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 240.0
 autostart = true
 
 [connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]

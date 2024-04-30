@@ -61,6 +61,13 @@ func take_damage(damage:float):
 	%HPBar.value = hp
 	if hp<=0:
 		queue_free()
+		
+func heal_unit(addHP:float):
+	hp += addHP
+	%HPBar.value = hp
+	if hp >= type.hp:
+		%HPBar.visible = false
+		hp = type.hp
 	
 func debug_test():
 	print("fghting")
