@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqjhs3pdso4s5"]
+[gd_scene load_steps=4 format=3 uid="uid://bqjhs3pdso4s5"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_1yi2o"]
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="1_iokib"]
 [ext_resource type="Texture2D" uid="uid://bc78bf3duuitw" path="res://sprites/map_blur.png" id="2_wjnex"]
-[ext_resource type="Script" path="res://scripts/VolumeSlider.gd" id="4_b7tuh"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -103,41 +102,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "START GAME"
 
-[node name="VolumeSlider" type="HSlider" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = 4.0
-offset_right = 81.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-max_value = 1.0
-step = 0.05
-value = 0.25
-script = ExtResource("4_b7tuh")
-
-[node name="VolumeLabel" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -120.0
-offset_top = -4.0
-offset_right = -56.0
-offset_bottom = 28.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Volume:"
-horizontal_alignment = 2
-vertical_alignment = 1
-
 [node name="Lore" type="Label" parent="."]
 layout_mode = 0
 offset_left = 32.0
@@ -163,4 +127,3 @@ text = "(2024) Made by:
 @shamotte, @zedgame"
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
-[connection signal="drag_ended" from="Control/VolumeSlider" to="Control/VolumeSlider" method="_on_drag_ended"]

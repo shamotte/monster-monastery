@@ -3,7 +3,6 @@ class_name Unit
 
 @export var type: UnitResource
 
-
 @onready var agent : NavigationAgent2D = %NavAgent
 var priorities: Array[Priorities.ACTIONTYPES] = [Priorities.ACTIONTYPES.FIGHT,Priorities.ACTIONTYPES.GATHER,Priorities.ACTIONTYPES.CRAFT]#tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
 
@@ -26,12 +25,16 @@ func _ready():
 	
 	hp = type.hp
 	$Sprite.texture = type.sprite
+	$Sprite/ItemParent/Item.texture = type.item
 	for ab :Ability in type.abilities:
 		var temp = ab.duplicate()
 		temp.ovner = self
 		abilities.push_back(temp)
 		
 	state_machine.set_up(self)
+	#HP Bar
+	%HPBar.max_value = type.hp
+	%HPBar.visible = false
 	#state_machine.states[StateMachine.STATES.FIGHT].connect("fight_process",debug_test);
 
 
@@ -49,12 +52,6 @@ func _process(delta):
 	elif velocity.x < 0:
 		$Sprite.flip_h = true
 		$Sprite/ItemParent.scale.x = -1.0
-	
-
-func setStats(unitId):
-	pass
-	#$Sprite/ItemParent/Item.texture = Global.units[unitId]["toolSprite"]
-
 
 func _physics_process(delta):
 	state_machine.physics_process(delta)
@@ -68,8 +65,17 @@ func display_previev(node : Control):
 	
 func take_damage(damage:float):
 	hp -= damage
+	%HPBar.visible = true
+	%HPBar.value = hp
 	if hp<=0:
 		queue_free()
+		
+func heal_unit(addHP:float):
+	hp += addHP
+	%HPBar.value = hp
+	if hp >= type.hp:
+		%HPBar.visible = false
+		hp = type.hp
 	
 func _draw():
 	draw_arc(position,700,0,360,20,Color.RED,0.2)

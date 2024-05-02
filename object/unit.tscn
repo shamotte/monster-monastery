@@ -1,13 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://6o0ppecfcqvo"]
+[gd_scene load_steps=19 format=3 uid="uid://6o0ppecfcqvo"]
 
 [ext_resource type="Script" path="res://scripts/unit.gd" id="1_g8wtp"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="2_ey7t7"]
 [ext_resource type="Resource" uid="uid://c4f7ps81w2mm8" path="res://resources/units/imp.tres" id="2_fg4vb"]
-[ext_resource type="Texture2D" uid="uid://cc3bd3vpufmr1" path="res://sprites/Items/axe.png" id="3_xcimi"]
 [ext_resource type="Texture2D" uid="uid://cdvowh1o7tq3" path="res://sprites/summon_portal.png" id="4_134da"]
 [ext_resource type="AudioStream" uid="uid://bdhx5imabp37l" path="res://sounds/gather.wav" id="4_oaxnj"]
 [ext_resource type="AudioStream" uid="uid://bqbsi8axo42ns" path="res://sounds/summon2.wav" id="6_y570h"]
 [ext_resource type="AudioStream" uid="uid://dvjldnr6m8v88" path="res://sounds/fight1.wav" id="7_1e24m"]
+[ext_resource type="Texture2D" uid="uid://buco41oik57uj" path="res://sprites/UI/Bar.png" id="8_eofb3"]
+[ext_resource type="Texture2D" uid="uid://cha8hlatm4mo8" path="res://sprites/UI/bar2.png" id="8_g7tft"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6nlr"]
 atlas = ExtResource("4_134da")
@@ -135,7 +136,6 @@ texture = ExtResource("2_ey7t7")
 
 [node name="Item" type="Sprite2D" parent="Sprite/ItemParent"]
 position = Vector2(5, 0)
-texture = ExtResource("3_xcimi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_c0mvu")
@@ -177,6 +177,25 @@ stream = ExtResource("6_y570h")
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_1e24m")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HPBar" type="TextureProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 6.0
+offset_bottom = -10.0
+texture_under = ExtResource("8_g7tft")
+texture_progress = ExtResource("8_eofb3")
+texture_progress_offset = Vector2(1, 1)
+tint_under = Color(0.152941, 0.152941, 0.152941, 1)
+tint_progress = Color(1, 0, 0, 1)
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
