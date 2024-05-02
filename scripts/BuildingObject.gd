@@ -9,6 +9,8 @@ var recipe :RecipeResource
 var to_craft = 0
 var busy = false
 
+var work_time:float
+
 func action_finished():
 	busy = false
 	$CompleteSound.play()
@@ -19,6 +21,7 @@ func _ready():
 	$AnimationPlayer.play("spawn")
 	$SpawnSound.play()
 	recipe =  building.recipes[0]
+	work_time =  recipe.craft_time
 	#Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,get_node("."),Global.recipes[recipe].work)# Replace with function body.
 
 func _process(delta):

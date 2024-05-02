@@ -12,3 +12,4 @@ enum RESOURCE {WOOD, ROCK, IRON, GOLD, GEM, HELLIUM, OBSIDIANUM , COPIUM, AMONGI
 @export var action_type: Priorities.ACTIONTYPES
 @export var time:float
 @export var resource_point_txture: CompressedTexture2D
+@export var respawn_time:float = 1.0

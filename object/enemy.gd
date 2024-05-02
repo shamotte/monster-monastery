@@ -1,3 +1,4 @@
+class_name Enemy
 extends CharacterBody2D
 
 @export var  max_hp:float = 100

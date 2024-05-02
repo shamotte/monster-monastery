@@ -5,8 +5,10 @@ class_name Res
 var resource_count = resource_count_initial
 @export var res: ResourceResource = preload("res://resources/resources/wood.tres")
 @onready var id = Priorities.get_id()
-
+var work_time :float
+var units_working_on_this = 0
 func action_finished():
+	Priorities.remove_self_from_actions(self, Priorities.ACTIONTYPES.GATHER)
 	if resource_count <= 0:
 		return
 		
@@ -29,13 +31,28 @@ func action_finished():
 	
 
 func add_self_to_available_actions():
-	Priorities.add_action(res.action_type,id,get_node("."),res.time)
+	Priorities.add_self_to_available_actions(self,Priorities.ACTIONTYPES.GATHER)
+	finished = false
+	work_time = res.time
+	
+var finished : bool
+func work_on(work : float) -> bool: # return true if the task is finished 
+	if finished:
+		return true
+	work_time -=work
+	if work_time <0:
+		finished = true
+		action_finished()
+		return true
+	return false
+	
 	
 func _ready():
 	$Sprite2D.texture = res.resource_point_txture
 	add_self_to_available_actions()
 	
 	$AnimationPlayer.play("spawn")
+	work_time = res.time
 	
 	
 func display_previev(node : Control):

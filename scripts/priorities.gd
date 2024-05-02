@@ -25,21 +25,18 @@ func get_action_icon(index:int):
 		2: return "Fight"
 	return "error_string"
 		
+func _ready():
+	aveilable.resize(3)
 
-
-class action:
-	var type: ACTIONTYPES
-	var id : int
-	var node :Node2D
-	var time : float
-	func _init(t,i,n,ti):
-		type = t
-		id = i
-		node = n
-		time = ti
+func add_self_to_available_actions(object, action_type : ACTIONTYPES):
+	aveilable[action_type].push_back(object)
 	
-
-var aveilable = [] 
+	
+func remove_self_from_actions(object, action_type : ACTIONTYPES):
+	aveilable[action_type].erase(object)
+	
+		
+var aveilable : Array[Array]
 
 var id = 0
 func get_id() -> int:
@@ -47,45 +44,42 @@ func get_id() -> int:
 	return id
 	
 
-var mutex:Mutex = Mutex.new()
-func add_action(type : ACTIONTYPES,id : int, node :Node2D,time : float):
-	aveilable.append(action.new(type,id,node,time))
-
-func remove_action(id:int):
-	for elem in aveilable:
-		if elem.id == id:
-			aveilable.erase(elem)
-			break
-func remove_action_null_node(act :action):
-	aveilable.erase(act)
-	
-func return_action(act: action):
-	aveilable.append(act)
-	
-func get_action(a)->action:
-	mutex.lock()
-	var b = aveilable.filter(func(n) : return a[n.type]>0)
-	b.sort_custom(func(l,r):return a[l.type]>a[r.type])
-	if not b.is_empty():
-		if b[0].type == ACTIONTYPES.FIGHT:
-			mutex.unlock()
-			return b[0]
-		else:
-			var pom = b.pop_front()
-			aveilable.erase(pom)
-			mutex.unlock()
-			return pom
-	mutex.unlock()
-	return null
 	
 
 func get_best_action(unit : Unit):
-	return aveilable.pop_front()
+	var unit_position:Vector2 = unit.position
+	var best_action : Node2D = null
+	var value :float = 0
+	var multiplayer =  len(ACTIONTYPES)
+	for action in unit.priorities:
+		for ob in aveilable[action]:
+			var current_value : float = 0
+			current_value +=  clamp(1000_000 - unit_position.distance_squared_to(ob.position),0,1000_000)
+			current_value +=  clamp(5 - ob.units_working_on_this,0,5) * 5000_0
+			current_value *= multiplayer
+			if current_value > value:
+				best_action = ob
+				value = current_value
+		multiplayer-=1
+	
+	
+	if best_action != null:
+		best_action.units_working_on_this +=1 #unit will consider certen action worse if there is somebody already working on this action
+	return best_action
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+func get_fight_action(unit : Unit):
+	var unit_position:Vector2 = unit.position
+	var best_action : Node2D = null
+	var value :float = 0
+	for ob: Enemy in aveilable[ACTIONTYPES.FIGHT]:
+		if unit_position.distance_squared_to(ob.position) < 1500:
+			
+			var current_value =  clamp(5 - ob.units_working_on_this,0,5) 
+			if current_value > value:
+				best_action = ob
+				value = current_value
+	return best_action
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

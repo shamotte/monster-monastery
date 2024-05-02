@@ -1,6 +1,6 @@
 class_name StateMachine
 const look_up_interval : float = 2.0 #how ofthn the unit with no oaction will try to look for new action - igher number increases performance
-enum STATES { SUMMONING, IDLE,WALK,WORK,FIGHT}
+enum STATES { SUMMONING, IDLE,WALK,WORK,FIGHT,STANDBY}
 
 
 class UnitStateMachine:
@@ -18,6 +18,7 @@ class UnitStateMachine:
 		states[STATES.WALK] = WalkState.new()
 		states[STATES.WORK] = WorkState.new()
 		states[STATES.FIGHT] = FightState.new()
+		states[STATES.STANDBY] = StandbyState.new()
 		
 		for ab:Ability in unit.abilities:
 			if ab.has_method("fight_process"):
@@ -91,10 +92,17 @@ class IdleState:
 		timer -= delta
 		if timer <= 0:
 			timer = look_up_interval
-			unit.current_action = Priorities.get_best_action(unit)
-			match unit.current_action.type:
-				Priorities.ACTIONTYPES.FIGHT: return STATES.FIGHT
-				_: return STATES.WALK
+			var action = Priorities.get_best_action(unit)
+			if action == null:
+				return STATES.IDLE
+				
+			match action:
+				Priorities.ACTIONTYPES.FIGHT:
+					unit.target = action
+					return STATES.FIGHT
+				_:
+					unit.current_action = action
+					return STATES.WALK
 		return STATES.IDLE
 		
 	func end_state():
@@ -111,7 +119,7 @@ class WalkState:
 		print("entered walk")
 		agent = unit.agent
 		stopping_distance = unit.type.work_range
-		unit.agent.target_position = unit.current_action.node.position
+		unit.agent.target_position = unit.current_action.position
 		
 	func process(delta) ->STATES:
 		if agent.distance_to_target() > stopping_distance:
@@ -131,22 +139,22 @@ class WalkState:
 class WorkState:
 	extends UnitState
 	
-	var work_time : float
 	func set_up(_unit):
 		unit = _unit
 		
 	func enter_state():
 		print("entered work")
-		work_time = unit.current_action.time
 		
 		
 	func process(delta) ->STATES:
-		work_time -=delta
-		if work_time < 0 :
-			unit.current_action.node.action_finished()
-			unit.current_action = null # TODO CHECK whether this deletes the orginal class
+		
+		if unit.current_action != null:
+			if unit.current_action.work_on(delta):
+				return STATES.IDLE
+			return STATES.WORK
+		else:
 			return STATES.IDLE
-		return STATES.WORK
+		
 		
 	func end_state():
 		
@@ -154,6 +162,9 @@ class WorkState:
 		
 		
 class FightState:
+	
+	
+	
 	extends UnitState
 	
 	
@@ -174,11 +185,32 @@ class FightState:
 		#unit.agent.target_position = unit.current_action.node.position
 		
 	func process(delta) ->STATES:
+		if unit.target == null:
+			return STATES.STANDBY
+		unit.target_position = unit.target.position
 		fight_process.emit(delta);
 		return STATES.FIGHT
 	func end_state():
 		print("ended fight")
 
+
+
+class StandbyState:
+	extends UnitState
+	var timer = 2.0
+	func enter_state():
+		print("entered standby")
+	func process(delta) ->STATES:
+		var fight = Priorities.get_fight_action(unit)
+		if fight == null:
+			return STATES.IDLE
+		unit.target = fight
+		return STATES.FIGHT
+	func physics_process(delta):
+		pass
+	func end_state():
+		pass
+	
 
 
 

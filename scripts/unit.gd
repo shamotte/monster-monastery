@@ -5,15 +5,19 @@ class_name Unit
 
 
 @onready var agent : NavigationAgent2D = %NavAgent
-var priorities = [1,1,1]#tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
+var priorities: Array[Priorities.ACTIONTYPES] = [Priorities.ACTIONTYPES.FIGHT,Priorities.ACTIONTYPES.GATHER,Priorities.ACTIONTYPES.CRAFT]#tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
 
 var work_time: float
 
 var abilities:Array[Ability]
 var summoning_time :float = 3.0
-var current_action:Priorities.action
 		
 @onready var state_machine: StateMachine.UnitStateMachine = StateMachine.UnitStateMachine.new()
+
+
+var current_action:Node2D = null
+var target:Enemy = null
+var target_position: Vector2
 
 var hp
 func _ready():
@@ -33,6 +37,9 @@ func _ready():
 
 
 func _process(delta):
+	queue_redraw()
+	
+	
 	state_machine.process(delta)
 	#Is animation end
 	#Rotation
@@ -64,8 +71,10 @@ func take_damage(damage:float):
 	if hp<=0:
 		queue_free()
 	
-func debug_test():
-	print("fghting")
+func _draw():
+	draw_arc(position,700,0,360,20,Color.RED,0.2)
+
+
 
 
 func _on_tree_entered():
