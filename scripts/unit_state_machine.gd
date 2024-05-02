@@ -92,17 +92,18 @@ class IdleState:
 		timer -= delta
 		if timer <= 0:
 			timer = look_up_interval
-			var action = Priorities.get_best_action(unit)
+			var action :Node2D = Priorities.get_best_action(unit)
 			if action == null:
 				return STATES.IDLE
 				
-			match action:
-				Priorities.ACTIONTYPES.FIGHT:
-					unit.target = action
-					return STATES.FIGHT
-				_:
+			
+			if action is Res:
 					unit.current_action = action
 					return STATES.WALK
+			elif action is Enemy:
+					unit.target = action;
+					return STATES.FIGHT
+					
 		return STATES.IDLE
 		
 	func end_state():

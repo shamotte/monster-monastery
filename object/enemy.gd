@@ -16,8 +16,10 @@ var target = null
 @onready var agent: NavigationAgent2D = %agent
 @onready var timer : Timer = %Timer
 
+var units_working_on_this:int = 0
+
 func _ready():
-	Priorities.add_action(Priorities.ACTIONTYPES.FIGHT,id,$".",0.0)
+	Priorities.add_self_to_available_actions(self,Priorities.ACTIONTYPES.FIGHT)
 	%Timer.wait_time = cooldown
 	$SpawnSound.play()
 	
@@ -36,7 +38,7 @@ func take_damage(damage:float):
 	hp-=damage
 	if hp<=0:
 		died.emit()
-		Priorities.remove_action(id)
+		Priorities.remove_self_from_actions(self,Priorities.ACTIONTYPES.FIGHT)
 		await get_tree().create_timer(0.1).timeout
 		queue_free()
 

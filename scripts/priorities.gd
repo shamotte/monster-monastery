@@ -46,7 +46,7 @@ func get_id() -> int:
 
 	
 
-func get_best_action(unit : Unit):
+func get_best_action(unit : Unit) -> Node2D:
 	var unit_position:Vector2 = unit.position
 	var best_action : Node2D = null
 	var value :float = 0
