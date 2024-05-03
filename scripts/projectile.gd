@@ -12,3 +12,4 @@ func _process(delta):
 
 func _on_body_entered(body):
 	print(body.name) 
+	body.take_damage(5)

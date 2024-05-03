@@ -11,7 +11,7 @@
 script = ExtResource("2_dx5pi")
 cooldown = 5.0
 projectile = ExtResource("1_r0t71")
-speed = 1.0
+speed = 100.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_njmyt")

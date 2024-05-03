@@ -16,7 +16,7 @@ var summoning_time :float = 3.0
 
 var current_action:Node2D = null
 var target:Enemy = null
-var target_position: Vector2
+var target_global_position: Vector2
 
 var hp
 func _ready():

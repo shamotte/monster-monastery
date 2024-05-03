@@ -11,8 +11,8 @@ func fight_process(delta):
 		time_left = cooldown
 		print("atacking")
 		var proj: Area2D = projectile.instantiate()
-		var direction = (ovner.position - ovner.target_position).normalized()
+		var direction = (ovner.target_global_position - ovner.global_position).normalized()
 		proj.velocity = direction *speed
-		proj.position = ovner.position
+		proj.global_position = ovner.global_position
 		ProjectileOverseeer.add_child(proj)
 		

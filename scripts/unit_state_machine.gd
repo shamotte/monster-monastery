@@ -188,7 +188,7 @@ class FightState:
 	func process(delta) ->STATES:
 		if unit.target == null:
 			return STATES.STANDBY
-		unit.target_position = unit.target.position
+		unit.target_global_position = unit.target.position
 		fight_process.emit(delta);
 		return STATES.FIGHT
 	func end_state():

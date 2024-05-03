@@ -46,6 +46,7 @@ radius = 3.0
 script = ExtResource("1_x25h7")
 
 [node name="Map" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_qj8nh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
