@@ -1,13 +1,8 @@
 class_name Enemy
 extends CharacterBody2D
+@export var type:EnemyResource
 
-@export var  max_hp:float = 100
-@export var range: float  = 30.0
-@export var damage : float = 50
-@export var cooldown = 2.0
-@export var speed = 75.0
-
-@onready var hp:float = max_hp
+@onready var hp:float
 
 signal died
 @onready var id = Priorities.get_id()
@@ -20,19 +15,16 @@ var units_working_on_this:int = 0
 
 func _ready():
 	Priorities.add_self_to_available_actions(self,Priorities.ACTIONTYPES.FIGHT)
-	%Timer.wait_time = cooldown
+	%Timer.wait_time = type.cooldown
 	$SpawnSound.play()
 	
 	$AnimationPlayer.play("spawn")
 
-func set_stats(id:int):
-	max_hp = Global.enemies[id]["HP"]
-	hp = max_hp
-	range  = Global.enemies[id]["range"]
-	damage = Global.enemies[id]["damage"]
-	cooldown = Global.enemies[id]["cooldown"]
-	speed = Global.enemies[id]["speed"]
-	$Sprite2D/ItemParent/Item.texture = Global.enemies[id]["tool"]
+func set_stats(newEnemy:EnemyResource):
+	type = newEnemy
+	hp = type.hp
+	$Sprite2D.texture = type.sprite
+	%Item.texture = type.item
 
 func take_damage(damage:float):
 	hp-=damage
@@ -56,34 +48,35 @@ func get_closest_unit()-> Node2D:
 func _process(delta):
 	if target != null:
 		agent.target_position = target.position
-		if agent.distance_to_target() <= range:
-			attac(target)
-		
-		
+		if agent.distance_to_target() <= type.fight_range:
+			attack(target)
 	else:
 		target = get_closest_unit()
 		
-func attac(target: Node2D):
-	if cooldown:
-		cooldown = false
-		timer.start(cooldown)
+func attack(target: Node2D):
+	if type.cooldown:
+		type.cooldown = false
+		timer.start(type.cooldown)
 		if target!= null:
 			%attac_area.global_position = target.position
 			#print("atacking")
 			$AttackSound.play()
 			for unit in %attac_area.get_overlapping_bodies():
-				unit.take_damage(damage)
+				unit.take_damage(type.damage)
 
 
 func _on_timer_timeout():
-	cooldown = true
+	type.cooldown = true
 	
 func _physics_process(delta):
+	#check is type set
+	if type == null:
+		return
 	if target!=null:
-		if global_position.distance_to(target.position) >=range:
+		if global_position.distance_to(target.position) >= type.fight_range:
 			var direction = agent.get_next_path_position() - global_position
 			direction = direction.normalized()
-			velocity = velocity.lerp(direction * speed , 0.25)
+			velocity = velocity.lerp(direction * type.speed , 0.25)
 			move_and_slide()
 	
 	
