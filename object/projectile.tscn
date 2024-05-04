@@ -15,6 +15,7 @@ script = ExtResource("1_g8sfw")
 shape = SubResource("CircleShape2D_j13qe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 y_sort_enabled = true
 texture = ExtResource("1_ssd1x")
 

@@ -4,7 +4,9 @@ class_name Unit
 @export var type: UnitResource
 
 @onready var agent : NavigationAgent2D = %NavAgent
-var priorities: Array[Priorities.ACTIONTYPES] = [Priorities.ACTIONTYPES.FIGHT,Priorities.ACTIONTYPES.GATHER,Priorities.ACTIONTYPES.CRAFT]#tablica wskazująca priorytety danych akcji w takiej samej kolejności jak w enumie Priorities.ACTIONTYPES
+
+var priorities : PriorityTable
+
 
 var work_time: float
 
@@ -78,7 +80,7 @@ func heal_unit(addHP:float):
 		hp = type.hp
 	
 func _draw():
-	draw_arc(position,700,0,360,20,Color.RED,0.2)
+	draw_arc(position,700,0,360,50,Color.RED,0.2)
 
 
 

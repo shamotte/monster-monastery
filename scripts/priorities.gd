@@ -1,5 +1,10 @@
 extends Node
 
+
+
+
+
+
 enum ACTIONTYPES {GATHER=0,CRAFT,FIGHT}
 
 var actions = {
@@ -16,15 +21,9 @@ var actions = {
 		"sprite": preload("res://sprites/UI/fight.png")
 	}
 }
-	
-func get_action_icon(index:int):
 
-	match index:
-		0: return "Gather"
-		1: return "Craft"
-		2: return "Fight"
-	return "error_string"
-		
+
+
 func _ready():
 	aveilable.resize(3)
 
@@ -50,15 +49,17 @@ func get_best_action(unit : Unit) -> Node2D:
 	var unit_position:Vector2 = unit.position
 	var best_action : Node2D = null
 	var value :float = 0
-	var multiplayer =  len(ACTIONTYPES)
-	for action in unit.priorities:
-		for ob in aveilable[action]:
-			var current_value : float = 0
-			current_value +=  clamp(1000_000 - unit_position.distance_squared_to(ob.position),0,1000_000)
-			current_value +=  clamp(5 - ob.units_working_on_this,0,5) * 5000_0
-			current_value *= multiplayer
-			if current_value > value:
-				best_action = ob
+	var multiplayer = 1
+	for actiontype in ACTIONTYPES:
+		multiplayer = unit.priorities.get_priority(actiontype)
+		for ob in aveilable[actiontype]:
+			if ob != null:
+				var current_value : float = 0
+				current_value +=  clamp(1000_000 - unit_position.distance_squared_to(ob.position),0,1000_000)
+				current_value +=  clamp(5 - ob.units_working_on_this,0,5) * 5000_0
+				current_value *= multiplayer
+				if current_value > value:
+					best_action = ob
 				value = current_value
 		multiplayer-=1
 	
