@@ -22,6 +22,7 @@ var target_global_position: Vector2
 
 var hp
 func _ready():
+	priorities = PriorityTable.new()
 	$SpawnSound.play()
 	$AnimationPlayer.play("spawn")
 	
@@ -38,7 +39,7 @@ func _ready():
 	#%HPBar.max_value = type.hp
 	#%HPBar.visible = false
 	#state_machine.states[StateMachine.STATES.FIGHT].connect("fight_process",debug_test);
-
+	
 
 
 func _process(delta):

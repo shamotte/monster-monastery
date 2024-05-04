@@ -60,7 +60,6 @@ texture = ExtResource("2_pvoxd")
 [node name="ItemParent" type="Node2D" parent="Sprite2D"]
 
 [node name="Item" type="Sprite2D" parent="Sprite2D/ItemParent"]
-unique_name_in_owner = true
 position = Vector2(5, 0)
 texture = ExtResource("3_qnqn3")
 

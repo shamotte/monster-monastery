@@ -77,7 +77,8 @@ func unit_selection(object : Unit):
 	%RecepiePanel.visible = false
 	active_selection = object
 	for p in range(len(object.priorities)):
-		%PriorityBoxes.get_child(p).change_priority(object.priorities[p])
+		#%PriorityBoxes.get_child(p).change_priority(object.priorities[p])
+		pass
 	#remove older stats
 	for i in %InfoPanelStats.get_children():
 		i.queue_free()

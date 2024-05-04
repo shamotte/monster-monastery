@@ -51,7 +51,7 @@ func get_best_action(unit : Unit) -> Node2D:
 	var value :float = 0
 	var multiplayer = 1
 	for actiontype in ACTIONTYPES:
-		multiplayer = unit.priorities.get_priority(actiontype)
+		multiplayer = 1
 		for ob in aveilable[actiontype]:
 			if ob != null:
 				var current_value : float = 0
