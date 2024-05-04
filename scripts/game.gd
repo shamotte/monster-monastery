@@ -76,30 +76,31 @@ var enemy_scene = preload("res://object/enemy.tscn")
 func _on_enemy_spawn_timer_timeout():
 	for i in range(randi_range(1, 1 + Global.wave_count)):
 		var spawn = get_tree().get_nodes_in_group("enemy_spawner").pick_random()
-		var type = Global.enemies.keys().pick_random()
+		var randomEnemy = Global.enemies.pick_random() 
+		var type = randomEnemy.type
+		
 		#Selecting enemy waves
 		#print(type)
 		if Global.wave_count <= 5:
-			type = Global.ENEMY.PEASANT
+			type = EnemyResource.ENEMY.PEASANT
 		elif Global.wave_count <= 10:
-			if type == Global.ENEMY.KNIGHT || type == Global.ENEMY.HORSEMAN:
-				type = Global.ENEMY.PEASANT
+			if type == EnemyResource.ENEMY.KNIGHT || type == EnemyResource.ENEMY.HORSEMAN:
+				type = EnemyResource.ENEMY.PEASANT
 		elif Global.wave_count <= 15:
-			if type == Global.ENEMY.KNIGHT:
-				type = Global.ENEMY.PEASANT
-			if type == Global.ENEMY.HORSEMAN:
-				type = Global.ENEMY.PRIEST
+			if type == EnemyResource.ENEMY.KNIGHT:
+				type = EnemyResource.ENEMY.PEASANT
+			if type == EnemyResource.ENEMY.HORSEMAN:
+				type = EnemyResource.ENEMY.PRIEST
 		elif Global.wave_count <= 20:
-			if type == Global.ENEMY.HORSEMAN:
-				type = Global.ENEMY.PRIEST
+			if type == EnemyResource.ENEMY.HORSEMAN:
+				type = EnemyResource.ENEMY.PRIEST
 		elif Global.wave_count <= 25:
-			if type == Global.ENEMY.HORSEMAN:
-				type = Global.ENEMY.KNIGHT
+			if type == EnemyResource.ENEMY.HORSEMAN:
+				type = EnemyResource.ENEMY.KNIGHT
 		
 		var e = enemy_scene.instantiate()
 		e.global_position = spawn.global_position
-		e.get_node("Sprite2D").texture = Global.enemies[type]["sprite"]
-		e.set_stats(type)
+		e.set_stats(Global.enemies[type])
 		$GameSpace/Enemies.add_child(e)
 		
 	Global.wave_count += 1

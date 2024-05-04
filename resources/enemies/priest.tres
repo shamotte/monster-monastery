@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://do84tx3bhib4t"]
+
+[ext_resource type="Texture2D" uid="uid://bi84pfveijo4a" path="res://sprites/Items/Warhammer.png" id="1_yqren"]
+[ext_resource type="Script" path="res://resources/enemy_resource.gd" id="2_i2q1y"]
+[ext_resource type="Texture2D" uid="uid://4vbeuvxs0ih1" path="res://sprites/Units/Priest.png" id="3_2v5jg"]
+
+[resource]
+script = ExtResource("2_i2q1y")
+name = "Kapłan"
+sprite = ExtResource("3_2v5jg")
+item = ExtResource("1_yqren")
+speed = 40.0
+strength = 2.0
+type = 1
+cooldown = 2.0
+hp = 25.0
+damage = 6.0
+fight_range = 50.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([])

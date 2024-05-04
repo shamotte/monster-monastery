@@ -15,13 +15,13 @@
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
-[ext_resource type="PackedScene" path="res://interface/SpawnInfo.tscn" id="15_csqud"]
+[ext_resource type="PackedScene" uid="uid://fi3qro07xbcd" path="res://interface/SpawnInfo.tscn" id="15_csqud"]
 [ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="15_pktq6"]
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://object/priority_elem.tscn" id="15_x630r"]
 [ext_resource type="Script" path="res://scripts/VolumeSlider.gd" id="15_yioib"]
 [ext_resource type="Texture2D" uid="uid://c2u432pxwkprq" path="res://sprites/UI/arrow.png" id="16_4w1iu"]
 [ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
-[ext_resource type="PackedScene" path="res://interface/UnitSpawnInfo.tscn" id="16_epxwy"]
+[ext_resource type="PackedScene" uid="uid://vxlb82htiwur" path="res://interface/UnitSpawnInfo.tscn" id="16_epxwy"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
 vertices = PackedVector2Array(392, 383, 225, 321, 226, 321, -610, -232, -559, -284, -556, -116, -605, -107, -105, 387, -142, 376, -37, 270, 127, 267, 35, 163, 249, -72, 338, 1, 428, 110, 368, -276, 501, -285, 482, -211, 409, -204, 559, -150, 686, -140, 800, 7, 646, 72, 537, -48, 522, -114, 152, -296, 266, -157, -29, -262, 385, 277, 429, 370, 520, 151, 502, 199, 1, 81, -172, 131, -374, -181, -362, -278, -265, -364, -65, -345, -417, 191, -484, 311, -540, 321, -614, 231, -656, 2, -459, -89, -262, 175)
@@ -436,7 +436,7 @@ offset_bottom = 11.5
 grow_vertical = 2
 text = "Wave 99"
 
-[node name="Building" type="Control" parent="UI/UI" groups=["BuildingUI"]]
+[node name="Manager" type="Control" parent="UI/UI" groups=["BuildingUI"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -445,7 +445,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_ysb7k")
 
-[node name="CheckButton" type="CheckButton" parent="UI/UI/Building"]
+[node name="CheckButton" type="CheckButton" parent="UI/UI/Manager"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -456,7 +456,7 @@ offset_right = -4.0
 offset_bottom = 36.0
 grow_horizontal = 0
 
-[node name="Panel" type="TabContainer" parent="UI/UI/Building"]
+[node name="Panel" type="TabContainer" parent="UI/UI/Manager"]
 visible = false
 custom_minimum_size = Vector2(452, 0)
 layout_mode = 1
@@ -473,46 +473,62 @@ grow_horizontal = 2
 grow_vertical = 2
 current_tab = 1
 
-[node name="BuildingColumns" type="HBoxContainer" parent="UI/UI/Building/Panel"]
+[node name="BuildingColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
 visible = false
 custom_minimum_size = Vector2(408, 280)
 layout_mode = 2
 
-[node name="BuildingInfo" parent="UI/UI/Building/Panel/BuildingColumns" groups=["BuildingSpawnInfo"] instance=ExtResource("15_csqud")]
+[node name="BuildingInfo" parent="UI/UI/Manager/Panel/BuildingColumns" groups=["BuildingSpawnInfo"] instance=ExtResource("15_csqud")]
 layout_mode = 2
 
-[node name="BuildingsList" type="ScrollContainer" parent="UI/UI/Building/Panel/BuildingColumns"]
+[node name="BuildingsList" type="ScrollContainer" parent="UI/UI/Manager/Panel/BuildingColumns"]
 custom_minimum_size = Vector2(288, 280)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="BuildingGrid" type="GridContainer" parent="UI/UI/Building/Panel/BuildingColumns/BuildingsList"]
+[node name="BuildingGrid" type="GridContainer" parent="UI/UI/Manager/Panel/BuildingColumns/BuildingsList"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="UnitColumns" type="HBoxContainer" parent="UI/UI/Building/Panel"]
+[node name="UnitColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
 custom_minimum_size = Vector2(408, 208)
 layout_mode = 2
 
-[node name="UnitsInfo" parent="UI/UI/Building/Panel/UnitColumns" groups=["UnitSpawnInfo"] instance=ExtResource("16_epxwy")]
+[node name="UnitsInfo" parent="UI/UI/Manager/Panel/UnitColumns" groups=["UnitSpawnInfo"] instance=ExtResource("16_epxwy")]
 layout_mode = 2
 
-[node name="SpawnList" type="ScrollContainer" parent="UI/UI/Building/Panel/UnitColumns"]
+[node name="SpawnList" type="ScrollContainer" parent="UI/UI/Manager/Panel/UnitColumns"]
 custom_minimum_size = Vector2(288, 280)
 layout_mode = 2
 
-[node name="UnitGrid" type="GridContainer" parent="UI/UI/Building/Panel/UnitColumns/SpawnList"]
+[node name="UnitGrid" type="GridContainer" parent="UI/UI/Manager/Panel/UnitColumns/SpawnList"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="Help" type="ScrollContainer" parent="UI/UI/Building/Panel"]
+[node name="GroupManager" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
+visible = false
+layout_mode = 2
+
+[node name="GroupConfig" type="Control" parent="UI/UI/Manager/Panel/GroupManager"]
+custom_minimum_size = Vector2(160, 280)
+layout_mode = 2
+
+[node name="GroupList" type="ScrollContainer" parent="UI/UI/Manager/Panel/GroupManager"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(288, 280)
+layout_mode = 2
+
+[node name="GroupGrid" type="GridContainer" parent="UI/UI/Manager/Panel/GroupManager/GroupList"]
+layout_mode = 2
+
+[node name="Help" type="ScrollContainer" parent="UI/UI/Manager/Panel"]
 visible = false
 custom_minimum_size = Vector2(452, 280)
 layout_mode = 2
 
-[node name="HelpText" type="Label" parent="UI/UI/Building/Panel/Help"]
+[node name="HelpText" type="Label" parent="UI/UI/Manager/Panel/Help"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "ACTION PRIORITY:
@@ -541,12 +557,12 @@ Defend against them
 and prepare for the next
 attack!"
 
-[node name="Options" type="Panel" parent="UI/UI/Building/Panel"]
+[node name="Options" type="Panel" parent="UI/UI/Manager/Panel"]
 visible = false
 custom_minimum_size = Vector2(452, 280)
 layout_mode = 2
 
-[node name="VolumeSlider" type="HSlider" parent="UI/UI/Building/Panel/Options"]
+[node name="VolumeSlider" type="HSlider" parent="UI/UI/Manager/Panel/Options"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -564,7 +580,7 @@ step = 0.05
 value = 0.25
 script = ExtResource("15_yioib")
 
-[node name="VolumeLabel" type="Label" parent="UI/UI/Building/Panel/Options"]
+[node name="VolumeLabel" type="Label" parent="UI/UI/Manager/Panel/Options"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -723,6 +739,7 @@ columns = 3
 
 [node name="Endgame" type="Control" parent="UI"]
 unique_name_in_owner = true
+visible = false
 modulate = Color(1, 0.0666667, 0.286275, 1)
 layout_mode = 3
 anchors_preset = 15
@@ -793,13 +810,13 @@ position = Vector2(0, -8)
 texture = ExtResource("16_c4l1p")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 240.0
 autostart = true
 
 [connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]
 [connection signal="area_exited" from="Building Area" to="CursorSprite" method="_on_building_area_area_exited"]
-[connection signal="toggled" from="UI/UI/Building/CheckButton" to="UI/UI/Building" method="_on_check_button_toggled"]
-[connection signal="drag_ended" from="UI/UI/Building/Panel/Options/VolumeSlider" to="UI/UI/Building/Panel/Options/VolumeSlider" method="_on_drag_ended"]
+[connection signal="toggled" from="UI/UI/Manager/CheckButton" to="UI/UI/Manager" method="_on_check_button_toggled"]
+[connection signal="drag_ended" from="UI/UI/Manager/Panel/Options/VolumeSlider" to="UI/UI/Manager/Panel/Options/VolumeSlider" method="_on_drag_ended"]
 [connection signal="mouse_entered" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_entered"]

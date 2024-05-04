@@ -14,6 +14,7 @@ var wave_count = 0
 var resources: Array[ResourceResource] = []
 var units: Array[UnitResource] = []
 var buildings: Array[BuildingResource] = []
+var enemies: Array[EnemyResource] = []
 
 
 var current_resources: Array[int] = []
@@ -28,60 +29,6 @@ var current_resources: Array[int] = []
 @export var fight_range = 30
 
 enum statistics {HP,ATTACK,WORKTIME,ATTACKRANGE,COOLDOWN,WORKRANGE,SPEED}
-
-
-enum ENEMY {SLIME,WENDIGO,PEASANT,PRIEST,KNIGHT,HORSEMAN}
-var enemies = {
-	ENEMY.SLIME: {
-		"name" : "Chłop", "sprite": preload("res://sprites/Units/Peasant.png"),
-		"object": preload("res://object/unit.tscn"),
-		"tool": preload("res://sprites/Items/NoItem.png"),
-		"HP" : 10, "range" : 15, 
-		"damage" : 1, "cooldown" : 1.0,
-		"speed" : 50
-	},
-	ENEMY.WENDIGO: {
-		"name" : "Kapłan", "sprite": preload("res://sprites/Units/Priest.png"),
-		"object": preload("res://object/unit.tscn"),
-		"tool": preload("res://sprites/Items/NoItem.png"),
-		"HP" : 45, "range" : 30, 
-		"damage" : 3, "cooldown" : 0.5,
-		"speed" : 40
-	},
-	ENEMY.PEASANT: {
-		"name" : "Chłop", "sprite": preload("res://sprites/Units/Peasant.png"),
-		"object": preload("res://object/unit.tscn"),
-		"tool": preload("res://sprites/Items/PitchFork.png"),
-		"HP" : 15, "range" : 30, 
-		"damage" : 1, "cooldown" : 1.0,
-		"speed" : 75
-	},
-	ENEMY.PRIEST: {
-		"name" : "Kapłan", "sprite": preload("res://sprites/Units/Priest.png"),
-		"object": preload("res://object/unit.tscn"),
-		"tool": preload("res://sprites/Items/Warhammer.png"),
-		"HP" : 25, "range" : 50, 
-		"damage" : 10, "cooldown" : 2.0,
-		"speed" : 45
-	},
-	ENEMY.KNIGHT: {
-		"name" : "Rycerz", "sprite": preload("res://sprites/Units/knight.png"),
-		"object": preload("res://object/unit.tscn"),
-		"tool": preload("res://sprites/Items/Sword.png"),
-		"HP" : 45, "range" : 30, 
-		"damage" : 10, "cooldown" : 1.5,
-		"speed" : 50
-	},
-	ENEMY.HORSEMAN: {
-		"name" : "Kawalerzysta", "sprite": preload("res://sprites/Units/Horseman.png"),
-		"object": preload("res://object/unit.tscn"),
-		"tool": preload("res://sprites/Items/spear.png"),
-		"HP" : 55, "range" : 30, 
-		"damage" : 8, "cooldown" : 2.0,
-		"speed" : 100
-	},
-	
-}
 
 func dir_contents(directory :String, extension:String) -> Array[String]:
 	var dir = DirAccess.open(directory)
@@ -171,6 +118,7 @@ func game_begin():
 	load_resources_to_array(resources,"res://resources/resources/","tres")
 	load_resources_to_array(buildings,"res://resources/buildings/","tres")
 	load_resources_to_array(units,"res://resources/units/","tres")
+	load_resources_to_array(enemies,"res://resources/enemies/","tres")
 
 	current_resources.resize(ResourceResource.RESOURCE.NORESOURCE)
 

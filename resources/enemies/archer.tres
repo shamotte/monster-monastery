@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://b7hh4w6fg0jr4"]
+
+[ext_resource type="Texture2D" uid="uid://dfn478ge5picw" path="res://sprites/Items/Bow.png" id="1_5es47"]
+[ext_resource type="Script" path="res://resources/enemy_resource.gd" id="2_kc65c"]
+[ext_resource type="Texture2D" uid="uid://cjulwpdema5q" path="res://sprites/Units/Archer.png" id="3_7k2gk"]
+
+[resource]
+script = ExtResource("2_kc65c")
+name = "Łucznik"
+sprite = ExtResource("3_7k2gk")
+item = ExtResource("1_5es47")
+speed = 60.0
+strength = 4.0
+type = 2
+cooldown = 1.0
+hp = 30.0
+damage = 5.0
+fight_range = 120.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([])
