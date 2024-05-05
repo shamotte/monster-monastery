@@ -35,7 +35,7 @@ func add_self_to_available_actions():
 	finished = false
 	work_time = res.time
 	
-var finished : bool
+var finished : bool = false
 func work_on(work : float) -> bool: # return true if the task is finished 
 	if finished:
 		return true

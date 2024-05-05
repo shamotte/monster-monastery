@@ -46,26 +46,28 @@ func get_id() -> int:
 	
 
 func get_best_action(unit : Unit) -> Node2D:
+	
 	var unit_position:Vector2 = unit.position
 	var best_action : Node2D = null
 	var value :float = 0
 	var multiplayer = 1
-	for actiontype in ACTIONTYPES:
-		multiplayer = 1
-		for ob in aveilable[actiontype]:
-			if ob != null:
-				var current_value : float = 0
-				current_value +=  clamp(1000_000 - unit_position.distance_squared_to(ob.position),0,1000_000)
-				current_value +=  clamp(5 - ob.units_working_on_this,0,5) * 5000_0
-				current_value *= multiplayer
-				if current_value > value:
-					best_action = ob
-				value = current_value
-		multiplayer-=1
+	for actiontype in ACTIONTYPES.values():
+		multiplayer = unit.priorities.get_priority(actiontype)
+		if multiplayer != 0 :
+			for ob in aveilable[actiontype]:
+				if ob != null:
+					var current_value : float = 0
+					current_value +=  clamp(1000_000 - unit_position.distance_squared_to(ob.position),0,1000_000)
+					current_value +=  clamp(5 - ob.units_working_on_this,0,5) * 5000_0
+					current_value *= multiplayer
+					if current_value > value:
+						best_action = ob
+						value = current_value
 	
 	
 	if best_action != null:
 		best_action.units_working_on_this +=1 #unit will consider certen action worse if there is somebody already working on this action
+		
 	return best_action
 
 func get_fight_action(unit : Unit):

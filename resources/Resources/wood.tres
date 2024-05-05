@@ -12,3 +12,4 @@ type = 0
 action_type = 0
 time = 2.0
 resource_point_txture = ExtResource("1_pin5q")
+respawn_time = 1.0
