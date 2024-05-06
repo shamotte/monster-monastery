@@ -49,9 +49,11 @@ func work_on(work : float) -> bool: # return true if the task is finished
 	
 func _ready():
 	$Sprite2D.texture = res.resource_point_txture
+	$Shadow.texture = res.resource_point_txture
 	add_self_to_available_actions()
 	
 	$AnimationPlayer.play("spawn")
+	$AnimationPlayer/AnimationPlayer.play("spawn")
 	work_time = res.time
 	
 	

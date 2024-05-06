@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmqo33daqck46"]
+
+[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="1_f12yi"]
+[ext_resource type="Script" path="res://scripts/priority_elem.gd" id="2_owvu8"]
+[ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/Resources/wood.png" id="3_rpvse"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7c61"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xd4ml"]
+bg_color = Color(0.917647, 0.262745, 0.243137, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(48, 64)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 48.0
+offset_bottom = 64.0
+theme = ExtResource("1_f12yi")
+script = ExtResource("2_owvu8")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a7c61")
+
+[node name="priority_elem" type="Button" parent="."]
+layout_mode = 0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 72.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xd4ml")
+text = "1"
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 40.0
+offset_bottom = 48.0
+texture = ExtResource("3_rpvse")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 23.0
+text = "wood"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="priority_elem" to="." method="_on_priority_elem_pressed"]

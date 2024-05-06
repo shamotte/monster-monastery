@@ -6,7 +6,7 @@ var stat_slot = preload("res://interface/stat_slot.tscn")
 var statistics = Global.statistics
 var selected_unit : Unit
 
-@onready var priority_box= preload("res://object/priority_elem.tscn")
+@onready var priority_box= preload("res://interface/priority_elem.tscn")
 
 
 # Called when the node enters the scene tree for the first time.

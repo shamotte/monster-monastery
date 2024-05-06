@@ -491,6 +491,7 @@ layout_mode = 2
 columns = 2
 
 [node name="UnitColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
+visible = false
 custom_minimum_size = Vector2(408, 208)
 layout_mode = 2
 
@@ -507,7 +508,6 @@ layout_mode = 2
 columns = 2
 
 [node name="GroupManager" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
-visible = false
 layout_mode = 2
 
 [node name="SelectedGroupPanel" parent="UI/UI/Manager/Panel/GroupManager" instance=ExtResource("16_fccnn")]

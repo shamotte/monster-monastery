@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dahi40k2gv47i"]
 
-[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="1_fgc25"]
-[ext_resource type="Script" path="res://scripts/priority_elem.gd" id="1_ht11j"]
-[ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/Resources/wood.png" id="3_mieux"]
+[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="1_4p6to"]
+[ext_resource type="Script" path="res://scripts/priority_elem.gd" id="2_wm7xf"]
+[ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/Resources/wood.png" id="3_x2xxl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7c61"]
 bg_color = Color(0.105882, 0.105882, 0.105882, 1)
@@ -26,8 +26,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 48.0
 offset_bottom = 64.0
-theme = ExtResource("1_fgc25")
-script = ExtResource("1_ht11j")
+theme = ExtResource("1_4p6to")
+script = ExtResource("2_wm7xf")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -49,7 +49,7 @@ offset_left = 8.0
 offset_top = 16.0
 offset_right = 40.0
 offset_bottom = 48.0
-texture = ExtResource("3_mieux")
+texture = ExtResource("3_x2xxl")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

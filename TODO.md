@@ -1,10 +1,13 @@
 ----------UI--------------------
+UI do zarządzania grupami priorytetów
 Ekran podsumowujący po końcu gry
-Wybór priorytetów przed pojawieniem się jednostk
+Wybór grupy priorytetów przed pojawieniem się jednostek
 Informacja o wykonywaniu czynności - Ikona
 ---------Gameplay---------------
+Grupy priorytetów
 Zaznaczanie wielu jednostek naraz priorytet jednostki
-Anulowanie Akcji
+Naprawienie przesuwania mapy podczas skrolowania
+Anulowanie Akcji ???
 Randomowe eventy
 Tutorial
 ---------Obiekty----------------
@@ -13,7 +16,6 @@ Budynek do summonowania Bossów
 Visualny feedback podczas walki
 Umiejętności postaci
 ---------Przeciwnicy----------------
-Konwersja przeciwników z słowników do resourców
 Rework Systemu fal
 ---------Inne-------------------------
 BALANS

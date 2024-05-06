@@ -1,0 +1,98 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu26j7qm8q1sb"]
+
+[ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://interface/priority_elem.tscn" id="1_bdync"]
+
+[node name="GroupConfig" type="Control"]
+custom_minimum_size = Vector2(160, 280)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_right = -472.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 280.0
+
+[node name="Selected Panel Group" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 177.0
+offset_bottom = 23.0
+text = "Selected Group"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 28.0
+offset_right = 166.0
+offset_bottom = 51.0
+text = "Group: 1"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 28.0
+offset_right = 54.0
+offset_bottom = 52.0
+
+[node name="Group Priorities" type="Label" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 56.0
+offset_right = 177.0
+offset_bottom = 79.0
+text = "Group priorities
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VScrollBar" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 88.0
+offset_right = 166.0
+offset_bottom = 248.0
+
+[node name="Prioritiy list" type="GridContainer" parent="VScrollBar"]
+custom_minimum_size = Vector2(152, 0)
+layout_mode = 2
+columns = 3
+
+[node name="Control" parent="VScrollBar/Prioritiy list" instance=ExtResource("1_bdync")]
+layout_mode = 2
+
+[node name="Control2" parent="VScrollBar/Prioritiy list" instance=ExtResource("1_bdync")]
+layout_mode = 2
+
+[node name="Control3" parent="VScrollBar/Prioritiy list" instance=ExtResource("1_bdync")]
+layout_mode = 2
+
+[node name="Control4" parent="VScrollBar/Prioritiy list" instance=ExtResource("1_bdync")]
+layout_mode = 2
+
+[node name="Control5" parent="VScrollBar/Prioritiy list" instance=ExtResource("1_bdync")]
+layout_mode = 2
+
+[node name="Control6" parent="VScrollBar/Prioritiy list" instance=ExtResource("1_bdync")]
+layout_mode = 2
+
+[node name="Control7" parent="VScrollBar/Prioritiy list" instance=ExtResource("1_bdync")]
+layout_mode = 2
+
+[node name="Control8" parent="VScrollBar/Prioritiy list" instance=ExtResource("1_bdync")]
+layout_mode = 2
+
+[node name="Control9" parent="VScrollBar/Prioritiy list" instance=ExtResource("1_bdync")]
+layout_mode = 2
