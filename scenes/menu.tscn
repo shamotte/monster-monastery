@@ -31,7 +31,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.286275, 0.0666667, 0.0470588, 0.780392)
+color = Color(0.529412, 0.152941, 0.121569, 0.505882)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 1
@@ -53,39 +53,19 @@ theme_override_font_sizes/font_size = 50
 text = "MONSTER MONASTERY"
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -277.0
-offset_top = -105.0
-offset_right = 277.0
-offset_bottom = -36.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.670588, 0.231373, 0.12549, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 20
-text = "LUDUM DARE 55 SUBMISSION"
-horizontal_alignment = 1
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 200.0
-offset_top = -56.0
-offset_right = 240.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 1
@@ -94,26 +74,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -124.0
-offset_top = -44.0
-offset_right = 84.0
-offset_bottom = -4.0
+offset_left = -130.0
+offset_top = -25.0
+offset_right = 130.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "START GAME"
-
-[node name="Lore" type="Label" parent="."]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 112.0
-offset_right = 624.0
-offset_bottom = 272.0
-text = "Let the monsters take the world!
-Summon and lead a horde of diverse creatures!
-Gather resources, build establishments and fend off Earth's defenders!
-Your army is an unpredictable bunch - each one has a mind of his own!
-Assign priorities to their actions in hopes of achieving global domination!
-Good luck and thanks for playing!"
 
 [node name="Authors" type="Label" parent="."]
 layout_mode = 0
