@@ -1,12 +1,13 @@
 extends Node2D
 class_name Res
 
-@export var resource_count_initial: int = 3
+@export var resource_count_initial: int = 1
 var resource_count = resource_count_initial
 @export var res: ResourceResource = preload("res://resources/resources/wood.tres")
 @onready var id = Priorities.get_id()
 var work_time :float
 var units_working_on_this = 0
+
 func action_finished():
 	Priorities.remove_self_from_actions(self, Priorities.ACTIONTYPES.GATHER)
 	if resource_count <= 0:
@@ -48,13 +49,12 @@ func work_on(work : float) -> bool: # return true if the task is finished
 	
 	
 func _ready():
-	$Sprite2D.texture = res.resource_point_txture
-	$Shadow.texture = res.resource_point_txture
+	randomize_resource()
+	
 	add_self_to_available_actions()
 	
 	$AnimationPlayer.play("spawn")
-	$AnimationPlayer/AnimationPlayer.play("spawn")
-	work_time = res.time
+	
 	
 	
 func display_previev(node : Control):
@@ -65,5 +65,24 @@ func display_previev(node : Control):
 func _on_respawn_timer_timeout():
 	visible = true
 	resource_count = resource_count_initial
+	randomize_resource()
 	add_self_to_available_actions()
 	$AnimationPlayer.play("spawn")
+	
+
+
+
+var rock_replacements = [
+	preload("res://resources/resources/rock.tres"),
+	preload("res://resources/resources/obsydian.tres"),
+	preload("res://resources/resources/gold.tres"),
+	preload("res://resources/resources/iron.tres"),
+	preload("res://resources/resources/gem.tres"),
+]
+func randomize_resource():
+	if res in rock_replacements:
+		res = rock_replacements.pick_random()
+			
+	$Sprite2D.texture = res.resource_point_txture
+	$Shadow.texture = res.resource_point_txture
+	work_time = res.time

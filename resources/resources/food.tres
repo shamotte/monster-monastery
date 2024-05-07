@@ -10,3 +10,4 @@ sprite = ExtResource("2_oa8af")
 type = 9
 action_type = 0
 time = 10.0
+respawn_time = 1.0

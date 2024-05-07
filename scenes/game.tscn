@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=29 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
 [ext_resource type="PackedScene" uid="uid://b22fxtq6dhenw" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
+[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/resources/rock.tres" id="8_e7kpm"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
@@ -90,12 +91,15 @@ y_sort_enabled = true
 
 [node name="ResourcePoint" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-517, 248)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint2" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-546, 194)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint3" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-482, 166)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint18" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-539, -33)
@@ -207,45 +211,59 @@ position = Vector2(695, -38)
 
 [node name="ResourcePoint4" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-126, 376)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint5" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-52, 358)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint6" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(427, 135)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint7" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(480, 161)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint8" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(431, 199)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint9" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(116, -217)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint10" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(66, -240)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint11" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-10, -224)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint12" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-81, -266)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint13" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-170, -316)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint14" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-259, -323)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint15" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-322, -256)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint16" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-241, -240)
+res = ExtResource("8_e7kpm")
 
 [node name="ResourcePoint17" parent="GameSpace/Resources" instance=ExtResource("7_f0igd")]
 position = Vector2(-150, -242)
+res = ExtResource("8_e7kpm")
 
 [node name="Enemies" type="Node2D" parent="GameSpace"]
 y_sort_enabled = true
@@ -362,6 +380,7 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_jqn1q")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("8_1k3t5")
 
 [node name="UI" type="Control" parent="UI"]

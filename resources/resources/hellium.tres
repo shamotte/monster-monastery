@@ -10,3 +10,4 @@ sprite = ExtResource("2_tggi3")
 type = 5
 action_type = 0
 time = 10.0
+respawn_time = 1.0
