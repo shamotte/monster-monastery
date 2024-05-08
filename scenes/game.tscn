@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
 [ext_resource type="PackedScene" uid="uid://b22fxtq6dhenw" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
-[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/resources/rock.tres" id="8_e7kpm"]
+[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/Resources/rock.tres" id="8_e7kpm"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
@@ -510,7 +510,6 @@ layout_mode = 2
 columns = 2
 
 [node name="UnitColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
-visible = false
 custom_minimum_size = Vector2(408, 208)
 layout_mode = 2
 
@@ -530,18 +529,20 @@ columns = 2
 visible = false
 layout_mode = 2
 
-[node name="SelectedGroupPanel" parent="UI/UI/Manager/Panel/GroupManager" instance=ExtResource("16_fccnn")]
+[node name="SelectedGroupPanel" parent="UI/UI/Manager/Panel/GroupManager" groups=["GroupInfo"] instance=ExtResource("16_fccnn")]
 layout_mode = 2
 
 [node name="GroupList" type="ScrollContainer" parent="UI/UI/Manager/Panel/GroupManager"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(288, 280)
+custom_minimum_size = Vector2(272, 280)
 layout_mode = 2
 
 [node name="GroupGrid" type="GridContainer" parent="UI/UI/Manager/Panel/GroupManager/GroupList"]
+unique_name_in_owner = true
 layout_mode = 2
+columns = 4
 
 [node name="Help" type="ScrollContainer" parent="UI/UI/Manager/Panel"]
+visible = false
 custom_minimum_size = Vector2(452, 280)
 layout_mode = 2
 

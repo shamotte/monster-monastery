@@ -1,5 +1,6 @@
 class_name PriorityTable
 extends Resource
+var id : int			#Id of group
 var table : Array[int]
 var color : Color
 const MAXVALUE = 4

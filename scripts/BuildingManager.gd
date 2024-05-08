@@ -60,6 +60,7 @@ func show_panel(show):
 			$Panel/GroupManager.visible = show
 			$Panel/Help.visible = !show
 			$Panel/Options.visible = !show
+			$Panel/UnitColumns/UnitsInfo.update_group_slots()
 		elif current_page == pages.HELP:
 			$Panel/BuildingColumns.visible = !show
 			$Panel/UnitColumns.visible = !show

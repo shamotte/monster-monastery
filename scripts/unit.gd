@@ -28,6 +28,7 @@ func _ready():
 	
 	hp = type.hp
 	$Sprite.texture = type.sprite
+	$Shadow.texture = type.sprite
 	$Sprite/ItemParent/Item.texture = type.item
 	for ab :Ability in type.abilities:
 		var temp = ab.duplicate()
@@ -51,9 +52,11 @@ func _process(delta):
 	#Rotation
 	if velocity.x > 0:
 		$Sprite.flip_h = false
+		$Shadow.flip_h = false
 		$Sprite/ItemParent.scale.x = 1.0
 	elif velocity.x < 0:
 		$Sprite.flip_h = true
+		$Shadow.flip_h = true
 		$Sprite/ItemParent.scale.x = -1.0
 
 func _physics_process(delta):

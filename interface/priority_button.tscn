@@ -21,7 +21,7 @@ corner_radius_bottom_left = 8
 anti_aliasing = false
 
 [node name="Control" type="Control"]
-custom_minimum_size = Vector2(48, 64)
+custom_minimum_size = Vector2(48, 72)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 48.0
@@ -30,6 +30,7 @@ theme = ExtResource("1_f12yi")
 script = ExtResource("2_owvu8")
 
 [node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 72.0
