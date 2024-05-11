@@ -17,17 +17,23 @@ func _ready():
 	Priorities.add_self_to_available_actions(self,Priorities.ACTIONTYPES.FIGHT)
 	%Timer.wait_time = type.cooldown
 	$SpawnSound.play()
-	
+	%HPBar.visible = false
 	$AnimationPlayer.play("spawn")
 
 func set_stats(newEnemy:EnemyResource):
 	type = newEnemy
 	hp = type.hp
 	$Sprite2D.texture = type.sprite
+	$Shadow.texture = type.sprite
 	%Item.texture = type.item
+	%HPBar.value = type.hp
+	%HPBar.max_value = type.hp
 
 func take_damage(damage:float):
 	hp-=damage
+	if hp<=type.hp:
+		%HPBar.visible = true
+		%HPBar.value = hp
 	if hp<=0:
 		died.emit()
 		Priorities.remove_self_from_actions(self,Priorities.ACTIONTYPES.FIGHT)
@@ -86,7 +92,9 @@ func _physics_process(delta):
 			
 	if velocity.x > 0:
 		$Sprite2D.flip_h = false
+		$Shadow.flip_h = false
 		$Sprite2D/ItemParent.scale.x = 1.0
 	elif velocity.x < 0:
 		$Sprite2D.flip_h = true
+		$Shadow.flip_h = true
 		$Sprite2D/ItemParent.scale.x = -1.0

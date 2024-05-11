@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://6o0ppecfcqvo"]
+[gd_scene load_steps=21 format=3 uid="uid://6o0ppecfcqvo"]
 
 [ext_resource type="Script" path="res://scripts/unit.gd" id="1_g8wtp"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="2_ey7t7"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://bdhx5imabp37l" path="res://sounds/gather.wav" id="4_oaxnj"]
 [ext_resource type="AudioStream" uid="uid://bqbsi8axo42ns" path="res://sounds/summon2.wav" id="6_y570h"]
 [ext_resource type="AudioStream" uid="uid://dvjldnr6m8v88" path="res://sounds/fight1.wav" id="7_1e24m"]
+[ext_resource type="Texture2D" uid="uid://b3x6li0gxqf6n" path="res://sprites/UI/Bar 16x4.png" id="9_n1q2q"]
+[ext_resource type="Texture2D" uid="uid://dyuwwfjlqiy0c" path="res://sprites/UI/FrameBar 16x4.png" id="10_mvtfb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6nlr"]
 atlas = ExtResource("4_134da")
@@ -245,6 +247,21 @@ stream = ExtResource("6_y570h")
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_1e24m")
+
+[node name="HPBar" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -8.0
+offset_top = -15.0
+offset_right = 8.0
+offset_bottom = -11.0
+max_value = 15.0
+value = 15.0
+texture_under = ExtResource("9_n1q2q")
+texture_over = ExtResource("10_mvtfb")
+texture_progress = ExtResource("9_n1q2q")
+tint_under = Color(0.152941, 0.152941, 0.152941, 1)
+tint_over = Color(0.152941, 0.152941, 0.152941, 1)
+tint_progress = Color(1, 0, 0, 1)
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
