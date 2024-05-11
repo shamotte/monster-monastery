@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
 [ext_resource type="PackedScene" uid="uid://b22fxtq6dhenw" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
-[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/Resources/rock.tres" id="8_e7kpm"]
+[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/resources/rock.tres" id="8_e7kpm"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
@@ -58,16 +58,10 @@ collision_layer = 9
 collision_mask = 14
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Building Area"]
-polygon = PackedVector2Array(-296, 176, -80, 32, 40, 32, 112, 112, 136, 192, 320, 288, 360, 224, 328, 136, 216, 32, 184, -104, 320, -232, 240, -248, 144, -208, -344, -176, -480, -56, -480, -56, -568, -96, -624, 72, -568, 168)
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Building Area"]
-polygon = PackedVector2Array(568, -112, 592, -16, 680, 40, 736, 8, 728, -56, 640, -104)
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Building Area"]
-polygon = PackedVector2Array(16, 320, 104, 264, 64, 208, -16, 288)
+visible = false
+polygon = PackedVector2Array(-363, 218, -203, 212, -57, 125, 0, 120, 8, 189, -73, 250, -87, 297, -193, 385, -161, 415, -72, 419, 48, 345, 150, 304, 218, 360, 335, 379, 419, 432, 478, 416, 473, 360, 438, 296, 474, 256, 562, 216, 585, 160, 533, 107, 457, 77, 400, 10, 352, -67, 287, -85, 292, -112, 352, -163, 446, -160, 508, -89, 497, -19, 570, 58, 624, 94, 801, 83, 839, 44, 837, -52, 759, -92, 731, -161, 612, -190, 566, -175, 540, -202, 509, -215, 540, -274, 579, -287, 555, -310, 454, -323, 409, -299, 335, -304, 233, -332, 112, -337, 51, -307, -14, -296, -32, -337, -9, -356, -18, -381, -176, -383, -245, -417, -317, -387, -420, -262, -409, -194, -461, -127, -522, -133, -529, -204, -510, -271, -508, -334, -549, -328, -613, -280, -637, -194, -625, -125, -662, -66, -689, 11, -673, 69, -682, 149, -658, 189, -649, 258, -596, 302, -580, 353, -522, 373, -446, 336, -408, 277)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 position = Vector2(2, 4)
 navigation_polygon = SubResource("NavigationPolygon_y668m")
 
