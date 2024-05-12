@@ -53,4 +53,5 @@ func set_stats(newBuilding: BuildingResource):
 	building = newBuilding
 	recipe = building.recipes[0]
 	$Sprite2D.texture = building.sprite
+	$Shadow.texture = building.sprite
 	$AnimatedSprite2D.animation = "default"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://rynd5iuo55pm"]
+[gd_scene load_steps=13 format=3 uid="uid://rynd5iuo55pm"]
 
 [ext_resource type="Script" path="res://scripts/BuildingObject.gd" id="1_fsosm"]
 [ext_resource type="Texture2D" uid="uid://bcd1mc6c6h2eg" path="res://sprites/Buildings/tower.png" id="1_qf5ig"]
@@ -30,6 +30,33 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f83t4"]
 size = Vector2(48, 48)
+
+[sub_resource type="Animation" id="Animation_f85sv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_okvbb"]
 resource_name = "spawn"
@@ -70,9 +97,34 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, 24), Vector2(0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(7.71, 1),
+"update": 0,
+"values": [Vector2(0, 27), Vector2(12, 3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Shadow:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(7.71, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s0a3g"]
 _data = {
+"RESET": SubResource("Animation_f85sv"),
 "spawn": SubResource("Animation_okvbb")
 }
 
@@ -81,16 +133,21 @@ script = ExtResource("1_fsosm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 25)
-scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_8f0jq")
 autoplay = "default"
 frame_progress = 0.684656
+
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.294118)
+position = Vector2(12, 3)
+skew = 0.523599
+texture = ExtResource("1_qf5ig")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_qf5ig")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 128
+collision_layer = 64
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

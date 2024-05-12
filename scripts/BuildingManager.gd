@@ -12,9 +12,11 @@ func _ready():
 	$Panel.set_tab_title(1,"")
 	$Panel.set_tab_icon(1,load("res://sprites/UI/Unit_Icon.png"))
 	$Panel.set_tab_title(2,"")
-	$Panel.set_tab_icon(2,load("res://sprites/UI/Unit_Icon.png"))
+	$Panel.set_tab_icon(2,load("res://sprites/UI/Group_Icon.png"))
 	$Panel.set_tab_title(3,"")
 	$Panel.set_tab_icon(3,load("res://sprites/UI/question-mark.png"))
+	$Panel.set_tab_title(4,"")
+	$Panel.set_tab_icon(4,load("res://sprites/UI/Options_Icon.png"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
 [ext_resource type="PackedScene" uid="uid://b22fxtq6dhenw" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
-[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/resources/rock.tres" id="8_e7kpm"]
+[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/Resources/rock.tres" id="8_e7kpm"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
@@ -366,8 +366,8 @@ script = ExtResource("7_40o6t")
 
 [node name="CheckPointer" type="Area2D" parent="CursorSprite"]
 position = Vector2(0, 4)
-collision_layer = 9
-collision_mask = 9
+collision_layer = 73
+collision_mask = 73
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CursorSprite/CheckPointer"]
 scale = Vector2(2, 2)
@@ -668,16 +668,6 @@ text = "100/100
 "
 vertical_alignment = 1
 
-[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
-unique_name_in_owner = true
-layout_mode = 1
-offset_left = 4.0
-offset_top = 6.0
-offset_right = 84.0
-offset_bottom = 29.0
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -749,6 +739,15 @@ texture = ExtResource("16_4w1iu")
 unique_name_in_owner = true
 position = Vector2(40, 44)
 texture = ExtResource("11_tqatv")
+
+[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
+unique_name_in_owner = true
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 84.0
+offset_bottom = 29.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PreviewUnitStats" type="Panel" parent="UI/UI/PreviewManager"]
 unique_name_in_owner = true
@@ -840,7 +839,7 @@ position = Vector2(0, -8)
 texture = ExtResource("16_c4l1p")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 240.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]

@@ -9,7 +9,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	if is_overalaping():
 		modulate = "#ff0000"
 	else:
@@ -24,8 +23,10 @@ func is_overalaping():
 	return overlap
 
 func _on_building_area_area_entered(area):
+	print("Entered")
 	in_building_area = true
 
 
 func _on_building_area_area_exited(area):
+	print("Exited")
 	in_building_area = false
