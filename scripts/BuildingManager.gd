@@ -25,7 +25,7 @@ func _process(delta):
 
 func _on_check_button_toggled(toggled_on):
 	show_panel(toggled_on)
-	%PreviewManager.deselect()
+	%InfoPanel.deselect()
 
 #Hide Panel with check button
 func hide_panel(hide):

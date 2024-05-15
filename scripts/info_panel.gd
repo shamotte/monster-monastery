@@ -8,6 +8,8 @@ var selected_unit : Unit
 
 @onready var priority_box= preload("res://interface/priority_elem.tscn")
 
+@export var menu_manager: Node
+
 
 # Called when the node enters the scene tree for the first time.
 var camera :Camera2D
@@ -24,19 +26,8 @@ func update_priority(index:int,new_value : int):
 			
 func _ready():
 	camera = get_viewport().get_camera_2d()
-	%PriorityBoxes.visible= false
-	%PreviewPanel.visible = false
-	%PreviewUnitStats.visible = false
+	visible = false
 	%Cou.value_changed.connect(update_priority)
-	for p in range(PRIORITIESLENGTH):
-		var child = priority_box.instantiate() 
-		child.priority = 0
-		child.index = p
-		child.value_changed.connect(update_priority)
-		%PriorityBoxes.add_child(child)
-		child.change_label(p)
-		child.change_icon(p)
-		child.mouse_entered.connect(_on_mouse_entered)
 		
 		
 	
@@ -53,16 +44,14 @@ func _input(event):
 			if not intersections.is_empty():
 				active_selection = intersections[0].get_parent()
 				active_selection.display_previev($".")
-				%PreviewPanel.visible = true
+				visible = true
 
 #deselect unit
 func deselect():
 	active_selection = null
 	selected_unit = null
-	%PriorityBoxes.visible= false 
-	%PreviewPanel.visible = false
+	visible = false
 	%SelectedIndicator.visible = false
-	%PreviewUnitStats.visible = false
 	
 
 func unit_selection(object : Unit):
@@ -73,7 +62,6 @@ func unit_selection(object : Unit):
 	%HP.text = str(object.hp) + "/" + str(object.type.hp)
 	
 	%preview_icon.texture = object.type.sprite
-	%PriorityBoxes.visible = true
 	%RecepiePanel.visible = false
 	active_selection = object
 	#TODO tu byłe error
@@ -84,7 +72,6 @@ func unit_selection(object : Unit):
 	for i in %InfoPanelStats.get_children():
 		i.queue_free()
 	#Display unit statistics
-	%PreviewUnitStats.visible = true
 	for i in statistics:
 		if statistics[i] == statistics.HP:
 			continue
@@ -103,25 +90,11 @@ func unit_selection(object : Unit):
 			statistics.WORKTIME:
 				s.set_workTime(object.type.work_speed)
 		%InfoPanelStats.add_child(s)
-		
-		
-	
-func resource_selection(object : Res):
-	selected_unit = null
-	%PreviewUnitStats.visible = false
-	%PriorityBoxes.visible = false
-	%RecepiePanel.visible = false
-	%HP.visible = false
-	$PreviewPanel/HPTexture.visible = false
-	%UnitName.text = Global.resources[object.resource_type].name
-	%preview_icon.texture = object.get_node("Sprite2D").texture
 	
 	
 @onready var resource_icon = preload("res://interface/resource_slot.tscn")
 func building_selection(object : buildingObject):
 	selected_unit = null
-	%PreviewUnitStats.visible = false
-	%PriorityBoxes.visible = false
 	%RecepiePanel.visible = true
 	%HP.visible = false
 	$PreviewPanel/HPTexture.visible = false
@@ -148,6 +121,10 @@ func building_selection(object : buildingObject):
 		%benefit.add_child(x)
 
 func _process(delta):
+	if selected_unit != null:
+		$PreviewPanel/GroupIdentifier.text = "Group: " + str(selected_unit.priorities.id)
+		$PreviewPanel/GroupIdentifier.set("theme_override_colors/font_color", selected_unit.priorities.color)
+	
 	pointer.global_position = $"../../..".mousePos()
 	
 	if active_selection != null:
@@ -158,6 +135,13 @@ func _process(delta):
 	else:
 		%SelectedIndicator.visible = false
 
+func _on_group_manager_link_pressed():
+	menu_manager.current_page = menu_manager.pages.GROUPS
+	menu_manager.get_node("Panel").current_tab = menu_manager.current_page
+	menu_manager.get_node("Panel").get_node("GroupManager").get_node("SelectedGroupPanel").set_current_group("????? po co to ?????", selected_unit.priorities)
+	menu_manager.show_panel(true)
+	menu_manager.get_node("CheckButton").button_pressed = true
+	deselect()
 
 var mouse_in:bool
 func _on_mouse_entered():

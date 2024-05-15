@@ -374,7 +374,6 @@ scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_jqn1q")
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("8_1k3t5")
 
 [node name="UI" type="Control" parent="UI"]
@@ -629,7 +628,7 @@ text = "Volume:"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="PreviewManager" type="Control" parent="UI/UI"]
+[node name="InfoPanel" type="Control" parent="UI/UI" node_paths=PackedStringArray("menu_manager")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 2
@@ -641,8 +640,9 @@ offset_right = 244.0
 offset_bottom = -4.0
 grow_vertical = 0
 script = ExtResource("10_d5ti3")
+menu_manager = NodePath("../Manager")
 
-[node name="PreviewPanel" type="Panel" parent="UI/UI/PreviewManager"]
+[node name="PreviewPanel" type="Panel" parent="UI/UI/InfoPanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -651,7 +651,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HPTexture" type="TextureRect" parent="UI/UI/PreviewManager/PreviewPanel"]
+[node name="HPTexture" type="TextureRect" parent="UI/UI/InfoPanel/PreviewPanel"]
 layout_mode = 0
 offset_left = 4.0
 offset_top = 56.0
@@ -659,7 +659,7 @@ offset_right = 36.0
 offset_bottom = 88.0
 texture = ExtResource("14_hf8ep")
 
-[node name="HP" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
+[node name="HP" type="Label" parent="UI/UI/InfoPanel/PreviewPanel"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 20.0
@@ -670,22 +670,9 @@ text = "100/100
 "
 vertical_alignment = 1
 
-[node name="PriorityBoxes" type="HBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel"]
+[node name="RecepiePanel" type="Panel" parent="UI/UI/InfoPanel/PreviewPanel"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -160.0
-offset_top = -77.0
-offset_bottom = 3.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="RecepiePanel" type="Panel" parent="UI/UI/PreviewManager/PreviewPanel"]
-unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -696,7 +683,7 @@ offset_right = 8.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Cou" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel" instance=ExtResource("15_x630r")]
+[node name="Cou" parent="UI/UI/InfoPanel/PreviewPanel/RecepiePanel" instance=ExtResource("15_x630r")]
 unique_name_in_owner = true
 offset_left = 8.0
 offset_top = 7.0
@@ -706,7 +693,7 @@ max_number = 99
 label = "count"
 texture = ExtResource("15_pktq6")
 
-[node name="ing" type="Panel" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel"]
+[node name="ing" type="Panel" parent="UI/UI/InfoPanel/PreviewPanel/RecepiePanel"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 11
@@ -717,32 +704,32 @@ offset_left = -104.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UI/InfoPanel/PreviewPanel/RecepiePanel/ing"]
 layout_mode = 0
 offset_right = 104.0
 offset_bottom = 84.0
 
-[node name="ingred" type="HBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
+[node name="ingred" type="HBoxContainer" parent="UI/UI/InfoPanel/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="benefit" type="HBoxContainer" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
+[node name="benefit" type="HBoxContainer" parent="UI/UI/InfoPanel/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="UI/UI/InfoPanel/PreviewPanel/RecepiePanel/ing/VBoxContainer"]
 position = Vector2(15, 39)
 texture = ExtResource("16_4w1iu")
 
-[node name="preview_icon" type="Sprite2D" parent="UI/UI/PreviewManager/PreviewPanel"]
+[node name="preview_icon" type="Sprite2D" parent="UI/UI/InfoPanel/PreviewPanel"]
 unique_name_in_owner = true
 position = Vector2(40, 44)
 texture = ExtResource("11_tqatv")
 
-[node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
+[node name="UnitName" type="Label" parent="UI/UI/InfoPanel/PreviewPanel"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 4.0
@@ -752,7 +739,22 @@ offset_bottom = 29.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PreviewUnitStats" type="Panel" parent="UI/UI/PreviewManager"]
+[node name="GroupIdentifier" type="Label" parent="UI/UI/InfoPanel/PreviewPanel"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 16.0
+offset_right = 204.0
+offset_bottom = 56.0
+
+[node name="GroupManagerLink" type="Button" parent="UI/UI/InfoPanel/PreviewPanel"]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 40.0
+offset_right = 234.0
+offset_bottom = 80.0
+text = "Manage priorities..."
+
+[node name="PreviewUnitStats" type="Panel" parent="UI/UI/InfoPanel"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 0
@@ -760,7 +762,7 @@ offset_top = -65.0
 offset_right = 112.0
 offset_bottom = -1.0
 
-[node name="InfoPanelStats" type="GridContainer" parent="UI/UI/PreviewManager/PreviewUnitStats"]
+[node name="InfoPanelStats" type="GridContainer" parent="UI/UI/InfoPanel/PreviewUnitStats"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 0
@@ -850,9 +852,10 @@ autostart = true
 [connection signal="toggled" from="UI/UI/Manager/CheckButton" to="UI/UI/Manager" method="_on_check_button_toggled"]
 [connection signal="tab_changed" from="UI/UI/Manager/Panel" to="UI/UI/Manager" method="_on_panel_tab_changed"]
 [connection signal="drag_ended" from="UI/UI/Manager/Panel/Options/VolumeSlider" to="UI/UI/Manager/Panel/Options/VolumeSlider" method="_on_drag_ended"]
-[connection signal="mouse_entered" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_entered"]
-[connection signal="mouse_exited" from="UI/UI/PreviewManager/PreviewPanel" to="UI/UI/PreviewManager" method="_on_preview_panel_mouse_exited"]
+[connection signal="mouse_entered" from="UI/UI/InfoPanel" to="UI/UI/InfoPanel" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/UI/InfoPanel" to="UI/UI/InfoPanel" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="UI/UI/InfoPanel/PreviewPanel" to="UI/UI/InfoPanel" method="_on_preview_panel_mouse_entered"]
+[connection signal="mouse_exited" from="UI/UI/InfoPanel/PreviewPanel" to="UI/UI/InfoPanel" method="_on_preview_panel_mouse_exited"]
+[connection signal="pressed" from="UI/UI/InfoPanel/PreviewPanel/GroupManagerLink" to="UI/UI/InfoPanel" method="_on_group_manager_link_pressed"]
 [connection signal="pressed" from="UI/Endgame/Button" to="UI/Endgame" method="_on_button_pressed"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

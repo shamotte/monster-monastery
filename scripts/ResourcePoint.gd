@@ -54,11 +54,6 @@ func _ready():
 	add_self_to_available_actions()
 	
 	$AnimationPlayer.play("spawn")
-	
-	
-	
-func display_previev(node : Control):
-		node.resource_selection(self)
 
 
 
