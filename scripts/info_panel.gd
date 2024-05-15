@@ -138,7 +138,7 @@ func _process(delta):
 func _on_group_manager_link_pressed():
 	menu_manager.current_page = menu_manager.pages.GROUPS
 	menu_manager.get_node("Panel").current_tab = menu_manager.current_page
-	menu_manager.get_node("Panel").get_node("GroupManager").get_node("SelectedGroupPanel").set_current_group("????? po co to ?????", selected_unit.priorities)
+	menu_manager.get_node("Panel").get_node("GroupManager").get_node("SelectedGroupPanel").set_current_group(selected_unit.priorities)
 	menu_manager.show_panel(true)
 	menu_manager.get_node("CheckButton").button_pressed = true
 	deselect()

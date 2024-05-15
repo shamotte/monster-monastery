@@ -39,9 +39,9 @@ func update_group(groups : Array[PriorityTable]):
 	all_groups = groups
 	#%GroupList
 	
-func set_current_group(group_name : String, group_type : PriorityTable):
+func set_current_group(group_type : PriorityTable):
 	current_group = group_type
-	$GroupName.text = group_name
+	$GroupName.text = group_type.name
 	$GroupColor.color = current_group.color
 	var priorities_slot = %PrioritiyList.get_children()
 	for i in priorities_slot:
@@ -50,6 +50,8 @@ func set_current_group(group_name : String, group_type : PriorityTable):
 		var p = priority_slot.instantiate()
 		p.change_priority(current_group.table[i])
 		p.set_group(current_group,i)
+		p.change_icon(i)
+		#p.get_node("Icon").texture = Priorities.actions[i]["sprite"]
 		%PrioritiyList.add_child(p)
 		
 	#%GroupGrid

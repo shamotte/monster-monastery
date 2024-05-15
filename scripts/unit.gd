@@ -85,8 +85,8 @@ func heal_unit(addHP:float):
 		hp = type.hp
 		
 func make_and_set_new_group():
-	Global.current_groups.append(PriorityTable.new())
 	priorities = PriorityTable.new()
+	Global.current_groups.append(priorities)
 	
 func _draw():
 	draw_arc(position,700,0,360,50,Color.RED,0.2)

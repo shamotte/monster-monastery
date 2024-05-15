@@ -3,6 +3,7 @@ extends Resource
 var id : int			#Id of group
 var table : Array[int]
 var color : Color
+var name : String
 const MAXVALUE = 4
 	
 	
@@ -35,10 +36,15 @@ func clone():
 func change_color(_color : Color):
 	color = _color
 
+func set_group_name(new_name : String):
+	name = new_name
 
 func _init(_table : Array[int] = [1,1,1], _color : Color = Color.WHITE):
 	table = _table.duplicate(false)
+	id = len(Global.current_groups) + 1
+	name = "Group: " + str(id)
 	color = Color(randf_range(0,1),randf_range(0,1),randf_range(0,1))
 	#color = _color
 	
+
 	

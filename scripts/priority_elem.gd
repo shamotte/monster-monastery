@@ -26,8 +26,8 @@ func change_label(name : int):
 	
 func change_icon(name : int):
 	#$Label.text = name
+	print("New Icon")
 	$Icon.texture = Priorities.actions[name]["sprite"]
-
 
 func change_priority(n: int):
 	priority = n

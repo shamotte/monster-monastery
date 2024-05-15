@@ -26,4 +26,4 @@ func get_group():
 	
 func _on_button_pressed():
 	var manager = get_tree().get_first_node_in_group("GroupInfo")
-	manager.set_current_group("Group "+$Count.text,group)
+	manager.set_current_group(group)
