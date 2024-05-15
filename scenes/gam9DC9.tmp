@@ -866,7 +866,7 @@ position = Vector2(0, -8)
 texture = ExtResource("16_c4l1p")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 240.0
 autostart = true
 
 [connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]

@@ -86,13 +86,16 @@ func heal_unit(addHP:float):
 		
 func make_and_set_new_group():
 	priorities = PriorityTable.new()
+	priorities.units_in_group += 1
 	Global.current_groups.append(priorities)
+	
+func set_group(group : PriorityTable):
+	priorities.units_in_group -= 1
+	priorities = group
+	priorities.units_in_group += 1
 	
 func _draw():
 	draw_arc(position,700,0,360,50,Color.RED,0.2)
-
-
-
 
 func _on_tree_entered():
 	Global.unit_count += 1

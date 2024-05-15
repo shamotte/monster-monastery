@@ -21,13 +21,13 @@ func _process(delta):
 
 func change_label(name : int):
 	#$Label.text = name
-	$Label.text = Priorities.actions[name]["name"]
+	label = Priorities.actions[name]["name"]
+	$Label.text = label
 	#$Label.text = ""
 	
 func change_icon(name : int):
-	#$Label.text = name
-	print("New Icon")
-	$Icon.texture = Priorities.actions[name]["sprite"]
+	texture = Priorities.actions[name]["sprite"]
+	$Icon.texture = texture
 
 func change_priority(n: int):
 	priority = n
@@ -45,3 +45,7 @@ func _on_priority_elem_pressed():
 	group.increment_priority(num_slot)
 	value_changed.emit(index,priority)
 	
+
+
+func _on_group_identifier_pressed():
+	pass # Replace with function body.

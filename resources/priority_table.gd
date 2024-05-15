@@ -4,6 +4,7 @@ var id : int			#Id of group
 var table : Array[int]
 var color : Color
 var name : String
+var units_in_group : int	#How much unit's are in group
 const MAXVALUE = 4
 	
 	

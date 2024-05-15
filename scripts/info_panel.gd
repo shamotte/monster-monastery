@@ -3,10 +3,13 @@ extends Control
 var PRIORITIESLENGTH = 3
 
 var stat_slot = preload("res://interface/stat_slot.tscn") 
+var group_slot = preload("res://interface/Group_slot_small.tscn")
 var statistics = Global.statistics
 var selected_unit : Unit
 
 @onready var priority_box= preload("res://interface/priority_elem.tscn")
+
+@onready var resource_icon = preload("res://interface/resource_slot.tscn")
 
 @export var menu_manager: Node
 
@@ -26,6 +29,7 @@ func update_priority(index:int,new_value : int):
 			
 func _ready():
 	camera = get_viewport().get_camera_2d()
+	%PreviewGroups.visible = false
 	visible = false
 	%Cou.value_changed.connect(update_priority)
 		
@@ -52,14 +56,16 @@ func deselect():
 	selected_unit = null
 	visible = false
 	%SelectedIndicator.visible = false
+	%PreviewGroups.visible = false
 	
-
+#select unit
 func unit_selection(object : Unit):
 	selected_unit = object
 	$PreviewPanel/HPTexture.visible = true
 	%UnitName.text = object.type.name
 	%HP.visible = true
 	%HP.text = str(object.hp) + "/" + str(object.type.hp)
+	%PreviewGroups.visible = false
 	
 	%preview_icon.texture = object.type.sprite
 	%RecepiePanel.visible = false
@@ -92,7 +98,9 @@ func unit_selection(object : Unit):
 		%InfoPanelStats.add_child(s)
 	
 	
-@onready var resource_icon = preload("res://interface/resource_slot.tscn")
+
+
+#select building
 func building_selection(object : buildingObject):
 	selected_unit = null
 	%RecepiePanel.visible = true
@@ -121,6 +129,9 @@ func building_selection(object : buildingObject):
 		%benefit.add_child(x)
 
 func _process(delta):
+	#Check if Menu Manager is active so player can't select unit while in menu
+	if $"../Manager/Panel".visible:
+		return
 	if selected_unit != null:
 		$PreviewPanel/GroupIdentifier.text = "Group: " + str(selected_unit.priorities.id)
 		$PreviewPanel/GroupIdentifier.set("theme_override_colors/font_color", selected_unit.priorities.color)
@@ -135,6 +146,7 @@ func _process(delta):
 	else:
 		%SelectedIndicator.visible = false
 
+#Priority button pressed
 func _on_group_manager_link_pressed():
 	menu_manager.current_page = menu_manager.pages.GROUPS
 	menu_manager.get_node("Panel").current_tab = menu_manager.current_page
@@ -142,7 +154,33 @@ func _on_group_manager_link_pressed():
 	menu_manager.show_panel(true)
 	menu_manager.get_node("CheckButton").button_pressed = true
 	deselect()
-
+	
+#group selection button pressed
+func _on_group_identifier_pressed():
+	#change state of group panel
+	%PreviewGroups.visible = not %PreviewGroups.visible
+	if %PreviewGroups.visible:
+		#Removing old groups
+		for i in %InfoPanelGroups.get_children():
+			i.queue_free()
+		#Spawn updated groups
+		for i in range(len(Global.current_groups)):
+			var g = group_slot.instantiate()
+			g.set_group(Global.current_groups[i])
+			g.set_num(i+1)
+			g.set_color(Global.current_groups[i].color)
+			g.can_set_unit(true)
+			%InfoPanelGroups.add_child(g)
+			
+#changes group of selected unit
+func change_selected_unit_group(new_group : PriorityTable):
+	%PreviewGroups.visible = false
+	if selected_unit == null:
+		return
+	selected_unit.set_group(new_group)
+	
+			
+			
 var mouse_in:bool
 func _on_mouse_entered():
 	mouse_in = true # Replace with function body.
@@ -166,3 +204,6 @@ func _on_control_mouse_entered():
 
 func _on_control_mouse_exited():
 	_on_mouse_exited()
+
+
+

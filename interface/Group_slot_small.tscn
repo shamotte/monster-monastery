@@ -1,42 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5gpr65rd461l"]
+[gd_scene load_steps=2 format=3 uid="uid://dcps1ugp7atbk"]
 
-[ext_resource type="Script" path="res://scripts/group_slot.gd" id="1_rno0o"]
+[ext_resource type="Script" path="res://scripts/group_slot.gd" id="1_exr4q"]
 
 [node name="GroupSlot" type="Control"]
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -576.0
-offset_bottom = -296.0
+offset_right = -616.0
+offset_bottom = -336.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rno0o")
+script = ExtResource("1_exr4q")
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0.294118)
-custom_minimum_size = Vector2(64, 64)
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 24.0
+offset_bottom = 24.0
 
 [node name="GroupColor" type="ColorRect" parent="."]
 clip_contents = true
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -24.0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.75, 0.75)
 mouse_filter = 2
 color = Color(0.733333, 0.192157, 0.192157, 1)
 

@@ -27,7 +27,6 @@ func update_group_slots():
 		s.set_color(Global.current_groups[i].color)
 		group_grid.add_child(s)
 		
-#TODO ma znaleźć pierwszą grupę w tabeli i ustawić ją
 #resets current group to first in table
 func set_first_group():
 	var slots = group_grid.get_children()
@@ -41,8 +40,9 @@ func update_group(groups : Array[PriorityTable]):
 	
 func set_current_group(group_type : PriorityTable):
 	current_group = group_type
-	$GroupName.text = group_type.name
+	$GroupName.text = current_group.name
 	$GroupColor.color = current_group.color
+	$UnitsIcon/UnitsCount.text = str(current_group.units_in_group)
 	var priorities_slot = %PrioritiyList.get_children()
 	for i in priorities_slot:
 		i.queue_free()
@@ -50,8 +50,8 @@ func set_current_group(group_type : PriorityTable):
 		var p = priority_slot.instantiate()
 		p.change_priority(current_group.table[i])
 		p.set_group(current_group,i)
+		p.change_label(i)
 		p.change_icon(i)
-		#p.get_node("Icon").texture = Priorities.actions[i]["sprite"]
 		%PrioritiyList.add_child(p)
 		
 	#%GroupGrid
