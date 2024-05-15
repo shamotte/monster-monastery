@@ -67,7 +67,7 @@ class SummonigState:
 		
 	func enter_state():
 		time_left = unit.summoning_time
-		print("summonigng started")
+		#print("summonigng started")
 	func process(delta):
 		time_left -= delta
 		if time_left >0:
@@ -75,7 +75,8 @@ class SummonigState:
 		return STATES.IDLE
 			
 	func end_state():
-		print("summoning ended")
+		pass
+		#print("summoning ended")
 
 
 
@@ -85,7 +86,7 @@ class IdleState:
 	func set_up(_unit):
 		unit = _unit
 	func enter_state():
-		print("entered idle")
+		#print("entered idle")
 		timer = 0
 	func process(delta) -> STATES:
 		
@@ -107,7 +108,8 @@ class IdleState:
 		return STATES.IDLE
 		
 	func end_state():
-		print("stopped idle")
+		pass
+		#print("stopped idle")
 		
 		
 class WalkState:
@@ -117,7 +119,7 @@ class WalkState:
 	func set_up(_unit):
 		unit = _unit
 	func enter_state():
-		print("entered walk")
+		#print("entered walk")
 		agent = unit.agent
 		stopping_distance = unit.type.work_range
 		unit.agent.target_position = unit.current_action.position
@@ -133,7 +135,8 @@ class WalkState:
 		unit.velocity = unit.velocity.lerp(direction * 120  , 0.25)
 		unit.move_and_slide()
 	func end_state():
-		print("stopped walk")
+		pass
+		#print("stopped walk")
 		
 	
 
@@ -144,7 +147,8 @@ class WorkState:
 		unit = _unit
 		
 	func enter_state():
-		print("entered work")
+		pass
+		#print("entered work")
 		
 		
 	func process(delta) ->STATES:
@@ -158,8 +162,8 @@ class WorkState:
 		
 		
 	func end_state():
-		
-		print("stopped work")
+		pass
+		#print("stopped work")
 		
 		
 class FightState:
@@ -179,7 +183,8 @@ class FightState:
 		unit = _unit
 		
 	func enter_state():
-		print("entered fight")
+		pass
+		#print("entered fight")
 		
 		#agent = unit.agent
 		#stopping_distance = unit.type.fight_range
@@ -192,7 +197,8 @@ class FightState:
 		fight_process.emit(delta);
 		return STATES.FIGHT
 	func end_state():
-		print("ended fight")
+		pass
+		#print("ended fight")
 
 
 
@@ -200,7 +206,8 @@ class StandbyState:
 	extends UnitState
 	var timer = 2.0
 	func enter_state():
-		print("entered standby")
+		pass
+		#print("entered standby")
 	func process(delta) ->STATES:
 		var fight = Priorities.get_fight_action(unit)
 		if fight == null:

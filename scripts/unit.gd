@@ -22,7 +22,8 @@ var target_global_position: Vector2
 
 var hp
 func _ready():
-	priorities = PriorityTable.new()
+	make_and_set_new_group()
+	#priorities = PriorityTable.new()
 	$SpawnSound.play()
 	$AnimationPlayer.play("spawn")
 	
@@ -82,6 +83,10 @@ func heal_unit(addHP:float):
 	if hp >= type.hp:
 		%HPBar.visible = false
 		hp = type.hp
+		
+func make_and_set_new_group():
+	Global.current_groups.append(PriorityTable.new())
+	priorities = PriorityTable.new()
 	
 func _draw():
 	draw_arc(position,700,0,360,50,Color.RED,0.2)

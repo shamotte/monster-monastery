@@ -523,8 +523,10 @@ columns = 2
 visible = false
 layout_mode = 2
 
-[node name="SelectedGroupPanel" parent="UI/UI/Manager/Panel/GroupManager" groups=["GroupInfo"] instance=ExtResource("16_fccnn")]
+[node name="SelectedGroupPanel" parent="UI/UI/Manager/Panel/GroupManager" node_paths=PackedStringArray("group_grid") groups=["GroupInfo"] instance=ExtResource("16_fccnn")]
+unique_name_in_owner = true
 layout_mode = 2
+group_grid = NodePath("../GroupList/GroupGrid")
 
 [node name="GroupList" type="ScrollContainer" parent="UI/UI/Manager/Panel/GroupManager"]
 custom_minimum_size = Vector2(272, 280)
@@ -742,6 +744,7 @@ texture = ExtResource("11_tqatv")
 
 [node name="UnitName" type="Label" parent="UI/UI/PreviewManager/PreviewPanel"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 4.0
 offset_top = 6.0
 offset_right = 84.0
@@ -839,12 +842,13 @@ position = Vector2(0, -8)
 texture = ExtResource("16_c4l1p")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 240.0
 autostart = true
 
 [connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]
 [connection signal="area_exited" from="Building Area" to="CursorSprite" method="_on_building_area_area_exited"]
 [connection signal="toggled" from="UI/UI/Manager/CheckButton" to="UI/UI/Manager" method="_on_check_button_toggled"]
+[connection signal="tab_changed" from="UI/UI/Manager/Panel" to="UI/UI/Manager" method="_on_panel_tab_changed"]
 [connection signal="drag_ended" from="UI/UI/Manager/Panel/Options/VolumeSlider" to="UI/UI/Manager/Panel/Options/VolumeSlider" method="_on_drag_ended"]
 [connection signal="mouse_entered" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/UI/PreviewManager" to="UI/UI/PreviewManager" method="_on_mouse_exited"]

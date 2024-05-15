@@ -18,6 +18,7 @@ var enemies: Array[EnemyResource] = []
 
 
 var current_resources: Array[int] = []
+var current_groups: Array[PriorityTable] = []
 
 
 @export var work_range = 10

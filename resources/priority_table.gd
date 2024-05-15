@@ -38,6 +38,7 @@ func change_color(_color : Color):
 
 func _init(_table : Array[int] = [1,1,1], _color : Color = Color.WHITE):
 	table = _table.duplicate(false)
-	color = _color
+	color = Color(randf_range(0,1),randf_range(0,1),randf_range(0,1))
+	#color = _color
 	
 	

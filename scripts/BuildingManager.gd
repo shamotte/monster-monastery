@@ -21,16 +21,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $Panel/BuildingColumns.visible:
-		current_page = pages.BUILDINGS
-	elif $Panel/UnitColumns.visible:
-		current_page = pages.UNITS
-	elif $Panel/GroupManager.visible:
-		current_page = pages.GROUPS
-	elif $Panel/Help.visible:
-		current_page = pages.HELP
-	elif $Panel/Options.visible:
-		current_page = pages.OPTIONS
+	set_current_page()
 
 func _on_check_button_toggled(toggled_on):
 	show_panel(toggled_on)
@@ -44,6 +35,7 @@ func hide_panel(hide):
 #show panel
 func show_panel(show):
 	if show:
+		print(current_page)
 		if current_page == pages.BUILDINGS:
 			$Panel/BuildingColumns.visible = show
 			$Panel/UnitColumns.visible = !show
@@ -62,7 +54,8 @@ func show_panel(show):
 			$Panel/GroupManager.visible = show
 			$Panel/Help.visible = !show
 			$Panel/Options.visible = !show
-			$Panel/UnitColumns/UnitsInfo.update_group_slots()
+			$Panel/GroupManager/SelectedGroupPanel.update_group_slots()
+			
 		elif current_page == pages.HELP:
 			$Panel/BuildingColumns.visible = !show
 			$Panel/UnitColumns.visible = !show
@@ -83,3 +76,22 @@ func show_panel(show):
 		$Panel/Options.visible = false
 	$Panel.visible = show
 	
+func set_current_page():
+	if $Panel/BuildingColumns.visible:
+		current_page = pages.BUILDINGS
+	elif $Panel/UnitColumns.visible:
+		current_page = pages.UNITS
+	elif $Panel/GroupManager.visible:
+		current_page = pages.GROUPS
+	elif $Panel/Help.visible:
+		current_page = pages.HELP
+	elif $Panel/Options.visible:
+		current_page = pages.OPTIONS
+
+
+func _on_panel_tab_changed(tab):
+	if tab == pages.GROUPS:
+		set_current_page()
+		if %SelectedGroupPanel.get_current_group() == null:
+			%SelectedGroupPanel.set_first_group()
+		%SelectedGroupPanel.update_group_slots()
