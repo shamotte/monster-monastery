@@ -1,17 +1,16 @@
 [gd_resource type="Resource" script_class="UnitResource" load_steps=10 format=3 uid="uid://c4f7ps81w2mm8"]
 
+[ext_resource type="Script" path="res://scripts/abilities/summon_unit.gd" id="1_4mejq"]
 [ext_resource type="Texture2D" uid="uid://db5on2v4jm83p" path="res://sprites/Items/PitchFork.png" id="1_mpse3"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_njmyt"]
-[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_xuh1g"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_anfki"]
-[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_mdmir"]
+[ext_resource type="Resource" uid="uid://cy5aua45b2h17" path="res://resources/units/cemon.tres" id="2_le6ei"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="3_ncg6l"]
 
-[sub_resource type="Resource" id="Resource_3l5op"]
-script = ExtResource("1_xuh1g")
-cooldown = 3.0
-visual_effect = ExtResource("2_mdmir")
-size = 1.0
+[sub_resource type="Resource" id="Resource_6sjs5"]
+script = ExtResource("1_4mejq")
+cooldown = 30.0
+type = ExtResource("2_le6ei")
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_njmyt")
@@ -37,4 +36,4 @@ cooldown = 0.5
 hp = 15.0
 damage = 1.0
 fight_range = 40.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_3l5op")])
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_6sjs5")])

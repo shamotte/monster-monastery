@@ -10,6 +10,8 @@ var enemy = preload("res://object/enemy.tscn")
 var resource_info
 #Buildings Objects
 
+@onready var unit_holder = %Units
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for r in Global.resources:
