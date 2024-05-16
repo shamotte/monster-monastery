@@ -2,6 +2,7 @@ extends Control
 
 var group : PriorityTable
 var allow_to_change_group : bool
+var allow_to_change_unit_spawn_group : bool
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,19 +33,26 @@ func show_group_info():
 
 #Allows button to change unit's group
 func can_set_unit(option : bool):
-	print("set to: ",option)
 	allow_to_change_group = option
+	
+#Allows button to change spawning group
+func can_set_spawn(option : bool):
+	allow_to_change_unit_spawn_group = option
 	
 #Changing unit's group
 func change_units_group():
-	print("change")
 	var info_panel = get_tree().get_first_node_in_group("Info Panel")
 	info_panel.change_selected_unit_group(group)
 	
+func set_spawning_group():
+	var unit_info = get_tree().get_first_node_in_group("UnitSpawnInfo")
+	unit_info.set_current_group(group)
+	
 func _on_button_pressed():
-	print("pressed")
-	print(allow_to_change_group)
 	if not allow_to_change_group:
 		show_group_info()
 	else:
 		change_units_group()
+	if allow_to_change_unit_spawn_group:
+		set_spawning_group()
+		

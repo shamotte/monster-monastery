@@ -4,6 +4,8 @@ enum pages {BUILDINGS,UNITS,GROUPS,HELP,OPTIONS}
 
 var current_page = pages.BUILDINGS
 
+var selecting_group : bool
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Panel.visible = false
@@ -95,3 +97,18 @@ func _on_panel_tab_changed(tab):
 		if %SelectedGroupPanel.get_current_group() == null:
 			%SelectedGroupPanel.set_first_group()
 		%SelectedGroupPanel.update_group_slots()
+		
+func selecting_group_mode(mode : bool):
+	selecting_group = mode
+	
+func set_spawning_group(group : PriorityTable):
+	if not selecting_group:
+		return
+	%UnitsInfo.set_current_group(group)
+	current_page = pages.GROUPS
+	$Panel.current_tab = current_page
+	#menu_manager.get_node("Panel").get_node("GroupManager").get_node("SelectedGroupPanel").set_current_group(selected_unit.priorities)
+	#show_panel(true)
+	#menu_manager.get_node("CheckButton").button_pressed = true
+		
+

@@ -1,7 +1,7 @@
 extends Node2D
 class_name Res
 
-@export var resource_count_initial: int = 1
+@export var resource_count_initial: int = 3
 var resource_count = resource_count_initial
 @export var res: ResourceResource = preload("res://resources/resources/wood.tres")
 @onready var id = Priorities.get_id()
@@ -65,19 +65,27 @@ func _on_respawn_timer_timeout():
 	$AnimationPlayer.play("spawn")
 	
 
-
+func set_res(new_resource : ResourceResource):
+	res = new_resource
 
 var rock_replacements = [
+	preload("res://resources/resources/rock.tres"),
+	preload("res://resources/resources/rock.tres"),
+	preload("res://resources/resources/rock.tres"),
+	preload("res://resources/resources/rock.tres"),
 	preload("res://resources/resources/rock.tres"),
 	preload("res://resources/resources/obsydian.tres"),
 	preload("res://resources/resources/gold.tres"),
 	preload("res://resources/resources/iron.tres"),
+	preload("res://resources/resources/iron.tres"),
 	preload("res://resources/resources/gem.tres"),
 ]
 func randomize_resource():
-	if res in rock_replacements:
+	print("Res: ",res.name)
+	if res.name in rock_replacements.map(func (r): return r.name):
+		print("wchodzi")
 		res = rock_replacements.pick_random()
-			
+	print("Random: ",rock_replacements.pick_random().name)
 	$Sprite2D.texture = res.resource_point_txture
 	$Shadow.texture = res.resource_point_txture
 	work_time = res.time

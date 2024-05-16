@@ -56,13 +56,13 @@ func set_info_panel():
 	unit_info.get_node("Name").text = unit.name
 	unit_info.get_node("Image").texture = unit.sprite
 	#remove older cost
-	for i in unit_info.get_node("Cost").get_children():
-		i.queue_free()
+	#for i in unit_info.get_node("Cost").get_children():
+	#	i.queue_free()
 	#adding new cost
-	for i in unit.resource_cost:
-		var c = cost_slot.instantiate()
-		c.stack = i
-		unit_info.get_node("Cost").add_child(c)
+	#for i in unit.resource_cost:
+	#	var c = cost_slot.instantiate()
+	#	c.stack = i
+	#	unit_info.get_node("Cost").add_child(c)
 	#Units Stats
 	#remove older stats
 	for i in unit_info.get_node("Statistics").get_children():

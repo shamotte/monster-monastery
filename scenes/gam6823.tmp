@@ -469,6 +469,7 @@ offset_bottom = 36.0
 grow_horizontal = 0
 
 [node name="Panel" type="TabContainer" parent="UI/UI/Manager"]
+visible = false
 custom_minimum_size = Vector2(452, 0)
 layout_mode = 1
 anchors_preset = 8

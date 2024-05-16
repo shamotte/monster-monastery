@@ -22,7 +22,7 @@ var target_global_position: Vector2
 
 var hp
 func _ready():
-	make_and_set_new_group()
+	set_current_group()
 	#priorities = PriorityTable.new()
 	$SpawnSound.play()
 	$AnimationPlayer.play("spawn")
@@ -84,10 +84,24 @@ func heal_unit(addHP:float):
 		%HPBar.visible = false
 		hp = type.hp
 		
+#Makes and set new group
 func make_and_set_new_group():
 	priorities = PriorityTable.new()
 	priorities.units_in_group += 1
 	Global.current_groups.append(priorities)
+	
+#set current selected group
+func set_current_group():
+	if len(Global.current_groups) == 0:
+		make_and_set_new_group()
+	else:
+		var unit_info = get_tree().get_first_node_in_group("UnitSpawnInfo")
+		priorities = unit_info.get_current_group()
+		priorities.units_in_group += 1
+	#unit_info.set_current_group(group)
+	#priorities
+	
+
 	
 func set_group(group : PriorityTable):
 	priorities.units_in_group -= 1
