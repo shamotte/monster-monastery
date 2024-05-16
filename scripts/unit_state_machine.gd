@@ -167,11 +167,9 @@ class WorkState:
 		
 		
 class FightState:
-	
-	
-	
 	extends UnitState
 	
+	var range:float = 0
 	
 	signal fight_process(_unit :Unit)
 	
@@ -181,6 +179,10 @@ class FightState:
 	
 	func set_up(_unit):
 		unit = _unit
+		agent = unit.agent
+		if len(unit.abilities):
+			range = unit.abilities[0].range
+			
 		
 	func enter_state():
 		pass
@@ -194,8 +196,17 @@ class FightState:
 		if unit.target == null:
 			return STATES.STANDBY
 		unit.target_global_position = unit.target.position
+		unit.agent.target_position = unit.target_global_position
 		fight_process.emit(delta);
 		return STATES.FIGHT
+		
+	func physics_process(delta):
+		if agent.distance_to_target() > range:
+			var direction = agent.get_next_path_position() - unit.global_position
+			direction = direction.normalized()
+			unit.velocity = unit.velocity.lerp(direction * 120  , 0.25)
+			unit.move_and_slide()
+		
 	func end_state():
 		pass
 		#print("ended fight")

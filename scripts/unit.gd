@@ -95,7 +95,7 @@ func set_group(group : PriorityTable):
 	priorities.units_in_group += 1
 	
 func _draw():
-	draw_arc(position,700,0,360,50,Color.RED,0.2)
+	pass#draw_arc(position,700,0,360,50,Color.RED,0.2)
 
 func _on_tree_entered():
 	Global.unit_count += 1
