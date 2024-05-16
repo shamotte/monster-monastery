@@ -23,6 +23,7 @@ Priorities="*res://scripts/priorities.gd"
 Crafting="*res://scripts/Crafting.gd"
 MusicPlayer="*res://object/music_player.tscn"
 ProjectileOverseeer="*res://scripts/projectile_overseeer.gd"
+DaylightManager="*res://object/daylight_manager.tscn"
 
 [display]
 

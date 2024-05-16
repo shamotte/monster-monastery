@@ -20,6 +20,8 @@ var current_action:Node2D = null
 var target:Enemy = null
 var target_global_position: Vector2
 
+signal process_sig( delta : float)
+
 var hp
 func _ready():
 	set_current_group()
@@ -33,6 +35,10 @@ func _ready():
 	$Sprite/ItemParent/Item.texture = type.item
 	for ab :Ability in type.abilities:
 		var temp = ab.duplicate()
+		if temp.has_method("process"):
+			process_sig.connect(temp.process)
+		if temp.has_method("init"):
+			temp.init()
 		temp.ovner = self
 		abilities.push_back(temp)
 		
@@ -45,10 +51,11 @@ func _ready():
 
 
 func _process(delta):
-	queue_redraw()
 	
 	
 	state_machine.process(delta)
+	
+	process_sig.emit(delta)
 	#Is animation end
 	#Rotation
 	if velocity.x > 0:
@@ -109,7 +116,7 @@ func set_group(group : PriorityTable):
 	priorities.units_in_group += 1
 	
 func _draw():
-	draw_arc(position,700,0,360,50,Color.RED,0.2)
+	pass#draw_arc(position,700,0,360,50,Color.RED,0.2)
 
 func _on_tree_entered():
 	Global.unit_count += 1

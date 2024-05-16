@@ -15,7 +15,7 @@ var units_working_on_this:int = 0
 
 func _ready():
 	Priorities.add_self_to_available_actions(self,Priorities.ACTIONTYPES.FIGHT)
-	%Timer.wait_time = type.cooldown
+	
 	$SpawnSound.play()
 	%HPBar.visible = false
 	$AnimationPlayer.play("spawn")
@@ -23,6 +23,7 @@ func _ready():
 func set_stats(newEnemy:EnemyResource):
 	type = newEnemy
 	hp = type.hp
+	%Timer.wait_time = type.cooldown
 	$Sprite2D.texture = type.sprite
 	$Shadow.texture = type.sprite
 	%Item.texture = type.item
@@ -37,7 +38,6 @@ func take_damage(damage:float):
 	if hp<=0:
 		died.emit()
 		Priorities.remove_self_from_actions(self,Priorities.ACTIONTYPES.FIGHT)
-		await get_tree().create_timer(0.1).timeout
 		queue_free()
 
 func get_closest_unit()-> Node2D:
