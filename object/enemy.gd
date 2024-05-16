@@ -37,7 +37,6 @@ func take_damage(damage:float):
 	if hp<=0:
 		died.emit()
 		Priorities.remove_self_from_actions(self,Priorities.ACTIONTYPES.FIGHT)
-		await get_tree().create_timer(0.1).timeout
 		queue_free()
 
 func get_closest_unit()-> Node2D:

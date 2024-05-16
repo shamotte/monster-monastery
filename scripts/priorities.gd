@@ -74,13 +74,14 @@ func get_fight_action(unit : Unit):
 	var unit_position:Vector2 = unit.position
 	var best_action : Node2D = null
 	var value :float = 0
-	for ob: Enemy in aveilable[ACTIONTYPES.FIGHT]:
-		if unit_position.distance_squared_to(ob.position) < 1500:
-			
-			var current_value =  clamp(5 - ob.units_working_on_this,0,5) 
-			if current_value > value:
-				best_action = ob
-				value = current_value
+	for ob in aveilable[ACTIONTYPES.FIGHT]:
+		if ob != null:
+			if unit_position.distance_squared_to(ob.position) < 1500:
+				
+				var current_value =  clamp(5 - ob.units_working_on_this,0,5) 
+				if current_value > value:
+					best_action = ob
+					value = current_value
 	return best_action
 	
 
