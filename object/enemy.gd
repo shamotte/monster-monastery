@@ -15,7 +15,7 @@ var units_working_on_this:int = 0
 
 func _ready():
 	Priorities.add_self_to_available_actions(self,Priorities.ACTIONTYPES.FIGHT)
-	%Timer.wait_time = type.cooldown
+	
 	$SpawnSound.play()
 	%HPBar.visible = false
 	$AnimationPlayer.play("spawn")
@@ -23,6 +23,7 @@ func _ready():
 func set_stats(newEnemy:EnemyResource):
 	type = newEnemy
 	hp = type.hp
+	%Timer.wait_time = type.cooldown
 	$Sprite2D.texture = type.sprite
 	$Shadow.texture = type.sprite
 	%Item.texture = type.item
