@@ -1,8 +1,18 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=5 format=3 uid="uid://pka4ts5w5dus"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://pka4ts5w5dus"]
 
+[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_e7dhc"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_qxi0g"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_08lm1"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_gfjrr"]
 [ext_resource type="Texture2D" uid="uid://fxk887u7caxf" path="res://sprites/Units/slimebehindtheslaughter.png" id="3_0ysi1"]
+
+[sub_resource type="Resource" id="Resource_wib8y"]
+script = ExtResource("1_e7dhc")
+cooldown = 0.8
+visual_effect = ExtResource("2_gfjrr")
+size = Vector2(8, 8)
+damage = 1.0
+range = 20.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_qxi0g")
@@ -21,5 +31,5 @@ work_speed = 0.2
 cooldown = 1.0
 hp = 25.0
 damage = 3.0
-fight_range = 30.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([])
+fight_range = 20.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_wib8y")])

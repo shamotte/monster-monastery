@@ -1,8 +1,18 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=5 format=3 uid="uid://dtof37pmbjbeu"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://dtof37pmbjbeu"]
 
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_djj3x"]
+[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_vg4d4"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_076nv"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_diohr"]
 [ext_resource type="Texture2D" uid="uid://bxe4ktb8ndc14" path="res://sprites/Units/shroom.png" id="3_gjf63"]
+
+[sub_resource type="Resource" id="Resource_ykdnj"]
+script = ExtResource("1_vg4d4")
+cooldown = 2.0
+visual_effect = ExtResource("2_076nv")
+size = Vector2(8, 8)
+damage = 1.0
+range = 10.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_djj3x")
@@ -22,3 +32,4 @@ cooldown = 0.2
 hp = 25.0
 damage = 1.0
 fight_range = 10.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_ykdnj")])

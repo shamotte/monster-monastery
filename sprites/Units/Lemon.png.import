@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btl34e4syhs4c"
-path="res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"
+uid="uid://cstc4ss80yo3h"
+path="res://.godot/imported/Lemon.png-c2c8395cbda32d99d225d6579fec19c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Buildings/tentacles.png"
-dest_files=["res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"]
+source_file="res://sprites/Units/Lemon.png"
+dest_files=["res://.godot/imported/Lemon.png-c2c8395cbda32d99d225d6579fec19c1.ctex"]
 
 [params]
 

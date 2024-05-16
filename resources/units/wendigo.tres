@@ -1,8 +1,18 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=5 format=3 uid="uid://csmp48cci520m"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://csmp48cci520m"]
 
+[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_4hjln"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4j8p6"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_741ak"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_mob3j"]
 [ext_resource type="Texture2D" uid="uid://b3kydluivpxju" path="res://sprites/Units/wendigo.png" id="3_7qlnt"]
+
+[sub_resource type="Resource" id="Resource_lpdt6"]
+script = ExtResource("1_4hjln")
+cooldown = 2.0
+visual_effect = ExtResource("2_mob3j")
+size = Vector2(8, 8)
+damage = 7.0
+range = 40.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_4j8p6")
@@ -22,3 +32,4 @@ cooldown = 2.0
 hp = 35.0
 damage = 7.0
 fight_range = 40.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_lpdt6")])

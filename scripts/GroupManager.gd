@@ -41,7 +41,7 @@ func update_group(groups : Array[PriorityTable]):
 func set_current_group(group_type : PriorityTable):
 	current_group = group_type
 	$GroupName.text = current_group.name
-	$GroupColor.color = current_group.color
+	$GroupColor.self_modulate = current_group.color
 	$UnitsIcon/UnitsCount.text = str(current_group.units_in_group)
 	var priorities_slot = %PrioritiyList.get_children()
 	for i in priorities_slot:
@@ -59,3 +59,23 @@ func set_current_group(group_type : PriorityTable):
 #Return current group
 func get_current_group():
 	return current_group
+
+func _on_add_button_group_pressed():
+	$AddButtonGroup.add_new_group()
+	update_group_slots()
+
+
+#func _on_delete_pressed():
+#	if current_group != null:
+#		return
+#	if len(Global.current_groups) <= 1:
+#		return
+#	if current_group.units_in_group > 0:
+#		return
+#	current_group._exit_tree()
+#	set_first_group()
+#	update_group_slots()
+	
+
+
+

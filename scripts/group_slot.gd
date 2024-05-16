@@ -21,7 +21,7 @@ func set_num(num : int):
 	$Count.text = str(num)
 	
 func set_color(newColor : Color):
-	$GroupColor.color = newColor
+	$GroupColor.self_modulate = newColor
 
 func get_group():
 	return group

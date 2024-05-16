@@ -45,7 +45,12 @@ func _init(_table : Array[int] = [1,1,1], _color : Color = Color.WHITE):
 	id = len(Global.current_groups) + 1
 	name = "Group: " + str(id)
 	color = Color(randf_range(0,1),randf_range(0,1),randf_range(0,1))
+	units_in_group = 0
 	#color = _color
+	
+func _exit_tree():
+	if self in Global.current_groups: 
+		Global.current_groups.erase(self)
 	
 
 	

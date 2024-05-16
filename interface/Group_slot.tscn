@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5gpr65rd461l"]
+[gd_scene load_steps=3 format=3 uid="uid://c5gpr65rd461l"]
 
 [ext_resource type="Script" path="res://scripts/group_slot.gd" id="1_rno0o"]
+[ext_resource type="Texture2D" uid="uid://b2u52rqhu3628" path="res://sprites/UI/Flaga.png" id="2_8eve0"]
 
 [node name="GroupSlot" type="Control"]
 custom_minimum_size = Vector2(64, 64)
@@ -21,7 +22,8 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
-[node name="GroupColor" type="ColorRect" parent="."]
+[node name="GroupColor" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 0.0666667, 1)
 clip_contents = true
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 1
@@ -38,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 mouse_filter = 2
-color = Color(0.733333, 0.192157, 0.192157, 1)
+texture = ExtResource("2_8eve0")
 
 [node name="Count" type="Label" parent="."]
 layout_mode = 1
@@ -47,15 +49,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -8.5
-offset_right = 8.0
-offset_bottom = 8.5
+offset_left = -7.0
+offset_right = 28.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 12
-text = "99"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+text = "999"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

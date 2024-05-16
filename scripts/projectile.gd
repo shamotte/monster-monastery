@@ -1,15 +1,23 @@
 extends Area2D
 var velocity : Vector2
-
+var damage : float
+var life_time : float
 
 func _ready():
-	pass 
+	life_time = 5
 
 
 func _process(delta):
 	position += velocity * delta
+	life_time -= delta
+	if life_time <= 0:
+		queue_free()
 
 
 func _on_body_entered(body):
 	print(body.name) 
-	body.take_damage(5)
+	body.take_damage(damage)
+	queue_free()
+	
+func set_damage(new_damage : float):
+	damage = new_damage

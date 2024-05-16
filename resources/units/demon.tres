@@ -1,8 +1,18 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=6 format=3 uid="uid://dsd8s4kqutlwk"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=9 format=3 uid="uid://dsd8s4kqutlwk"]
 
+[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_42pq8"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="1_c4tss"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_vouc5"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_e0jxr"]
 [ext_resource type="Texture2D" uid="uid://ceyduwfxso18j" path="res://sprites/Units/Demon.png" id="2_l66kq"]
+
+[sub_resource type="Resource" id="Resource_2ilph"]
+script = ExtResource("1_42pq8")
+cooldown = 0.9
+visual_effect = ExtResource("2_e0jxr")
+size = Vector2(16, 16)
+damage = 5.0
+range = 30.0
 
 [sub_resource type="Resource" id="Resource_4tis3"]
 script = ExtResource("1_vouc5")
@@ -27,4 +37,4 @@ cooldown = 0.9
 hp = 50.0
 damage = 5.0
 fight_range = 30.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([])
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_2ilph")])

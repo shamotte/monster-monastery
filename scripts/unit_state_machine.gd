@@ -132,7 +132,7 @@ class WalkState:
 	func physics_process(delta):
 		var direction = agent.get_next_path_position() - unit.global_position
 		direction = direction.normalized()
-		unit.velocity = unit.velocity.lerp(direction * 120  , 0.25)
+		unit.velocity = unit.velocity.lerp(direction * unit.type.speed  , 0.25)
 		unit.move_and_slide()
 	func end_state():
 		pass
@@ -204,7 +204,7 @@ class FightState:
 		if agent.distance_to_target() > range:
 			var direction = agent.get_next_path_position() - unit.global_position
 			direction = direction.normalized()
-			unit.velocity = unit.velocity.lerp(direction * 120  , 0.25)
+			unit.velocity = unit.velocity.lerp(direction * unit.type.speed  , 0.25)
 			unit.move_and_slide()
 		
 	func end_state():

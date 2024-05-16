@@ -107,9 +107,9 @@ vertical_alignment = 1
 
 [node name="AddButtonGroup" parent="." instance=ExtResource("3_3owe0")]
 layout_mode = 0
-offset_left = 78.0
+offset_left = 94.0
 offset_top = 160.0
-offset_right = 142.0
+offset_right = 126.0
 offset_bottom = 192.0
 
 [node name="GroupSelection" type="Panel" parent="."]
