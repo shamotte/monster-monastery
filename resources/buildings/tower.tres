@@ -8,12 +8,12 @@
 [sub_resource type="Resource" id="Resource_rwg1d"]
 script = ExtResource("1_2oppd")
 type = 7
-count = 5
+count = 3
 
 [sub_resource type="Resource" id="Resource_gudkl"]
 script = ExtResource("1_2oppd")
 type = 4
-count = 5
+count = 3
 
 [sub_resource type="Resource" id="Resource_kn7nv"]
 script = ExtResource("1_2oppd")

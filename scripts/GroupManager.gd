@@ -53,6 +53,10 @@ func set_current_group(group_type : PriorityTable):
 		p.change_label(i)
 		p.change_icon(i)
 		%PrioritiyList.add_child(p)
+	if current_group.units_in_group > 0:
+		$Delete/Icon.self_modulate = Color(0.5,0.5,0.5)
+	else:
+		$Delete/Icon.self_modulate = Color(1,1,1)
 		
 	#%GroupGrid
 
@@ -65,16 +69,17 @@ func _on_add_button_group_pressed():
 	update_group_slots()
 
 
-#func _on_delete_pressed():
-#	if current_group != null:
-#		return
-#	if len(Global.current_groups) <= 1:
-#		return
-#	if current_group.units_in_group > 0:
-#		return
-#	current_group._exit_tree()
-#	set_first_group()
-#	update_group_slots()
+func _on_delete_pressed():
+	if current_group == null:
+		return
+	if len(Global.current_groups) <= 1:
+		return
+	print("Units: ",current_group)
+	if current_group.units_in_group > 0:
+		return
+	current_group._exit_tree()
+	set_first_group()
+	update_group_slots()
 	
 
 

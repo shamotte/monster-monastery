@@ -147,7 +147,7 @@ texture = ExtResource("1_qf5ig")
 texture = ExtResource("1_qf5ig")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 64
+collision_layer = 192
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

@@ -13,6 +13,8 @@ var selected_unit : Unit
 
 @export var menu_manager: Node
 
+@onready var pointer:Area2D = %MousePointer
+var active_selection
 
 # Called when the node enters the scene tree for the first time.
 var camera :Camera2D
@@ -37,8 +39,6 @@ func _ready():
 	
 	
 
-@onready var pointer:Area2D = %MousePointer
-var active_selection
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index ==1 and event.is_pressed():
@@ -61,14 +61,18 @@ func deselect():
 #select unit
 func unit_selection(object : Unit):
 	selected_unit = object
+	%BuildingPanel.hide_panel(true)
+	$PreviewPanel/GroupIdentifier.visible = true
+	$PreviewPanel/GroupManagerLink.visible = true
+	%PreviewUnitStats.visible = true
+	%PreviewGroups.visible = false
+	%RecepiePanel.visible = false
 	$PreviewPanel/HPTexture.visible = true
 	%UnitName.text = object.type.name
 	%HP.visible = true
 	%HP.text = str(object.hp) + "/" + str(object.type.hp)
-	%PreviewGroups.visible = false
 	
 	%preview_icon.texture = object.type.sprite
-	%RecepiePanel.visible = false
 	active_selection = object
 	#TODO tu byłe error
 	#for p in range(len(object.priorities)):
@@ -104,6 +108,10 @@ func unit_selection(object : Unit):
 func building_selection(object : buildingObject):
 	selected_unit = null
 	%RecepiePanel.visible = true
+	$PreviewPanel/GroupIdentifier.visible = false
+	$PreviewPanel/GroupManagerLink.visible = false
+	%PreviewUnitStats.visible = false
+	%PreviewGroups.visible = false
 	%HP.visible = false
 	$PreviewPanel/HPTexture.visible = false
 	%preview_icon.texture = object.building.sprite
@@ -178,9 +186,14 @@ func change_selected_unit_group(new_group : PriorityTable):
 	if selected_unit == null:
 		return
 	selected_unit.set_group(new_group)
+
+#hides panel	
+func hide_panel(hide):
+	%PreviewPanel.visible = !hide
+	%PreviewUnitStats.visible = !hide
+	%PreviewGroups.visible = !hide	
 	
-			
-			
+	
 var mouse_in:bool
 func _on_mouse_entered():
 	mouse_in = true # Replace with function body.

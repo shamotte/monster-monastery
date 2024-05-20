@@ -136,7 +136,7 @@ offset_top = 216.0
 offset_right = 142.0
 offset_bottom = 248.0
 
-[node name="TextureRect" type="TextureRect" parent="Delete"]
+[node name="Icon" type="TextureRect" parent="Delete"]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8
