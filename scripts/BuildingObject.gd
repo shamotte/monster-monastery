@@ -8,11 +8,14 @@ var texture = null
 var recipe :RecipeResource
 var to_craft = 0
 var busy = false
+var units_working_on_this : int = 0
 
 var work_time:float
 
 func action_finished():
+	to_craft-=1
 	busy = false
+	Priorities.remove_self_from_actions(self, Priorities.ACTIONTYPES.CRAFT)
 	$CompleteSound.play()
 	for elem in Global.recipes[recipe].results:
 		Global.add_resources(recipe.output)
@@ -37,8 +40,8 @@ func _process(delta):
 			if !Global.check_and_subtract_resources(recipe.input):
 				return
 			#TODO trochę nie jestem pewny czy tak to powyżej powinno być
-			Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,$".",recipe.craft_time)
-			to_craft-=1
+			Priorities.add_self_to_available_actions(self, Priorities.ACTIONTYPES.CRAFT)
+			
 			busy = true
 		
 		

@@ -11,6 +11,8 @@ var selected_unit : Unit
 
 @onready var resource_icon = preload("res://interface/resource_slot.tscn")
 
+@onready var building_preview = preload("res://interface/building_previev.tscn")
+
 @export var menu_manager: Node
 
 @onready var pointer:Area2D = %MousePointer
@@ -60,6 +62,9 @@ func deselect():
 	
 #select unit
 func unit_selection(object : Unit):
+	$PreviewPanel.visible=true
+	if bp != null:
+		bp.queue_free();
 	selected_unit = object
 	%BuildingPanel.hide_panel(true)
 	$PreviewPanel/GroupIdentifier.visible = true
@@ -103,38 +108,26 @@ func unit_selection(object : Unit):
 	
 	
 
-
+var bp:BuildingPreview = null
 #select building
 func building_selection(object : buildingObject):
+	if bp != null:
+		bp.queue_free();
 	selected_unit = null
-	%RecepiePanel.visible = true
+	$PreviewPanel.visible=false
 	$PreviewPanel/GroupIdentifier.visible = false
 	$PreviewPanel/GroupManagerLink.visible = false
 	%PreviewUnitStats.visible = false
 	%PreviewGroups.visible = false
 	%HP.visible = false
 	$PreviewPanel/HPTexture.visible = false
-	%preview_icon.texture = object.building.sprite
-	%UnitName.text = object.building.name
-	%Cou.change_priority(object.to_craft)
-	var recipe = object.recipe
-	for chil in %ingred.get_children():
-		chil.queue_free()
-	for chil in %benefit.get_children():
-		chil.queue_free()
-	#TODO żeby dało się więcej craftingów
-	#Required ingriedients
-	for igr in object.building.recipes[0].input: 
-		var x = resource_icon.instantiate()
-		x.get_node("Sprite").texture = Global.resources[igr.type].sprite
-		x.get_node("Count").text = str(igr.count)
-		%ingred.add_child(x)
-	#result 
-	for res in object.building.recipes[0].output: 
-		var x = resource_icon.instantiate()
-		x.get_node("Sprite").texture= Global.resources[res.type].sprite
-		x.get_node("Count").text = str(res.count)
-		%benefit.add_child(x)
+	bp = building_preview.instantiate();
+	
+	bp.object = object
+	object.add_child(bp)
+	
+	
+	
 
 func _process(delta):
 	#Check if Menu Manager is active so player can't select unit while in menu

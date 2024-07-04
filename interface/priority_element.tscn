@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dahi40k2gv47i"]
+[gd_scene load_steps=6 format=3 uid="uid://tcm2e25w1aos"]
 
-[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="1_4p6to"]
-[ext_resource type="Script" path="res://scripts/priority_elem.gd" id="2_wm7xf"]
-[ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="3_epv6g"]
+[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="1_au8hx"]
+[ext_resource type="Script" path="res://scripts/priority_elem.gd" id="2_bgcm5"]
+[ext_resource type="Texture2D" uid="uid://bbd6xt53dmrjc" path="res://sprites/Resources/wood.png" id="3_l3cq3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7c61"]
 bg_color = Color(0.105882, 0.105882, 0.105882, 1)
@@ -26,8 +26,8 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 48.0
 offset_bottom = 64.0
-theme = ExtResource("1_4p6to")
-script = ExtResource("2_wm7xf")
+theme = ExtResource("1_au8hx")
+script = ExtResource("2_bgcm5")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
@@ -41,6 +41,7 @@ offset_top = 48.0
 offset_right = 48.0
 offset_bottom = 72.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xd4ml")
+toggle_mode = true
 text = "1"
 
 [node name="Icon" type="TextureRect" parent="."]
@@ -49,7 +50,7 @@ offset_left = 8.0
 offset_top = 16.0
 offset_right = 40.0
 offset_bottom = 48.0
-texture = ExtResource("3_epv6g")
+texture = ExtResource("3_l3cq3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

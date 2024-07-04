@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://ce8tipnfrtqbp"]
+
+[ext_resource type="Script" path="res://interface/building_previev.gd" id="1_dyo4a"]
+[ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="3_8rjg5"]
+[ext_resource type="Script" path="res://interface/crafting_counter.gd" id="3_a76ai"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kaawa"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b8uyh"]
+bg_color = Color(0.917647, 0.262745, 0.243137, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[node name="Building_previev" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dyo4a")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -105.0
+offset_right = 81.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BuildingName" type="Label" parent="Panel/VSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "test_label
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Panel/VSplitContainer"]
+layout_mode = 2
+
+[node name="Cou" type="Container" parent="Panel/VSplitContainer/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("3_a76ai")
+
+[node name="Panel" type="Panel" parent="Panel/VSplitContainer/HSplitContainer/Cou"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kaawa")
+
+[node name="priority_elem" type="Button" parent="Panel/VSplitContainer/HSplitContainer/Cou"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_b8uyh")
+text = "1"
+
+[node name="Icon" type="TextureRect" parent="Panel/VSplitContainer/HSplitContainer/Cou"]
+layout_mode = 2
+texture = ExtResource("3_8rjg5")
+
+[node name="Label" type="Label" parent="Panel/VSplitContainer/HSplitContainer/Cou"]
+layout_mode = 2
+text = "count"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ing" type="Panel" parent="Panel/VSplitContainer/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/ing"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -113.0
+offset_top = -84.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ingred" type="HBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/ing/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="benefit" type="HBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/ing/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/VSplitContainer/HSplitContainer/Cou/priority_elem" to="Panel/VSplitContainer/HSplitContainer/Cou" method="_on_priority_elem_pressed"]
