@@ -66,7 +66,7 @@ func unit_selection(object : Unit):
 	if bp != null:
 		bp.queue_free();
 	selected_unit = object
-	%BuildingPanel.hide_panel(true)
+	
 	$PreviewPanel/GroupIdentifier.visible = true
 	$PreviewPanel/GroupManagerLink.visible = true
 	%PreviewUnitStats.visible = true
@@ -124,7 +124,7 @@ func building_selection(object : buildingObject):
 	bp = building_preview.instantiate();
 	
 	bp.object = object
-	object.add_child(bp)
+	add_child(bp)
 	
 	
 	

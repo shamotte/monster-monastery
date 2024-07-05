@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=29 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
 [ext_resource type="PackedScene" uid="uid://vxlb82htiwur" path="res://interface/UnitSpawnInfo.tscn" id="16_epxwy"]
 [ext_resource type="PackedScene" uid="uid://bu26j7qm8q1sb" path="res://interface/GroupManager.tscn" id="16_fccnn"]
-[ext_resource type="Script" path="res://scripts/BuildingPanel.gd" id="21_crdna"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
 vertices = PackedVector2Array(392, 383, 225, 321, 226, 321, -610, -232, -559, -284, -556, -116, -605, -107, -105, 387, -142, 376, -37, 270, 127, 267, 35, 163, 249, -72, 338, 1, 428, 110, 368, -276, 501, -285, 482, -211, 409, -204, 559, -150, 686, -140, 800, 7, 646, 72, 537, -48, 522, -114, 152, -296, 266, -157, -29, -262, 385, 277, 429, 370, 520, 151, 502, 199, 1, 81, -172, 131, -374, -181, -362, -278, -265, -364, -65, -345, -417, 191, -484, 311, -540, 321, -614, 231, -656, 2, -459, -89, -262, 175)
@@ -791,36 +790,6 @@ offset_bottom = 60.0
 unique_name_in_owner = true
 layout_mode = 2
 columns = 4
-
-[node name="BuildingPanel" type="Control" parent="UI/UI"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("21_crdna")
-
-[node name="Panel" type="Panel" parent="UI/UI/BuildingPanel"]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 273.0
-offset_right = 252.0
-offset_bottom = 357.0
-
-[node name="PreviewSprite" type="TextureRect" parent="UI/UI/BuildingPanel/Panel"]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 31.0
-offset_right = 52.0
-offset_bottom = 71.0
-
-[node name="BuildingName" type="Label" parent="UI/UI/BuildingPanel/Panel"]
-layout_mode = 0
-offset_right = 68.0
-offset_bottom = 23.0
-text = "Building"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Endgame" type="Control" parent="UI"]
 unique_name_in_owner = true
