@@ -34,7 +34,7 @@ func _ready():
 		pass
 		
 func new_recepie(new_to_craft : int):
-	object.to_craft = new_to_craft
+	object.new_value(new_to_craft)
 	
 
 

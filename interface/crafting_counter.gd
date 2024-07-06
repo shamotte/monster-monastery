@@ -27,7 +27,7 @@ func change_priority(n: int):
 
 		
 func _on_priority_elem_pressed():
-	print("aaaa")
+	
 	caounter += 1
 	if caounter >=max_number:
 		caounter = 0

@@ -86,7 +86,7 @@ class IdleState:
 	func set_up(_unit):
 		unit = _unit
 	func enter_state():
-		#print("entered idle")
+		print("entered idle")
 		timer = 0
 	func process(delta) -> STATES:
 		
@@ -101,6 +101,9 @@ class IdleState:
 			if action is Res:
 					unit.current_action = action
 					return STATES.WALK
+			elif action is buildingObject:
+				unit.current_action = action
+				return STATES.WALK
 			elif action is Enemy:
 					unit.target = action;
 					return STATES.FIGHT
@@ -119,7 +122,7 @@ class WalkState:
 	func set_up(_unit):
 		unit = _unit
 	func enter_state():
-		#print("entered walk")
+		print("entered walk")
 		agent = unit.agent
 		stopping_distance = unit.type.work_range
 		unit.agent.target_position = unit.current_action.position
@@ -148,7 +151,7 @@ class WorkState:
 		
 	func enter_state():
 		pass
-		#print("entered work")
+		print("entered work" + unit.current_action.name)
 		
 		
 	func process(delta) ->STATES:
@@ -186,7 +189,7 @@ class FightState:
 		
 	func enter_state():
 		pass
-		#print("entered fight")
+		print("entered fight")
 		
 		#agent = unit.agent
 		#stopping_distance = unit.type.fight_range

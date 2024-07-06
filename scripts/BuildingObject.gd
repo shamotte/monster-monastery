@@ -12,13 +12,23 @@ var units_working_on_this : int = 0
 
 var work_time:float
 
+func work_on(delta:float):
+	work_time -=delta
+	if work_time < 0:
+		action_finished()
+		return true
+
 func action_finished():
 	to_craft-=1
-	busy = false
-	Priorities.remove_self_from_actions(self, Priorities.ACTIONTYPES.CRAFT)
+	if to_craft <= 0:
+		print("removing crafting action")
+		Priorities.remove_self_from_actions(self, Priorities.ACTIONTYPES.CRAFT)
+		busy = false
+	print("crafted")
+	work_time = recipe.craft_time
 	$CompleteSound.play()
-	for elem in Global.recipes[recipe].results:
-		Global.add_resources(recipe.output)
+	
+	Global.add_resources(recipe.output)
 		
 func _ready():
 	$AnimationPlayer.play("spawn")
@@ -27,29 +37,17 @@ func _ready():
 	work_time =  recipe.craft_time
 	#Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,get_node("."),Global.recipes[recipe].work)# Replace with function body.
 
-func _process(delta):
-	if not busy:
-		if to_craft>0:
-			#for i in range(Global.buildings[building]["resource_type"].size()):
-			#	if Global.current_resources[ Global.buildings[building]["resource_type"][i] ] < Global.buildings[building]["resource_cost"][i]:
-			#for i in building.recipes[0].input:	
-			#	print(i)
-				#if i.count > Global.get_resource_count(i.type):
-				#	return
-			
-			if !Global.check_and_subtract_resources(recipe.input):
-				return
-			#TODO trochę nie jestem pewny czy tak to powyżej powinno być
-			Priorities.add_self_to_available_actions(self, Priorities.ACTIONTYPES.CRAFT)
-			
-			busy = true
-		
+
 		
 func display_previev(node):
 	node.building_selection(get_node("."))
 	
 func new_value(value):
 	to_craft = value
+	if to_craft>0 and busy == false:
+		busy =true
+		print("adding crafting action")
+		Priorities.add_self_to_available_actions(self, Priorities.ACTIONTYPES.CRAFT)
 
 #Set data of building
 func set_stats(newBuilding: BuildingResource):

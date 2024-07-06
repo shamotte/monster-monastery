@@ -34,6 +34,7 @@ func add_self_to_available_actions(object, action_type : ACTIONTYPES):
 func remove_self_from_actions(object, action_type : ACTIONTYPES):
 	aveilable[action_type].erase(object)
 	
+	
 		
 var aveilable : Array[Array]
 

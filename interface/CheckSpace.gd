@@ -23,10 +23,10 @@ func is_overalaping():
 	return overlap
 
 func _on_building_area_area_entered(area):
-	print("Entered")
+	#print("Entered")
 	in_building_area = true
 
 
 func _on_building_area_area_exited(area):
-	print("Exited")
+	#print("Exited")
 	in_building_area = false
