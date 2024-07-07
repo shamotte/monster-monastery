@@ -108,7 +108,8 @@ func set_current_group():
 	#unit_info.set_current_group(group)
 	#priorities
 	
-
+func set_action_icon(Icon):
+	$ActionIcon.texture = Icon 
 	
 func set_group(group : PriorityTable):
 	priorities.units_in_group -= 1
@@ -124,3 +125,4 @@ func _on_tree_entered():
 
 func _on_tree_exiting():
 	Global.unit_count -= 1
+	

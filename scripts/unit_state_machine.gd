@@ -100,12 +100,15 @@ class IdleState:
 			
 			if action is Res:
 					unit.current_action = action
+					unit.set_action_icon(load("res://sprites/UI/AxeJobOutlined.png"))
 					return STATES.WALK
 			elif action is buildingObject:
 				unit.current_action = action
+				unit.set_action_icon(load("res://sprites/UI/CraftJobOutlined.png"))
 				return STATES.WALK
 			elif action is Enemy:
 					unit.target = action;
+					unit.set_action_icon(load("res://sprites/UI/FightJobOutlined2.png"))
 					return STATES.FIGHT
 					
 		return STATES.IDLE

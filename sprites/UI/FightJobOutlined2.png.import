@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btl34e4syhs4c"
-path="res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"
+uid="uid://bfxu87b62q084"
+path="res://.godot/imported/FightJobOutlined2.png-0d36d522e12d963e12b28202a490d22c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Buildings/tentacles.png"
-dest_files=["res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"]
+source_file="res://sprites/UI/FightJobOutlined2.png"
+dest_files=["res://.godot/imported/FightJobOutlined2.png-0d36d522e12d963e12b28202a490d22c.ctex"]
 
 [params]
 

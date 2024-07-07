@@ -187,6 +187,9 @@ type = ExtResource("2_fg4vb")
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
 
+[node name="ActionIcon" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+
 [node name="SummonAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 10)
 sprite_frames = SubResource("SpriteFrames_pox06")
