@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce8tipnfrtqbp"]
+[gd_scene load_steps=6 format=3 uid="uid://ce8tipnfrtqbp"]
 
+[ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="1_80naa"]
 [ext_resource type="Script" path="res://interface/building_previev.gd" id="1_dyo4a"]
 [ext_resource type="PackedScene" uid="uid://d64s5miye6sk" path="res://crafting_counter.tscn" id="2_4ohx6"]
+[ext_resource type="Texture2D" uid="uid://0ihcod263po8" path="res://sprites/UI/arrow_crafting.png" id="4_ahyqj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rrvw0"]
+bg_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
 
 [node name="Building_previev" type="Control"]
 layout_mode = 3
@@ -10,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_80naa")
 script = ExtResource("1_dyo4a")
 
 [node name="Panel" type="Panel" parent="."]
@@ -25,56 +36,80 @@ offset_right = 81.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VSplitContainer" type="VSplitContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -3.0
-offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BuildingName" type="Label" parent="Panel/VSplitContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BuildingName" type="Label" parent="Panel/VBoxContainer/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 0
 text = "test_label
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HSplitContainer" type="HSplitContainer" parent="Panel/VSplitContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Control" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 72)
 layout_mode = 2
 
-[node name="Cou" parent="Panel/VSplitContainer/HSplitContainer" instance=ExtResource("2_4ohx6")]
+[node name="Cou" parent="Panel/VBoxContainer/HBoxContainer/Control" instance=ExtResource("2_4ohx6")]
 unique_name_in_owner = true
-layout_mode = 2
-
-[node name="ing" type="Panel" parent="Panel/VSplitContainer/HSplitContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/ing"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ing" type="Panel" parent="Panel/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(86, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_rrvw0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/ing"]
+custom_minimum_size = Vector2(86, 72)
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -113.0
-offset_top = -84.0
-grow_horizontal = 0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+alignment = 1
 
-[node name="ingred" type="HBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/ing/VBoxContainer"]
+[node name="ingred" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/ing/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="benefit" type="HBoxContainer" parent="Panel/VSplitContainer/HSplitContainer/ing/VBoxContainer"]
+[node name="benefit" type="HBoxContainer" parent="Panel/VBoxContainer/HBoxContainer/ing/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel/VBoxContainer/HBoxContainer/ing"]
+position = Vector2(43, 35)
+texture = ExtResource("4_ahyqj")
