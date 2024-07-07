@@ -12,19 +12,31 @@ var units_working_on_this : int = 0
 
 var work_time:float
 
+func _process(delta):
+	if not busy:
+		if to_craft >0 and Global.check_and_subtract_resources(recipe.input):
+			Priorities.add_self_to_available_actions(self, Priorities.ACTIONTYPES.CRAFT)
+			busy = true
+			
+
 func work_on(delta:float):
+	if to_craft == 0:
+		return true
+	if work_time <=0 :
+		return true
 	work_time -=delta
-	if work_time < 0:
+	if work_time <= 0:
+		Priorities.remove_self_from_actions(self, Priorities.ACTIONTYPES.CRAFT);
 		action_finished()
 		return true
 
 func action_finished():
+	await get_tree().process_frame
 	to_craft-=1
-	if to_craft <= 0:
-		print("removing crafting action")
-		Priorities.remove_self_from_actions(self, Priorities.ACTIONTYPES.CRAFT)
+	if to_craft > 0 and Global.check_and_subtract_resources(recipe.input):
+		Priorities.add_self_to_available_actions(self, Priorities.ACTIONTYPES.CRAFT)
+	else:
 		busy = false
-	print("crafted")
 	work_time = recipe.craft_time
 	$CompleteSound.play()
 	
@@ -46,7 +58,6 @@ func new_value(value):
 	to_craft = value
 	if to_craft>0 and busy == false:
 		busy =true
-		print("adding crafting action")
 		Priorities.add_self_to_available_actions(self, Priorities.ACTIONTYPES.CRAFT)
 
 #Set data of building
