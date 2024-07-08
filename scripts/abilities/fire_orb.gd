@@ -7,6 +7,7 @@ extends Ability
 @export var sprite : Texture2D
 @export var damage : float
 
+
 var time_left = 0
 func fight_process(delta):
 	time_left -= delta
@@ -15,6 +16,7 @@ func fight_process(delta):
 			time_left = cooldown
 			print("atacking")
 			var proj: Area2D = projectile.instantiate()
+			proj.collision_mask = to_target
 			proj.get_node("Sprite2D").texture = sprite
 			proj.set_damage(damage)
 			var direction = (ovner.target_global_position - ovner.global_position).normalized()

@@ -24,7 +24,7 @@ func fight_process(delta):
 			shape.size = size
 			parameters.shape = shape
 			parameters.collide_with_areas = false
-			parameters.collision_mask = 64
+			parameters.collision_mask = to_target
 			parameters.transform = Transform2D(Vector2.UP.angle_to(direction),ovner.target_global_position)
 		
 			var result = space.intersect_shape(parameters)

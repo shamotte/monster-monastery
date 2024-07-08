@@ -12,6 +12,7 @@ var target = null
 @onready var timer : Timer = %Timer
 
 var units_working_on_this:int = 0
+var cooldown:float = 0
 
 func _ready():
 	Priorities.add_self_to_available_actions(self,Priorities.ACTIONTYPES.FIGHT)
@@ -24,6 +25,8 @@ func set_stats(newEnemy:EnemyResource):
 	type = newEnemy
 	hp = type.hp
 	%Timer.wait_time = type.cooldown
+	if type.cooldown <= 0 :
+		pass
 	$Sprite2D.texture = type.sprite
 	$Shadow.texture = type.sprite
 	%Item.texture = type.item
