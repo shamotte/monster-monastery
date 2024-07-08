@@ -31,12 +31,12 @@ to_target = 64
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_4jpce")
 type = 8
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_efghm"]
 script = ExtResource("1_4jpce")
 type = 6
-count = 5
+count = 20
 
 [resource]
 script = ExtResource("2_psqdg")

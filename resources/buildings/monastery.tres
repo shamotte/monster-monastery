@@ -8,33 +8,33 @@
 [sub_resource type="Resource" id="Resource_rwg1d"]
 script = ExtResource("1_7it2u")
 type = 7
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_w3lnx"]
 script = ExtResource("1_7it2u")
 type = 4
-count = 1
+count = 2
 
 [sub_resource type="Resource" id="Resource_kn7nv"]
 script = ExtResource("1_7it2u")
 type = 8
-count = 2
+count = 1
 
 [sub_resource type="Resource" id="Resource_i1ulp"]
 script = ExtResource("2_u413d")
 input = Array[ExtResource("1_7it2u")]([SubResource("Resource_rwg1d"), SubResource("Resource_w3lnx")])
 output = Array[ExtResource("1_7it2u")]([SubResource("Resource_kn7nv")])
-craft_time = 5.0
+craft_time = 15.0
 
 [sub_resource type="Resource" id="Resource_3rl78"]
 script = ExtResource("1_7it2u")
 type = 8
-count = 1
+count = 10
 
 [sub_resource type="Resource" id="Resource_yliao"]
 script = ExtResource("1_7it2u")
 type = 6
-count = 6
+count = 20
 
 [resource]
 script = ExtResource("3_k78fp")

@@ -28,7 +28,7 @@ craft_time = 10.0
 
 [sub_resource type="Resource" id="Resource_3rl78"]
 script = ExtResource("1_2oppd")
-type = 5
+type = 7
 count = 2
 
 [sub_resource type="Resource" id="Resource_yliao"]

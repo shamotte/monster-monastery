@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://csmp48cci520m"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=9 format=3 uid="uid://csmp48cci520m"]
 
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_4hjln"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4j8p6"]
@@ -17,19 +17,24 @@ range = 40.0
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_4j8p6")
 type = 0
-count = 10
+count = 50
+
+[sub_resource type="Resource" id="Resource_bv02f"]
+script = ExtResource("1_4j8p6")
+type = 9
+count = 5
 
 [resource]
 script = ExtResource("2_741ak")
 name = "Wendigo"
 sprite = ExtResource("3_7qlnt")
-resource_cost = Array[ExtResource("1_4j8p6")]([SubResource("Resource_xuc28")])
-speed = 70.0
+resource_cost = Array[ExtResource("1_4j8p6")]([SubResource("Resource_xuc28"), SubResource("Resource_bv02f")])
+speed = 50.0
 type = 5
 work_range = 20.0
 work_speed = 1.5
-cooldown = 2.0
+cooldown = 3.0
 hp = 35.0
-damage = 7.0
+damage = 5.0
 fight_range = 40.0
 abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_lpdt6")])
