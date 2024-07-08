@@ -17,12 +17,12 @@ range = 40.0
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_mr1rg")
 type = 9
-count = 10
+count = 15
 
 [sub_resource type="Resource" id="Resource_xllqu"]
 script = ExtResource("1_mr1rg")
 type = 7
-count = 1
+count = 2
 
 [resource]
 script = ExtResource("1_deutm")

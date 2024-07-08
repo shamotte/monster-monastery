@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=30 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
+[ext_resource type="Script" path="res://scripts/timer.gd" id="14_twx0p"]
 [ext_resource type="PackedScene" uid="uid://fi3qro07xbcd" path="res://interface/SpawnInfo.tscn" id="15_csqud"]
 [ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="15_pktq6"]
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://interface/priority_elem.tscn" id="15_x630r"]
@@ -431,9 +432,9 @@ text = "99"
 [node name="WaveCount" type="Panel" parent="UI/UI"]
 unique_name_in_owner = true
 layout_mode = 1
-offset_left = 68.0
+offset_left = 120.0
 offset_top = 4.0
-offset_right = 144.0
+offset_right = 196.0
 offset_bottom = 36.0
 
 [node name="Count" type="Label" parent="UI/UI/WaveCount"]
@@ -447,6 +448,28 @@ offset_right = 71.0
 offset_bottom = 11.5
 grow_vertical = 2
 text = "Wave 99"
+
+[node name="Timer" type="Panel" parent="UI/UI" node_paths=PackedStringArray("counter", "timer")]
+custom_minimum_size = Vector2(48, 0)
+offset_left = 68.0
+offset_top = 4.0
+offset_right = 116.0
+offset_bottom = 36.0
+script = ExtResource("14_twx0p")
+counter = NodePath("Count")
+timer = NodePath("../../../EnemySpawnTimer")
+
+[node name="Count" type="Label" parent="UI/UI/Timer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.0
+offset_right = 47.0
+offset_bottom = 12.0
+grow_vertical = 2
+text = "1:00"
+horizontal_alignment = 1
 
 [node name="Manager" type="Control" parent="UI/UI" groups=["BuildingUI"]]
 layout_mode = 1
@@ -864,7 +887,7 @@ position = Vector2(0, -8)
 texture = ExtResource("16_c4l1p")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]

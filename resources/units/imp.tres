@@ -17,13 +17,13 @@ range = 40.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_njmyt")
-type = 0
+type = 1
 count = 3
 
 [sub_resource type="Resource" id="Resource_f7ppk"]
 script = ExtResource("1_njmyt")
-type = 1
-count = 3
+type = 2
+count = 1
 
 [resource]
 script = ExtResource("2_anfki")
@@ -34,7 +34,7 @@ resource_cost = Array[ExtResource("1_njmyt")]([SubResource("Resource_xuc28"), Su
 speed = 120.0
 type = 4
 work_range = 10.0
-work_speed = 1.0
+work_speed = 1.2
 cooldown = 1.0
 hp = 15.0
 damage = 5.0

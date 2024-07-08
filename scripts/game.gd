@@ -76,29 +76,65 @@ func mousePos():
 var enemy_scene = preload("res://object/enemy.tscn")
 
 func _on_enemy_spawn_timer_timeout():
-	for i in range(randi_range(1, 1 + Global.wave_count)):
+	for i in range(randi_range(1 + int(Global.wave_count/2), 1 + Global.wave_count*2)):
 		var spawn = get_tree().get_nodes_in_group("enemy_spawner").pick_random()
 		var randomEnemy = Global.enemies.pick_random() 
 		var type = randomEnemy.type
 		
 		#Selecting enemy waves
 		#print(type)
-		if Global.wave_count <= 5:
+		if Global.wave_count <= 2:
 			type = EnemyResource.ENEMY.PEASANT
-		elif Global.wave_count <= 10:
-			if type == EnemyResource.ENEMY.KNIGHT || type == EnemyResource.ENEMY.HORSEMAN:
+		elif Global.wave_count <= 4:
+			if type == EnemyResource.ENEMY.KNIGHT || type == EnemyResource.ENEMY.HORSEMAN || type == EnemyResource.ENEMY.ARCHER:
 				type = EnemyResource.ENEMY.PEASANT
-		elif Global.wave_count <= 15:
+		elif Global.wave_count <= 6:
 			if type == EnemyResource.ENEMY.KNIGHT:
 				type = EnemyResource.ENEMY.PEASANT
 			if type == EnemyResource.ENEMY.HORSEMAN:
 				type = EnemyResource.ENEMY.PRIEST
-		elif Global.wave_count <= 20:
-			if type == EnemyResource.ENEMY.HORSEMAN:
+		elif Global.wave_count <= 8:
+			if type == EnemyResource.ENEMY.KNIGHT:
 				type = EnemyResource.ENEMY.PRIEST
-		elif Global.wave_count <= 25:
+			if type == EnemyResource.ENEMY.HORSEMAN:
+				type = EnemyResource.ENEMY.ARCHER
+		elif Global.wave_count <= 10:
+			if type == EnemyResource.ENEMY.HORSEMAN:
+				type = EnemyResource.ENEMY.ARCHER
+		elif Global.wave_count <= 12:
 			if type == EnemyResource.ENEMY.HORSEMAN:
 				type = EnemyResource.ENEMY.KNIGHT
+		elif Global.wave_count <= 14:
+			pass
+		elif Global.wave_count <= 16:
+			if type == EnemyResource.ENEMY.PEASANT:
+				type = EnemyResource.ENEMY.PRIEST
+		elif Global.wave_count <= 18:
+			if type == EnemyResource.ENEMY.PEASANT:
+				type = EnemyResource.ENEMY.ARCHER
+			if type == EnemyResource.ENEMY.PRIEST:
+				type = EnemyResource.ENEMY.ARCHER
+		elif Global.wave_count <= 24:
+			if type == EnemyResource.ENEMY.PEASANT:
+				type = EnemyResource.ENEMY.ARCHER
+			if type == EnemyResource.ENEMY.PRIEST:
+				type = EnemyResource.ENEMY.KNIGHT
+		elif Global.wave_count <= 26:
+			if type == EnemyResource.ENEMY.PEASANT:
+				type = EnemyResource.ENEMY.KNIGHT
+			if type == EnemyResource.ENEMY.PRIEST:
+				type = EnemyResource.ENEMY.KNIGHT
+		elif Global.wave_count <= 28:
+			if type == EnemyResource.ENEMY.PEASANT:
+				type = EnemyResource.ENEMY.HORSEMAN
+			if type == EnemyResource.ENEMY.PRIEST:
+				type = EnemyResource.ENEMY.KNIGHT
+		elif Global.wave_count >= 30:
+			if type == EnemyResource.ENEMY.PEASANT:
+				type = EnemyResource.ENEMY.HORSEMAN
+			if type == EnemyResource.ENEMY.PRIEST:
+				type = EnemyResource.ENEMY.HORSEMAN
+				
 		
 		var e = enemy_scene.instantiate()
 		e.global_position = spawn.global_position

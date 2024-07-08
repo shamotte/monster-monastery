@@ -123,17 +123,17 @@ func game_begin():
 
 	current_resources.resize(ResourceResource.RESOURCE.NORESOURCE)
 
-	current_resources[ResourceResource.RESOURCE.WOOD] = 10
-	current_resources[ResourceResource.RESOURCE.ROCK] = 10
-	current_resources[ResourceResource.RESOURCE.IRON] = 4
-	current_resources[ResourceResource.RESOURCE.GOLD] = 4
-	current_resources[ResourceResource.RESOURCE.GEM] = 2
-	current_resources[ResourceResource.RESOURCE.HELLIUM] = 1
-	current_resources[ResourceResource.RESOURCE.OBSIDIANUM] = 5
-	current_resources[ResourceResource.RESOURCE.COPIUM] = 1
-	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 1
-	current_resources[ResourceResource.RESOURCE.FOOD] = 10
+	current_resources[ResourceResource.RESOURCE.WOOD] = 20
+	current_resources[ResourceResource.RESOURCE.ROCK] = 4
+	current_resources[ResourceResource.RESOURCE.IRON] = 0
+	current_resources[ResourceResource.RESOURCE.GOLD] = 0
+	current_resources[ResourceResource.RESOURCE.GEM] = 0
+	current_resources[ResourceResource.RESOURCE.HELLIUM] = 0
+	current_resources[ResourceResource.RESOURCE.OBSIDIANUM] = 0
+	current_resources[ResourceResource.RESOURCE.COPIUM] = 0
+	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 0
+	current_resources[ResourceResource.RESOURCE.FOOD] = 0
 	
-	set_all_resources(99) #TODO funkcja tylko do testów później usunąć
+	#set_all_resources(99) #TODO funkcja tylko do testów później usunąć
 	
 	DaylightManager.start_cycle()
