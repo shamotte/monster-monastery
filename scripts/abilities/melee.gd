@@ -33,5 +33,3 @@ func fight_process(delta):
 				col.collider.take_damage(damage)
 			
 			ProjectileOverseeer.add_child(effect);
-			await ProjectileOverseeer.get_tree().create_timer(0.5).timeout
-			effect.queue_free()

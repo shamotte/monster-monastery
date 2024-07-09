@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dpd1mbtqfo2yi"]
+[gd_scene load_steps=13 format=3 uid="uid://dpd1mbtqfo2yi"]
 
 [ext_resource type="Script" path="res://object/enemy.gd" id="1_4wtti"]
 [ext_resource type="Texture2D" uid="uid://clsk64o35xsu8" path="res://sprites/Units/knight.png" id="2_pvoxd"]
@@ -9,8 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dyuwwfjlqiy0c" path="res://sprites/UI/FrameBar 16x4.png" id="7_27p4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6kv6"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iecv8"]
 
 [sub_resource type="Animation" id="Animation_dog3w"]
 length = 0.001
@@ -105,16 +103,6 @@ shape = SubResource("RectangleShape2D_s6kv6")
 [node name="agent" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
 
-[node name="attac_area" type="Area2D" parent="."]
-unique_name_in_owner = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attac_area"]
-shape = SubResource("CircleShape2D_iecv8")
-debug_color = Color(0.65098, 0.517647, 0.0745098, 0.419608)
-
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-
 [node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_g3t21")
 
@@ -139,5 +127,3 @@ texture_progress = ExtResource("6_pwxn7")
 tint_under = Color(0.152941, 0.152941, 0.152941, 1)
 tint_over = Color(0.152941, 0.152941, 0.152941, 1)
 tint_progress = Color(1, 1, 0, 1)
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceo0u6i1bfucm"]
+[gd_scene load_steps=3 format=3 uid="uid://ceo0u6i1bfucm"]
 
 [ext_resource type="Texture2D" uid="uid://c0iojsm6jm4n4" path="res://sprites/Projectiles/attack_effect.png" id="1_dnpga"]
+[ext_resource type="Script" path="res://object/abilities/melee_effect.gd" id="2_jip1s"]
 
 [node name="Sprite2D" type="Sprite2D"]
 z_index = 1
 y_sort_enabled = true
 texture = ExtResource("1_dnpga")
+script = ExtResource("2_jip1s")

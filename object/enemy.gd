@@ -9,13 +9,23 @@ signal died
 @onready var units = get_node("/root/Game/GameSpace/Units")
 var target = null
 @onready var agent: NavigationAgent2D = %agent
-@onready var timer : Timer = %Timer
 
 var units_working_on_this:int = 0
 var cooldown:float = 0
+var ability :Ability
+var range : float
+
+signal fight_process(delta: float)
 
 func _ready():
 	Priorities.add_self_to_available_actions(self,Priorities.ACTIONTYPES.FIGHT)
+	if type.ability != null:
+		ability = type.ability.duplicate(true)
+		ability.ovner = self
+		ability.to_target = 128
+		range = ability.range
+		if ability.has_method("fight_process"):
+				connect("fight_process",ability.fight_process)
 	
 	$SpawnSound.play()
 	%HPBar.visible = false
@@ -24,7 +34,6 @@ func _ready():
 func set_stats(newEnemy:EnemyResource):
 	type = newEnemy
 	hp = type.hp
-	%Timer.wait_time = type.cooldown
 	if type.cooldown <= 0 :
 		pass
 	$Sprite2D.texture = type.sprite
@@ -54,35 +63,24 @@ func get_closest_unit()-> Node2D:
 			node = unit
 	return node
 		
+var target_global_position : Vector2
+
 func _process(delta):
 	if target != null:
 		agent.target_position = target.position
-		if agent.distance_to_target() <= type.fight_range:
-			attack(target)
+		target_global_position = target.global_position
+		fight_process.emit(delta)
 	else:
 		target = get_closest_unit()
 		
-func attack(target: Node2D):
-	if type.cooldown:
-		type.cooldown = false
-		timer.start(type.cooldown)
-		if target!= null:
-			%attac_area.global_position = target.position
-			#print("atacking")
-			$AttackSound.play()
-			for unit in %attac_area.get_overlapping_bodies():
-				unit.take_damage(type.damage)
 
 
-func _on_timer_timeout():
-	type.cooldown = true
+
 	
 func _physics_process(delta):
-	#check is type set
-	if type == null:
-		return
+
 	if target!=null:
-		if global_position.distance_to(target.position) >= type.fight_range:
+		if global_position.distance_to(target.position) >= range * 0.7:
 			var direction = agent.get_next_path_position() - global_position
 			direction = direction.normalized()
 			velocity = velocity.lerp(direction * type.speed , 0.25)

@@ -18,4 +18,4 @@ enum ENEMY {PEASANT,PRIEST,ARCHER,KNIGHT,HORSEMAN}
 @export var hp:float
 @export var damage:float
 @export var fight_range:float
-@export var abilities: Array[Ability]
+@export var ability: Ability
