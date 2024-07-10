@@ -26,7 +26,6 @@ visual_effect = SubResource("PackedScene_6pvgb")
 size = Vector2(16, 16)
 damage = 16.0
 range = 40.0
-to_target = 64
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_4jpce")
@@ -44,7 +43,7 @@ name = "Baron"
 sprite = ExtResource("3_2dobk")
 resource_cost = Array[ExtResource("1_4jpce")]([SubResource("Resource_xuc28"), SubResource("Resource_efghm")])
 speed = 66.0
-type = 10
+type = 11
 work_range = 30.0
 work_speed = 0.2
 cooldown = 2.5

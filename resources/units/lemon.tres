@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=9 format=3 uid="uid://chwl25hrv7kll"]
+
+[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_3l6hj"]
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_fdrr2"]
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_bou2t"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_xh8ue"]
+[ext_resource type="Texture2D" uid="uid://cstc4ss80yo3h" path="res://sprites/Units/Lemon.png" id="3_tm6mk"]
+
+[sub_resource type="Resource" id="Resource_psmcm"]
+script = ExtResource("1_3l6hj")
+cooldown = 1.0
+visual_effect = ExtResource("2_xh8ue")
+size = Vector2(32, 32)
+damage = 3.0
+range = 30.0
+
+[sub_resource type="Resource" id="Resource_pwad5"]
+script = ExtResource("1_fdrr2")
+type = 3
+count = 5
+
+[sub_resource type="Resource" id="Resource_wdkm6"]
+script = ExtResource("1_fdrr2")
+type = 4
+count = 1
+
+[resource]
+script = ExtResource("2_bou2t")
+name = "Lemon"
+sprite = ExtResource("3_tm6mk")
+resource_cost = Array[ExtResource("1_fdrr2")]([SubResource("Resource_pwad5"), SubResource("Resource_wdkm6")])
+speed = 40.0
+type = 8
+work_range = 30.0
+work_speed = 5.0
+cooldown = 1.0
+hp = 20.0
+damage = 3.0
+fight_range = 30.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_psmcm")])

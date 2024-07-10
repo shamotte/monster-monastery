@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btl34e4syhs4c"
-path="res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"
+uid="uid://cb82rmceinpi0"
+path="res://.godot/imported/EyeOrb.png-3fed2116f1773d1fd537c999a789190e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Buildings/tentacles.png"
-dest_files=["res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"]
+source_file="res://sprites/Projectiles/EyeOrb.png"
+dest_files=["res://.godot/imported/EyeOrb.png-3fed2116f1773d1fd537c999a789190e.ctex"]
 
 [params]
 
