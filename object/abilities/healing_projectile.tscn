@@ -16,6 +16,7 @@ shape = SubResource("CircleShape2D_t3ega")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+scale = Vector2(0.21, 0.21)
 texture = ExtResource("2_tymfq")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
