@@ -38,7 +38,7 @@ func _ready():
 		if temp.has_method("process"):
 			process_sig.connect(temp.process)
 		if temp.has_method("init"):
-			temp.init()
+			temp.init(self)
 		temp.ovner = self
 		abilities.push_back(temp)
 		

@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm7oefe8s1m6w"]
+[gd_scene load_steps=3 format=3 uid="uid://bm7oefe8s1m6w"]
 
 [ext_resource type="Script" path="res://scripts/projectile.gd" id="1_g8sfw"]
-[ext_resource type="Texture2D" uid="uid://p3rpwj04a7sx" path="res://sprites/Projectiles/FireOrb2.png" id="1_ssd1x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j13qe"]
 radius = 5.0
@@ -17,6 +16,5 @@ shape = SubResource("CircleShape2D_j13qe")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-texture = ExtResource("1_ssd1x")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://8mhrug3lbsu3"]
+
+[ext_resource type="Script" path="res://object/abilities/healing_projectile.gd" id="1_x4572"]
+[ext_resource type="Texture2D" uid="uid://pnlv1d18b3r4" path="res://sprites/Projectiles/New Piskel.png" id="2_tymfq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3ega"]
+radius = 13.0384
+
+[node name="healing_projectile" type="Area2D"]
+script = ExtResource("1_x4572")
+speed = 100.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t3ega")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture = ExtResource("2_tymfq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
