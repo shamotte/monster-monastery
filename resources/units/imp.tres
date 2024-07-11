@@ -14,6 +14,7 @@ visual_effect = ExtResource("2_p6fwy")
 size = Vector2(8, 8)
 damage = 2.0
 range = 40.0
+to_target = 64
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_njmyt")

@@ -82,7 +82,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.8, 1),
 "transitions": PackedFloat32Array(2.21, 6.5, 6.5),
 "update": 0,
-"values": [Vector2(5, 10), Vector2(11, -10), Vector2(8, 0)]
+"values": [Vector2(0, 10), Vector2(0, -10), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -159,11 +159,10 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_s7n1y")
 [node name="ResourcePoint" type="Node2D" groups=["resource_point"]]
 script = ExtResource("1_rqx1t")
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." groups=["shadow"]]
 self_modulate = Color(0, 0, 0, 0.294118)
 position = Vector2(8, 10)
 scale = Vector2(2, 0.125)
-skew = 0.523599
 texture = ExtResource("2_vdyha")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

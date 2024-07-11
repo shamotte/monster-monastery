@@ -82,7 +82,7 @@ collision_layer = 65
 collision_mask = 0
 script = ExtResource("1_4wtti")
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." groups=["shadow"]]
 self_modulate = Color(0, 0, 0, 0.294118)
 position = Vector2(4, -1)
 skew = 0.523599

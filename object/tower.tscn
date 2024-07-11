@@ -137,10 +137,9 @@ sprite_frames = SubResource("SpriteFrames_8f0jq")
 autoplay = "default"
 frame_progress = 0.684656
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." groups=["shadow"]]
 self_modulate = Color(0, 0, 0, 0.294118)
 position = Vector2(12, 3)
-skew = 0.523599
 texture = ExtResource("1_qf5ig")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

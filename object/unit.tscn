@@ -195,9 +195,8 @@ position = Vector2(0, 10)
 sprite_frames = SubResource("SpriteFrames_pox06")
 autoplay = "default"
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="." groups=["shadow"]]
 self_modulate = Color(0, 0, 0, 0.294118)
-skew = 0.523599
 texture = ExtResource("2_ey7t7")
 
 [node name="Sprite" type="Sprite2D" parent="."]
