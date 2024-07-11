@@ -11,9 +11,9 @@ func _physics_process(delta):
 		print(daylight_progress)
 		
 		for shadow in get_tree().get_nodes_in_group("shadow"):
-			shadow.set_skew(deg_to_rad(lerp(-90.0, 90.0, daylight_progress * 2))) # 2 Full skew cycles per day
+			shadow.set_skew(deg_to_rad(lerp(-90.0, 90.0, daylight_progress)))
 			shadow.flip_v = 1
-			shadow.set_position(Vector2(-16, 0).rotated(TAU * daylight_progress) + Vector2(0, 16))
+			shadow.set_position(Vector2(-16, 0).rotated(PI * daylight_progress) + Vector2(0, 16))
 			shadow.set_offset(Vector2(0, shadow.texture.get_height()))
 			
 	
