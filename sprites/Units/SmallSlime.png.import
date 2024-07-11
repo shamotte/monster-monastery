@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fxk887u7caxf"
-path="res://.godot/imported/slimebehindtheslaughter.png-6bc15327890b11275b0cdb6a165672db.ctex"
+uid="uid://7t12wkigigku"
+path="res://.godot/imported/SmallSlime.png-79d5f82b33a1058e6893ebb54385f808.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Units/slimebehindtheslaughter.png"
-dest_files=["res://.godot/imported/slimebehindtheslaughter.png-6bc15327890b11275b0cdb6a165672db.ctex"]
+source_file="res://sprites/Units/SmallSlime.png"
+dest_files=["res://.godot/imported/SmallSlime.png-79d5f82b33a1058e6893ebb54385f808.ctex"]
 
 [params]
 

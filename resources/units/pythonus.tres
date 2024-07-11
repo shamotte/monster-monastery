@@ -27,6 +27,7 @@ count = 4
 [resource]
 script = ExtResource("2_fnaij")
 name = "Pythonus"
+description = "hard-working creature. It usually escapes from danger."
 sprite = ExtResource("3_wxdnu")
 resource_cost = Array[ExtResource("1_povl5")]([SubResource("Resource_xuc28"), SubResource("Resource_4ty43")])
 speed = 100.0

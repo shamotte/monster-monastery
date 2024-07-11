@@ -88,9 +88,7 @@ func set_info_panel():
 				s.set_workTime(unit.work_speed)
 		unit_info.get_node("Statistics").add_child(s)
 	
-	
-	#TODO special abilities info 
-	
+	unit_info.get_node("Text").text = unit.description
 	
 	
 	

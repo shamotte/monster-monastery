@@ -28,6 +28,7 @@ count = 1
 [resource]
 script = ExtResource("2_anfki")
 name = "Imp"
+description = "Minor spawn which is weak in fight but easy to control"
 sprite = ExtResource("3_ncg6l")
 item = ExtResource("3_tyfoa")
 resource_cost = Array[ExtResource("1_njmyt")]([SubResource("Resource_xuc28"), SubResource("Resource_f7ppk")])

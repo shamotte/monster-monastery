@@ -5,6 +5,7 @@ enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,LEMON,PYTHONUS
 
 @export_group("Basic")
 @export var name:String
+@export_multiline var description:String
 @export var sprite: CompressedTexture2D
 @export var item: CompressedTexture2D
 @export var extra: Script
