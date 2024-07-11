@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btl34e4syhs4c"
-path="res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"
+uid="uid://b0q5ohgowrr5f"
+path="res://.godot/imported/SlimeBeforeSlaughtered.png-d8a1bde82f05783779178334e23444e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Buildings/tentacles.png"
-dest_files=["res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"]
+source_file="res://sprites/Units/SlimeBeforeSlaughtered.png"
+dest_files=["res://.godot/imported/SlimeBeforeSlaughtered.png-d8a1bde82f05783779178334e23444e5.ctex"]
 
 [params]
 

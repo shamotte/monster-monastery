@@ -1,10 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceo0u6i1bfucm"]
+[gd_scene load_steps=11 format=3 uid="uid://ceo0u6i1bfucm"]
 
-[ext_resource type="Texture2D" uid="uid://c0iojsm6jm4n4" path="res://sprites/Projectiles/attack_effect.png" id="1_dnpga"]
+[ext_resource type="Texture2D" uid="uid://bcpujas5hrex6" path="res://sprites/Effects/Attack2.png" id="2_5n5le"]
 [ext_resource type="Script" path="res://object/abilities/melee_effect.gd" id="2_jip1s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpktm"]
+atlas = ExtResource("2_5n5le")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d66k5"]
+atlas = ExtResource("2_5n5le")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01gr4"]
+atlas = ExtResource("2_5n5le")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x23x5"]
+atlas = ExtResource("2_5n5le")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0d4b"]
+atlas = ExtResource("2_5n5le")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g80eu"]
+atlas = ExtResource("2_5n5le")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkfg2"]
+atlas = ExtResource("2_5n5le")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwf2w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpktm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d66k5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01gr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x23x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0d4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g80eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkfg2")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 16.0
+}]
 
 [node name="Sprite2D" type="Sprite2D"]
 z_index = 1
 y_sort_enabled = true
-texture = ExtResource("1_dnpga")
 script = ExtResource("2_jip1s")
+attack_duration = 0.4
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hwf2w")
+animation = &"Attack"
+frame_progress = 0.00120041

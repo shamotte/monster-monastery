@@ -1,10 +1,11 @@
 extends Resource
 class_name UnitResource
 
-enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,PYTHONUS,WALLOFEYES,LORD,MIRRORIUM}
+enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,LEMON,PYTHONUS,WALLOFEYES,LORD,MIRRORIUM}
 
 @export_group("Basic")
 @export var name:String
+@export_multiline var description:String
 @export var sprite: CompressedTexture2D
 @export var item: CompressedTexture2D
 @export var extra: Script

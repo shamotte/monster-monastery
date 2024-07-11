@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fxk887u7caxf"
-path="res://.godot/imported/slimebehindtheslaughter.png-6bc15327890b11275b0cdb6a165672db.ctex"
+uid="uid://cb82rmceinpi0"
+path="res://.godot/imported/EyeOrb.png-3fed2116f1773d1fd537c999a789190e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Units/slimebehindtheslaughter.png"
-dest_files=["res://.godot/imported/slimebehindtheslaughter.png-6bc15327890b11275b0cdb6a165672db.ctex"]
+source_file="res://sprites/Projectiles/EyeOrb.png"
+dest_files=["res://.godot/imported/EyeOrb.png-3fed2116f1773d1fd537c999a789190e.ctex"]
 
 [params]
 

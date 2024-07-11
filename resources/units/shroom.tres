@@ -22,6 +22,7 @@ count = 3
 [resource]
 script = ExtResource("2_diohr")
 name = "Shroom"
+description = "Fungus which is alive. When dies it spread deadly spores"
 sprite = ExtResource("3_gjf63")
 resource_cost = Array[ExtResource("1_djj3x")]([SubResource("Resource_xuc28")])
 speed = 40.0

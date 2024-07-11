@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_whue1"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_i8hmj"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_t82bn"]
-[ext_resource type="Texture2D" uid="uid://qrt6yrmdkkjt" path="res://sprites/Units/slime_red.png" id="3_nl6uf"]
+[ext_resource type="Texture2D" uid="uid://bsskd5d785m3f" path="res://sprites/Units/RedSlime.png" id="5_tr0mw"]
 
 [sub_resource type="Resource" id="Resource_yp5gx"]
 script = ExtResource("1_u0i0x")
@@ -13,7 +13,6 @@ visual_effect = ExtResource("2_t82bn")
 size = Vector2(8, 8)
 damage = 2.0
 range = 20.0
-to_target = 64
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_whue1")
@@ -23,7 +22,8 @@ count = 4
 [resource]
 script = ExtResource("2_i8hmj")
 name = "Red Slime"
-sprite = ExtResource("3_nl6uf")
+description = "Powered by Hellium Slime became faster and still divide itself before death"
+sprite = ExtResource("5_tr0mw")
 resource_cost = Array[ExtResource("1_whue1")]([SubResource("Resource_xuc28")])
 speed = 200.0
 type = 1

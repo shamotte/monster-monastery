@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_qxi0g"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_08lm1"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_gfjrr"]
-[ext_resource type="Texture2D" uid="uid://fxk887u7caxf" path="res://sprites/Units/slimebehindtheslaughter.png" id="3_0ysi1"]
+[ext_resource type="Texture2D" uid="uid://b0q5ohgowrr5f" path="res://sprites/Units/SlimeBeforeSlaughtered.png" id="5_iql2w"]
 
 [sub_resource type="Resource" id="Resource_wib8y"]
 script = ExtResource("1_e7dhc")
@@ -22,7 +22,8 @@ count = 10
 [resource]
 script = ExtResource("2_08lm1")
 name = "Purple Slime"
-sprite = ExtResource("3_0ysi1")
+description = "Simple form of life which divide itself when die"
+sprite = ExtResource("5_iql2w")
 resource_cost = Array[ExtResource("1_qxi0g")]([SubResource("Resource_xuc28")])
 speed = 30.0
 type = 0

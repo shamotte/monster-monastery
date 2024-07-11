@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="UnitResource" load_steps=10 format=3 uid="uid://c4f7ps81w2mm8"]
 
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_e3ict"]
-[ext_resource type="Texture2D" uid="uid://db5on2v4jm83p" path="res://sprites/Items/PitchFork.png" id="1_mpse3"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_njmyt"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_anfki"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_p6fwy"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="3_ncg6l"]
+[ext_resource type="Texture2D" uid="uid://ddcfyibvafim" path="res://sprites/Items/trident.png" id="3_tyfoa"]
 
 [sub_resource type="Resource" id="Resource_0idj7"]
 script = ExtResource("1_e3ict")
@@ -14,7 +14,6 @@ visual_effect = ExtResource("2_p6fwy")
 size = Vector2(8, 8)
 damage = 2.0
 range = 40.0
-to_target = 64
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_njmyt")
@@ -29,8 +28,9 @@ count = 1
 [resource]
 script = ExtResource("2_anfki")
 name = "Imp"
+description = "Minor spawn which is weak in fight but easy to control"
 sprite = ExtResource("3_ncg6l")
-item = ExtResource("1_mpse3")
+item = ExtResource("3_tyfoa")
 resource_cost = Array[ExtResource("1_njmyt")]([SubResource("Resource_xuc28"), SubResource("Resource_f7ppk")])
 speed = 120.0
 type = 4

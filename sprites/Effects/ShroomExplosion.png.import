@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btl34e4syhs4c"
-path="res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"
+uid="uid://bsubob7v762sm"
+path="res://.godot/imported/ShroomExplosion.png-5eed4ba4ea3de84f978f0f8172a7de64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Buildings/tentacles.png"
-dest_files=["res://.godot/imported/tentacles.png-ba3a16d92efdbb8fe0bd2d5205ed9b5f.ctex"]
+source_file="res://sprites/Effects/ShroomExplosion.png"
+dest_files=["res://.godot/imported/ShroomExplosion.png-5eed4ba4ea3de84f978f0f8172a7de64.ctex"]
 
 [params]
 

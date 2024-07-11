@@ -13,7 +13,6 @@ visual_effect = ExtResource("2_cflxe")
 size = Vector2(16, 16)
 damage = 6.0
 range = 40.0
-to_target = 64
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_mr1rg")
@@ -28,6 +27,7 @@ count = 2
 [resource]
 script = ExtResource("1_deutm")
 name = "Cemon"
+description = "Creature which is eternally  insatiable. Every time it bites it heal itself"
 sprite = ExtResource("3_tjvec")
 resource_cost = Array[ExtResource("1_mr1rg")]([SubResource("Resource_xuc28"), SubResource("Resource_xllqu")])
 speed = 50.0
