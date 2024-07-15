@@ -26,6 +26,8 @@ func _ready():
 		range = ability.range
 		if ability.has_method("fight_process"):
 				connect("fight_process",ability.fight_process)
+		if ability.has_method("init"):
+			ability.init(self)
 	
 	$SpawnSound.play()
 	%HPBar.visible = false
@@ -99,3 +101,11 @@ func _physics_process(delta):
 		$Sprite2D.flip_h = true
 		$Shadow.flip_h = true
 		$Sprite2D/ItemParent.scale.x = -1.0
+
+
+func heal_unit(addHP:float):
+	hp += addHP
+	%HPBar.value = hp
+	if hp >= type.hp:
+		%HPBar.visible = false
+		hp = type.hp

@@ -11,7 +11,7 @@ func _process(delta):
 	position += (target.position-position).normalized() * delta * speed
 	if target != null:
 		if position.distance_to(target.position) < 20:
-			target.take_damage(- healing)
+			target.heal_unit(healing)
 			queue_free()
 
 
