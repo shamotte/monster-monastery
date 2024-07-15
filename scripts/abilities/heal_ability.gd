@@ -19,6 +19,7 @@ func init(node : Node2D):
 		
 	healing_area = Area2D.new();
 	healing_area.collision_mask = to_target_actual
+	healing_area.collision_layer = 0
 	var collision : CollisionShape2D = CollisionShape2D.new()
 	var shape = CircleShape2D.new()
 	shape.radius = range

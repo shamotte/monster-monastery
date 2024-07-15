@@ -9,9 +9,10 @@ var target:Node2D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += (target.position-position).normalized() * delta * speed
-	if position.distance_to(target.position) < 20:
-		target.take_damage(- healing)
-		queue_free()
+	if target != null:
+		if position.distance_to(target.position) < 20:
+			target.take_damage(- healing)
+			queue_free()
 
 
 
