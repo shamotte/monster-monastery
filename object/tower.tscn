@@ -105,6 +105,7 @@ _data = {
 }
 
 [node name="Building" type="Node2D"]
+z_index = 1
 script = ExtResource("1_fsosm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -3,8 +3,8 @@ class_name heal
 
 @export var cooldown = 1
 var timer: float = 0
-@export var projectile:PackedScene
-@export var healing:float =10
+@export var projectile:PackedScene 
+@export var healing:float = 10
 var healing_area : Area2D
 var to_target_actual: int = 64
 var range : int  = 200

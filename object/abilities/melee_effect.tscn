@@ -1,10 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceo0u6i1bfucm"]
+[gd_scene load_steps=12 format=3 uid="uid://ceo0u6i1bfucm"]
 
 [ext_resource type="Texture2D" uid="uid://c0iojsm6jm4n4" path="res://sprites/Projectiles/attack_effect.png" id="1_dnpga"]
 [ext_resource type="Script" path="res://object/abilities/melee_effect.gd" id="2_jip1s"]
+[ext_resource type="Texture2D" uid="uid://bcpujas5hrex6" path="res://sprites/Effects/Attack2.png" id="3_a1i7i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b6iy"]
+atlas = ExtResource("3_a1i7i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxw85"]
+atlas = ExtResource("3_a1i7i")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vayo7"]
+atlas = ExtResource("3_a1i7i")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqdqv"]
+atlas = ExtResource("3_a1i7i")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkbok"]
+atlas = ExtResource("3_a1i7i")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glssw"]
+atlas = ExtResource("3_a1i7i")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ej4xc"]
+atlas = ExtResource("3_a1i7i")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5kwch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b6iy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxw85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vayo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqdqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkbok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glssw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ej4xc")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 16.0
+}]
 
 [node name="Sprite2D" type="Sprite2D"]
-z_index = 1
+z_index = 3
 y_sort_enabled = true
 texture = ExtResource("1_dnpga")
 script = ExtResource("2_jip1s")
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5kwch")
+animation = &"Attack"
