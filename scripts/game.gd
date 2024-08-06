@@ -141,6 +141,7 @@ func _on_enemy_spawn_timer_timeout():
 		e.set_stats(Global.enemies[type])
 		$GameSpace/Enemies.add_child(e)
 		
+	$WaveSpawnSound.play()
 	Global.wave_count += 1
 	%WaveCount.visible = true
 	%WaveCount/Count.text = "Wave " + str(Global.wave_count)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=31 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cuj43sy1s5u22" path="res://sprites/UI/unitselect.png" id="16_c4l1p"]
 [ext_resource type="PackedScene" uid="uid://vxlb82htiwur" path="res://interface/UnitSpawnInfo.tscn" id="16_epxwy"]
 [ext_resource type="PackedScene" uid="uid://bu26j7qm8q1sb" path="res://interface/GroupManager.tscn" id="16_fccnn"]
+[ext_resource type="AudioStream" uid="uid://cyyjmfiricwe0" path="res://sounds/aliendeath.wav" id="26_5nbfo"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
 vertices = PackedVector2Array(392, 383, 225, 321, 226, 321, -610, -232, -559, -284, -556, -116, -605, -107, -105, 387, -142, 376, -37, 270, 127, 267, 35, 163, 249, -72, 338, 1, 428, 110, 368, -276, 501, -285, 482, -211, 409, -204, 559, -150, 686, -140, 800, 7, 646, 72, 537, -48, 522, -114, 152, -296, 266, -157, -29, -262, 385, 277, 429, 370, 520, 151, 502, 199, 1, 81, -172, 131, -374, -181, -362, -278, -265, -364, -65, -345, -417, 191, -484, 311, -540, 321, -614, 231, -656, 2, -459, -89, -262, 175)
@@ -890,6 +891,9 @@ texture = ExtResource("16_c4l1p")
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="WaveSpawnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_5nbfo")
 
 [connection signal="area_entered" from="Building Area" to="CursorSprite" method="_on_building_area_area_entered"]
 [connection signal="area_exited" from="Building Area" to="CursorSprite" method="_on_building_area_area_exited"]
