@@ -12,12 +12,10 @@ func fight_process(delta):
 		
 		if ovner.global_position.distance_to(ovner.target_global_position) < range:
 			time_left = cooldown
-			print("mele attack")
 			var effect = visual_effect.instantiate()
 			var direction = (ovner.target_global_position - ovner.global_position).normalized()
 			effect.global_position = ovner.target_global_position
 			effect.rotation = Vector2.UP.angle_to(direction)
-			print(effect.rotation)
 			var space:PhysicsDirectSpaceState2D = ProjectileOverseeer.get_world_2d().direct_space_state
 			var parameters : PhysicsShapeQueryParameters2D =  PhysicsShapeQueryParameters2D.new()
 			var shape = RectangleShape2D.new()

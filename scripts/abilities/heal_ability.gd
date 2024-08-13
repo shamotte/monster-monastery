@@ -41,7 +41,6 @@ func fight_process(delta):
 		if bodies.size() > 0:
 			target = bodies[0]
 		
-			print("healing")
 			var proj: Area2D = projectile.instantiate()
 		
 			proj.healing = healing

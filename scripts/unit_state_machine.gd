@@ -86,7 +86,6 @@ class IdleState:
 	func set_up(_unit):
 		unit = _unit
 	func enter_state():
-		print("entered idle")
 		timer = 0
 	func process(delta) -> STATES:
 		
@@ -125,7 +124,6 @@ class WalkState:
 	func set_up(_unit):
 		unit = _unit
 	func enter_state():
-		print("entered walk")
 		agent = unit.agent
 		stopping_distance = unit.type.work_range
 		unit.agent.target_position = unit.current_action.position
@@ -154,7 +152,6 @@ class WorkState:
 		
 	func enter_state():
 		pass
-		print("entered work" + unit.current_action.name)
 		
 		
 	func process(delta) ->STATES:
@@ -192,11 +189,6 @@ class FightState:
 		
 	func enter_state():
 		pass
-		print("entered fight")
-		
-		#agent = unit.agent
-		#stopping_distance = unit.type.fight_range
-		#unit.agent.target_position = unit.current_action.node.position
 		
 	func process(delta) ->STATES:
 		if unit.target == null:

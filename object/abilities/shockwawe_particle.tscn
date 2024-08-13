@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://b242fbbwlm1d7"]
+
+[sub_resource type="Curve" id="Curve_csqqc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12381, 0.934066), 0.0, 0.0, 0, 0, Vector2(0.614286, 0.901099), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_g0e4x"]
+curve = SubResource("Curve_csqqc")
+
+[sub_resource type="Curve" id="Curve_i7s3e"]
+_data = [Vector2(0, 0), 0.0, 3.65385, 0, 0, Vector2(0.857143, 0.714286), 0.875332, 0.875332, 0, 0, Vector2(0.857153, 0.714286), -4.00854, -4.00854, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.35503, 0.0, 0, 0]
+point_count = 5
+metadata/_snap_enabled = true
+metadata/_snap_count = 7
+
+[sub_resource type="CurveTexture" id="CurveTexture_ibww4"]
+curve = SubResource("Curve_i7s3e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cb4hm"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 20.0
+emission_ring_radius = 3.0
+emission_ring_inner_radius = 1.0
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 45.0
+radial_accel_max = 50.0
+radial_accel_curve = SubResource("CurveTexture_ibww4")
+color = Color(0.788235, 0.45098, 0.45098, 1)
+alpha_curve = SubResource("CurveTexture_g0e4x")
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_cb4hm")
+lifetime = 2.0
+explosiveness = 0.93

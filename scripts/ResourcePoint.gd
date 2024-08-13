@@ -83,7 +83,6 @@ var rock_replacements = [
 func randomize_resource():
 	#print("Res: ",res.name)
 	if res.name in rock_replacements.map(func (r): return r.name):
-		print("wchodzi")
 		res = rock_replacements.pick_random()
 	#print("Random: ",rock_replacements.pick_random().name)
 	$Sprite2D.texture = res.resource_point_txture

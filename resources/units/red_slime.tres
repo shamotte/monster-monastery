@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://btg7hh7svu78h"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://btg7hh7svu78h"]
 
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_u0i0x"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_whue1"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_i8hmj"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_t82bn"]
+[ext_resource type="Script" path="res://scripts/abilities/spawn_on_death.gd" id="3_2lfxj"]
+[ext_resource type="Resource" uid="uid://4io26ybay5ub" path="res://resources/Summons/red_slime_split.tres" id="4_6i8aw"]
 [ext_resource type="Texture2D" uid="uid://bsskd5d785m3f" path="res://sprites/Units/RedSlime.png" id="5_tr0mw"]
 
 [sub_resource type="Resource" id="Resource_yp5gx"]
@@ -13,6 +15,12 @@ visual_effect = ExtResource("2_t82bn")
 size = Vector2(8, 8)
 damage = 2.0
 range = 20.0
+
+[sub_resource type="Resource" id="Resource_71obu"]
+script = ExtResource("3_2lfxj")
+type = ExtResource("4_6i8aw")
+count = 2
+spawn_range = 30
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_whue1")
@@ -27,10 +35,11 @@ sprite = ExtResource("5_tr0mw")
 resource_cost = Array[ExtResource("1_whue1")]([SubResource("Resource_xuc28")])
 speed = 200.0
 type = 1
+scale = 1.0
 work_range = 10.0
 work_speed = 0.4
 cooldown = 0.1
-hp = 10.0
+hp = 1.0
 damage = 1.0
 fight_range = 30.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_yp5gx")])
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_yp5gx"), SubResource("Resource_71obu")])

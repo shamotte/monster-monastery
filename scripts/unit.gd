@@ -21,6 +21,7 @@ var target:Enemy = null
 var target_global_position: Vector2
 
 signal process_sig( delta : float)
+signal unit_died
 
 var hp
 func _ready():
@@ -33,12 +34,15 @@ func _ready():
 	$Sprite.texture = type.sprite
 	$Shadow.texture = type.sprite
 	$Sprite/ItemParent/Item.texture = type.item
+	scale = Vector2(type.scale,type.scale)
 	for ab :Ability in type.abilities:
 		var temp = ab.duplicate()
 		if temp.has_method("process"):
 			process_sig.connect(temp.process)
 		if temp.has_method("init"):
 			temp.init(self)
+		if temp.has_method("on_death"):
+			unit_died.connect(temp.on_death)
 		temp.ovner = self
 		abilities.push_back(temp)
 		
@@ -82,6 +86,7 @@ func take_damage(damage:float):
 	%HPBar.visible = true
 	%HPBar.value = hp
 	if hp<=0:
+		unit_died.emit()
 		queue_free()
 		
 func heal_unit(addHP:float):

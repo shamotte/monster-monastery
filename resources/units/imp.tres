@@ -34,6 +34,7 @@ item = ExtResource("3_tyfoa")
 resource_cost = Array[ExtResource("1_njmyt")]([SubResource("Resource_xuc28"), SubResource("Resource_f7ppk")])
 speed = 120.0
 type = 4
+scale = 1.0
 work_range = 10.0
 work_speed = 1.2
 cooldown = 1.0

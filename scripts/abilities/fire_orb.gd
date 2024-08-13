@@ -7,6 +7,7 @@ extends Ability
 @export var sprite : Texture2D
 @export var damage : float
 
+@export var spawn_radius : int = 1
 
 var time_left = 0
 func fight_process(delta):
@@ -14,13 +15,13 @@ func fight_process(delta):
 	if time_left <= 0:
 		if ovner.global_position.distance_to(ovner.target_global_position) < range:
 			time_left = cooldown
-			print("atacking")
+
 			var proj: Area2D = projectile.instantiate()
 			proj.collision_mask = to_target
 			proj.get_node("Sprite2D").texture = sprite
 			proj.set_damage(damage)
 			var direction = (ovner.target_global_position - ovner.global_position).normalized()
 			proj.velocity = direction *speed
-			proj.global_position = ovner.global_position
+			proj.global_position = ovner.global_position + Vector2(randf_range(-spawn_radius,spawn_radius),randf_range(-spawn_radius,spawn_radius))
 			ProjectileOverseeer.add_child(proj)
 		

@@ -12,6 +12,7 @@ enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,LEMON,PYTHONUS
 @export var resource_cost: Array[ResourceStack]
 @export var speed: float
 @export var type:UNIT
+@export var scale : float = 1
 
 
 @export_group("Work")
