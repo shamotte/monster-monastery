@@ -29,7 +29,6 @@ func _ready():
 		if ability.has_method("init"):
 			ability.init(self)
 	
-	$SpawnSound.play()
 	%HPBar.visible = false
 	$AnimationPlayer.play("spawn")
 

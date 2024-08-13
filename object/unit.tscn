@@ -178,6 +178,7 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltbtx"]
 
 [node name="Unit" type="CharacterBody2D"]
+z_index = 2
 position = Vector2(0, 4)
 collision_layer = 129
 collision_mask = 0

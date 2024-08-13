@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://bqapy23p53j7r"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=14 format=3 uid="uid://bqapy23p53j7r"]
 
 [ext_resource type="Script" path="res://scripts/abilities/fire_orb.gd" id="1_7q3as"]
 [ext_resource type="PackedScene" uid="uid://bm7oefe8s1m6w" path="res://object/projectile.tscn" id="1_38val"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_3v6qa"]
 [ext_resource type="Texture2D" uid="uid://c8thpte15i8yq" path="res://sprites/Units/Cultist.png" id="3_el42l"]
 [ext_resource type="Texture2D" uid="uid://dlb0no02vy5s8" path="res://sprites/Projectiles/Fire_Orb.png" id="3_it4f3"]
+[ext_resource type="PackedScene" uid="uid://8mhrug3lbsu3" path="res://object/abilities/healing_projectile.tscn" id="4_swa3x"]
+[ext_resource type="Script" path="res://scripts/abilities/heal_ability.gd" id="5_jdbbh"]
 
 [sub_resource type="Resource" id="Resource_slv84"]
 script = ExtResource("1_7q3as")
@@ -15,7 +17,13 @@ projectile = ExtResource("1_38val")
 speed = 100.0
 range = 150.0
 sprite = ExtResource("3_it4f3")
-damage = 10.0
+damage = 1.0
+
+[sub_resource type="Resource" id="Resource_wq4k7"]
+script = ExtResource("5_jdbbh")
+cooldown = 8
+projectile = ExtResource("4_swa3x")
+healing = 2.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_uc236")
@@ -42,4 +50,4 @@ cooldown = 2.0
 hp = 25.0
 damage = 10.0
 fight_range = 90.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_slv84")])
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_slv84"), SubResource("Resource_wq4k7")])
