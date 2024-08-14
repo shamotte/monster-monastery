@@ -1,31 +1,17 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=10 format=3 uid="uid://dc5tswpy4ok1m"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=9 format=3 uid="uid://dc5tswpy4ok1m"]
 
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4jpce"]
-[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_k5aia"]
-[ext_resource type="Texture2D" uid="uid://c0iojsm6jm4n4" path="res://sprites/Projectiles/attack_effect.png" id="2_2xcts"]
+[ext_resource type="Script" path="res://scripts/abilities/shock_wave.gd" id="1_l30s6"]
+[ext_resource type="PackedScene" uid="uid://b242fbbwlm1d7" path="res://object/abilities/shockwawe_particle.tscn" id="2_a0v3c"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_psqdg"]
 [ext_resource type="Texture2D" uid="uid://1odn6cyqh80r" path="res://sprites/Units/DemonLord.png" id="3_2dobk"]
 
-[sub_resource type="PackedScene" id="PackedScene_6pvgb"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("Sprite2D", "Sprite2D", "z_index", "y_sort_enabled", "texture"),
-"node_count": 1,
-"node_paths": [],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 2, 0, 3, 1, 4, 2, 0),
-"variants": [1, true, ExtResource("2_2xcts")],
-"version": 3
-}
-
-[sub_resource type="Resource" id="Resource_rtl6o"]
-script = ExtResource("1_k5aia")
-cooldown = 2.5
-visual_effect = SubResource("PackedScene_6pvgb")
-size = Vector2(16, 16)
-damage = 16.0
-range = 40.0
+[sub_resource type="Resource" id="Resource_mvkg5"]
+script = ExtResource("1_l30s6")
+cooldown = 1.0
+visual_effect = ExtResource("2_a0v3c")
+damage = 1.0
+range = 80.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_4jpce")
@@ -45,10 +31,11 @@ sprite = ExtResource("3_2dobk")
 resource_cost = Array[ExtResource("1_4jpce")]([SubResource("Resource_xuc28"), SubResource("Resource_efghm")])
 speed = 66.0
 type = 11
+scale = 1.0
 work_range = 30.0
 work_speed = 0.2
 cooldown = 2.5
 hp = 66.0
 damage = 16.0
 fight_range = 40.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_rtl6o")])
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_mvkg5")])

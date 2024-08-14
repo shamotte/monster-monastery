@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://dtof37pmbjbeu"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://dtof37pmbjbeu"]
 
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_djj3x"]
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_vg4d4"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_076nv"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_diohr"]
+[ext_resource type="PackedScene" uid="uid://bacv0x4s7pewd" path="res://object/abilities/poisonus_cloudtscn.tscn" id="3_5amus"]
 [ext_resource type="Texture2D" uid="uid://bxe4ktb8ndc14" path="res://sprites/Units/shroom.png" id="3_gjf63"]
+[ext_resource type="Script" path="res://scripts/abilities/Poisonus_cloud_on_death.gd" id="4_3sl06"]
 
 [sub_resource type="Resource" id="Resource_ykdnj"]
 script = ExtResource("1_vg4d4")
@@ -13,6 +15,10 @@ visual_effect = ExtResource("2_076nv")
 size = Vector2(8, 8)
 damage = 1.0
 range = 10.0
+
+[sub_resource type="Resource" id="Resource_iwmp3"]
+script = ExtResource("4_3sl06")
+scene = ExtResource("3_5amus")
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_djj3x")
@@ -27,10 +33,11 @@ sprite = ExtResource("3_gjf63")
 resource_cost = Array[ExtResource("1_djj3x")]([SubResource("Resource_xuc28")])
 speed = 40.0
 type = 2
+scale = 1.0
 work_range = 10.0
 work_speed = 0.3
 cooldown = 0.2
-hp = 25.0
+hp = 1.0
 damage = 1.0
 fight_range = 10.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_ykdnj")])
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_ykdnj"), SubResource("Resource_iwmp3")])

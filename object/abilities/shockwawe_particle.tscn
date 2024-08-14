@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b242fbbwlm1d7"]
+[gd_scene load_steps=9 format=3 uid="uid://b242fbbwlm1d7"]
+
+[ext_resource type="Script" path="res://object/abilities/shockwawe_particle.gd" id="1_sr2fv"]
 
 [sub_resource type="Curve" id="Curve_csqqc"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12381, 0.934066), 0.0, 0.0, 0, 0, Vector2(0.614286, 0.901099), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -6,6 +8,14 @@ point_count = 4
 
 [sub_resource type="CurveTexture" id="CurveTexture_g0e4x"]
 curve = SubResource("Curve_csqqc")
+
+[sub_resource type="Curve" id="Curve_qcpae"]
+max_value = 100.0
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.6, 0), 0.0, 0.0, 0, 0, Vector2(1, 76.9231), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_htiyl"]
+curve = SubResource("Curve_qcpae")
 
 [sub_resource type="Curve" id="Curve_i7s3e"]
 _data = [Vector2(0, 0), 0.0, 3.65385, 0, 0, Vector2(0.857143, 0.714286), 0.875332, 0.875332, 0, 0, Vector2(0.857153, 0.714286), -4.00854, -4.00854, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.35503, 0.0, 0, 0]
@@ -24,14 +34,24 @@ emission_ring_height = 20.0
 emission_ring_radius = 3.0
 emission_ring_inner_radius = 1.0
 gravity = Vector3(0, 0, 0)
-radial_accel_min = 45.0
-radial_accel_max = 50.0
+radial_accel_min = 70.0
+radial_accel_max = 76.0
 radial_accel_curve = SubResource("CurveTexture_ibww4")
+damping_min = 100.0
+damping_max = 100.0
+damping_curve = SubResource("CurveTexture_htiyl")
 color = Color(0.788235, 0.45098, 0.45098, 1)
 alpha_curve = SubResource("CurveTexture_g0e4x")
 
 [node name="GPUParticles2D" type="GPUParticles2D"]
+z_index = 2
+y_sort_enabled = true
+emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_cb4hm")
-lifetime = 2.0
+lifetime = 1.8
+one_shot = true
 explosiveness = 0.93
+script = ExtResource("1_sr2fv")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
