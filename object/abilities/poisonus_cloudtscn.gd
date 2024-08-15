@@ -6,6 +6,7 @@ extends Area2D
 @onready var timer :Timer= $Timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Body.play("Death")
 	timer.wait_time = damage_interval
 	await get_tree().create_timer(duration).timeout
 	queue_free()
@@ -15,3 +16,7 @@ func deal_damage():
 		print("dealing damage")
 		body.take_damage(damage)
 
+
+
+func _on_dead_timer_timeout():
+	$Body.visible = false

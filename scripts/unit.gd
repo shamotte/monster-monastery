@@ -34,6 +34,8 @@ func _ready():
 	$Sprite.texture = type.sprite
 	$Shadow.texture = type.sprite
 	$Sprite/ItemParent/Item.texture = type.item
+	$Sprite.self_modulate = type.color 
+	$Sprite/ItemParent/Item.self_modulate = type.color
 	scale = Vector2(type.scale,type.scale)
 	for ab :Ability in type.abilities:
 		var temp = ab.duplicate()

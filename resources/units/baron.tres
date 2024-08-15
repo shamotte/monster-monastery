@@ -8,9 +8,9 @@
 
 [sub_resource type="Resource" id="Resource_mvkg5"]
 script = ExtResource("1_l30s6")
-cooldown = 1.0
+cooldown = 2.5
 visual_effect = ExtResource("2_a0v3c")
-damage = 1.0
+damage = 16.0
 range = 80.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
@@ -27,15 +27,16 @@ count = 20
 script = ExtResource("2_psqdg")
 name = "Baron"
 description = "Demon Lord which wield powerful demonic blade which hits around owner"
-sprite = ExtResource("3_2dobk")
 resource_cost = Array[ExtResource("1_4jpce")]([SubResource("Resource_xuc28"), SubResource("Resource_efghm")])
 speed = 66.0
 type = 11
+sprite = ExtResource("3_2dobk")
 scale = 1.0
+color = Color(1, 1, 1, 1)
 work_range = 30.0
 work_speed = 0.2
 cooldown = 2.5
 hp = 66.0
 damage = 16.0
-fight_range = 40.0
+fight_range = 80.0
 abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_mvkg5")])

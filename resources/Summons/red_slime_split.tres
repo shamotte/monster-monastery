@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_bm436"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="3_5xitv"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="4_ubbhx"]
-[ext_resource type="Texture2D" uid="uid://bsskd5d785m3f" path="res://sprites/Units/RedSlime.png" id="5_c626w"]
+[ext_resource type="Texture2D" uid="uid://brfus5o7uu50j" path="res://sprites/Units/SmallRedSlime.png" id="5_81hod"]
 
 [sub_resource type="Resource" id="Resource_yp5gx"]
 script = ExtResource("1_jqmkl")
@@ -21,17 +21,18 @@ count = 4
 
 [resource]
 script = ExtResource("4_ubbhx")
-name = "Red Slime"
-description = "Powered by Hellium Slime became faster and still divide itself before death"
-sprite = ExtResource("5_c626w")
+name = "Red Slimeling"
+description = "Slime which become smaller after death"
 resource_cost = Array[ExtResource("3_5xitv")]([SubResource("Resource_xuc28")])
-speed = 200.0
+speed = 150.0
 type = 1
-scale = 0.4
+sprite = ExtResource("5_81hod")
+scale = 1.0
+color = Color(1, 1, 1, 1)
 work_range = 10.0
-work_speed = 0.4
-cooldown = 0.1
-hp = 10.0
+work_speed = 0.1
+cooldown = 0.5
+hp = 5.0
 damage = 1.0
 fight_range = 30.0
 abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_yp5gx")])

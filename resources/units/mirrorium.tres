@@ -4,26 +4,28 @@
 [ext_resource type="Texture2D" uid="uid://c2um8m3sjqikh" path="res://sprites/Items/Eye_Staff.png" id="1_swtl3"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="2_p5so5"]
 [ext_resource type="Script" path="res://scripts/abilities/fire_orb.gd" id="2_r6w48"]
+[ext_resource type="Texture2D" uid="uid://crba3msngthi3" path="res://sprites/Projectiles/DarkOrb.png" id="3_8duty"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="3_g7cxl"]
-[ext_resource type="Texture2D" uid="uid://p3rpwj04a7sx" path="res://sprites/Projectiles/FireOrb2.png" id="3_n7wuf"]
 [ext_resource type="Script" path="res://scripts/abilities/summon_unit.gd" id="4_esnlx"]
 [ext_resource type="Texture2D" uid="uid://b1my6j3bvh0k2" path="res://sprites/Units/Mirrorium.png" id="4_hnefi"]
 [ext_resource type="Resource" uid="uid://4fdi81xiwnat" path="res://resources/Summons/mirrorium_summon.tres" id="5_5blk8"]
 
 [sub_resource type="Resource" id="Resource_c47oq"]
 script = ExtResource("2_r6w48")
-cooldown = 0.5
+cooldown = 0.3
 projectile = ExtResource("1_8rldp")
 speed = 300.0
 range = 150.0
-sprite = ExtResource("3_n7wuf")
-damage = 5.0
+sprite = ExtResource("3_8duty")
+damage = 3.0
 spawn_radius = 1
 
 [sub_resource type="Resource" id="Resource_w3jh8"]
 script = ExtResource("4_esnlx")
 cooldown = 30.0
 type = ExtResource("5_5blk8")
+summon_range = 30
+summon_duration = 15.0
 
 [sub_resource type="Resource" id="Resource_od5fv"]
 script = ExtResource("2_p5so5")
@@ -39,15 +41,17 @@ count = 10
 script = ExtResource("3_g7cxl")
 name = "Mirrorium"
 description = "Creature which get mastery of using dark powers and can make illusions"
-sprite = ExtResource("4_hnefi")
-item = ExtResource("1_swtl3")
 resource_cost = Array[ExtResource("2_p5so5")]([SubResource("Resource_od5fv"), SubResource("Resource_kemha")])
 speed = 80.0
 type = 12
+sprite = ExtResource("4_hnefi")
+item = ExtResource("1_swtl3")
+scale = 1.0
+color = Color(1, 1, 1, 1)
 work_range = 100.0
 work_speed = 0.2
-cooldown = 0.2
+cooldown = 0.3
 hp = 40.0
-damage = 2.0
+damage = 3.0
 fight_range = 150.0
 abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_c47oq"), SubResource("Resource_w3jh8")])

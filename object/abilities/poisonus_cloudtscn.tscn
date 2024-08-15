@@ -1,9 +1,67 @@
-[gd_scene load_steps=6 format=3 uid="uid://bacv0x4s7pewd"]
+[gd_scene load_steps=15 format=3 uid="uid://bacv0x4s7pewd"]
 
 [ext_resource type="Script" path="res://object/abilities/poisonus_cloudtscn.gd" id="1_3d2n1"]
+[ext_resource type="Texture2D" uid="uid://bsubob7v762sm" path="res://sprites/Effects/ShroomExplosion.png" id="2_q68up"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7hbri"]
 radius = 34.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq61k"]
+atlas = ExtResource("2_q68up")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ognlk"]
+atlas = ExtResource("2_q68up")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh68d"]
+atlas = ExtResource("2_q68up")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwu3m"]
+atlas = ExtResource("2_q68up")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qljo4"]
+atlas = ExtResource("2_q68up")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odin7"]
+atlas = ExtResource("2_q68up")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci3kn"]
+atlas = ExtResource("2_q68up")
+region = Rect2(0, 96, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ysavk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq61k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ognlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh68d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwu3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qljo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odin7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci3kn")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_40l70"]
 particle_flag_disable_z = true
@@ -69,6 +127,11 @@ script = ExtResource("1_3d2n1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7hbri")
 
+[node name="Body" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ysavk")
+animation = &"Death"
+frame_progress = 0.682851
+
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 z_index = 2
 y_sort_enabled = true
@@ -90,4 +153,10 @@ process_material = SubResource("ParticleProcessMaterial_iiq77")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
+[node name="DeadTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="deal_damage"]
+[connection signal="timeout" from="DeadTimer" to="." method="_on_dead_timer_timeout"]

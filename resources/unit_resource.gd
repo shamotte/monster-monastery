@@ -6,13 +6,16 @@ enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,LEMON,PYTHONUS
 @export_group("Basic")
 @export var name:String
 @export_multiline var description:String
-@export var sprite: CompressedTexture2D
-@export var item: CompressedTexture2D
 @export var extra: Script
 @export var resource_cost: Array[ResourceStack]
 @export var speed: float
 @export var type:UNIT
+
+@export_group("Visual")
+@export var sprite: CompressedTexture2D
+@export var item: CompressedTexture2D
 @export var scale : float = 1
+@export var color : Color = Color.WHITE
 
 
 @export_group("Work")

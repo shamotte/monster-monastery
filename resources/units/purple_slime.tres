@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://pka4ts5w5dus"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://pka4ts5w5dus"]
 
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_e7dhc"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_qxi0g"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_08lm1"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_gfjrr"]
+[ext_resource type="Script" path="res://scripts/abilities/spawn_on_death.gd" id="3_1kwr0"]
+[ext_resource type="Resource" uid="uid://kux58indrrb0" path="res://resources/Summons/purple_slime_split.tres" id="4_ua4q0"]
 [ext_resource type="Texture2D" uid="uid://b0q5ohgowrr5f" path="res://sprites/Units/SlimeBeforeSlaughtered.png" id="5_iql2w"]
 
 [sub_resource type="Resource" id="Resource_wib8y"]
@@ -11,8 +13,14 @@ script = ExtResource("1_e7dhc")
 cooldown = 0.8
 visual_effect = ExtResource("2_gfjrr")
 size = Vector2(8, 8)
-damage = 1.0
+damage = 2.0
 range = 20.0
+
+[sub_resource type="Resource" id="Resource_5meot"]
+script = ExtResource("3_1kwr0")
+type = ExtResource("4_ua4q0")
+count = 2
+spawn_range = 30
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_qxi0g")
@@ -23,14 +31,16 @@ count = 10
 script = ExtResource("2_08lm1")
 name = "Purple Slime"
 description = "Simple form of life which divide itself when die"
-sprite = ExtResource("5_iql2w")
 resource_cost = Array[ExtResource("1_qxi0g")]([SubResource("Resource_xuc28")])
 speed = 30.0
 type = 0
+sprite = ExtResource("5_iql2w")
+scale = 1.0
+color = Color(1, 1, 1, 1)
 work_range = 10.0
-work_speed = 0.2
-cooldown = 1.0
+work_speed = 0.1
+cooldown = 0.8
 hp = 10.0
 damage = 2.0
 fight_range = 20.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_wib8y")])
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_wib8y"), SubResource("Resource_5meot")])

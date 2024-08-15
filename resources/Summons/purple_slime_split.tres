@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=8 format=3 uid="uid://kux58indrrb0"]
+
+[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_l63ci"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_v8fey"]
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="3_kio8u"]
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="4_8pko6"]
+[ext_resource type="Texture2D" uid="uid://7t12wkigigku" path="res://sprites/Units/SmallSlime.png" id="5_qa0k6"]
+
+[sub_resource type="Resource" id="Resource_yp5gx"]
+script = ExtResource("1_l63ci")
+cooldown = 0.7
+visual_effect = ExtResource("2_v8fey")
+size = Vector2(8, 8)
+damage = 2.0
+range = 20.0
+
+[sub_resource type="Resource" id="Resource_xuc28"]
+script = ExtResource("3_kio8u")
+type = 5
+count = 4
+
+[resource]
+script = ExtResource("4_8pko6")
+name = "Purple Slimeling"
+description = "Slime which become smaller after death"
+resource_cost = Array[ExtResource("3_kio8u")]([SubResource("Resource_xuc28")])
+speed = 20.0
+type = 1
+sprite = ExtResource("5_qa0k6")
+scale = 1.0
+color = Color(1, 1, 1, 1)
+work_range = 10.0
+work_speed = 0.1
+cooldown = 1.0
+hp = 5.0
+damage = 1.0
+fight_range = 30.0
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_yp5gx")])
