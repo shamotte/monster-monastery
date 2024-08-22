@@ -6,7 +6,7 @@ func _ready():
 	pass # Replace with function body.
 
 var mouse_movement:bool = false
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index ==1 and event.is_pressed():
 			mouse_movement = true

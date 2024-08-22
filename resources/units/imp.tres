@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=10 format=3 uid="uid://c4f7ps81w2mm8"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://c4f7ps81w2mm8"]
 
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_8kil5"]
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_e3ict"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_njmyt"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_anfki"]
@@ -42,4 +43,4 @@ cooldown = 1.0
 hp = 15.0
 damage = 3.0
 fight_range = 40.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_0idj7")])
+abilities = Array[ExtResource("1_8kil5")]([SubResource("Resource_0idj7")])

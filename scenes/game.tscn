@@ -385,6 +385,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("8_cjmjg")
 
 [node name="Label" type="Label" parent="UI/UI"]
@@ -404,6 +405,7 @@ offset_top = 4.0
 offset_right = -42.0
 offset_bottom = 20.0
 grow_horizontal = 0
+mouse_filter = 0
 alignment = 2
 
 [node name="UnitCount" type="Panel" parent="UI/UI"]
@@ -428,6 +430,7 @@ offset_top = -11.0
 offset_right = 52.0
 offset_bottom = 12.0
 grow_vertical = 2
+mouse_filter = 0
 text = "99"
 
 [node name="WaveCount" type="Panel" parent="UI/UI"]
@@ -448,6 +451,7 @@ offset_top = -11.5
 offset_right = 71.0
 offset_bottom = 11.5
 grow_vertical = 2
+mouse_filter = 0
 text = "Wave 99"
 
 [node name="Timer" type="Panel" parent="UI/UI" node_paths=PackedStringArray("counter", "timer")]
@@ -470,6 +474,7 @@ offset_top = -11.0
 offset_right = 47.0
 offset_bottom = 12.0
 grow_vertical = 2
+mouse_filter = 0
 text = "1:00"
 horizontal_alignment = 1
 
@@ -480,6 +485,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("5_ysb7k")
 
 [node name="CheckButton" type="CheckButton" parent="UI/UI/Manager"]
@@ -507,12 +513,14 @@ offset_right = 226.0
 offset_bottom = 155.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 current_tab = 1
 
 [node name="BuildingColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
 visible = false
 custom_minimum_size = Vector2(408, 280)
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="BuildingInfo" parent="UI/UI/Manager/Panel/BuildingColumns" groups=["BuildingSpawnInfo"] instance=ExtResource("15_csqud")]
 layout_mode = 2
@@ -530,6 +538,7 @@ columns = 2
 [node name="UnitColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
 custom_minimum_size = Vector2(408, 208)
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="UnitsInfo" parent="UI/UI/Manager/Panel/UnitColumns" groups=["UnitSpawnInfo"] instance=ExtResource("16_epxwy")]
 layout_mode = 2
@@ -546,6 +555,7 @@ columns = 2
 [node name="GroupManager" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="SelectedGroupPanel" parent="UI/UI/Manager/Panel/GroupManager" node_paths=PackedStringArray("group_grid") groups=["GroupInfo"] instance=ExtResource("16_fccnn")]
 unique_name_in_owner = true
@@ -565,6 +575,7 @@ columns = 4
 visible = false
 custom_minimum_size = Vector2(452, 280)
 layout_mode = 2
+metadata/_tab_index = 3
 
 [node name="Control" type="Control" parent="UI/UI/Manager/Panel/Help"]
 custom_minimum_size = Vector2(0, 1000)
@@ -617,6 +628,7 @@ autowrap_mode = 3
 visible = false
 custom_minimum_size = Vector2(452, 280)
 layout_mode = 2
+metadata/_tab_index = 4
 
 [node name="VolumeSlider" type="HSlider" parent="UI/UI/Manager/Panel/Options"]
 layout_mode = 1
