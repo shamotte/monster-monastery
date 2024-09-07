@@ -5,9 +5,11 @@ var life_time : float
 
 func _ready():
 	life_time = 5
+	
 
 
 func _process(delta):
+	look_at(position + velocity)
 	position += velocity * delta
 	life_time -= delta
 	if life_time <= 0:
