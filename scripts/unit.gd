@@ -83,13 +83,15 @@ func display_previev(node : Control):
 	
 
 	
-func take_damage(damage:float):
+func take_damage(damage:float) -> int:
 	hp -= damage
 	%HPBar.visible = true
 	%HPBar.value = hp
 	if hp<=0:
 		unit_died.emit()
 		queue_free()
+		return damage + hp
+	return damage
 		
 func heal_unit(addHP:float):
 	hp += addHP

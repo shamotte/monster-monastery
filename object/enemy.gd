@@ -43,7 +43,7 @@ func set_stats(newEnemy:EnemyResource):
 	%HPBar.value = type.hp
 	%HPBar.max_value = type.hp
 
-func take_damage(damage:float):
+func take_damage(damage:float) -> int:
 	hp-=damage
 	if hp<=type.hp:
 		%HPBar.visible = true
@@ -52,6 +52,8 @@ func take_damage(damage:float):
 		died.emit()
 		Priorities.remove_self_from_actions(self,Priorities.ACTIONTYPES.FIGHT)
 		queue_free()
+		return damage + hp
+	return damage
 
 func get_closest_unit()-> Node2D:
 	var distance = 0

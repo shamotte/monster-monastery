@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btl34e4syhs4c"
-path="res://.godot/imported/Tentacles.png-fd8f81959e0860573f8c52a554fdad70.ctex"
+uid="uid://dyalor0ootbrf"
+path="res://.godot/imported/simple_explosion2.png-005c7527949dcc31449e30e703b27253.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Buildings/Tentacles.png"
-dest_files=["res://.godot/imported/Tentacles.png-fd8f81959e0860573f8c52a554fdad70.ctex"]
+source_file="res://object/abilities/simple_explosion2.png"
+dest_files=["res://.godot/imported/simple_explosion2.png-005c7527949dcc31449e30e703b27253.ctex"]
 
 [params]
 

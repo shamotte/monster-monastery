@@ -1,18 +1,18 @@
 [gd_resource type="Resource" script_class="UnitResource" load_steps=9 format=3 uid="uid://cy5aua45b2h17"]
 
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="1_deutm"]
-[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_gj5uv"]
+[ext_resource type="Script" path="res://scripts/abilities/life_rip.gd" id="1_lnni1"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_mr1rg"]
-[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_cflxe"]
+[ext_resource type="PackedScene" uid="uid://b2cqurt43gt1c" path="res://object/abilities/life_rip_effect.tscn" id="2_ibgd0"]
 [ext_resource type="Texture2D" uid="uid://cyp80vtacok3r" path="res://sprites/Units/Cemon.png" id="3_tjvec"]
 
-[sub_resource type="Resource" id="Resource_1k867"]
-script = ExtResource("1_gj5uv")
+[sub_resource type="Resource" id="Resource_qpbui"]
+script = ExtResource("1_lnni1")
 cooldown = 1.0
-visual_effect = ExtResource("2_cflxe")
-size = Vector2(16, 16)
-damage = 6.0
-range = 40.0
+visual_effect = ExtResource("2_ibgd0")
+size = Vector2(32, 32)
+damage = 1.0
+range = 30.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_mr1rg")
@@ -38,6 +38,6 @@ work_range = 10.0
 work_speed = 0.8
 cooldown = 1.0
 hp = 60.0
-damage = 6.0
+damage = 1.0
 fight_range = 40.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_1k867")])
+abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_qpbui")])
