@@ -22,6 +22,6 @@ func fight_process(delta):
 			if ovner.global_position.distance_to(ovner.target_global_position) < range:
 				time_left = cooldown
 				var damage_dealt :int = ovner.target.take_damage(damage)
-				ovner.heal_unit(damage_dealt * heal_ratio)
+				ovner.heal_unit(round(damage_dealt * heal_ratio))
 
 
