@@ -14,17 +14,15 @@ func _process(delta):
 		position += (target.position-position).normalized() * delta * speed
 		if position.distance_to(target.position) < 20:
 			target.heal_unit(healing)
+			spawn_ring()
+	else:
+		queue_free()
+		
+		
 	if ring_spawned:
 		if $Timer.time_left == 0:
 			queue_free()
-	else:
-		position += (target.position-position).normalized() * delta * speed
-		if target != null:
-			if position.distance_to(target.position) < 20:
-				target.heal_unit(healing)
-				print("Ring1")
-				spawn_ring()
-				#queue_free()
+	
 	
 
 func spawn_ring():
