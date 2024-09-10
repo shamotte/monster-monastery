@@ -15,6 +15,7 @@ var summoning_time :float = 3.0
 		
 @onready var state_machine: StateMachine.UnitStateMachine = StateMachine.UnitStateMachine.new()
 
+var last_velocity : Vector2
 
 var current_action:Node2D = null
 var target:Enemy = null
@@ -77,9 +78,13 @@ func _physics_process(delta):
 	state_machine.physics_process(delta)
 	
 	#Animation 
-	#if $AnimationPlayer.current_animation != "spawn" and $AnimationPlayer.current_animation != "Dead": 
-		#if $AnimationPlayer.current_animation != "walk":
-			#$AnimationPlayer.play("walk")
+	print(velocity)
+	if $AnimationPlayer.current_animation != "spawn" and $AnimationPlayer.current_animation != "Dead": 
+		if velocity != last_velocity:
+			next_anim("walk")
+			last_velocity = velocity
+		else:
+			next_anim("Idle")
 	
 
 
@@ -145,4 +150,7 @@ func _on_tree_exiting():
 	
 func kill():
 	queue_free()
+	
+func next_anim(anim_name : String):
+	$AnimationPlayer.play(anim_name)
 	

@@ -37,6 +37,7 @@ sprite = ExtResource("3_ncg6l")
 item = ExtResource("3_tyfoa")
 scale = 1.0
 color = Color(1, 1, 1, 1)
+play_dead_anim = true
 work_range = 10.0
 work_speed = 1.2
 cooldown = 1.0
