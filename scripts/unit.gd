@@ -98,6 +98,7 @@ func take_damage(damage:float) -> int:
 	%HPBar.visible = true
 	%HPBar.value = hp
 	if hp<=0:
+		hp = 0
 		unit_died.emit()
 		if type.play_dead_anim:
 			$AnimationPlayer.play("Dead")
