@@ -50,10 +50,12 @@ script = ExtResource("1_sbll1")
 unique_name_in_owner = true
 z_index = 100
 material = SubResource("CanvasItemMaterial_m24ms")
+emitting = false
 amount = 45
 process_material = SubResource("ParticleProcessMaterial_nngrf")
 texture = ExtResource("1_clupc")
 lifetime = 1.4
+one_shot = true
 explosiveness = 0.63
 draw_order = 2
 
