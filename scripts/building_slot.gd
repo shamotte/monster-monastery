@@ -81,5 +81,3 @@ func set_info_panel():
 
 	
 	
-
-

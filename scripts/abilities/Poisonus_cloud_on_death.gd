@@ -1,6 +1,6 @@
 extends Ability
 class_name CloudOnDeath
-@export  var scene : PackedScene
+@export  var scene : PackedScene 
 
 
 
@@ -9,5 +9,3 @@ func on_death():
 	instance.collision_mask = to_target
 	instance.global_position = ovner.global_position
 	ProjectileOverseeer.add_child(instance)
-
-

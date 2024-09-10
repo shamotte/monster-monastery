@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=32 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
@@ -9,15 +9,16 @@
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
 [ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
 [ext_resource type="PackedScene" uid="uid://fvp2heuuowys" path="res://object/resource_point.tscn" id="7_f0igd"]
+[ext_resource type="Resource" uid="uid://cy5aua45b2h17" path="res://resources/units/cemon.tres" id="7_x80pw"]
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
 [ext_resource type="PackedScene" uid="uid://b22fxtq6dhenw" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
-[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/Resources/rock.tres" id="8_e7kpm"]
+[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/resources/rock.tres" id="8_e7kpm"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="14_twx0p"]
-[ext_resource type="PackedScene" uid="uid://fi3qro07xbcd" path="res://interface/SpawnInfo.tscn" id="15_csqud"]
+[ext_resource type="PackedScene" path="res://interface/SpawnInfo.tscn" id="15_csqud"]
 [ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="15_pktq6"]
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://interface/priority_elem.tscn" id="15_x630r"]
 [ext_resource type="Script" path="res://scripts/VolumeSlider.gd" id="15_yioib"]
@@ -81,6 +82,7 @@ script = ExtResource("5_smeyy")
 
 [node name="Unit" parent="GameSpace/Units" instance=ExtResource("1_fh80v")]
 position = Vector2(-103, -85)
+type = ExtResource("7_x80pw")
 
 [node name="Resources" type="Node2D" parent="GameSpace"]
 y_sort_enabled = true
@@ -385,6 +387,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("8_cjmjg")
 
 [node name="Label" type="Label" parent="UI/UI"]
@@ -404,6 +407,7 @@ offset_top = 4.0
 offset_right = -42.0
 offset_bottom = 20.0
 grow_horizontal = 0
+mouse_filter = 0
 alignment = 2
 
 [node name="UnitCount" type="Panel" parent="UI/UI"]
@@ -428,6 +432,7 @@ offset_top = -11.0
 offset_right = 52.0
 offset_bottom = 12.0
 grow_vertical = 2
+mouse_filter = 0
 text = "99"
 
 [node name="WaveCount" type="Panel" parent="UI/UI"]
@@ -448,6 +453,7 @@ offset_top = -11.5
 offset_right = 71.0
 offset_bottom = 11.5
 grow_vertical = 2
+mouse_filter = 0
 text = "Wave 99"
 
 [node name="Timer" type="Panel" parent="UI/UI" node_paths=PackedStringArray("counter", "timer")]
@@ -470,6 +476,7 @@ offset_top = -11.0
 offset_right = 47.0
 offset_bottom = 12.0
 grow_vertical = 2
+mouse_filter = 0
 text = "1:00"
 horizontal_alignment = 1
 
@@ -480,6 +487,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("5_ysb7k")
 
 [node name="CheckButton" type="CheckButton" parent="UI/UI/Manager"]
@@ -507,12 +515,14 @@ offset_right = 226.0
 offset_bottom = 155.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 current_tab = 1
 
 [node name="BuildingColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
 visible = false
 custom_minimum_size = Vector2(408, 280)
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="BuildingInfo" parent="UI/UI/Manager/Panel/BuildingColumns" groups=["BuildingSpawnInfo"] instance=ExtResource("15_csqud")]
 layout_mode = 2
@@ -530,6 +540,7 @@ columns = 2
 [node name="UnitColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
 custom_minimum_size = Vector2(408, 208)
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="UnitsInfo" parent="UI/UI/Manager/Panel/UnitColumns" groups=["UnitSpawnInfo"] instance=ExtResource("16_epxwy")]
 layout_mode = 2
@@ -546,6 +557,7 @@ columns = 2
 [node name="GroupManager" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="SelectedGroupPanel" parent="UI/UI/Manager/Panel/GroupManager" node_paths=PackedStringArray("group_grid") groups=["GroupInfo"] instance=ExtResource("16_fccnn")]
 unique_name_in_owner = true
@@ -565,6 +577,7 @@ columns = 4
 visible = false
 custom_minimum_size = Vector2(452, 280)
 layout_mode = 2
+metadata/_tab_index = 3
 
 [node name="Control" type="Control" parent="UI/UI/Manager/Panel/Help"]
 custom_minimum_size = Vector2(0, 1000)
@@ -617,6 +630,7 @@ autowrap_mode = 3
 visible = false
 custom_minimum_size = Vector2(452, 280)
 layout_mode = 2
+metadata/_tab_index = 4
 
 [node name="VolumeSlider" type="HSlider" parent="UI/UI/Manager/Panel/Options"]
 layout_mode = 1

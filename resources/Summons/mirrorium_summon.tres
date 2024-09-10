@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://4fdi81xiwnat"]
 
-[ext_resource type="PackedScene" uid="uid://bm7oefe8s1m6w" path="res://object/projectile.tscn" id="1_afet4"]
+[ext_resource type="PackedScene" uid="uid://bm7oefe8s1m6w" path="res://object/abilities/projectile.tscn" id="1_afet4"]
 [ext_resource type="Script" path="res://scripts/abilities/fire_orb.gd" id="2_l2hdq"]
 [ext_resource type="Texture2D" uid="uid://crba3msngthi3" path="res://sprites/Projectiles/DarkOrb.png" id="3_8522h"]
 [ext_resource type="Texture2D" uid="uid://c2um8m3sjqikh" path="res://sprites/Items/Eye_Staff.png" id="5_gyfok"]

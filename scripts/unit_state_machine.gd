@@ -228,8 +228,3 @@ class StandbyState:
 	func end_state():
 		pass
 	
-
-
-
-
-

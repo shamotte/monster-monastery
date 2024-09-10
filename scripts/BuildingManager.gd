@@ -111,4 +111,3 @@ func set_spawning_group(group : PriorityTable):
 	#show_panel(true)
 	#menu_manager.get_node("CheckButton").button_pressed = true
 		
-

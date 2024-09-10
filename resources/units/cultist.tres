@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UnitResource" load_steps=14 format=3 uid="uid://bqapy23p53j7r"]
 
 [ext_resource type="Script" path="res://scripts/abilities/fire_orb.gd" id="1_7q3as"]
-[ext_resource type="PackedScene" uid="uid://bm7oefe8s1m6w" path="res://object/projectile.tscn" id="1_38val"]
+[ext_resource type="PackedScene" uid="uid://bm7oefe8s1m6w" path="res://object/abilities/projectile.tscn" id="1_38val"]
 [ext_resource type="Texture2D" uid="uid://c2um8m3sjqikh" path="res://sprites/Items/Eye_Staff.png" id="1_mshqw"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_uc236"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_3v6qa"]

@@ -41,7 +41,7 @@ func _ready():
 	
 	
 
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index ==1 and event.is_pressed():
 			
@@ -210,6 +210,3 @@ func _on_control_mouse_entered():
 
 func _on_control_mouse_exited():
 	_on_mouse_exited()
-
-
-

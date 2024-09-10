@@ -81,6 +81,3 @@ func _on_delete_pressed():
 	set_first_group()
 	update_group_slots()
 	
-
-
-

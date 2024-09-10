@@ -36,7 +36,3 @@ func spawn_ring():
 	$AnimationPlayer.play("Idle")
 	position = target.position
 	$Timer.start()
-
-
-
-
