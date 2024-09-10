@@ -130,7 +130,8 @@ shape = SubResource("CircleShape2D_7hbri")
 [node name="Body" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ysavk")
 animation = &"Death"
-frame_progress = 0.682851
+frame = 3
+frame_progress = 0.579145
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
 z_index = 2

@@ -10,7 +10,7 @@
 script = ExtResource("1_lnni1")
 cooldown = 1.0
 visual_effect = ExtResource("2_ibgd0")
-size = Vector2(32, 32)
+heal_ratio = 1.0
 damage = 1.0
 range = 30.0
 
