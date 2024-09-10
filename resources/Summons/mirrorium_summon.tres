@@ -40,6 +40,7 @@ sprite = ExtResource("8_dp764")
 item = ExtResource("5_gyfok")
 scale = 1.0
 color = Color(1, 1, 1, 0.392157)
+play_dead_anim = true
 work_range = 100.0
 work_speed = 0.2
 cooldown = 0.3

@@ -27,6 +27,7 @@ cooldown = 30.0
 type = ExtResource("5_5blk8")
 summon_range = 30
 summon_duration = 15.0
+should_despawn = true
 
 [sub_resource type="Resource" id="Resource_od5fv"]
 script = ExtResource("2_p5so5")
@@ -49,6 +50,7 @@ sprite = ExtResource("4_hnefi")
 item = ExtResource("1_swtl3")
 scale = 1.0
 color = Color(1, 1, 1, 1)
+play_dead_anim = true
 work_range = 100.0
 work_speed = 0.2
 cooldown = 0.3
