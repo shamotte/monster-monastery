@@ -139,8 +139,8 @@ func _on_enemy_spawn_timer_timeout():
 		var e = enemy_scene.instantiate()
 		e.global_position = spawn.global_position
 		e.set_stats(Global.enemies[type])
-		if Global.wave_count >= 3:
-			e.modify_hp(1 + (Global.wave_count-3) * 0.1)
+		if Global.wave_count >= 10:
+			e.modify_hp(1 + (Global.wave_count-10) * 0.1)
 		$GameSpace/Enemies.add_child(e)
 		
 	$WaveSpawnSound.play()

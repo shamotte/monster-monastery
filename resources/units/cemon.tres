@@ -18,7 +18,7 @@ range = 30.0
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_mr1rg")
 type = 9
-count = 20
+count = 15
 
 [sub_resource type="Resource" id="Resource_xllqu"]
 script = ExtResource("1_mr1rg")
@@ -35,10 +35,11 @@ type = 6
 sprite = ExtResource("3_tjvec")
 scale = 1.0
 color = Color(1, 1, 1, 1)
+play_dead_anim = true
 work_range = 10.0
 work_speed = 0.8
 cooldown = 1.0
-hp = 60.0
+hp = 30.0
 damage = 6.0
 fight_range = 30.0
 abilities = Array[ExtResource("1_t1w51")]([SubResource("Resource_qpbui")])

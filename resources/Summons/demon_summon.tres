@@ -35,6 +35,7 @@ type = 7
 sprite = ExtResource("5_7h5dp")
 scale = 1.0
 color = Color(1, 1, 1, 1)
+play_dead_anim = true
 work_range = 20.0
 work_speed = 0.5
 cooldown = 0.9
