@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://dtof37pmbjbeu"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=13 format=3 uid="uid://dtof37pmbjbeu"]
 
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_djj3x"]
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_vg4d4"]
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_x8rwk"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_076nv"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_diohr"]
 [ext_resource type="PackedScene" uid="uid://bacv0x4s7pewd" path="res://object/abilities/poisonus_cloudtscn.tscn" id="3_5amus"]
@@ -22,23 +23,29 @@ scene = ExtResource("3_5amus")
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_djj3x")
-type = 9
+type = 0
+count = 5
+
+[sub_resource type="Resource" id="Resource_oyit0"]
+script = ExtResource("1_djj3x")
+type = 1
 count = 3
 
 [resource]
 script = ExtResource("2_diohr")
 name = "Shroom"
 description = "Fungus which is alive. When dies it spread deadly spores"
-resource_cost = Array[ExtResource("1_djj3x")]([SubResource("Resource_xuc28")])
+resource_cost = Array[ExtResource("1_djj3x")]([SubResource("Resource_xuc28"), SubResource("Resource_oyit0")])
 speed = 40.0
 type = 2
 sprite = ExtResource("3_gjf63")
 scale = 1.0
 color = Color(1, 1, 1, 1)
+play_dead_anim = false
 work_range = 10.0
 work_speed = 0.3
 cooldown = 1.5
-hp = 1.0
+hp = 20.0
 damage = 4.0
 fight_range = 10.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_ykdnj"), SubResource("Resource_iwmp3")])
+abilities = Array[ExtResource("1_x8rwk")]([SubResource("Resource_ykdnj"), SubResource("Resource_iwmp3")])

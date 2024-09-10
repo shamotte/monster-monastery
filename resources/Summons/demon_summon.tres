@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=9 format=3 uid="uid://3hpvygglfbfu"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=10 format=3 uid="uid://3hpvygglfbfu"]
 
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_emi2m"]
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_m45do"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_ek3u0"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="3_2bp0a"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="4_c6m84"]
@@ -40,4 +41,4 @@ cooldown = 0.9
 hp = 25.0
 damage = 5.0
 fight_range = 30.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_2ilph")])
+abilities = Array[ExtResource("1_m45do")]([SubResource("Resource_2ilph")])

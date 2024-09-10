@@ -16,6 +16,7 @@ enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,LEMON,PYTHONUS
 @export var item: CompressedTexture2D
 @export var scale : float = 1
 @export var color : Color = Color.WHITE
+@export var play_dead_anim : bool = true
 
 
 @export_group("Work")

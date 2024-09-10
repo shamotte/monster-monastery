@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=9 format=3 uid="uid://cy5aua45b2h17"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=10 format=3 uid="uid://cy5aua45b2h17"]
 
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="1_deutm"]
 [ext_resource type="Script" path="res://scripts/abilities/life_rip.gd" id="1_lnni1"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_mr1rg"]
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_t1w51"]
 [ext_resource type="PackedScene" uid="uid://b2cqurt43gt1c" path="res://object/abilities/life_rip_effect.tscn" id="2_ibgd0"]
 [ext_resource type="Texture2D" uid="uid://cyp80vtacok3r" path="res://sprites/Units/Cemon.png" id="3_tjvec"]
 
@@ -10,19 +11,19 @@
 script = ExtResource("1_lnni1")
 cooldown = 1.0
 visual_effect = ExtResource("2_ibgd0")
-heal_ratio = 1.0
-damage = 1.0
+heal_ratio = 0.3
+damage = 6.0
 range = 30.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_mr1rg")
 type = 9
-count = 15
+count = 20
 
 [sub_resource type="Resource" id="Resource_xllqu"]
 script = ExtResource("1_mr1rg")
 type = 7
-count = 2
+count = 3
 
 [resource]
 script = ExtResource("1_deutm")
@@ -38,6 +39,6 @@ work_range = 10.0
 work_speed = 0.8
 cooldown = 1.0
 hp = 60.0
-damage = 1.0
-fight_range = 40.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_qpbui")])
+damage = 6.0
+fight_range = 30.0
+abilities = Array[ExtResource("1_t1w51")]([SubResource("Resource_qpbui")])

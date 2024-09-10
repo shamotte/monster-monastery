@@ -15,5 +15,3 @@ func _on_swing_timeout():
 
 func _on_life_time_timeout():
 	queue_free()
-
-

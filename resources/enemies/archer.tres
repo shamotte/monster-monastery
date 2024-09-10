@@ -14,7 +14,7 @@ projectile = ExtResource("1_07t25")
 speed = 120.0
 range = 300.0
 sprite = ExtResource("3_2jnxp")
-damage = 0.0
+damage = 8.0
 spawn_radius = 1
 
 [resource]
@@ -27,6 +27,6 @@ strength = 4.0
 type = 2
 cooldown = 1.0
 hp = 30.0
-damage = 5.0
+damage = 8.0
 fight_range = 120.0
 ability = SubResource("Resource_4fe57")

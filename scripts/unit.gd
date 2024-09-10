@@ -76,6 +76,11 @@ func _process(delta):
 func _physics_process(delta):
 	state_machine.physics_process(delta)
 	
+	#Animation 
+	#if $AnimationPlayer.current_animation != "spawn" and $AnimationPlayer.current_animation != "Dead": 
+		#if $AnimationPlayer.current_animation != "walk":
+			#$AnimationPlayer.play("walk")
+	
 
 
 func display_previev(node : Control):
@@ -89,7 +94,10 @@ func take_damage(damage:float) -> int:
 	%HPBar.value = hp
 	if hp<=0:
 		unit_died.emit()
-		queue_free()
+		if type.play_dead_anim:
+			$AnimationPlayer.play("Dead")
+			return damage + hp
+		kill()
 		return damage + hp
 	return damage
 		
@@ -134,4 +142,7 @@ func _on_tree_entered():
 
 func _on_tree_exiting():
 	Global.unit_count -= 1
+	
+func kill():
+	queue_free()
 	

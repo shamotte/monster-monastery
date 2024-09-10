@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://pka4ts5w5dus"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=12 format=3 uid="uid://pka4ts5w5dus"]
 
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_dawjh"]
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_e7dhc"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_qxi0g"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_08lm1"]
@@ -40,7 +41,7 @@ color = Color(1, 1, 1, 1)
 work_range = 10.0
 work_speed = 0.1
 cooldown = 0.8
-hp = 10.0
+hp = 20.0
 damage = 2.0
 fight_range = 20.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_wib8y"), SubResource("Resource_5meot")])
+abilities = Array[ExtResource("1_dawjh")]([SubResource("Resource_wib8y"), SubResource("Resource_5meot")])
