@@ -26,7 +26,7 @@ curve = SubResource("Curve_h7rvt")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nngrf"]
 particle_flag_disable_z = true
 emission_shape = 1
-emission_sphere_radius = 8.0
+emission_sphere_radius = 38.0
 spread = 180.0
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
@@ -41,7 +41,7 @@ anim_offset_max = 0.1686
 radius = 2.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d3rxg"]
-radius = 20.0
+radius = 40.05
 
 [node name="explosiveProjectile" type="Area2D"]
 script = ExtResource("1_sbll1")
@@ -50,12 +50,10 @@ script = ExtResource("1_sbll1")
 unique_name_in_owner = true
 z_index = 100
 material = SubResource("CanvasItemMaterial_m24ms")
-emitting = false
-amount = 20
+amount = 45
 process_material = SubResource("ParticleProcessMaterial_nngrf")
 texture = ExtResource("1_clupc")
 lifetime = 1.4
-one_shot = true
 explosiveness = 0.63
 draw_order = 2
 
