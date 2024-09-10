@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="EnemyResource" load_steps=6 format=3 uid="uid://do84tx3bhib4t"]
 
-[ext_resource type="Script" path="res://scripts/abilities/heal_ability.gd" id="1_w7r5e"]
+[ext_resource type="PackedScene" uid="uid://ccirrr5ekd5wx" path="res://object/abilities/healing_projectile2.tscn" id="1_tlx57"]
 [ext_resource type="Texture2D" uid="uid://bi84pfveijo4a" path="res://sprites/Items/Warhammer.png" id="1_yqren"]
 [ext_resource type="Script" path="res://resources/enemy_resource.gd" id="2_i2q1y"]
+[ext_resource type="Script" path="res://scripts/abilities/heal_ability.gd" id="2_k7bqo"]
 [ext_resource type="Texture2D" uid="uid://4vbeuvxs0ih1" path="res://sprites/Units/Priest.png" id="3_2v5jg"]
 
-[sub_resource type="Resource" id="Resource_er7lo"]
-script = ExtResource("1_w7r5e")
-cooldown = 1
-healing = 10.0
+[sub_resource type="Resource" id="Resource_pmguv"]
+script = ExtResource("2_k7bqo")
+cooldown = 3
+projectile = ExtResource("1_tlx57")
+healing = 5.0
 
 [resource]
 script = ExtResource("2_i2q1y")
@@ -18,8 +20,8 @@ item = ExtResource("1_yqren")
 speed = 40.0
 strength = 2.0
 type = 1
-cooldown = 2.0
+cooldown = 6.0
 hp = 25.0
-damage = 6.0
-fight_range = 50.0
-ability = SubResource("Resource_er7lo")
+damage = 4.0
+fight_range = 150.0
+ability = SubResource("Resource_pmguv")
