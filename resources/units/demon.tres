@@ -19,10 +19,10 @@ range = 30.0
 
 [sub_resource type="Resource" id="Resource_mwvdd"]
 script = ExtResource("4_6qbmu")
-cooldown = 3.0
+cooldown = 120.0
 type = ExtResource("5_mrksc")
 summon_range = 30
-summon_duration = 10.0
+summon_duration = 0.0
 should_despawn = false
 
 [sub_resource type="Resource" id="Resource_4tis3"]
@@ -49,7 +49,7 @@ play_dead_anim = true
 work_range = 20.0
 work_speed = 0.5
 cooldown = 0.9
-hp = 25.0
+hp = 35.0
 damage = 5.0
 fight_range = 30.0
 abilities = Array[ExtResource("1_7kbt1")]([SubResource("Resource_2ilph"), SubResource("Resource_mwvdd")])

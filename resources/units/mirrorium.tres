@@ -26,6 +26,7 @@ script = ExtResource("4_esnlx")
 cooldown = 30.0
 type = ExtResource("5_5blk8")
 summon_range = 30
+max_summons = 1
 summon_duration = 15.0
 should_despawn = true
 

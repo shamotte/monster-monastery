@@ -20,8 +20,8 @@ range = 20.0
 [sub_resource type="Resource" id="Resource_5meot"]
 script = ExtResource("3_1kwr0")
 type = ExtResource("4_ua4q0")
-count = 2
-spawn_range = 30
+count = 3
+spawn_range = 200
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_qxi0g")
