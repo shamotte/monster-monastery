@@ -25,7 +25,7 @@ func process(delta):
 			time_left = cooldown
 			var i :Unit = instance.instantiate()
 			i.type = type
-			i.unit_died.connect(unit_died(),CONNECT_ONE_SHOT)
+			i.unit_died.connect(unit_died,CONNECT_ONE_SHOT)
 			i.global_position = ovner.global_position + Vector2(randf_range(-1,1),randf_range(-1,1))* summon_range
 			ProjectileOverseeer.get_node("../Game").unit_holder.add_child(i)
 			if should_despawn:
