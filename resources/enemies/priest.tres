@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://do84tx3bhib4t"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=6 format=3 uid="uid://do84tx3bhib4t"]
 
 [ext_resource type="PackedScene" uid="uid://ccirrr5ekd5wx" path="res://object/abilities/healing_projectile2.tscn" id="1_tlx57"]
 [ext_resource type="Texture2D" uid="uid://bi84pfveijo4a" path="res://sprites/Items/Warhammer.png" id="1_yqren"]

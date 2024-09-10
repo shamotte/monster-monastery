@@ -19,11 +19,6 @@ func _process(delta):
 		queue_free()
 		
 		
-	if ring_spawned:
-		if $Timer.time_left == 0:
-			queue_free()
-	
-	
 
 func spawn_ring():
 	print("Ring2")
@@ -34,3 +29,14 @@ func spawn_ring():
 	$AnimationPlayer.play("Idle")
 	position = target.position
 	$Timer.start()
+	
+	
+	
+
+
+
+
+
+
+func _on_timer_timeout():
+	queue_free() 
