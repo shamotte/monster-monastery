@@ -42,6 +42,11 @@ func set_stats(newEnemy:EnemyResource):
 	%Item.texture = type.item
 	%HPBar.value = type.hp
 	%HPBar.max_value = type.hp
+	
+func modify_hp(modifier : float):
+	hp = floor(type.hp * modifier)
+	%HPBar.value = hp
+	%HPBar.max_value = hp
 
 func take_damage(damage:float) -> int:
 	hp-=damage
@@ -51,7 +56,7 @@ func take_damage(damage:float) -> int:
 	if hp<=0:
 		died.emit()
 		Priorities.remove_self_from_actions(self,Priorities.ACTIONTYPES.FIGHT)
-		queue_free()
+		$AnimationPlayer.play("Dead")
 		return damage + hp
 	return damage
 
@@ -90,7 +95,7 @@ func _physics_process(delta):
 			move_and_slide()
 	
 	
-	if $AnimationPlayer.current_animation != "spawn":
+	if $AnimationPlayer.current_animation != "spawn" and $AnimationPlayer.current_animation != "Dead": 
 		if $AnimationPlayer.current_animation != "walk":
 			$AnimationPlayer.play("walk")
 			
@@ -110,3 +115,6 @@ func heal_unit(addHP:float):
 	if hp >= type.hp:
 		%HPBar.visible = false
 		hp = type.hp
+		
+func kill():
+	queue_free()

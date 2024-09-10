@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=9 format=3 uid="uid://dc5tswpy4ok1m"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=10 format=3 uid="uid://dc5tswpy4ok1m"]
 
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4jpce"]
 [ext_resource type="Script" path="res://scripts/abilities/shock_wave.gd" id="1_l30s6"]
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_qi0f1"]
 [ext_resource type="PackedScene" uid="uid://b242fbbwlm1d7" path="res://object/abilities/shockwawe_particle.tscn" id="2_a0v3c"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_psqdg"]
 [ext_resource type="Texture2D" uid="uid://1odn6cyqh80r" path="res://sprites/Units/DemonLord.png" id="3_2dobk"]
@@ -39,4 +40,4 @@ cooldown = 2.5
 hp = 66.0
 damage = 16.0
 fight_range = 80.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_mvkg5")])
+abilities = Array[ExtResource("1_qi0f1")]([SubResource("Resource_mvkg5")])
