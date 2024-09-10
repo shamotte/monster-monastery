@@ -15,6 +15,7 @@ func _process(delta):
 		if position.distance_to(target.position) < 20:
 			target.heal_unit(healing)
 			spawn_ring()
+			set_process(false)
 	else:
 		queue_free()
 		
