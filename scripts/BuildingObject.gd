@@ -59,6 +59,9 @@ func new_value(value):
 	if to_craft>0 and busy == false:
 		busy =true
 		Priorities.add_self_to_available_actions(self, Priorities.ACTIONTYPES.CRAFT)
+	if to_craft == 0 :
+		Priorities.remove_self_from_actions(self,Priorities.ACTIONTYPES.CRAFT)
+		busy = false
 
 #Set data of building
 func set_stats(newBuilding: BuildingResource):

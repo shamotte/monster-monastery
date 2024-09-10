@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://6o0ppecfcqvo"]
+[gd_scene load_steps=21 format=3 uid="uid://6o0ppecfcqvo"]
 
 [ext_resource type="Script" path="res://scripts/unit.gd" id="1_g8wtp"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="2_ey7t7"]
@@ -34,124 +34,6 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c0mvu"]
-
-[sub_resource type="Animation" id="Animation_liuno"]
-resource_name = "Dead"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 0.267943),
-"update": 0,
-"values": [0.0, -1.5708]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(-2, 0), Vector2(-7, -3), Vector2(-10, 2.38419e-07), Vector2(-13, 3), Vector2(-14, 4)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 1),
-"transitions": PackedFloat32Array(1, 0.217638),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite/ItemParent/Item:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(5, 0), Vector2(9.53674e-07, -4)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Shadow:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4, 1), Vector2(2, 0), Vector2(-3, -4), Vector2(-7, -3), Vector2(-10, 0), Vector2(-13, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Shadow:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 0.267943),
-"update": 0,
-"values": [0.0, -1.5708]
-}
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"kill"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_0hjv3"]
-resource_name = "Idle"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_h726y"]
 length = 0.001
@@ -190,66 +72,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Sprite/ItemParent/Item:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(5, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Shadow:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_kchxp"]
@@ -327,25 +149,10 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(3, 0)]
 }
-tracks/6/type = "method"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath(".")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["Idle"],
-"method": &"next_anim"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_3naxv"]
 resource_name = "walk"
 length = 0.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -361,8 +168,6 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1yred"]
 _data = {
-"Dead": SubResource("Animation_liuno"),
-"Idle": SubResource("Animation_0hjv3"),
 "RESET": SubResource("Animation_h726y"),
 "spawn": SubResource("Animation_kchxp"),
 "walk": SubResource("Animation_3naxv")
@@ -373,7 +178,6 @@ _data = {
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltbtx"]
 
 [node name="Unit" type="CharacterBody2D"]
-self_modulate = Color(1, 1, 1, 0)
 z_index = 2
 position = Vector2(0, 4)
 collision_layer = 129
@@ -389,7 +193,6 @@ position = Vector2(0, -20)
 
 [node name="SummonAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 10)
-scale = Vector2(1e-05, 1e-05)
 sprite_frames = SubResource("SpriteFrames_pox06")
 autoplay = "default"
 
@@ -405,7 +208,6 @@ texture = ExtResource("2_ey7t7")
 [node name="ItemParent" type="Node2D" parent="Sprite"]
 
 [node name="Item" type="Sprite2D" parent="Sprite/ItemParent"]
-z_index = -1
 position = Vector2(5, 0)
 texture = ExtResource("3_xcimi")
 
