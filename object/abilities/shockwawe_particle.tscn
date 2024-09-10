@@ -1,48 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://b242fbbwlm1d7"]
+[gd_scene load_steps=12 format=3 uid="uid://b242fbbwlm1d7"]
 
 [ext_resource type="Script" path="res://object/abilities/shockwawe_particle.gd" id="1_sr2fv"]
 [ext_resource type="Texture2D" uid="uid://cfqt3sw6cqpd2" path="res://sprites/Effects/RoundAttack.png" id="2_giof5"]
-
-[sub_resource type="Curve" id="Curve_csqqc"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12381, 0.934066), 0.0, 0.0, 0, 0, Vector2(0.614286, 0.901099), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_g0e4x"]
-curve = SubResource("Curve_csqqc")
-
-[sub_resource type="Curve" id="Curve_qcpae"]
-max_value = 100.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.6, 0), 0.0, 0.0, 0, 0, Vector2(1, 76.9231), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_htiyl"]
-curve = SubResource("Curve_qcpae")
-
-[sub_resource type="Curve" id="Curve_i7s3e"]
-_data = [Vector2(0, 0), 0.0, 3.65385, 0, 0, Vector2(0.857143, 0.714286), 0.875332, 0.875332, 0, 0, Vector2(0.857153, 0.714286), -4.00854, -4.00854, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.35503, 0.0, 0, 0]
-point_count = 5
-metadata/_snap_enabled = true
-metadata/_snap_count = 7
-
-[sub_resource type="CurveTexture" id="CurveTexture_ibww4"]
-curve = SubResource("Curve_i7s3e")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cb4hm"]
-particle_flag_disable_z = true
-emission_shape = 6
-emission_ring_axis = Vector3(0, 0, 1)
-emission_ring_height = 20.0
-emission_ring_radius = 3.0
-emission_ring_inner_radius = 1.0
-gravity = Vector3(0, 0, 0)
-radial_accel_min = 70.0
-radial_accel_max = 76.0
-radial_accel_curve = SubResource("CurveTexture_ibww4")
-damping_min = 100.0
-damping_max = 100.0
-damping_curve = SubResource("CurveTexture_htiyl")
-color = Color(0.788235, 0.45098, 0.45098, 1)
-alpha_curve = SubResource("CurveTexture_g0e4x")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_72vn4"]
 atlas = ExtResource("2_giof5")
@@ -108,17 +67,9 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="GPUParticles2D" type="GPUParticles2D"]
+[node name="GPUParticles2D" type="Node2D"]
 z_index = 2
 y_sort_enabled = true
-emitting = false
-amount = 100
-process_material = SubResource("ParticleProcessMaterial_cb4hm")
-lifetime = 2.0
-one_shot = true
-preprocess = 0.3
-speed_scale = 2.0
-explosiveness = 0.93
 script = ExtResource("1_sr2fv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -137,6 +88,5 @@ wait_time = 0.8
 one_shot = true
 autostart = true
 
-[connection signal="finished" from="." to="." method="_on_finished"]
 [connection signal="timeout" from="Swing" to="." method="_on_swing_timeout"]
 [connection signal="timeout" from="LifeTime" to="." method="_on_life_time_timeout"]

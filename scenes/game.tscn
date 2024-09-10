@@ -1,10 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://p14t15cl0ifi"]
+[gd_scene load_steps=36 format=3 uid="uid://p14t15cl0ifi"]
 
 [ext_resource type="PackedScene" uid="uid://6o0ppecfcqvo" path="res://object/unit.tscn" id="1_fh80v"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_x25h7"]
+[ext_resource type="Script" path="res://scripts/particle_flaher.gd" id="2_e611w"]
 [ext_resource type="Texture2D" uid="uid://3fts5stbfhkp" path="res://sprites/map.png" id="2_qj8nh"]
 [ext_resource type="Script" path="res://scripts/camera_motor.gd" id="2_xykrx"]
+[ext_resource type="PackedScene" uid="uid://bacv0x4s7pewd" path="res://object/abilities/poisonus_cloudtscn.tscn" id="3_mrxnc"]
 [ext_resource type="Script" path="res://scripts/Buildings.gd" id="3_y6sc7"]
+[ext_resource type="PackedScene" uid="uid://b2cqurt43gt1c" path="res://object/abilities/life_rip_effect.tscn" id="4_6o3h7"]
+[ext_resource type="PackedScene" uid="uid://bfiqgtgg5qawq" path="res://object/abilities/explosive_projectile.tscn" id="5_nmiox"]
 [ext_resource type="Script" path="res://scripts/Units.gd" id="5_smeyy"]
 [ext_resource type="Script" path="res://scripts/BuildingManager.gd" id="5_ysb7k"]
 [ext_resource type="Script" path="res://interface/CheckSpace.gd" id="7_40o6t"]
@@ -48,6 +52,12 @@ radius = 3.0
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_x25h7")
+
+[node name="particle_flasher" type="Node2D" parent="."]
+script = ExtResource("2_e611w")
+shroom = ExtResource("3_mrxnc")
+life_drain = ExtResource("4_6o3h7")
+exsplosive_projectile = ExtResource("5_nmiox")
 
 [node name="Map" type="Sprite2D" parent="."]
 texture = ExtResource("2_qj8nh")
