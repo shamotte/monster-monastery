@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://crmyr2icm5xb4"]
+
+[ext_resource type="Script" path="res://interface/progress_bar.gd" id="1_gd6al"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pow5u"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s7n1y"]
+bg_color = Color(0.831373, 0.109804, 0.203922, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="Theme" id="Theme_l6sgv"]
+ProgressBar/colors/font_color = Color(0.94902, 0.94902, 0.94902, 0)
+ProgressBar/font_sizes/font_size = 1
+ProgressBar/styles/background = SubResource("StyleBoxFlat_pow5u")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_s7n1y")
+
+[node name="Progress2" type="ProgressBar"]
+visible = false
+offset_left = -16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 22.0
+theme = SubResource("Theme_l6sgv")
+value = 50.0
+script = ExtResource("1_gd6al")
+
+[node name="HideProgressBar" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="timeout" from="HideProgressBar" to="." method="_on_hide_progress_bar_timeout"]

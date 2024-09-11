@@ -157,7 +157,8 @@ class WorkState:
 	func process(delta) ->STATES:
 		
 		if unit.current_action != null:
-			if unit.current_action.work_on(delta):
+			#print("work",unit.work_time)
+			if unit.current_action.work_on(delta*unit.type.work_speed):
 				return STATES.IDLE
 			return STATES.WORK
 		else:

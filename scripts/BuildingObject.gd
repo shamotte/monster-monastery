@@ -24,7 +24,10 @@ func work_on(delta:float):
 		return true
 	if work_time <=0 :
 		return true
+	$Progress2.show_bar(true)
 	work_time -=delta
+	$Progress2.value = work_time
+	$Progress2.start_timer()
 	if work_time <= 0:
 		Priorities.remove_self_from_actions(self, Priorities.ACTIONTYPES.CRAFT);
 		action_finished()
@@ -33,6 +36,7 @@ func work_on(delta:float):
 func action_finished():
 	await get_tree().process_frame
 	to_craft-=1
+	$Progress2.show_bar(false)
 	if to_craft > 0 and Global.check_and_subtract_resources(recipe.input):
 		Priorities.add_self_to_available_actions(self, Priorities.ACTIONTYPES.CRAFT)
 	else:
@@ -47,6 +51,7 @@ func _ready():
 	$SpawnSound.play()
 	recipe =  building.recipes[0]
 	work_time =  recipe.craft_time
+	$Progress2.max_value = work_time
 	#Priorities.add_action(Priorities.ACTIONTYPES.CRAFT,id,get_node("."),Global.recipes[recipe].work)# Replace with function body.
 
 

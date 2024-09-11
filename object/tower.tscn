@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://rynd5iuo55pm"]
+[gd_scene load_steps=14 format=3 uid="uid://rynd5iuo55pm"]
 
 [ext_resource type="Script" path="res://scripts/BuildingObject.gd" id="1_fsosm"]
 [ext_resource type="Texture2D" uid="uid://bcd1mc6c6h2eg" path="res://sprites/Buildings/tower.png" id="1_qf5ig"]
 [ext_resource type="Texture2D" uid="uid://cdvowh1o7tq3" path="res://sprites/summon_portal.png" id="2_ma4qt"]
 [ext_resource type="AudioStream" uid="uid://bufc7sddkrn1s" path="res://sounds/use2.wav" id="4_05vp8"]
 [ext_resource type="AudioStream" uid="uid://te5s5lolg1w" path="res://sounds/summon.wav" id="5_wuufu"]
+[ext_resource type="PackedScene" uid="uid://crmyr2icm5xb4" path="res://interface/progress_bar.tscn" id="6_7qlqf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j2eke"]
 atlas = ExtResource("2_ma4qt")
@@ -142,3 +143,8 @@ stream = ExtResource("4_05vp8")
 
 [node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_wuufu")
+
+[node name="Progress2" parent="." instance=ExtResource("6_7qlqf")]
+z_index = 3
+offset_top = 26.0
+offset_bottom = 32.0
