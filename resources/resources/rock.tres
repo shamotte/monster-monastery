@@ -12,3 +12,4 @@ type = 1
 action_type = 0
 time = 3.0
 resource_point_txture = ExtResource("1_bb8oh")
+respawn_time = 1.0
