@@ -19,6 +19,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.913725, 0, 0, 0.584314)
 script = ExtResource("1_wb4im")
+unit_summary = ExtResource("1_m3arf")
+resource_slot = ExtResource("2_tegbn")
 
 [node name="Panel" type="ColorRect" parent="."]
 layout_mode = 1

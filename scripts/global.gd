@@ -87,6 +87,9 @@ func _ready():
 func add_resources(resources: Array[ResourceStack]) -> void:
 	for resource in resources:
 		current_resources[resource.type] += resource.count
+		resources_gained += 1 
+		resource_type[resource.type] += 1
+		
 	
 #check is player can buy something
 func check_resources(resources: Array[ResourceStack]) -> bool:
@@ -120,13 +123,22 @@ func set_all_resources(amount: int):
 	for i in range(current_resources.size()):
 		current_resources[i] = amount
 		
+func enemy_killed(enemy : EnemyResource):
+	enemies_killed += 1
+	enemies_type[enemy.type] += 1
+	
+func unit_summoned(unit : UnitResource):
+	if unit.type != UnitResource.UNIT.SUMMONED:
+		summoned_units += 1
+		units_type[unit.type] += 1
+		
 func restart_game():
 	current_groups = []				#Restarting groups
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 	
 func game_begin():
 	wave_count = 0
-	summoned_units = 1
+	summoned_units = 0
 	waves_survived = 0
 	enemies_killed = 0
 	resources_gained = 0

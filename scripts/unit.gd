@@ -53,6 +53,8 @@ func _ready():
 	#HP Bar
 	%HPBar.max_value = type.hp
 	%HPBar.visible = false
+	
+	Global.unit_summoned(type)
 	#state_machine.states[StateMachine.STATES.FIGHT].connect("fight_process",debug_test);
 	
 

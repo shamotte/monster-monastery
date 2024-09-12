@@ -1,7 +1,8 @@
 extends Resource
 class_name UnitResource
 
-enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,LEMON,PYTHONUS,WALLOFEYES,LORD,MIRRORIUM}
+#SUMMONED should be always on back side because summary don't include last position
+enum UNIT {SLIME,REDSLIMES,SHROOM,CULTIST,IMP,WENDIGO,CEMON,DEMON,LEMON,PYTHONUS,WALLOFEYES,LORD,MIRRORIUM,SUMMONED}
 
 @export_group("Basic")
 @export var name:String
