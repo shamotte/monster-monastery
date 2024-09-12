@@ -15,7 +15,6 @@ func _physics_process(delta):
 			shadow.set_skew(deg_to_rad(lerp(-90.0, 90.0, daylight_progress)))
 			shadow.set_position(Vector2(shadow.texture.get_height() / 2, 0).rotated(PI * daylight_progress) + Vector2(0, shadow.texture.get_height() / 2))
 			shadow.set_offset(Vector2(0, -shadow.texture.get_height()))
-		print(daylight_progress)	
 		if daylight_progress >= night_start:
 			night = true
 			return
@@ -24,8 +23,8 @@ func _physics_process(delta):
 func start_cycle():
 	visible = true
 	$AnimationPlayer.play("cycle")
-	#$AnimationPlayer.speed_scale = 10.0/120.0
-	$AnimationPlayer.speed_scale = 10.0/10.0 	#For testing
+	$AnimationPlayer.speed_scale = 10.0/120.0
+	#$AnimationPlayer.speed_scale = 10.0/10.0 	#For testing
 	
 func is_night():
 	return night 

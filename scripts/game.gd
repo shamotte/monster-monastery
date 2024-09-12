@@ -50,6 +50,10 @@ func _process(delta):
 	if %Units.get_child_count()<1:
 		Engine.time_scale = 0
 		%Endgame.visible = true
+		%Endgame.set_survived_waves(Global.wave_count-1)
+		%Endgame.set_summoned_units(Global.summoned_units)
+		%Endgame.set_killed_units(Global.enemies_killed)
+		%Endgame.set_summoned_units(Global.resources_gained)
 	else:
 		Engine.time_scale = 1
 		%Endgame.visible = false

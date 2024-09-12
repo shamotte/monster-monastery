@@ -31,9 +31,12 @@ var current_groups: Array[PriorityTable] = []
 
 #summary
 var summoned_units : int
+var units_type : Array[int]
 var waves_survived : int
 var enemies_killed : int
+var enemies_type : Array[int]
 var resources_gained : int
+var resource_type : Array[int]
 
 
 enum statistics {HP,ATTACK,WORKTIME,ATTACKRANGE,COOLDOWN,WORKRANGE,SPEED}
@@ -123,11 +126,23 @@ func restart_game():
 	
 func game_begin():
 	wave_count = 0
+	summoned_units = 1
+	waves_survived = 0
+	enemies_killed = 0
+	resources_gained = 0
+	
+	resource_type.clear()
+	units_type.clear()
+	enemies_type.clear()
 	
 	load_resources_to_array(resources,"res://resources/resources/","tres")
 	load_resources_to_array(buildings,"res://resources/buildings/","tres")
 	load_resources_to_array(units,"res://resources/units/","tres")
 	load_resources_to_array(enemies,"res://resources/enemies/","tres")
+	
+	resource_type.resize(len(resources))
+	units_type.resize(len(units))
+	enemies_type.resize(len(enemies))
 
 	current_resources.resize(ResourceResource.RESOURCE.NORESOURCE)
 

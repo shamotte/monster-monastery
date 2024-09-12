@@ -22,10 +22,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	set_current_page()
+#func _process(delta):
+	#set_current_page()
+	#print($Panel.current_tab)
 
 func _on_check_button_toggled(toggled_on):
+	print($Panel.current_tab)
 	show_panel(toggled_on)
 	%InfoPanel.deselect()
 
@@ -33,6 +35,8 @@ func _on_check_button_toggled(toggled_on):
 func hide_panel(hide):
 	show_panel(!hide)
 	$CheckButton.button_pressed = !hide
+	
+	
 
 #show panel
 func show_panel(show):
@@ -71,6 +75,7 @@ func show_panel(show):
 			$Panel/Help.visible = !show
 			$Panel/Options.visible = show
 	else:
+		set_current_page()
 		$Panel/BuildingColumns.visible = false
 		$Panel/UnitColumns.visible = false
 		$Panel/GroupManager.visible = false
@@ -90,10 +95,13 @@ func set_current_page():
 	elif $Panel/Options.visible:
 		current_page = pages.OPTIONS
 
+func set_current_pageE(page : pages):
+	current_page = page
 
 func _on_panel_tab_changed(tab):
 	if tab == pages.GROUPS:
-		set_current_page()
+		set_current_pageE(pages.GROUPS)
+		#set_current_page()
 		if %SelectedGroupPanel.get_current_group() == null:
 			%SelectedGroupPanel.set_first_group()
 		%SelectedGroupPanel.update_group_slots()
