@@ -29,6 +29,13 @@ var current_groups: Array[PriorityTable] = []
 @export var cooldown = 2.0
 @export var fight_range = 30
 
+#summary
+var summoned_units : int
+var waves_survived : int
+var enemies_killed : int
+var resources_gained : int
+
+
 enum statistics {HP,ATTACK,WORKTIME,ATTACKRANGE,COOLDOWN,WORKRANGE,SPEED}
 
 func dir_contents(directory :String, extension:String) -> Array[String]:
@@ -135,6 +142,6 @@ func game_begin():
 	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 0
 	current_resources[ResourceResource.RESOURCE.FOOD] = 0
 	
-	#set_all_resources(99) #TODO funkcja tylko do testów później usunąć
+	set_all_resources(99) #TODO funkcja tylko do testów później usunąć
 	
 	DaylightManager.start_cycle()
