@@ -23,5 +23,3 @@ func fight_process(delta):
 				time_left = cooldown
 				var damage_dealt :int = ovner.target.take_damage(damage)
 				ovner.heal_unit(round(damage_dealt * heal_ratio))
-
-
