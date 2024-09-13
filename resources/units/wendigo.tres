@@ -12,8 +12,8 @@ script = ExtResource("1_4hjln")
 cooldown = 2.0
 visual_effect = ExtResource("2_mob3j")
 size = Vector2(8, 8)
-damage = 7.0
-range = 40.0
+damage = 12.0
+range = 80.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_4j8p6")
@@ -39,7 +39,7 @@ play_dead_anim = true
 work_range = 20.0
 work_speed = 1.5
 cooldown = 2.0
-hp = 35.0
-damage = 8.0
-fight_range = 40.0
+hp = 45.0
+damage = 9.0
+fight_range = 80.0
 abilities = Array[ExtResource("1_3iqs0")]([SubResource("Resource_lpdt6")])

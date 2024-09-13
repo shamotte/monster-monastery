@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=12 format=3 uid="uid://pka4ts5w5dus"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=13 format=3 uid="uid://pka4ts5w5dus"]
 
 [ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_dawjh"]
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_e7dhc"]
@@ -20,26 +20,31 @@ range = 20.0
 [sub_resource type="Resource" id="Resource_5meot"]
 script = ExtResource("3_1kwr0")
 type = ExtResource("4_ua4q0")
-count = 3
-spawn_range = 200
+count = 2
+spawn_range = 150
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_qxi0g")
 type = 0
-count = 10
+count = 8
+
+[sub_resource type="Resource" id="Resource_hnpii"]
+script = ExtResource("1_qxi0g")
+type = 1
+count = 2
 
 [resource]
 script = ExtResource("2_08lm1")
 name = "Purple Slime"
 description = "Simple form of life which divide itself when die"
-resource_cost = Array[ExtResource("1_qxi0g")]([SubResource("Resource_xuc28")])
+resource_cost = Array[ExtResource("1_qxi0g")]([SubResource("Resource_xuc28"), SubResource("Resource_hnpii")])
 speed = 30.0
 type = 0
 sprite = ExtResource("5_iql2w")
 scale = 1.0
 color = Color(1, 1, 1, 1)
 play_dead_anim = true
-work_range = 10.0
+work_range = 20.0
 work_speed = 1.0
 cooldown = 0.8
 hp = 20.0
