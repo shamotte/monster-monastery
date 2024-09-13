@@ -39,7 +39,7 @@ count = 2
 [sub_resource type="Resource" id="Resource_bv02f"]
 script = ExtResource("4_w521n")
 type = 1
-count = 15
+count = 50
 
 [resource]
 script = ExtResource("6_m16d0")

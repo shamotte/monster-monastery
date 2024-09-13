@@ -41,12 +41,12 @@ healing = 6.0
 [sub_resource type="Resource" id="Resource_od5fv"]
 script = ExtResource("2_p5so5")
 type = 8
-count = 1
+count = 3
 
 [sub_resource type="Resource" id="Resource_kemha"]
 script = ExtResource("2_p5so5")
 type = 4
-count = 1
+count = 5
 
 [resource]
 script = ExtResource("3_g7cxl")
