@@ -13,12 +13,12 @@ count = 5
 [sub_resource type="Resource" id="Resource_7o7e6"]
 script = ExtResource("1_ydptk")
 type = 1
-count = 5
+count = 4
 
 [sub_resource type="Resource" id="Resource_kn7nv"]
 script = ExtResource("1_ydptk")
 type = 9
-count = 2
+count = 4
 
 [sub_resource type="Resource" id="Resource_i1ulp"]
 script = ExtResource("2_sk3b0")
@@ -29,7 +29,7 @@ craft_time = 10.0
 [sub_resource type="Resource" id="Resource_3rl78"]
 script = ExtResource("1_ydptk")
 type = 9
-count = 20
+count = 10
 
 [sub_resource type="Resource" id="Resource_yliao"]
 script = ExtResource("1_ydptk")

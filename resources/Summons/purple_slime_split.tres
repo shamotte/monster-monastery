@@ -23,7 +23,7 @@ count = 4
 [resource]
 script = ExtResource("4_8pko6")
 name = "Purple Slimeling"
-description = "Slime which become smaller after death"
+description = "Slime which became smaller after death"
 resource_cost = Array[ExtResource("3_kio8u")]([SubResource("Resource_xuc28")])
 speed = 20.0
 type = 13

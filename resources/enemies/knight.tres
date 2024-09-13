@@ -11,19 +11,19 @@ script = ExtResource("1_l2icj")
 cooldown = 1.5
 visual_effect = ExtResource("2_hworx")
 size = Vector2(32, 32)
-damage = 10.0
+damage = 15.0
 range = 30.0
 
 [resource]
 script = ExtResource("2_wni38")
-name = "Chłop"
+name = "Knight"
 sprite = ExtResource("3_igm22")
 item = ExtResource("1_qyl5c")
 speed = 50.0
 strength = 5.0
-type = 3
+type = 6
 cooldown = 1.5
-hp = 45.0
-damage = 10.0
+hp = 60.0
+damage = 15.0
 fight_range = 30.0
 ability = SubResource("Resource_4kc7a")

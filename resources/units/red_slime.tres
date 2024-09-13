@@ -14,13 +14,13 @@ script = ExtResource("1_u0i0x")
 cooldown = 0.4
 visual_effect = ExtResource("2_t82bn")
 size = Vector2(8, 8)
-damage = 2.0
+damage = 5.0
 range = 20.0
 
 [sub_resource type="Resource" id="Resource_71obu"]
 script = ExtResource("3_2lfxj")
 type = ExtResource("4_6i8aw")
-count = 2
+count = 10
 spawn_range = 200
 
 [sub_resource type="Resource" id="Resource_xuc28"]

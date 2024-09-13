@@ -11,19 +11,19 @@ script = ExtResource("1_0ce66")
 cooldown = 2.0
 visual_effect = ExtResource("2_o2pe0")
 size = Vector2(32, 32)
-damage = 15.0
+damage = 20.0
 range = 30.0
 
 [resource]
 script = ExtResource("2_jvc33")
-name = "Kawalerzysta"
+name = "Horseman"
 sprite = ExtResource("3_04yui")
 item = ExtResource("1_cab4q")
 speed = 100.0
 strength = 10.0
-type = 4
+type = 7
 cooldown = 2.0
-hp = 55.0
-damage = 15.0
+hp = 100.0
+damage = 20.0
 fight_range = 30.0
 ability = SubResource("Resource_153pk")

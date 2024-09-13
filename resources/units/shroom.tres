@@ -11,7 +11,7 @@
 
 [sub_resource type="Resource" id="Resource_ykdnj"]
 script = ExtResource("1_vg4d4")
-cooldown = 2.0
+cooldown = 1.5
 visual_effect = ExtResource("2_076nv")
 size = Vector2(8, 8)
 damage = 4.0
@@ -29,7 +29,7 @@ count = 5
 [sub_resource type="Resource" id="Resource_oyit0"]
 script = ExtResource("1_djj3x")
 type = 1
-count = 3
+count = 4
 
 [resource]
 script = ExtResource("2_diohr")
