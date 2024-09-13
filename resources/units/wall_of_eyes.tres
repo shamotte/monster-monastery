@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_ewlqe"]
 [ext_resource type="PackedScene" uid="uid://bfiqgtgg5qawq" path="res://object/abilities/explosive_projectile.tscn" id="1_f5dee"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="1_xc45k"]
-[ext_resource type="Script" path="res://scripts/abilities/fire_orb.gd" id="2_daerm"]
+[ext_resource type="Script" path="res://scripts/abilities/projectile_shooter.gd" id="2_daerm"]
 [ext_resource type="Texture2D" uid="uid://cb82rmceinpi0" path="res://sprites/Projectiles/EyeOrb.png" id="3_0qxfg"]
 [ext_resource type="Texture2D" uid="uid://dy71ogoujcp71" path="res://sprites/Units/WallOfEyes.png" id="3_y1e5a"]
 

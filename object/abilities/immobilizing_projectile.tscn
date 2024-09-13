@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://nu34wvyakib0"]
+
+[ext_resource type="Script" path="res://object/abilities/slowing_projectile.gd" id="1_wksi5"]
+[ext_resource type="Texture2D" uid="uid://crba3msngthi3" path="res://sprites/Projectiles/DarkOrb.png" id="2_wm12j"]
+[ext_resource type="Texture2D" uid="uid://cyhd7rxdgbknh" path="res://sprites/Effects/Heal1.png" id="3_uml5c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3ega"]
+radius = 13.0384
+
+[sub_resource type="Animation" id="Animation_75boy"]
+resource_name = "Idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ring:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1, 4.4, 5),
+"transitions": PackedFloat32Array(8.28211, 7.21, 0.189465, 1, 6.49801),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(1, 2), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Ring:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 26), Vector2(0, 14), Vector2(0, 16), Vector2(0, 14), Vector2(0, 16), Vector2(0, 14), Vector2(0, 16), Vector2(0, 14), Vector2(0, 16), Vector2(0, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_nrm6o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ring:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.667)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xu3ce"]
+_data = {
+"Idle": SubResource("Animation_75boy"),
+"RESET": SubResource("Animation_nrm6o")
+}
+
+[node name="slowing_projectile" type="Area2D"]
+script = ExtResource("1_wksi5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_t3ega")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("2_wm12j")
+
+[node name="Ring" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, 26)
+scale = Vector2(1, 0.667)
+texture = ExtResource("3_uml5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xu3ce")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

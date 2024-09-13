@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dfn478ge5picw" path="res://sprites/Items/Bow.png" id="1_5es47"]
 [ext_resource type="PackedScene" uid="uid://bm7oefe8s1m6w" path="res://object/abilities/projectile.tscn" id="1_07t25"]
-[ext_resource type="Script" path="res://scripts/abilities/fire_orb.gd" id="1_cvsvk"]
+[ext_resource type="Script" path="res://scripts/abilities/projectile_shooter.gd" id="1_cvsvk"]
 [ext_resource type="Script" path="res://resources/enemy_resource.gd" id="2_kc65c"]
 [ext_resource type="Texture2D" uid="uid://c5btn7rjsjch2" path="res://sprites/Projectiles/arrow.png" id="3_2jnxp"]
 [ext_resource type="Texture2D" uid="uid://cjulwpdema5q" path="res://sprites/Units/Archer.png" id="3_7k2gk"]

@@ -14,6 +14,7 @@ var units_working_on_this:int = 0
 var cooldown:float = 0
 var ability :Ability
 var range : float
+var immobilize: float 
 
 signal fight_process(delta: float)
 
@@ -74,6 +75,7 @@ func get_closest_unit()-> Node2D:
 var target_global_position : Vector2
 
 func _process(delta):
+	
 	if target != null:
 		agent.target_position = target.position
 		target_global_position = target.global_position
@@ -86,12 +88,16 @@ func _process(delta):
 
 	
 func _physics_process(delta):
+	immobilize -= delta
 
 	if target!=null:
 		if global_position.distance_to(target.position) >= range * 0.7:
 			var direction = agent.get_next_path_position() - global_position
 			direction = direction.normalized()
-			velocity = velocity.lerp(direction * type.speed , 0.25)
+			if immobilize > 0:
+				velocity = Vector2.ZERO
+			else:
+				velocity = velocity.lerp(direction * type.speed , 0.25)
 			move_and_slide()
 	
 	
@@ -119,3 +125,8 @@ func heal_unit(addHP:float):
 func kill():
 	Global.enemy_killed(type)
 	queue_free()
+
+func immobalize(duration : float):
+	print("immobilized")
+	immobilize = duration
+	

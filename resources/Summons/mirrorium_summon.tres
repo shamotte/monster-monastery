@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bm7oefe8s1m6w" path="res://object/abilities/projectile.tscn" id="1_afet4"]
 [ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_l72nc"]
-[ext_resource type="Script" path="res://scripts/abilities/fire_orb.gd" id="2_l2hdq"]
+[ext_resource type="Script" path="res://scripts/abilities/projectile_shooter.gd" id="2_l2hdq"]
 [ext_resource type="Texture2D" uid="uid://crba3msngthi3" path="res://sprites/Projectiles/DarkOrb.png" id="3_8522h"]
 [ext_resource type="Texture2D" uid="uid://c2um8m3sjqikh" path="res://sprites/Items/Eye_Staff.png" id="5_gyfok"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="6_7raeq"]
@@ -18,6 +18,7 @@ range = 150.0
 sprite = ExtResource("3_8522h")
 damage = 3.0
 spawn_radius = 1
+projectile_data = {}
 
 [sub_resource type="Resource" id="Resource_od5fv"]
 script = ExtResource("6_7raeq")
