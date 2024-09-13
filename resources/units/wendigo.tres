@@ -1,28 +1,29 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://csmp48cci520m"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=13 format=3 uid="uid://csmp48cci520m"]
 
 [ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_3iqs0"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4j8p6"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_741ak"]
-[ext_resource type="PackedScene" uid="uid://nu34wvyakib0" path="res://object/abilities/immobilizing_projectile.tscn" id="2_kc6o6"]
-[ext_resource type="Script" path="res://scripts/abilities/projectile_shooter.gd" id="2_l16yb"]
+[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="2_w2qs7"]
 [ext_resource type="Texture2D" uid="uid://b3kydluivpxju" path="res://sprites/Units/wendigo.png" id="3_7qlnt"]
-[ext_resource type="Texture2D" uid="uid://crba3msngthi3" path="res://sprites/Projectiles/DarkOrb.png" id="4_y68i5"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="3_fdfpk"]
+[ext_resource type="Script" path="res://scripts/abilities/resource_on_death.gd" id="4_eqtdb"]
 
-[sub_resource type="Resource" id="Resource_l3m8d"]
-script = ExtResource("2_l16yb")
-cooldown = 0.5
-projectile = ExtResource("2_kc6o6")
-speed = 300.0
-range = 300.0
-sprite = ExtResource("4_y68i5")
-damage = 0.0
-spawn_radius = 1
-projectile_data = {
-"duration": 5.0,
-"slowing_projectile.gd": null,
-"speed": 100.0,
-"target": null
-}
+[sub_resource type="Resource" id="Resource_kfhvx"]
+script = ExtResource("2_w2qs7")
+cooldown = 2.0
+visual_effect = ExtResource("3_fdfpk")
+size = Vector2(32, 32)
+damage = 12.0
+range = 80.0
+
+[sub_resource type="Resource" id="Resource_p1boh"]
+script = ExtResource("1_4j8p6")
+type = 0
+count = 10
+
+[sub_resource type="Resource" id="Resource_qd015"]
+script = ExtResource("4_eqtdb")
+resources = Array[ExtResource("1_4j8p6")]([SubResource("Resource_p1boh")])
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_4j8p6")
@@ -48,7 +49,7 @@ play_dead_anim = true
 work_range = 20.0
 work_speed = 1.5
 cooldown = 2.0
-hp = 35.0
-damage = 8.0
-fight_range = 40.0
-abilities = Array[ExtResource("1_3iqs0")]([SubResource("Resource_l3m8d")])
+hp = 45.0
+damage = 12.0
+fight_range = 80.0
+abilities = Array[ExtResource("1_3iqs0")]([SubResource("Resource_kfhvx"), SubResource("Resource_qd015")])
