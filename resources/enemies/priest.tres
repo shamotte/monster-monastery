@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=6 format=3 uid="uid://do84tx3bhib4t"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://do84tx3bhib4t"]
 
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_y02ir"]
 [ext_resource type="Texture2D" uid="uid://bi84pfveijo4a" path="res://sprites/Items/Warhammer.png" id="1_yqren"]
 [ext_resource type="Script" path="res://resources/enemy_resource.gd" id="2_i2q1y"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_pfupl"]
 [ext_resource type="Texture2D" uid="uid://cmimvmvtwfx46" path="res://sprites/Units/Hammer_priest.png" id="4_mrihh"]
 
 [sub_resource type="Resource" id="Resource_130ml"]
 script = ExtResource("1_y02ir")
 cooldown = 2.0
+visual_effect = ExtResource("2_pfupl")
 size = Vector2(32, 32)
 damage = 6.0
 range = 30.0

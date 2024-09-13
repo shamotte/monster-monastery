@@ -852,7 +852,7 @@ position = Vector2(0, -8)
 texture = ExtResource("16_c4l1p")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 1800.0
+wait_time = 10.0
 autostart = true
 
 [node name="WaveSpawnSound" type="AudioStreamPlayer2D" parent="."]

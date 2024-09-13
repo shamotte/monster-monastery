@@ -93,56 +93,65 @@ func _on_enemy_spawn_timer_timeout():
 		
 		#Selecting enemy waves
 		#print(type)
-		if Global.wave_count <= 2:
+		if Global.wave_count <= 2: #Peasants
 			type = EnemyResource.ENEMY.PEASANT
-		elif Global.wave_count <= 4:
-			if type == EnemyResource.ENEMY.KNIGHT || type == EnemyResource.ENEMY.HORSEMAN || type == EnemyResource.ENEMY.ARCHER:
+		elif Global.wave_count <= 4: #Priests
+			if type != EnemyResource.ENEMY.PEASANT and type != EnemyResource.ENEMY.PRIEST:
 				type = EnemyResource.ENEMY.PEASANT
-		elif Global.wave_count <= 6:
+		elif Global.wave_count <= 6: #Ranger
+			if type == EnemyResource.ENEMY.KNIGHT or type == EnemyResource.ENEMY.SHIELDMAN:
+				type = EnemyResource.ENEMY.PEASANT
+			if type == EnemyResource.ENEMY.HORSEMAN or type == EnemyResource.ENEMY.SUPPORT_PRIEST:
+				type = EnemyResource.ENEMY.PRIEST
+			if type == EnemyResource.ENEMY.ARCHER:
+				type = EnemyResource.ENEMY.RANGER
+		elif Global.wave_count <= 8: #Shieldman
+			if type == EnemyResource.ENEMY.KNIGHT or type == EnemyResource.ENEMY.SUPPORT_PRIEST:
+				type = EnemyResource.ENEMY.PEASANT
+			if type == EnemyResource.ENEMY.HORSEMAN:
+				type = EnemyResource.ENEMY.PRIEST
+			if type == EnemyResource.ENEMY.ARCHER:
+				type = EnemyResource.ENEMY.RANGER
+		elif Global.wave_count <= 10: #support Priest
 			if type == EnemyResource.ENEMY.KNIGHT:
 				type = EnemyResource.ENEMY.PEASANT
 			if type == EnemyResource.ENEMY.HORSEMAN:
 				type = EnemyResource.ENEMY.PRIEST
-		elif Global.wave_count <= 8:
+			if type == EnemyResource.ENEMY.ARCHER:
+				type = EnemyResource.ENEMY.RANGER
+		elif Global.wave_count <= 12: #Archer
 			if type == EnemyResource.ENEMY.KNIGHT:
-				type = EnemyResource.ENEMY.PRIEST
+				type = EnemyResource.ENEMY.SHIELDMAN
 			if type == EnemyResource.ENEMY.HORSEMAN:
-				type = EnemyResource.ENEMY.ARCHER
-		elif Global.wave_count <= 10:
-			if type == EnemyResource.ENEMY.HORSEMAN:
-				type = EnemyResource.ENEMY.ARCHER
-		elif Global.wave_count <= 12:
+				type = EnemyResource.ENEMY.RANGER
+		elif Global.wave_count <= 14: #Knights
 			if type == EnemyResource.ENEMY.HORSEMAN:
 				type = EnemyResource.ENEMY.KNIGHT
-		elif Global.wave_count <= 14:
+		elif Global.wave_count <= 16: #Horsemans
 			pass
-		elif Global.wave_count <= 16:
+		elif Global.wave_count <= 18: #No Peasants
 			if type == EnemyResource.ENEMY.PEASANT:
-				type = EnemyResource.ENEMY.PRIEST
-		elif Global.wave_count <= 18:
+				type = EnemyResource.ENEMY.RANGER
+		elif Global.wave_count <= 20: #No Priests
 			if type == EnemyResource.ENEMY.PEASANT:
+				type = EnemyResource.ENEMY.SHIELDMAN
+			if type == EnemyResource.ENEMY.PRIEST:
+				type = EnemyResource.ENEMY.SUPPORT_PRIEST
+		elif Global.wave_count <= 22: #No Rangers
+			if type == EnemyResource.ENEMY.PEASANT:
+				type = EnemyResource.ENEMY.SHIELDMAN
+			if type == EnemyResource.ENEMY.PRIEST:
+				type = EnemyResource.ENEMY.SUPPORT_PRIEST
+			if type == EnemyResource.ENEMY.RANGER:
 				type = EnemyResource.ENEMY.ARCHER
+		else: #No Shieldmans
+			if type == EnemyResource.ENEMY.PEASANT:
+				type = EnemyResource.ENEMY.KNIGHT
 			if type == EnemyResource.ENEMY.PRIEST:
+				type = EnemyResource.ENEMY.SUPPORT_PRIEST
+			if type == EnemyResource.ENEMY.RANGER:
 				type = EnemyResource.ENEMY.ARCHER
-		elif Global.wave_count <= 24:
-			if type == EnemyResource.ENEMY.PEASANT:
-				type = EnemyResource.ENEMY.ARCHER
-			if type == EnemyResource.ENEMY.PRIEST:
-				type = EnemyResource.ENEMY.KNIGHT
-		elif Global.wave_count <= 26:
-			if type == EnemyResource.ENEMY.PEASANT:
-				type = EnemyResource.ENEMY.KNIGHT
-			if type == EnemyResource.ENEMY.PRIEST:
-				type = EnemyResource.ENEMY.KNIGHT
-		elif Global.wave_count <= 28:
-			if type == EnemyResource.ENEMY.PEASANT:
-				type = EnemyResource.ENEMY.HORSEMAN
-			if type == EnemyResource.ENEMY.PRIEST:
-				type = EnemyResource.ENEMY.KNIGHT
-		elif Global.wave_count >= 30:
-			if type == EnemyResource.ENEMY.PEASANT:
-				type = EnemyResource.ENEMY.HORSEMAN
-			if type == EnemyResource.ENEMY.PRIEST:
+			if type == EnemyResource.ENEMY.SHIELDMAN:
 				type = EnemyResource.ENEMY.HORSEMAN
 				
 		
@@ -150,7 +159,7 @@ func _on_enemy_spawn_timer_timeout():
 		e.global_position = spawn.global_position
 		e.set_stats(Global.enemies[type])
 		if Global.wave_count >= 10:
-			e.modify_hp(1 + (Global.wave_count-10) * 0.1)
+			e.modify_hp(1 + (Global.wave_count-15) * 0.1)
 		$GameSpace/Enemies.add_child(e)
 		
 	$WaveSpawnSound.play()
