@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=13 format=3 uid="uid://nm46y0srx6qo"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=16 format=3 uid="uid://nm46y0srx6qo"]
 
 [ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_kilen"]
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="2_mo6lw"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="3_w8f41"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="4_w521n"]
 [ext_resource type="Script" path="res://scripts/abilities/resource_on_death.gd" id="5_jatj2"]
+[ext_resource type="PackedScene" uid="uid://bocoiwaawc7l8" path="res://object/abilities/Explosion.tscn" id="6_a0ptr"]
+[ext_resource type="Script" path="res://scripts/abilities/Poisonus_cloud_on_death.gd" id="6_anq0u"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="6_m16d0"]
 [ext_resource type="Texture2D" uid="uid://c6benpka4u02y" path="res://sprites/Units/Golem.png" id="7_s75a3"]
 
@@ -14,7 +16,7 @@ cooldown = 2.0
 visual_effect = ExtResource("3_w8f41")
 size = Vector2(8, 8)
 damage = 10.0
-range = 80.0
+range = 30.0
 
 [sub_resource type="Resource" id="Resource_h6h56"]
 script = ExtResource("4_w521n")
@@ -24,6 +26,10 @@ count = 1
 [sub_resource type="Resource" id="Resource_emnsk"]
 script = ExtResource("5_jatj2")
 resources = Array[ExtResource("4_w521n")]([SubResource("Resource_h6h56")])
+
+[sub_resource type="Resource" id="Resource_rijwq"]
+script = ExtResource("6_anq0u")
+scene = ExtResource("6_a0ptr")
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("4_w521n")
@@ -52,4 +58,4 @@ cooldown = 2.0
 hp = 120.0
 damage = 10.0
 fight_range = 30.0
-abilities = Array[ExtResource("1_kilen")]([SubResource("Resource_lpdt6"), SubResource("Resource_emnsk")])
+abilities = Array[ExtResource("1_kilen")]([SubResource("Resource_lpdt6"), SubResource("Resource_emnsk"), SubResource("Resource_rijwq")])

@@ -88,6 +88,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(52.0992, 211.413)
 mode = 1
 flags/light_only = false
 nodes/vertex/2/node = SubResource("VisualShaderNodeFloatParameter_jjovw")
