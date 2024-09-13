@@ -57,6 +57,7 @@ _data = {
 }
 
 [node name="slowing_projectile" type="Area2D"]
+z_index = 5
 script = ExtResource("1_wksi5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -65,7 +66,6 @@ shape = SubResource("CircleShape2D_t3ega")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-scale = Vector2(0.21, 0.21)
 texture = ExtResource("2_wm12j")
 
 [node name="Ring" type="Sprite2D" parent="."]

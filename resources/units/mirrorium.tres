@@ -26,7 +26,7 @@ projectile_data = {}
 
 [sub_resource type="Resource" id="Resource_w3jh8"]
 script = ExtResource("4_esnlx")
-cooldown = 30.0
+cooldown = 20.0
 type = ExtResource("5_5blk8")
 summon_range = 30
 max_summons = 1

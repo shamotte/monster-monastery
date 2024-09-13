@@ -53,7 +53,6 @@ life_drain = ExtResource("4_6o3h7")
 exsplosive_projectile = ExtResource("5_nmiox")
 
 [node name="Map" type="Sprite2D" parent="."]
-visible = false
 texture = ExtResource("2_qj8nh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -853,7 +852,7 @@ position = Vector2(0, -8)
 texture = ExtResource("16_c4l1p")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 90.0
+wait_time = 10.0
 autostart = true
 
 [node name="WaveSpawnSound" type="AudioStreamPlayer2D" parent="."]

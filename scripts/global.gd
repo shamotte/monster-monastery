@@ -169,6 +169,6 @@ func game_begin():
 	current_resources[ResourceResource.RESOURCE.AMONGIUM] = 0
 	current_resources[ResourceResource.RESOURCE.FOOD] = 0
 	
-	#set_all_resources(99) #TODO funkcja tylko do testów później usunąć
+	set_all_resources(99) #TODO funkcja tylko do testów później usunąć
 	
 	DaylightManager.start_cycle()
