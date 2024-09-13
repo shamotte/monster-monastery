@@ -16,12 +16,12 @@
 [ext_resource type="Script" path="res://scripts/UI.gd" id="8_1k3t5"]
 [ext_resource type="PackedScene" uid="uid://b22fxtq6dhenw" path="res://object/enemy_spawner.tscn" id="8_4bd8d"]
 [ext_resource type="Theme" uid="uid://b5kompijnyq34" path="res://UITheme.tres" id="8_cjmjg"]
-[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/resources/rock.tres" id="8_e7kpm"]
+[ext_resource type="Resource" uid="uid://cfltr7tsik3b3" path="res://resources/Resources/rock.tres" id="8_e7kpm"]
 [ext_resource type="Script" path="res://scripts/info_panel.gd" id="10_d5ti3"]
 [ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="11_tqatv"]
 [ext_resource type="Texture2D" uid="uid://codhgt0vj6esd" path="res://sprites/Items/health.png" id="14_hf8ep"]
 [ext_resource type="Script" path="res://scripts/timer.gd" id="14_twx0p"]
-[ext_resource type="PackedScene" path="res://interface/SpawnInfo.tscn" id="15_csqud"]
+[ext_resource type="PackedScene" uid="uid://fi3qro07xbcd" path="res://interface/SpawnInfo.tscn" id="15_csqud"]
 [ext_resource type="Texture2D" uid="uid://bym0ptnbq5wge" path="res://sprites/Items/wares.png" id="15_pktq6"]
 [ext_resource type="PackedScene" uid="uid://dahi40k2gv47i" path="res://interface/priority_elem.tscn" id="15_x630r"]
 [ext_resource type="Script" path="res://scripts/VolumeSlider.gd" id="15_yioib"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://vxlb82htiwur" path="res://interface/UnitSpawnInfo.tscn" id="16_epxwy"]
 [ext_resource type="PackedScene" uid="uid://bu26j7qm8q1sb" path="res://interface/GroupManager.tscn" id="16_fccnn"]
 [ext_resource type="AudioStream" uid="uid://cyyjmfiricwe0" path="res://sounds/aliendeath.wav" id="26_5nbfo"]
+[ext_resource type="PackedScene" uid="uid://dlwtlro233157" path="res://Summary.tscn" id="29_r6uq5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_y668m"]
 vertices = PackedVector2Array(392, 383, 225, 321, 226, 321, -610, -232, -559, -284, -556, -116, -605, -107, -105, 387, -142, 376, -37, 270, 127, 267, 35, 163, 249, -72, 338, 1, 428, 110, 368, -276, 501, -285, 482, -211, 409, -204, 559, -150, 686, -140, 800, 7, 646, 72, 537, -48, 522, -114, 152, -296, 266, -157, -29, -262, 385, 277, 429, 370, 520, 151, 502, 199, 1, 81, -172, 131, -374, -181, -362, -278, -265, -364, -65, -345, -417, 191, -484, 311, -540, 321, -614, 231, -656, 2, -459, -89, -262, 175)
@@ -38,14 +39,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-59, -355, -23, -273, 1
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jqn1q"]
-
-[sub_resource type="GDScript" id="GDScript_nr388"]
-script/source = "extends Control
-
-func _on_button_pressed():
-	Global.restart_game()
-	
-"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jq1be"]
 radius = 3.0
@@ -524,10 +517,9 @@ offset_bottom = 155.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-current_tab = 1
+current_tab = 0
 
 [node name="BuildingColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
-visible = false
 custom_minimum_size = Vector2(408, 280)
 layout_mode = 2
 metadata/_tab_index = 0
@@ -546,6 +538,7 @@ layout_mode = 2
 columns = 2
 
 [node name="UnitColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
+visible = false
 custom_minimum_size = Vector2(408, 208)
 layout_mode = 2
 metadata/_tab_index = 1
@@ -838,61 +831,9 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 4
 
-[node name="Endgame" type="Control" parent="UI"]
+[node name="Endgame" parent="UI" instance=ExtResource("29_r6uq5")]
 unique_name_in_owner = true
 visible = false
-modulate = Color(1, 0.0666667, 0.286275, 1)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = SubResource("GDScript_nr388")
-
-[node name="ColorRect" type="ColorRect" parent="UI/Endgame"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.596078, 0, 0.105882, 0.764706)
-
-[node name="Label" type="Label" parent="UI/Endgame"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -141.0
-offset_top = -24.5
-offset_right = 141.0
-offset_bottom = 24.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "GAME OVER
-All your minions were defeated!
-
-Thank you for playing!"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="UI/Endgame"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -32.5
-offset_top = -71.0
-offset_right = 32.5
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Restart"
 
 [node name="MousePointer" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -928,5 +869,4 @@ stream = ExtResource("26_5nbfo")
 [connection signal="mouse_exited" from="UI/UI/InfoPanel/PreviewPanel" to="UI/UI/InfoPanel" method="_on_preview_panel_mouse_exited"]
 [connection signal="pressed" from="UI/UI/InfoPanel/PreviewPanel/GroupIdentifier" to="UI/UI/InfoPanel" method="_on_group_identifier_pressed"]
 [connection signal="pressed" from="UI/UI/InfoPanel/PreviewPanel/GroupManagerLink" to="UI/UI/InfoPanel" method="_on_group_manager_link_pressed"]
-[connection signal="pressed" from="UI/Endgame/Button" to="UI/Endgame" method="_on_button_pressed"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

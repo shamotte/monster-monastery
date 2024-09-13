@@ -12,3 +12,4 @@ type = 2
 action_type = 0
 time = 7.0
 resource_point_txture = ExtResource("1_ogigg")
+respawn_time = 1.0

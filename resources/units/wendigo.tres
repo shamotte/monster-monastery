@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=9 format=3 uid="uid://csmp48cci520m"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=10 format=3 uid="uid://csmp48cci520m"]
 
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_3iqs0"]
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_4hjln"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4j8p6"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_741ak"]
@@ -34,10 +35,11 @@ type = 5
 sprite = ExtResource("3_7qlnt")
 scale = 1.0
 color = Color(1, 1, 1, 1)
+play_dead_anim = true
 work_range = 20.0
 work_speed = 1.5
 cooldown = 2.0
 hp = 35.0
-damage = 7.0
+damage = 8.0
 fight_range = 40.0
-abilities = Array[Resource("res://scripts/abilities/ability.gd")]([SubResource("Resource_lpdt6")])
+abilities = Array[ExtResource("1_3iqs0")]([SubResource("Resource_lpdt6")])

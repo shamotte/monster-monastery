@@ -34,6 +34,7 @@ type = 11
 sprite = ExtResource("3_2dobk")
 scale = 1.0
 color = Color(1, 1, 1, 1)
+play_dead_anim = true
 work_range = 30.0
 work_speed = 0.2
 cooldown = 2.5

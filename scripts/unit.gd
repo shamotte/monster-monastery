@@ -53,6 +53,8 @@ func _ready():
 	#HP Bar
 	%HPBar.max_value = type.hp
 	%HPBar.visible = false
+	
+	Global.unit_summoned(type)
 	#state_machine.states[StateMachine.STATES.FIGHT].connect("fight_process",debug_test);
 	
 
@@ -105,6 +107,8 @@ func take_damage(damage:float) -> int:
 			return damage + hp
 		kill()
 		return damage + hp
+	$SelfRegeneration.stop()
+	$FightTimer.start()
 	return damage
 		
 func heal_unit(addHP:float):
@@ -112,6 +116,7 @@ func heal_unit(addHP:float):
 	%HPBar.value = hp
 	if hp >= type.hp:
 		%HPBar.visible = false
+		$SelfRegeneration.stop()
 		hp = type.hp
 		
 #Makes and set new group
@@ -155,3 +160,14 @@ func kill():
 func next_anim(anim_name : String):
 	$AnimationPlayer.play(anim_name)
 	
+#self regeneration at night
+func _on_self_regeneration_timeout() -> void:
+	if DaylightManager.is_night():
+		if hp < type.hp:
+			heal_unit(1)
+	
+
+#end lack of regeneration after taking damage
+func _on_fight_timer_timeout() -> void:
+	$SelfRegeneration.start()
+	$FightTimer.stop()

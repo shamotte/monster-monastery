@@ -49,7 +49,7 @@ var active_selection
 func _process(delta):
 	if %Units.get_child_count()<1:
 		Engine.time_scale = 0
-		%Endgame.visible = true
+		show_summary()
 	else:
 		Engine.time_scale = 1
 		%Endgame.visible = false
@@ -74,6 +74,16 @@ func mousePos():
 
 
 var enemy_scene = preload("res://object/enemy.tscn")
+
+func show_summary():
+	%Endgame.visible = true
+	%Endgame.set_survived_waves(Global.wave_count-1)
+	%Endgame.set_summoned_units(Global.summoned_units)
+	%Endgame.set_killed_units(Global.enemies_killed)
+	%Endgame.set_gained_resources(Global.resources_gained)
+	%Endgame.set_enemies(Global.enemies_type)
+	%Endgame.set_resources(Global.resource_type)
+	%Endgame.set_units(Global.units_type)
 
 func _on_enemy_spawn_timer_timeout():
 	for i in range(randi_range(1 + int(Global.wave_count/2), 1 + Global.wave_count*2)):
@@ -147,3 +157,4 @@ func _on_enemy_spawn_timer_timeout():
 	Global.wave_count += 1
 	%WaveCount.visible = true
 	%WaveCount/Count.text = "Wave " + str(Global.wave_count)
+	

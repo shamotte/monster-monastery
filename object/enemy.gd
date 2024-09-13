@@ -117,4 +117,5 @@ func heal_unit(addHP:float):
 		hp = type.hp
 		
 func kill():
+	Global.enemy_killed(type)
 	queue_free()

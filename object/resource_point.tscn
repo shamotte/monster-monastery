@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://fvp2heuuowys"]
+[gd_scene load_steps=11 format=3 uid="uid://fvp2heuuowys"]
 
 [ext_resource type="Script" path="res://scripts/ResourcePoint.gd" id="1_rqx1t"]
 [ext_resource type="Texture2D" uid="uid://m3bcnlhst0vs" path="res://sprites/Resources/tree.png" id="2_vdyha"]
+[ext_resource type="PackedScene" uid="uid://crmyr2icm5xb4" path="res://interface/progress_bar.tscn" id="3_yfmdn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7c3q2"]
 radius = 16.0
@@ -154,5 +155,7 @@ offset_right = 16.0
 offset_bottom = 22.0
 theme = SubResource("Theme_l6sgv")
 value = 50.0
+
+[node name="Progress" parent="." instance=ExtResource("3_yfmdn")]
 
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

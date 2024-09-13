@@ -42,6 +42,7 @@ _data = {
 [node name="Control" type="CanvasLayer"]
 visible = false
 script = ExtResource("1_uponx")
+night_start = 0.6
 
 [node name="Overlay" type="ColorRect" parent="."]
 anchors_preset = 15
