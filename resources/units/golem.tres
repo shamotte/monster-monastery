@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=16 format=3 uid="uid://nm46y0srx6qo"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=16 format=3 uid="uid://brkah4ym3qcks"]
 
 [ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_kilen"]
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="2_mo6lw"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="3_w8f41"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="4_w521n"]
 [ext_resource type="Script" path="res://scripts/abilities/resource_on_death.gd" id="5_jatj2"]
-[ext_resource type="PackedScene" uid="uid://bocoiwaawc7l8" path="res://object/abilities/Explosion.tscn" id="6_a0ptr"]
+[ext_resource type="PackedScene" path="res://object/abilities/Explosion.tscn" id="6_a0ptr"]
 [ext_resource type="Script" path="res://scripts/abilities/Poisonus_cloud_on_death.gd" id="6_anq0u"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="6_m16d0"]
 [ext_resource type="Texture2D" uid="uid://c6benpka4u02y" path="res://sprites/Units/Golem.png" id="7_s75a3"]

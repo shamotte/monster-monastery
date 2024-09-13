@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://csgmtepgv5geb"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://7e64erv44j5o"]
 
-[ext_resource type="PackedScene" uid="uid://ccirrr5ekd5wx" path="res://object/abilities/healing_projectile2.tscn" id="1_ecu6x"]
+[ext_resource type="PackedScene" path="res://object/abilities/healing_projectile2.tscn" id="1_ecu6x"]
 [ext_resource type="Script" path="res://scripts/abilities/heal_ability.gd" id="2_5sabd"]
 [ext_resource type="Texture2D" uid="uid://didurijkmn3p4" path="res://sprites/Items/NoItem.png" id="3_5l4am"]
 [ext_resource type="Script" path="res://resources/enemy_resource.gd" id="4_v5xsh"]

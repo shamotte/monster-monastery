@@ -17,6 +17,12 @@ range = 120.0
 sprite = ExtResource("3_0qxfg")
 damage = 25.0
 spawn_radius = 10
+projectile_data = {
+"damage": null,
+"explosive_projectile.gd": null,
+"life_time": null,
+"velocity": null
+}
 
 [sub_resource type="Resource" id="Resource_lvk6d"]
 script = ExtResource("1_d7efq")
