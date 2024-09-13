@@ -12,18 +12,18 @@ script = ExtResource("1_0nrcu")
 cooldown = 4.0
 visual_effect = ExtResource("2_aj1wl")
 size = Vector2(8, 8)
-damage = 12.0
+damage = 30.0
 range = 40.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_povl5")
-type = 2
-count = 4
+type = 7
+count = 1
 
 [sub_resource type="Resource" id="Resource_4ty43"]
 script = ExtResource("1_povl5")
-type = 3
-count = 4
+type = 2
+count = 10
 
 [resource]
 script = ExtResource("2_fnaij")

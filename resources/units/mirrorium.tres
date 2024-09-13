@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=15 format=3 uid="uid://d1krq2vxjajy0"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=18 format=3 uid="uid://d1krq2vxjajy0"]
 
 [ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_7y0lg"]
 [ext_resource type="PackedScene" uid="uid://bm7oefe8s1m6w" path="res://object/abilities/projectile.tscn" id="1_8rldp"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" path="res://scripts/abilities/summon_unit.gd" id="4_esnlx"]
 [ext_resource type="Texture2D" uid="uid://b1my6j3bvh0k2" path="res://sprites/Units/Mirrorium.png" id="4_hnefi"]
 [ext_resource type="Resource" uid="uid://4fdi81xiwnat" path="res://resources/Summons/mirrorium_summon.tres" id="5_5blk8"]
+[ext_resource type="PackedScene" uid="uid://8mhrug3lbsu3" path="res://object/abilities/healing_projectile.tscn" id="7_hfd7h"]
+[ext_resource type="Script" path="res://scripts/abilities/heal_ability.gd" id="8_bxo6h"]
 
 [sub_resource type="Resource" id="Resource_c47oq"]
 script = ExtResource("2_r6w48")
@@ -18,7 +20,7 @@ projectile = ExtResource("1_8rldp")
 speed = 300.0
 range = 150.0
 sprite = ExtResource("3_8duty")
-damage = 3.0
+damage = 5.0
 spawn_radius = 1
 projectile_data = {}
 
@@ -31,6 +33,12 @@ max_summons = 1
 summon_duration = 15.0
 should_despawn = true
 
+[sub_resource type="Resource" id="Resource_jy3wd"]
+script = ExtResource("8_bxo6h")
+cooldown = 1
+projectile = ExtResource("7_hfd7h")
+healing = 6.0
+
 [sub_resource type="Resource" id="Resource_od5fv"]
 script = ExtResource("2_p5so5")
 type = 8
@@ -39,7 +47,7 @@ count = 3
 [sub_resource type="Resource" id="Resource_kemha"]
 script = ExtResource("2_p5so5")
 type = 4
-count = 10
+count = 5
 
 [resource]
 script = ExtResource("3_g7cxl")
@@ -47,7 +55,7 @@ name = "Mirrorium"
 description = "Creature which get mastery of using dark powers and can make illusions"
 resource_cost = Array[ExtResource("2_p5so5")]([SubResource("Resource_od5fv"), SubResource("Resource_kemha")])
 speed = 80.0
-type = 12
+type = 14
 sprite = ExtResource("4_hnefi")
 item = ExtResource("1_swtl3")
 scale = 1.0
@@ -56,7 +64,7 @@ play_dead_anim = true
 work_range = 100.0
 work_speed = 0.2
 cooldown = 0.3
-hp = 40.0
+hp = 66.0
 damage = 3.0
 fight_range = 150.0
-abilities = Array[ExtResource("1_7y0lg")]([SubResource("Resource_c47oq"), SubResource("Resource_w3jh8")])
+abilities = Array[ExtResource("1_7y0lg")]([SubResource("Resource_c47oq"), SubResource("Resource_w3jh8"), SubResource("Resource_jy3wd")])

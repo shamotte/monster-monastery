@@ -1,100 +1,240 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqjhs3pdso4s5"]
+[gd_scene load_steps=13 format=3 uid="uid://bqjhs3pdso4s5"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_1yi2o"]
+[ext_resource type="Theme" uid="uid://dj6hqka2qymxk" path="res://UITheme2.tres" id="2_8oew2"]
 [ext_resource type="Texture2D" uid="uid://bc78bf3duuitw" path="res://sprites/map_blur.png" id="2_wjnex"]
+[ext_resource type="Texture2D" uid="uid://lye5duy0xovt" path="res://sprites/Units/imp.png" id="4_rmynd"]
+[ext_resource type="Texture2D" uid="uid://bxcwno0sgo25x" path="res://sprites/Units/Horseman.png" id="5_2y2vw"]
+[ext_resource type="Texture2D" uid="uid://1odn6cyqh80r" path="res://sprites/Units/DemonLord.png" id="6_w4m32"]
+[ext_resource type="Texture2D" uid="uid://b0q5ohgowrr5f" path="res://sprites/Units/SlimeBeforeSlaughtered.png" id="7_6v0ux"]
+[ext_resource type="Texture2D" uid="uid://dhl43uxdhb8hj" path="res://sprites/Units/Pythonomium.png" id="8_qf8ne"]
+[ext_resource type="Texture2D" uid="uid://4vbeuvxs0ih1" path="res://sprites/Units/Priest.png" id="9_6jvae"]
+
+[sub_resource type="Animation" id="Animation_b03ro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/TitleOrigin/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/TitleOrigin/Title:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mq3wo"]
+resource_name = "move"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/TitleOrigin/Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.26667, 3.83333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, -5.2), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/TitleOrigin/Title:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3.23333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0174533, 0.0174533, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2vv64"]
+_data = {
+"RESET": SubResource("Animation_b03ro"),
+"move": SubResource("Animation_mq3wo")
+}
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource("1_1yi2o")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_8oew2")
+
+[node name="Background" type="Sprite2D" parent="Container"]
 position = Vector2(320, 180)
 texture = ExtResource("2_wjnex")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -640.0
-offset_top = -360.0
-offset_right = 640.0
-offset_bottom = 360.0
+[node name="ColorRect" type="ColorRect" parent="Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.529412, 0.152941, 0.121569, 0.505882)
 
-[node name="Title" type="Label" parent="."]
-anchors_preset = 8
+[node name="TitleOrigin" type="Control" parent="Container"]
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -277.0
-offset_top = -160.0
-offset_right = 277.0
-offset_bottom = -91.0
+offset_left = -282.0
+offset_top = 61.0
+offset_right = -282.0
+offset_bottom = 61.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.623529, 0.0862745, 0.0313726, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
-theme_override_font_sizes/font_size = 50
-text = "MONSTER MONASTERY"
-horizontal_alignment = 1
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="Control"]
+[node name="Title" type="Control" parent="Container/TitleOrigin"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -130.0
-offset_top = -25.0
-offset_right = 130.0
-offset_bottom = 25.0
+offset_right = 556.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Imp" type="Sprite2D" parent="Container/TitleOrigin/Title"]
+position = Vector2(67, 39)
+texture = ExtResource("4_rmynd")
+
+[node name="Horseman" type="Sprite2D" parent="Container/TitleOrigin/Title"]
+position = Vector2(446, 1)
+texture = ExtResource("5_2y2vw")
+
+[node name="DemonLord" type="Sprite2D" parent="Container/TitleOrigin/Title"]
+position = Vector2(553, 43)
+rotation = 1.5708
+texture = ExtResource("6_w4m32")
+
+[node name="Title2" type="Label" parent="Container/TitleOrigin/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.0
+offset_top = -34.5
+offset_right = 278.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.623529, 0.0862745, 0.0313726, 1)
+theme_override_colors/font_shadow_color = Color(0.622182, 0.372627, 0.0512116, 0.686275)
+theme_override_colors/font_outline_color = Color(0.137255, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 30
+theme_override_font_sizes/font_size = 50
+text = "MONSTER MONASTERY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slime" type="Sprite2D" parent="Container/TitleOrigin/Title"]
+position = Vector2(319, 15)
+texture = ExtResource("7_6v0ux")
+
+[node name="Pythonomium" type="Sprite2D" parent="Container/TitleOrigin/Title"]
+position = Vector2(128, 11)
+texture = ExtResource("8_qf8ne")
+
+[node name="Priest" type="Sprite2D" parent="Container/TitleOrigin/Title"]
+position = Vector2(12, 7)
+texture = ExtResource("9_6jvae")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/TitleOrigin"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_2vv64")
+}
+
+[node name="Control" type="Panel" parent="Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = 36.0
+offset_right = 360.0
+offset_bottom = 212.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Container/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -56.0
+offset_right = 112.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
 text = "START GAME"
 
-[node name="Authors" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 288.0
-offset_right = 216.0
-offset_bottom = 354.0
+[node name="Authors" type="Label" parent="Container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -80.0
+offset_right = 224.0
+offset_bottom = -14.0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 14
 text = "(2024) Made by:
 @igorekkedziorek, @liniux,
 @shamotte, @zedgame"
 
-[node name="Version" type="Label" parent="."]
+[node name="Version" type="Label" parent="Container"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = -23.0
+offset_left = -104.0
+offset_top = -40.0
+offset_right = -18.0
+offset_bottom = -17.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Version 1.0
+text = "Version 1.1
 "
 horizontal_alignment = 2
 
-[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="animation_finished" from="Container/TitleOrigin/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="Container/Control/Button" to="." method="_on_button_pressed"]

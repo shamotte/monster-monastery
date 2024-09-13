@@ -10,6 +10,7 @@ anchors_preset = 0
 script = ExtResource("1_8afu5")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(32, 40)
 layout_mode = 0
 offset_right = 32.0

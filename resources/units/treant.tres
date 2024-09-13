@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="UnitResource" load_steps=15 format=3 uid="uid://b0xbi83oslnxt"]
+
+[ext_resource type="Script" path="res://scripts/abilities/ability.gd" id="1_ghdo7"]
+[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="2_uxdym"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="3_et5wf"]
+[ext_resource type="Script" path="res://scripts/abilities/heal_ability.gd" id="4_kwwwv"]
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="4_nj5i8"]
+[ext_resource type="PackedScene" uid="uid://8mhrug3lbsu3" path="res://object/abilities/healing_projectile.tscn" id="4_xfr2o"]
+[ext_resource type="Script" path="res://scripts/abilities/resource_on_death.gd" id="5_0uda5"]
+[ext_resource type="Script" path="res://resources/unit_resource.gd" id="6_7sym6"]
+[ext_resource type="Texture2D" uid="uid://dvsk3q8qw866e" path="res://sprites/Units/Treent.png" id="6_vrmj0"]
+
+[sub_resource type="Resource" id="Resource_eyki4"]
+script = ExtResource("2_uxdym")
+cooldown = 2.0
+visual_effect = ExtResource("3_et5wf")
+size = Vector2(32, 32)
+damage = 1.0
+range = 30.0
+
+[sub_resource type="Resource" id="Resource_mgre1"]
+script = ExtResource("4_kwwwv")
+cooldown = 2
+projectile = ExtResource("4_xfr2o")
+healing = 4.0
+
+[sub_resource type="Resource" id="Resource_h6h56"]
+script = ExtResource("4_nj5i8")
+type = 0
+count = 5
+
+[sub_resource type="Resource" id="Resource_emnsk"]
+script = ExtResource("5_0uda5")
+resources = Array[ExtResource("4_nj5i8")]([SubResource("Resource_h6h56")])
+
+[sub_resource type="Resource" id="Resource_xuc28"]
+script = ExtResource("4_nj5i8")
+type = 0
+count = 20
+
+[resource]
+script = ExtResource("6_7sym6")
+name = "Treant"
+description = "Walking tree which roots enemies and heals allies. Also source of wood after death."
+resource_cost = Array[ExtResource("4_nj5i8")]([SubResource("Resource_xuc28")])
+speed = 30.0
+type = 3
+sprite = ExtResource("6_vrmj0")
+scale = 1.0
+color = Color(1, 1, 1, 1)
+play_dead_anim = true
+work_range = 30.0
+work_speed = 0.6
+cooldown = 2.0
+hp = 30.0
+damage = 1.0
+fight_range = 100.0
+abilities = Array[ExtResource("1_ghdo7")]([SubResource("Resource_eyki4"), SubResource("Resource_mgre1"), SubResource("Resource_emnsk")])

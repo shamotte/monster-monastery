@@ -13,14 +13,14 @@ particles_anim_loop = false
 offsets = PackedFloat32Array(0, 0.245902, 0.680328, 1)
 colors = PackedColorArray(1, 1, 0.717647, 1, 0.752941, 0, 0, 1, 0.752941, 0.431373, 0.12549, 1, 0.12549, 0.121569, 0.12549, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_hasev"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_p60kp"]
 gradient = SubResource("Gradient_uftcm")
 
 [sub_resource type="Curve" id="Curve_h7rvt"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.246667, 1), 0.0, 0.0, 0, 0, Vector2(0.48, 0.010989), 0.0, 0.0, 0, 0, Vector2(0.953333, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="CurveTexture" id="CurveTexture_4nfcs"]
+[sub_resource type="CurveTexture" id="CurveTexture_vocd4"]
 curve = SubResource("Curve_h7rvt")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nngrf"]
@@ -31,8 +31,8 @@ spread = 180.0
 initial_velocity_min = 1.0
 initial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
-color_ramp = SubResource("GradientTexture1D_hasev")
-emission_curve = SubResource("CurveTexture_4nfcs")
+color_ramp = SubResource("GradientTexture1D_p60kp")
+emission_curve = SubResource("CurveTexture_vocd4")
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 anim_offset_max = 0.1686

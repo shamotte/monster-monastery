@@ -37,10 +37,10 @@ count = 5
 [resource]
 script = ExtResource("2_741ak")
 name = "Wendigo"
-description = "Ghost of forest which punishes every intruder"
+description = "Ghost of forest which punishes every intruder. After death it returns some wood."
 resource_cost = Array[ExtResource("1_4j8p6")]([SubResource("Resource_xuc28"), SubResource("Resource_bv02f")])
 speed = 50.0
-type = 5
+type = 4
 sprite = ExtResource("3_7qlnt")
 scale = 1.0
 color = Color(1, 1, 1, 1)

@@ -9,24 +9,24 @@
 
 [sub_resource type="Resource" id="Resource_4fe57"]
 script = ExtResource("1_cvsvk")
-cooldown = 2.5
+cooldown = 2.0
 projectile = ExtResource("1_07t25")
 speed = 120.0
 range = 300.0
 sprite = ExtResource("3_2jnxp")
-damage = 8.0
+damage = 16.0
 spawn_radius = 1
 
 [resource]
 script = ExtResource("2_kc65c")
-name = "Łucznik"
+name = "Archer"
 sprite = ExtResource("3_7k2gk")
 item = ExtResource("1_5es47")
-speed = 60.0
+speed = 50.0
 strength = 4.0
-type = 2
-cooldown = 1.0
-hp = 30.0
+type = 5
+cooldown = 2.0
+hp = 35.0
 damage = 8.0
-fight_range = 120.0
+fight_range = 300.0
 ability = SubResource("Resource_4fe57")

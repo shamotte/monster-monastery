@@ -1,28 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlwtlro233157"]
+[gd_scene load_steps=5 format=3 uid="uid://dlwtlro233157"]
 
+[ext_resource type="Theme" uid="uid://dj6hqka2qymxk" path="res://UITheme2.tres" id="1_5d3u0"]
 [ext_resource type="PackedScene" uid="uid://dvjucvsvjgmsi" path="res://interface/unit_summary.tscn" id="1_m3arf"]
 [ext_resource type="Script" path="res://summary.gd" id="1_wb4im"]
 [ext_resource type="PackedScene" uid="uid://dseahyjrimtr8" path="res://interface/resource_slot.tscn" id="2_tegbn"]
 
 [node name="EndGame" type="ColorRect"]
 custom_minimum_size = Vector2(600, 300)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -394.0
-offset_top = -223.0
-offset_right = 388.0
-offset_bottom = 257.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_5d3u0")
 color = Color(0.913725, 0, 0, 0.584314)
 script = ExtResource("1_wb4im")
 unit_summary = ExtResource("1_m3arf")
 resource_slot = ExtResource("2_tegbn")
 
-[node name="Panel" type="ColorRect" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -30,28 +26,37 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
-offset_top = -169.5
+offset_top = -169.0
 offset_right = 300.0
-offset_bottom = 129.5
+offset_bottom = 169.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.205117, 0.205117, 0.205117, 1)
+
+[node name="GameOver" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 6.5
+offset_right = 599.0
+offset_bottom = 83.5
+theme_override_font_sizes/font_size = 36
+text = "----- GAME OVER -----"
+horizontal_alignment = 1
 
 [node name="Description" type="Label" parent="Panel"]
 layout_mode = 0
-offset_top = -1.0
-offset_right = 600.0
-offset_bottom = 76.0
-text = "GAME OVER
-All your minions were defeated! You survived X waves
+offset_left = -1.0
+offset_top = 57.0
+offset_right = 599.0
+offset_bottom = 129.0
+text = "All your minions were defeated! You survived X wave(s).
 Thank you for playing!"
 horizontal_alignment = 1
 
 [node name="SummonedUnits" type="Label" parent="Panel"]
 layout_mode = 0
-offset_top = 74.0
+offset_top = 122.0
 offset_right = 225.0
-offset_bottom = 97.0
+offset_bottom = 145.0
 text = "Summoned Units: "
 horizontal_alignment = 1
 
@@ -63,9 +68,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -61.0
-offset_top = -73.5
+offset_top = -47.5
 offset_right = 78.0
-offset_bottom = -50.5
+offset_bottom = -24.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Killed Enemies: "
@@ -79,9 +84,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 93.0
-offset_top = -73.5
+offset_top = -47.5
 offset_right = 270.0
-offset_bottom = -50.5
+offset_bottom = -24.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Gained Resources:"
@@ -91,9 +96,9 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 0
 offset_left = 13.0
-offset_top = 99.0
+offset_top = 147.0
 offset_right = 233.0
-offset_bottom = 271.0
+offset_bottom = 319.0
 columns = 6
 
 [node name="UnitSummary" parent="Panel/Units" instance=ExtResource("1_m3arf")]
@@ -163,10 +168,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -32.5
-offset_top = -38.0
-offset_right = 32.5
-offset_bottom = -7.0
+offset_left = -44.5
+offset_top = -58.0
+offset_right = 44.5
+offset_bottom = -19.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Restart"
@@ -175,9 +180,9 @@ text = "Restart"
 custom_minimum_size = Vector2(156, 0)
 layout_mode = 0
 offset_left = 239.0
-offset_top = 100.0
+offset_top = 148.0
 offset_right = 395.0
-offset_bottom = 257.0
+offset_bottom = 305.0
 columns = 4
 
 [node name="UnitSummary" parent="Panel/Enemies" instance=ExtResource("1_m3arf")]
@@ -216,9 +221,9 @@ layout_mode = 2
 [node name="Resources" type="GridContainer" parent="Panel"]
 layout_mode = 0
 offset_left = 394.0
-offset_top = 99.0
+offset_top = 147.0
 offset_right = 573.0
-offset_bottom = 265.0
+offset_bottom = 313.0
 columns = 5
 
 [node name="ItemSlot" parent="Panel/Resources" instance=ExtResource("2_tegbn")]

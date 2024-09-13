@@ -9,10 +9,10 @@
 
 [sub_resource type="Resource" id="Resource_yp5gx"]
 script = ExtResource("1_jqmkl")
-cooldown = 0.7
+cooldown = 0.4
 visual_effect = ExtResource("2_bm436")
 size = Vector2(8, 8)
-damage = 2.0
+damage = 1.0
 range = 20.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
@@ -26,13 +26,13 @@ name = "Red Slimeling"
 description = "Slime which become smaller after death"
 resource_cost = Array[ExtResource("3_5xitv")]([SubResource("Resource_xuc28")])
 speed = 150.0
-type = 13
+type = 15
 sprite = ExtResource("5_81hod")
 scale = 1.0
 color = Color(1, 1, 1, 1)
 play_dead_anim = true
 work_range = 10.0
-work_speed = 0.1
+work_speed = 1.0
 cooldown = 0.5
 hp = 5.0
 damage = 1.0

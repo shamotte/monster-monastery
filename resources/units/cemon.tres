@@ -12,18 +12,18 @@ script = ExtResource("1_lnni1")
 cooldown = 1.0
 visual_effect = ExtResource("2_ibgd0")
 heal_ratio = 0.3
-damage = 6.0
+damage = 10.0
 range = 30.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
 script = ExtResource("1_mr1rg")
 type = 9
-count = 15
+count = 20
 
 [sub_resource type="Resource" id="Resource_xllqu"]
 script = ExtResource("1_mr1rg")
 type = 7
-count = 3
+count = 1
 
 [resource]
 script = ExtResource("1_deutm")
@@ -31,15 +31,15 @@ name = "Cemon"
 description = "Creature which is eternally  insatiable. Every time it bites it heal itself"
 resource_cost = Array[ExtResource("1_mr1rg")]([SubResource("Resource_xuc28"), SubResource("Resource_xllqu")])
 speed = 50.0
-type = 6
+type = 7
 sprite = ExtResource("3_tjvec")
 scale = 1.0
 color = Color(1, 1, 1, 1)
 play_dead_anim = true
 work_range = 10.0
-work_speed = 0.8
+work_speed = 0.5
 cooldown = 1.0
-hp = 30.0
-damage = 6.0
+hp = 45.0
+damage = 10.0
 fight_range = 30.0
 abilities = Array[ExtResource("1_t1w51")]([SubResource("Resource_qpbui")])

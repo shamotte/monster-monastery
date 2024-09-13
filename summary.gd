@@ -7,7 +7,7 @@ func _on_button_pressed() -> void:
 	Global.restart_game()
 
 func set_survived_waves(waves : int):
-	$Panel/Description.text = "GAME OVER\nAll your minions were defeated! You survived " + str(waves) +" waves\nThank you for playing!"
+	$Panel/Description.text = "All your minions were defeated! You survived " + str(waves) +" wave(s).\nThank you for playing!"
 
 func set_summoned_units(unit_count : int):
 	$Panel/SummonedUnits.text = "Units Summoned: "+str(unit_count)

@@ -1,7 +1,7 @@
 extends Resource
 class_name EnemyResource
 
-enum ENEMY {PEASANT,PRIEST,ARCHER,KNIGHT,HORSEMAN}
+enum ENEMY {PEASANT,PRIEST,RANGER,SHIELDMAN,SUPPORT_PRIEST,ARCHER,KNIGHT,HORSEMAN}
 
 @export_group("Basic")
 @export var name:String

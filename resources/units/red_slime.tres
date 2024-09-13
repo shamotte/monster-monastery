@@ -14,13 +14,13 @@ script = ExtResource("1_u0i0x")
 cooldown = 0.4
 visual_effect = ExtResource("2_t82bn")
 size = Vector2(8, 8)
-damage = 2.0
+damage = 5.0
 range = 20.0
 
 [sub_resource type="Resource" id="Resource_71obu"]
 script = ExtResource("3_2lfxj")
 type = ExtResource("4_6i8aw")
-count = 2
+count = 10
 spawn_range = 200
 
 [sub_resource type="Resource" id="Resource_xuc28"]
@@ -34,7 +34,7 @@ name = "Red Slime"
 description = "Powered by Hellium Slime became faster and still divide itself before death"
 resource_cost = Array[ExtResource("1_whue1")]([SubResource("Resource_xuc28")])
 speed = 200.0
-type = 1
+type = 11
 sprite = ExtResource("5_tr0mw")
 scale = 1.0
 color = Color(1, 1, 1, 1)

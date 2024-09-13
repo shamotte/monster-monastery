@@ -13,7 +13,7 @@ script = ExtResource("1_e3ict")
 cooldown = 1.0
 visual_effect = ExtResource("2_p6fwy")
 size = Vector2(8, 8)
-damage = 3.0
+damage = 2.0
 range = 40.0
 
 [sub_resource type="Resource" id="Resource_xuc28"]
@@ -32,7 +32,7 @@ name = "Imp"
 description = "Minor spawn which is weak in fight but easy to control"
 resource_cost = Array[ExtResource("1_njmyt")]([SubResource("Resource_xuc28"), SubResource("Resource_f7ppk")])
 speed = 140.0
-type = 4
+type = 1
 sprite = ExtResource("3_ncg6l")
 item = ExtResource("3_tyfoa")
 scale = 1.0
@@ -42,6 +42,6 @@ work_range = 10.0
 work_speed = 1.2
 cooldown = 1.0
 hp = 15.0
-damage = 3.0
+damage = 2.0
 fight_range = 40.0
 abilities = Array[ExtResource("1_m5k0n")]([SubResource("Resource_0idj7")])

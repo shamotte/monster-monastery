@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://bocoiwaawc7l8"]
+
+[ext_resource type="Script" path="res://object/abilities/explosion.gd" id="1_ainai"]
+[ext_resource type="Texture2D" uid="uid://dyalor0ootbrf" path="res://object/abilities/simple_explosion2.png" id="2_hnm5a"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2vu67"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_r4mxg"]
+offsets = PackedFloat32Array(0, 0.245902, 0.680328, 1)
+colors = PackedColorArray(1, 1, 0.717647, 1, 0.752941, 0, 0, 1, 0.752941, 0.431373, 0.12549, 1, 0.12549, 0.121569, 0.12549, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hasev"]
+gradient = SubResource("Gradient_r4mxg")
+
+[sub_resource type="Curve" id="Curve_s3c3i"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.246667, 1), 0.0, 0.0, 0, 0, Vector2(0.48, 0.010989), 0.0, 0.0, 0, 0, Vector2(0.953333, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4nfcs"]
+curve = SubResource("Curve_s3c3i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n00l5"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 60.0
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_hasev")
+emission_curve = SubResource("CurveTexture_4nfcs")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+anim_offset_max = 0.1686
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7hbri"]
+radius = 57.0
+
+[node name="Explosion" type="Area2D"]
+z_index = 2
+y_sort_enabled = true
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ainai")
+damage = 30.0
+
+[node name="part" type="GPUParticles2D" parent="."]
+unique_name_in_owner = true
+z_index = 100
+material = SubResource("CanvasItemMaterial_2vu67")
+emitting = false
+amount = 90
+process_material = SubResource("ParticleProcessMaterial_n00l5")
+texture = ExtResource("2_hnm5a")
+lifetime = 1.4
+one_shot = true
+explosiveness = 0.63
+draw_order = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7hbri")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="deal_damage"]

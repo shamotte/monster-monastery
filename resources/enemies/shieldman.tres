@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://btok02txuvyct"]
+
+[ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_jkyu6"]
+[ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_tbq5v"]
+[ext_resource type="Texture2D" uid="uid://cjuuht14v7ap" path="res://sprites/Items/spear.png" id="3_74v7a"]
+[ext_resource type="Script" path="res://resources/enemy_resource.gd" id="4_ary60"]
+[ext_resource type="Texture2D" uid="uid://cuixe5qdpedlq" path="res://sprites/Units/Shield_man.png" id="5_qju7f"]
+
+[sub_resource type="Resource" id="Resource_4kc7a"]
+script = ExtResource("1_jkyu6")
+cooldown = 1.0
+visual_effect = ExtResource("2_tbq5v")
+size = Vector2(32, 32)
+damage = 5.0
+range = 30.0
+
+[resource]
+script = ExtResource("4_ary60")
+name = "Shieldman"
+sprite = ExtResource("5_qju7f")
+item = ExtResource("3_74v7a")
+speed = 60.0
+strength = 5.0
+type = 3
+cooldown = 1.0
+hp = 45.0
+damage = 4.0
+fight_range = 30.0
+ability = SubResource("Resource_4kc7a")
