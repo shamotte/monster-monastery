@@ -16,6 +16,12 @@ range = 300.0
 sprite = ExtResource("3_2jnxp")
 damage = 16.0
 spawn_radius = 1
+projectile_data = {
+"damage": null,
+"life_time": null,
+"projectile.gd": null,
+"velocity": null
+}
 
 [resource]
 script = ExtResource("2_kc65c")

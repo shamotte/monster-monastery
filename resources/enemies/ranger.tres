@@ -1,8 +1,27 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=4 format=3 uid="uid://cxecxwn47keyp"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=8 format=3 uid="uid://cxecxwn47keyp"]
 
+[ext_resource type="PackedScene" uid="uid://bm7oefe8s1m6w" path="res://object/abilities/projectile.tscn" id="1_qydk1"]
+[ext_resource type="Script" path="res://scripts/abilities/projectile_shooter.gd" id="2_raqie"]
+[ext_resource type="Texture2D" uid="uid://c5btn7rjsjch2" path="res://sprites/Projectiles/arrow.png" id="3_6rob5"]
 [ext_resource type="Texture2D" uid="uid://dfn478ge5picw" path="res://sprites/Items/Bow.png" id="4_87slm"]
 [ext_resource type="Script" path="res://resources/enemy_resource.gd" id="5_42c1q"]
 [ext_resource type="Texture2D" uid="uid://cnn7ytafm6r0b" path="res://sprites/Units/Ranger.png" id="6_xpubv"]
+
+[sub_resource type="Resource" id="Resource_uvng4"]
+script = ExtResource("2_raqie")
+cooldown = 3.5
+projectile = ExtResource("1_qydk1")
+speed = 120.0
+range = 100.0
+sprite = ExtResource("3_6rob5")
+damage = 12.0
+spawn_radius = 1
+projectile_data = {
+"damage": null,
+"life_time": null,
+"projectile.gd": null,
+"velocity": null
+}
 
 [resource]
 script = ExtResource("5_42c1q")
@@ -12,7 +31,8 @@ item = ExtResource("4_87slm")
 speed = 70.0
 strength = 4.0
 type = 2
-cooldown = 1.0
-hp = 15.0
-damage = 6.0
+cooldown = 3.5
+hp = 20.0
+damage = 12.0
 fight_range = 100.0
+ability = SubResource("Resource_uvng4")
