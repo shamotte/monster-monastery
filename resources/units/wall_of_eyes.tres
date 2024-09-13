@@ -17,6 +17,12 @@ range = 120.0
 sprite = ExtResource("3_0qxfg")
 damage = 25.0
 spawn_radius = 10
+projectile_data = {
+"damage": null,
+"explosive_projectile.gd": null,
+"life_time": null,
+"velocity": null
+}
 
 [sub_resource type="Resource" id="Resource_lvk6d"]
 script = ExtResource("1_d7efq")
@@ -42,7 +48,7 @@ play_dead_anim = true
 work_range = 30.0
 work_speed = 0.8
 cooldown = 1.0
-hp = 30.0
+hp = 50.0
 damage = 25.0
 fight_range = 120.0
 abilities = Array[ExtResource("1_ewlqe")]([SubResource("Resource_qh0l6")])
