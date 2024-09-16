@@ -100,8 +100,6 @@ func set_current_pageE(page : pages):
 
 func _on_panel_tab_changed(tab):
 	if tab == pages.GROUPS:
-		set_current_pageE(pages.GROUPS)
-		#set_current_page()
 		if %SelectedGroupPanel.get_current_group() == null:
 			%SelectedGroupPanel.set_first_group()
 		%SelectedGroupPanel.update_group_slots()
