@@ -14,7 +14,7 @@ func _ready():
 	unit_info = get_tree().get_first_node_in_group("UnitSpawnInfo")
 	set_info_panel()
 
-# Called when the node enters the scene tree for the first time.
+#Set stats for unit
 func set_parameters(newUnit: UnitResource):
 	unit = newUnit
 	$UnitIcon.texture = unit.sprite

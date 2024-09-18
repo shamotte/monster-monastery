@@ -127,7 +127,6 @@ func building_selection(object : buildingObject):
 	add_child(bp)
 	
 	
-	
 
 func _process(delta):
 	#Check if Menu Manager is active so player can't select unit while in menu
@@ -185,6 +184,7 @@ func hide_panel(hide):
 	%PreviewPanel.visible = !hide
 	%PreviewUnitStats.visible = !hide
 	%PreviewGroups.visible = !hide	
+	deselect()
 	
 	
 var mouse_in:bool
