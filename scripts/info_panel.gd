@@ -145,6 +145,10 @@ func _process(delta):
 			%HP.text = str(selected_unit.hp) + "/" + str(selected_unit.type.hp)
 	else:
 		%SelectedIndicator.visible = false
+		
+		
+	if Input.is_action_just_pressed("back"):
+		hide_panel(true)
 
 #Priority button pressed
 func _on_group_manager_link_pressed():
