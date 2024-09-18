@@ -1,4 +1,20 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bkp2awbw80a1f"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bkp2awbw80a1f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qi87y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_25on8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lehjt"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.485703, 0.485704, 0.485703, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pykom"]
 content_margin_left = 16.0
@@ -6,6 +22,18 @@ content_margin_top = 8.0
 content_margin_right = 16.0
 content_margin_bottom = 8.0
 bg_color = Color(0.384314, 0.384314, 0.384314, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ro3qo"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.31802, 0.31802, 0.31802, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -25,7 +53,11 @@ corner_radius_bottom_left = 32
 anti_aliasing = false
 
 [resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_qi87y")
+Button/styles/focus = SubResource("StyleBoxEmpty_25on8")
+Button/styles/hover = SubResource("StyleBoxFlat_lehjt")
 Button/styles/normal = SubResource("StyleBoxFlat_pykom")
+Button/styles/pressed = SubResource("StyleBoxFlat_ro3qo")
 Label/colors/font_shadow_color = Color(0, 0, 0, 0.207843)
 Label/constants/shadow_offset_x = 2
 Label/constants/shadow_offset_y = 2
