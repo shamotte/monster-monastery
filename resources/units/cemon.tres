@@ -28,7 +28,7 @@ count = 1
 [resource]
 script = ExtResource("1_deutm")
 name = "Cemon"
-description = "Creature which is eternally  insatiable. Every time it bites it heal itself"
+description = "Eternally insatiable. Every time it takes a bite it heals itself."
 resource_cost = Array[ExtResource("1_mr1rg")]([SubResource("Resource_xuc28"), SubResource("Resource_xllqu")])
 speed = 50.0
 type = 7

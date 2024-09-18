@@ -16,7 +16,7 @@ range = 30.0
 
 [resource]
 script = ExtResource("2_i2q1y")
-name = "Hammer Priest"
+name = "Priest"
 sprite = ExtResource("4_mrihh")
 item = ExtResource("1_yqren")
 speed = 50.0

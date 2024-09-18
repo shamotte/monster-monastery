@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_mursh")
-name = "obsidianum"
+name = "Obsidian"
 sprite = ExtResource("3_m0fwu")
 type = 6
 action_type = 0

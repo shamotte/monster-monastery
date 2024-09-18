@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="3_w8f41"]
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="4_w521n"]
 [ext_resource type="Script" path="res://scripts/abilities/resource_on_death.gd" id="5_jatj2"]
-[ext_resource type="PackedScene" path="res://object/abilities/Explosion.tscn" id="6_a0ptr"]
+[ext_resource type="PackedScene" uid="uid://bocoiwaawc7l8" path="res://object/abilities/Explosion.tscn" id="6_a0ptr"]
 [ext_resource type="Script" path="res://scripts/abilities/Poisonus_cloud_on_death.gd" id="6_anq0u"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="6_m16d0"]
 [ext_resource type="Texture2D" uid="uid://c6benpka4u02y" path="res://sprites/Units/Golem.png" id="7_s75a3"]
@@ -43,8 +43,8 @@ count = 50
 
 [resource]
 script = ExtResource("6_m16d0")
-name = "Gem Golem"
-description = "Literally walking rock which can absorb many hits. It also explode after death and gives extra gems."
+name = "Gemstone Golem"
+description = "A walking rock. Can absorb tons of damage. Explodes after death and grants some gems back."
 resource_cost = Array[ExtResource("4_w521n")]([SubResource("Resource_xuc28"), SubResource("Resource_bv02f")])
 speed = 50.0
 type = 10

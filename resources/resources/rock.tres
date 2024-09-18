@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_73plj")
-name = "rock"
+name = "Rock"
 sprite = ExtResource("3_qbb5v")
 type = 1
 action_type = 0

@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_hk5jq")
-name = "copium"
+name = "Copium"
 sprite = ExtResource("2_hmnt7")
 type = 7
 action_type = 0
 time = 10.0
+respawn_time = 1.0

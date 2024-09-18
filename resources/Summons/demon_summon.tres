@@ -28,7 +28,7 @@ count = 5
 [resource]
 script = ExtResource("4_c6m84")
 name = "Demon"
-description = "Creature which can reproduce itself"
+description = ""
 resource_cost = Array[ExtResource("3_2bp0a")]([SubResource("Resource_4tis3"), SubResource("Resource_0nw08")])
 speed = 70.0
 type = 15

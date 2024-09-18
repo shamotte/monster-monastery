@@ -51,8 +51,8 @@ count = 5
 
 [resource]
 script = ExtResource("3_g7cxl")
-name = "Mirrorium"
-description = "Creature which get mastery of using dark powers and can make illusions"
+name = "Mirror Caster"
+description = "A master of dark arts. Capable of creating illusions."
 resource_cost = Array[ExtResource("2_p5so5")]([SubResource("Resource_od5fv"), SubResource("Resource_kemha")])
 speed = 80.0
 type = 14

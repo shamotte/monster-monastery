@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_411km")
-name = "gold"
+name = "Gold"
 sprite = ExtResource("3_j5w4n")
 type = 3
 action_type = 0

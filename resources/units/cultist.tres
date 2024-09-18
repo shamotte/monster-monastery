@@ -45,8 +45,8 @@ count = 1
 
 [resource]
 script = ExtResource("2_3v6qa")
-name = "Cultist"
-description = "Cultists studies unknown dimensions and creatures. They can also heal their wounds."
+name = "Creepy Cultist"
+description = "Studies unknown dimensions and creatures. Capable of healing its own wounds."
 resource_cost = Array[ExtResource("1_uc236")]([SubResource("Resource_xuc28"), SubResource("Resource_xllqu")])
 speed = 80.0
 type = 8

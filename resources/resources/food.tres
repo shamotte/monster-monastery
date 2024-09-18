@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_p2iuc")
-name = "food"
+name = "Food"
 sprite = ExtResource("2_oa8af")
 type = 9
 action_type = 0

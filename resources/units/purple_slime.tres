@@ -36,7 +36,7 @@ count = 2
 [resource]
 script = ExtResource("2_08lm1")
 name = "Purple Slime"
-description = "Simple form of life which divide itself when die"
+description = "A simple lifeform. Splits into smaller slimes on death."
 resource_cost = Array[ExtResource("1_qxi0g")]([SubResource("Resource_xuc28"), SubResource("Resource_hnpii")])
 speed = 30.0
 type = 0

@@ -26,8 +26,8 @@ count = 10
 
 [resource]
 script = ExtResource("2_psqdg")
-name = "Baron"
-description = "Demon Lord which wield powerful demonic blade which hits around owner"
+name = "Hell Baron"
+description = "A Demon Lord wielding a powerful blade. Hits all enemies in a wide area."
 resource_cost = Array[ExtResource("1_4jpce")]([SubResource("Resource_xuc28"), SubResource("Resource_efghm")])
 speed = 66.0
 type = 12

@@ -28,8 +28,7 @@ count = 10
 [resource]
 script = ExtResource("2_fnaij")
 name = "Pythonus"
-description = "hard-working creature.
-"
+description = "A snake shaped, hard working creature."
 resource_cost = Array[ExtResource("1_povl5")]([SubResource("Resource_xuc28"), SubResource("Resource_4ty43")])
 speed = 130.0
 type = 9

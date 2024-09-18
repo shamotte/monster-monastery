@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_rn8cd")
-name = "hellium"
+name = "Hellium"
 sprite = ExtResource("2_tggi3")
 type = 5
 action_type = 0

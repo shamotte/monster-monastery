@@ -28,8 +28,8 @@ count = 1
 
 [resource]
 script = ExtResource("2_anfki")
-name = "Imp"
-description = "Minor spawn which is weak in fight but easy to control"
+name = "Impling"
+description = "A basic unit. Not particularly strong, but can easily create hordes."
 resource_cost = Array[ExtResource("1_njmyt")]([SubResource("Resource_xuc28"), SubResource("Resource_f7ppk")])
 speed = 140.0
 type = 1

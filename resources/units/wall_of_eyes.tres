@@ -36,8 +36,8 @@ count = 5
 
 [resource]
 script = ExtResource("1_xc45k")
-name = "Wall of eyes"
-description = "Creature which observes their victim and shoot to him by using explosive eyes."
+name = "Wall of Eyes"
+description = "A creature that carefully observes its victims and shoots them with explosive eyes."
 resource_cost = Array[ExtResource("1_d7efq")]([SubResource("Resource_lvk6d"), SubResource("Resource_iliqo")])
 speed = 40.0
 type = 13

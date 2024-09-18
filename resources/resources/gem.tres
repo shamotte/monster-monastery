@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("2_hkbql")
-name = "gem"
+name = "Gem"
 sprite = ExtResource("3_xb7ng")
 type = 4
 action_type = 0

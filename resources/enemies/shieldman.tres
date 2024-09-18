@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://btok02txuvyct"]
+[gd_resource type="Resource" script_class="EnemyResource" load_steps=7 format=3 uid="uid://tcd2vfmcdjff"]
 
 [ext_resource type="Script" path="res://scripts/abilities/melee.gd" id="1_jkyu6"]
 [ext_resource type="PackedScene" uid="uid://ceo0u6i1bfucm" path="res://object/abilities/melee_effect.tscn" id="2_tbq5v"]
@@ -16,7 +16,7 @@ range = 30.0
 
 [resource]
 script = ExtResource("4_ary60")
-name = "Shieldman"
+name = "Paladin"
 sprite = ExtResource("5_qju7f")
 item = ExtResource("3_74v7a")
 speed = 60.0

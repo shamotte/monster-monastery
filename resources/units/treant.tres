@@ -50,8 +50,8 @@ count = 20
 
 [resource]
 script = ExtResource("6_7sym6")
-name = "Treant"
-description = "Walking tree which roots enemies and heals allies. Also source of wood after death."
+name = "Treeant"
+description = "A walking tree that roots enemies to the ground and heals allies. Provides wood after death."
 resource_cost = Array[ExtResource("4_nj5i8")]([SubResource("Resource_xuc28")])
 speed = 30.0
 type = 3

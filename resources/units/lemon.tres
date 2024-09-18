@@ -38,7 +38,7 @@ count = 1
 [resource]
 script = ExtResource("2_bou2t")
 name = "Lemon"
-description = "Slow but very effective at gathering resources. Many monster also consider it as delicious meal."
+description = "Slow but very effective at gathering resources. Many monsters consider it a delicious meal."
 resource_cost = Array[ExtResource("1_fdrr2")]([SubResource("Resource_pwad5"), SubResource("Resource_wdkm6")])
 speed = 40.0
 type = 5

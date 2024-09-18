@@ -30,8 +30,8 @@ count = 4
 
 [resource]
 script = ExtResource("2_i8hmj")
-name = "Red Slime"
-description = "Powered by Hellium Slime became faster and still divide itself before death"
+name = "Hell Slime"
+description = "Powered up by Hellium, this slime is greatly faster. Splits into smaller slimes on death."
 resource_cost = Array[ExtResource("1_whue1")]([SubResource("Resource_xuc28")])
 speed = 200.0
 type = 11
