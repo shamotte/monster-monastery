@@ -6,4 +6,3 @@ func _ready():
 	visible = true
 	%UnitCount/Count.text = str(0)
 	%WaveCount.visible = false
-	

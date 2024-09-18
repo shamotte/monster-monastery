@@ -517,9 +517,10 @@ offset_bottom = 155.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-current_tab = 0
+current_tab = 4
 
 [node name="BuildingColumns" type="HBoxContainer" parent="UI/UI/Manager/Panel"]
+visible = false
 custom_minimum_size = Vector2(408, 280)
 layout_mode = 2
 metadata/_tab_index = 0
@@ -628,7 +629,6 @@ attack!"
 autowrap_mode = 3
 
 [node name="Options" type="Panel" parent="UI/UI/Manager/Panel"]
-visible = false
 custom_minimum_size = Vector2(452, 280)
 layout_mode = 2
 metadata/_tab_index = 4
@@ -641,9 +641,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -48.0
-offset_top = 4.0
+offset_top = -84.0
 offset_right = 81.0
-offset_bottom = 20.0
+offset_bottom = -68.0
 grow_horizontal = 2
 grow_vertical = 2
 max_value = 1.0
@@ -659,14 +659,29 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -120.0
-offset_top = -4.0
+offset_top = -92.0
 offset_right = -56.0
-offset_bottom = 28.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Volume:"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="Label" type="Label" parent="UI/UI/Manager/Panel/Options"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -135.0
+offset_right = 426.0
+offset_bottom = -12.0
+grow_vertical = 0
+text = "    Quick actions:
+ESCAPE - open/hide menu
+TAB - summon previously selected unit"
+vertical_alignment = 2
 
 [node name="InfoPanel" type="Control" parent="UI/UI" node_paths=PackedStringArray("menu_manager") groups=["Info Panel"]]
 unique_name_in_owner = true
@@ -848,7 +863,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SelectedIndicator"]
-position = Vector2(0, -8)
+position = Vector2(0, -16)
 texture = ExtResource("16_c4l1p")
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]

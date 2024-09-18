@@ -22,9 +22,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-	#set_current_page()
-	#print($Panel.current_tab)
+func _process(delta):
+	
+	if Input.is_action_just_pressed("menu_toggle"):
+		hide_panel($Panel.visible)
 
 func _on_check_button_toggled(toggled_on):
 	print($Panel.current_tab)

@@ -332,7 +332,7 @@ type = ExtResource("2_fg4vb")
 unique_name_in_owner = true
 
 [node name="ActionIcon" type="Sprite2D" parent="."]
-position = Vector2(0, -20)
+position = Vector2(0, -16)
 
 [node name="SummonAnimation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 10)

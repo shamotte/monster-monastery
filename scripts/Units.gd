@@ -18,6 +18,9 @@ func _process(delta):
 	else:
 		$"../../CursorSprite".global_position = mousePosition()
 		
+	if Input.is_action_just_pressed("last_unit"):
+		set_last_unit()
+		
 
 func build_unit(position):
 	if selected_unit != -1:
