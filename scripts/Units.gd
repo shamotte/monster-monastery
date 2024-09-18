@@ -1,13 +1,10 @@
 extends Node
 
-var selected_unit = -1
+var selected_unit : int = -1
 var unit_info : UnitResource
+var last_id : int = -1
+var last_unit : UnitResource = null
 var unit_object = preload("res://object/unit.tscn")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -43,7 +40,16 @@ func build_unit(position):
 #set id for unit
 func set_unit_id(id):
 	selected_unit = id
+	last_id = id 
 	unit_info = Global.units[selected_unit]
+	last_unit = unit_info
+	
+func set_last_unit():
+	if last_unit == null:
+		return
+	if Global.check_resources(last_unit.resource_cost):
+		selected_unit = last_id
+		unit_info = last_unit
 	
 func mousePosition():
 	return $"../..".mousePos()
@@ -52,3 +58,4 @@ func UnselectObject():
 	selected_unit = -1
 	unit_info = null
 	$"../../CursorSprite".texture = null
+	
