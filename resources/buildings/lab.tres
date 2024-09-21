@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=11 format=3 uid="uid://cvbiut2i6ypu1"]
+
+[ext_resource type="Script" path="res://resources/recipe_resource.gd" id="1_7nsvu"]
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="2_5lusn"]
+[ext_resource type="Script" path="res://resources/building_resource.gd" id="3_oo8jc"]
+[ext_resource type="Texture2D" uid="uid://cdw8ckmuymigh" path="res://sprites/Buildings/Laboratory.png" id="4_x2w65"]
+
+[sub_resource type="Resource" id="Resource_rwg1d"]
+script = ExtResource("2_5lusn")
+type = 0
+count = 20
+
+[sub_resource type="Resource" id="Resource_gudkl"]
+script = ExtResource("2_5lusn")
+type = 2
+count = 1
+
+[sub_resource type="Resource" id="Resource_kn7nv"]
+script = ExtResource("2_5lusn")
+type = 3
+count = 1
+
+[sub_resource type="Resource" id="Resource_i1ulp"]
+script = ExtResource("1_7nsvu")
+input = Array[ExtResource("2_5lusn")]([SubResource("Resource_rwg1d"), SubResource("Resource_gudkl")])
+output = Array[ExtResource("2_5lusn")]([SubResource("Resource_kn7nv")])
+craft_time = 10.0
+
+[sub_resource type="Resource" id="Resource_3rl78"]
+script = ExtResource("2_5lusn")
+type = 7
+count = 3
+
+[sub_resource type="Resource" id="Resource_yliao"]
+script = ExtResource("2_5lusn")
+type = 6
+count = 4
+
+[resource]
+script = ExtResource("3_oo8jc")
+name = "Laboratory"
+type = 6
+sprite = ExtResource("4_x2w65")
+resource_cost = Array[ExtResource("2_5lusn")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
+recipes = Array[ExtResource("1_7nsvu")]([SubResource("Resource_i1ulp")])

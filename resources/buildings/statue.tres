@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="BuildingResource" load_steps=10 format=3 uid="uid://dpqovj0x08l0a"]
+
+[ext_resource type="Script" path="res://resources/recipe_resource.gd" id="1_fkj6t"]
+[ext_resource type="Script" path="res://resources/resource_stack.gd" id="2_kyd50"]
+[ext_resource type="Script" path="res://resources/building_resource.gd" id="3_2nj36"]
+[ext_resource type="Texture2D" uid="uid://dev4b403eyenj" path="res://sprites/Buildings/statue.png" id="4_rd2t2"]
+
+[sub_resource type="Resource" id="Resource_rwg1d"]
+script = ExtResource("2_kyd50")
+type = 3
+count = 1
+
+[sub_resource type="Resource" id="Resource_kn7nv"]
+script = ExtResource("2_kyd50")
+type = 1
+count = 3
+
+[sub_resource type="Resource" id="Resource_i1ulp"]
+script = ExtResource("1_fkj6t")
+input = Array[ExtResource("2_kyd50")]([SubResource("Resource_rwg1d")])
+output = Array[ExtResource("2_kyd50")]([SubResource("Resource_kn7nv")])
+craft_time = 5.0
+
+[sub_resource type="Resource" id="Resource_3rl78"]
+script = ExtResource("2_kyd50")
+type = 4
+count = 2
+
+[sub_resource type="Resource" id="Resource_yliao"]
+script = ExtResource("2_kyd50")
+type = 1
+count = 30
+
+[resource]
+script = ExtResource("3_2nj36")
+name = "Baron's Statue"
+type = 7
+sprite = ExtResource("4_rd2t2")
+resource_cost = Array[ExtResource("2_kyd50")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
+recipes = Array[ExtResource("1_fkj6t")]([SubResource("Resource_i1ulp")])

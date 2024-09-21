@@ -39,7 +39,7 @@ count = 10
 [resource]
 script = ExtResource("3_qwenf")
 name = "Forge"
-type = 3
+type = 8
 sprite = ExtResource("4_onxfg")
 resource_cost = Array[ExtResource("1_ekgmx")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
 recipes = Array[ExtResource("2_whicw")]([SubResource("Resource_i1ulp")])

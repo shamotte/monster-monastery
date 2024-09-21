@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UnitResource" load_steps=10 format=3 uid="uid://dc5tswpy4ok1m"]
+[gd_resource type="Resource" script_class="UnitResource" load_steps=11 format=3 uid="uid://dc5tswpy4ok1m"]
 
 [ext_resource type="Script" path="res://resources/resource_stack.gd" id="1_4jpce"]
 [ext_resource type="Script" path="res://scripts/abilities/shock_wave.gd" id="1_l30s6"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b242fbbwlm1d7" path="res://object/abilities/shockwawe_particle.tscn" id="2_a0v3c"]
 [ext_resource type="Script" path="res://resources/unit_resource.gd" id="2_psqdg"]
 [ext_resource type="Texture2D" uid="uid://1odn6cyqh80r" path="res://sprites/Units/DemonLord.png" id="3_2dobk"]
+[ext_resource type="Texture2D" uid="uid://c682t0wqeg8ae" path="res://sprites/Items/demon_sword.png" id="4_dexp8"]
 
 [sub_resource type="Resource" id="Resource_mvkg5"]
 script = ExtResource("1_l30s6")
@@ -32,6 +33,7 @@ resource_cost = Array[ExtResource("1_4jpce")]([SubResource("Resource_xuc28"), Su
 speed = 66.0
 type = 12
 sprite = ExtResource("3_2dobk")
+item = ExtResource("4_dexp8")
 scale = 1.0
 color = Color(1, 1, 1, 1)
 play_dead_anim = true

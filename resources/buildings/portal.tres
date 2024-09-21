@@ -39,7 +39,7 @@ count = 3
 [resource]
 script = ExtResource("1_kp3jv")
 name = "Portal"
-type = 0
+type = 3
 sprite = ExtResource("2_lq83t")
 resource_cost = Array[ExtResource("1_28mkb")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
 recipes = Array[ExtResource("2_m00tv")]([SubResource("Resource_i1ulp")])

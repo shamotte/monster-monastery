@@ -39,7 +39,7 @@ count = 1
 [resource]
 script = ExtResource("3_0rpa6")
 name = "Tentacle Field"
-type = 5
+type = 2
 sprite = ExtResource("4_tgwh3")
 resource_cost = Array[ExtResource("1_ydptk")]([SubResource("Resource_3rl78"), SubResource("Resource_yliao")])
 recipes = Array[ExtResource("2_sk3b0")]([SubResource("Resource_i1ulp")])
