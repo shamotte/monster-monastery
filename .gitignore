@@ -7,3 +7,4 @@ export_presets.cfg
 data_*/
 .godot/shader_cache/
 .godot/
+/export
